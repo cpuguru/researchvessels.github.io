@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Vessel Data Collection Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .form-section {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+        .form-section summary {
+            font-weight: bold;
+            cursor: pointer;
+            padding: 10px;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+        }
+        .form-section details {
+            padding: 10px;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="email"], input[type="url"], input[type="number"], textarea, select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+        input[required] {
+            border-color: #ff0000;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .instructions {
+            background-color: #e7f3fe;
+            border-left: 6px solid #2196F3;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Research Vessel Data Collection Form</h1>
+    <div class="instructions">
+        <p><strong>Instructions:</strong> Please fill out all fields to the best of your knowledge. Leave blank if not applicable. Fields marked with (*) are required. Once completed, click "Submit" to send the form.</p>
+    </div>
+    <form id="vesselForm" action="/submit" method="POST">
+        <!-- Page 1: Basic Vessel Information and Contact Details -->
+        <div class="form-section">
+            <details open>
+                <summary>Section 1: Vessel Identification</summary>
+                <label for="shipName">Ship Name*:</label>
+                <input type="text" id="shipName" name="shipName" maxlength="255" required>
+
+                <label for="usNodcCode">US NODC Code:</label>
+                <input type="text" id="usNodcCode" name="usNodcCode" maxlength="8">
+
+                <label for="callSign">Call Sign:</label>
+                <input type="text" id="callSign" name="callSign" maxlength="50">
+
+                <label for="countryOrigin">Country of Origin:</label>
+                <input type="text" id="countryOrigin" name="countryOrigin" maxlength="255">
+
+                <label for="homePort">Home Port of Ship:</label>
+                <input type="text" id="homePort" name="homePort" maxlength="255">
+
+                <label for="yearBuilt">Year Built:</label>
+                <input type="number" id="yearBuilt" name="yearBuilt" min="1800" max="2025">
+
+                <label for="yearRefit">Year of Last Major Refit:</label>
+                <input type="number" id="yearRefit" name="yearRefit" min="1800" max="2025">
+            </details>
+        </div>
+
+        <div class="form-section">
+            <details>
+                <summary>Section 2: Ownership and Operator Details</summary>
+                <label for="shipOwner">Ship Owner:</label>
+                <input type="text" id="shipOwner" name="shipOwner" maxlength="255">
+
+                <label for="shipOperator">Ship Operator:</label>
+                <input type="text" id="shipOperator" name="shipOperator" maxlength="255">
+
+                <label for="affiliation">Affiliation:</label>
+                <input type="text" id="affiliation" name="affiliation" maxlength="50">
+
+                <label for="isUnols">Is the Ship a UNOLS Vessel?</label>
+                <input type="checkbox" id="isUnols" name="isUnols"> Yes
+            </details>
+        </div>
+
+        <div class="form-section">
+            <details>
+                <summary>Section 3: Contact Information</summary>
+                <label for="contactPerson">Contact Person for the Ship:</label>
+                <input type="text" id="contactPerson" name="contactPerson" maxlength="50">
+
+                <label for="contactAddress">Ship Contact Address:</label>
+                <textarea id="contactAddress" name="contactAddress" maxlength="255"></textarea>
+
+                <label for="contactPhone">Phone Number for Contact Person:</label>
+                <input type="text" id="contactPhone" name="contactPhone" maxlength="50">
+
+                <label for="contactFax">Fax Number for Contact Person:</label>
+                <input type="text" id="contactFax" name="contactFax" maxlength="50">
+
+                <label for="contactEmail">Email Address for Contact Person:</label>
+                <input type="email" id="contactEmail" name="contactEmail" maxlength="50">
+
+                <label for="scientistEmail">Email Address for Scientists on Ship:</label>
+                <input type="email" id="scientistEmail" name="scientistEmail" maxlength="50">
+            </details>
+        </div>
+
+        <div class="form-section">
+            <details>
+                <summary>Section 4: Online Resources</summary>
+                <label for="shipUrl">URL of Ship Web Page:</label>
+                <input type="url" id="shipUrl" name="shipUrl" maxlength="255">
+
+                <label for="scheduleUrl">URL of Ship Schedule Web Page:</label>
+                <input type="url" id="scheduleUrl" name="scheduleUrl" maxlength="255">
+
+                <label for="operatorUrl">URL of Ship Operator:</label>
+                <input type="url" id="operatorUrl" name="operatorUrl" maxlength="255">
+            </details>
+        </div>
+
+        <!-- Page 2: Vessel Specifications and Capabilities -->
+        <div class="form-section">
+            <details>
+                <summary>Section 5: Main Dimensions and Design</summary>
+                <label for="length">Length (m):</label>
+                <input type="number" id="length" name="length" step="0.01" min="0">
+
+                <label for="beam">Beam (m):</label>
+                <input type="number" id="beam" name="beam" step="0.01" min="0">
+
+                <label for="draft">Draft (m):</label>
+                <input type="number" id="draft" name="draft" step="0.01" min="0">
+
+                <label for="grossTons">Gross Tons:</label>
+                <input type="number" id="grossTons" name="grossTons" step="0.01" min="0">
+
+                <label for="hullMaterials">Hull Materials:</label>
+                <input type="text" id="hullMaterials" name="hullMaterials" maxlength="255">
+
+                <label for="iceBreaking">Ice Breaking Ability:</label>
+                <input type="text" id="iceBreaking" name="iceBreaking" maxlength="255">
+            </details>
+        </div>
+
+        <div class="form-section">
+            <details>
+                <summary>Section 6: Capacities and Working Spaces</summary>
+                <label for="dryCargo">Dry Cargo Holds (m³):</label>
+                <input type="number" id="dryCargo" name="dryCargo" step="0.01" min="0">
+
+                <label for="fuelCapacity">Fuel Capacity (m³):</label>
+                <input type="number" id="fuelCapacity" name="fuelCapacity" step="0.01" min="0">
+
+                <label for="freshWaterStorage">Fresh Water Storage Capacity (m³):</label>
+                <input type="number" id="freshWaterStorage" name="freshWaterStorage" step="0.01" min="0">
+
+                <label for="freshWaterGen">Fresh Water Generation Capability (m³/day):</label>
+                <input type="number" id="freshWaterGen" name="freshWaterGen" step="0.01" min="0">
+
+                <label for="wetLabs">Wet Laboratories Area (m²):</label>
+                <input type="number" id="wetLabs" name="wetLabs" step="0.01" min="0">
+
+                <label for="dryLabs">Dry Laboratories Area (m²):</label>
+                <input type="number" id="dryLabs" name="dryLabs" step="0.01" min="0">
+
+                <label for="workingDeck">Free Working Deck Area (m²):</label>
+                <input type="number" id="workingDeck" name="workingDeck" step="0.01" min="0">
+
+                <label for="freeboard">Freeboard to Working Deck (m):</label>
+                <input type="number" id="freeboard" name="freeboard" step="0.01" min="0">
+
+                <label for="containerLab">Space for Container Laboratory:</label>
+                <input type="text" id="containerLab" name="containerLab" maxlength="255">
+
+                <label for="radioactiveAreas">Radioactive Isotope Work Areas:</label>
+                <input type="text" id="radioactiveAreas" name="radioactiveAreas" maxlength="255">
+
+                <label for="cleanWater">Scientific Clean Water Facilities Onboard:</label>
+                <input type="text" id="cleanWater" name="cleanWater" maxlength="255">
+            </details>
+        </div>
+
+        <div class="form-section">
+            <details>
+                <summary>Section 7: Range, Speed, and Endurance</summary>
+                <label for="range">Range (n. mi.):</label>
+                <input type="number" id="range" name="range" step="0.01" min="0">
+
+                <label for="cruiseSpeed">Cruise Speed (kt):</label>
+                <input type="number" id="cruiseSpeed" name="cruiseSpeed" step="0.01" min="0">
+
+                <label for="maxSpeed">Maximum Speed (kt):</label>
+                <input type="number" id="maxSpeed" name="maxSpeed" step="0.01" min="0">
+
+                <label for="endurance">Endurance (days):</label>
+                <input type="number" id="endurance" name="endurance" step="0.01" min="0">
+            </details>
+        </div>
+
+        <div class="form-section">
+            <details>
+                <summary>Section 8: Accommodation</summary>
+                <label for="officers">Officers:</label>
+                <input type="number" id="officers" name="officers" min="0">
+
+                <label for="crew">Crew:</label>
+                <input type="number" id="crew" name="crew" min="0">
+
+                <label for="maxScientists">Max Number of Scientists:</label>
+                <input type="number" id="maxScientists" name="maxScientists" min="0">
+
+                <label for="isAirConditioned">Is the Ship Air Conditioned?</label>
+                <input type="checkbox" id="isAirConditioned" name="isAirConditioned"> Yes
+            </details>
+        </div>
+
+        <!-- Page 3: Scientific Equipment and Operational Systems -->
+        <div class="form-section">
+            <details>
+                <summary>Section 9: Scientific Equipment</summary>
+                <h4>CTD Specifications</h4>
+                <label for="ctdEquipment">CTD Equipment Aboard:</label>
+                <input type="text" id="ctdEquipment" name="ctdEquipment" maxlength="255">
+
+                <label for="ctdType">CTD Type:</label>
+                <input type="text" id="ctdType" name="ctdType" maxlength="255">
+
+                <label for="ctdTowable">Is the CTD Towable?</label>
+                <input type="checkbox" id="ctdTowable" name="ctdTowable"> Yes
+
+                <label for="ctdOxygen">CTD Oxygen Sensing:</label>
+                <input type="text" id="ctdOxygen" name="ctdOxygen" maxlength="255">
+
+                <label for="ctdTransmissivity">CTD Transmissivity:</label>
+                <input type="text" id="ctdTransmissivity" name="ctdTransmissivity" maxlength="255">
+
+                <label for="ctdFluorometer">CTD Fluorometer:</label>
+                <input type="text" id="ctdFluorometer" name="ctdFluorometer" maxlength="255">
+
+                <label for="ctdRosette">CTD Rosette System:</label>
+                <input type="text" id="ctdRosette" name="ctdRosette" maxlength="255">
+
+                <h4>Coring Specifications</h4>
+                <label for="coringCapabilities">Coring Capabilities:</label>
+                <input type="text" id="coringCapabilities" name="coringCapabilities" maxlength="255">
+
+                <label for="grabSampler">Grab Sampler:</label>
+                <input type="text" id="grabSampler" name="grabSampler" maxlength="255">
+
+                <label for="boxCorer">Box Corer:</label>
+                <input type="text" id="boxCorer" name="boxCorer" maxlength="255">
+
+                <label for="gravityCorer">Gravity Corer:</label>
+                <input type="text" id="gravityCorer" name="gravityCorer" maxlength="255">
+
+                <label for="pistonCorer">Piston Corer:</label>
+                <input type="text" id="pistonCorer" name="pistonCorer" maxlength="255">
+
+                <label for="multiCorer">Multi Corer:</label>
+                <input type="text" id="multiCorer" name="multiCorer" maxlength="255">
+
+                <h4>Underwater Vehicle Capabilities</h4>
+                <label for="underwaterSupport">Underwater Vehicle Support:</label>
+                <input type="text" id="underwaterSupport" name="underwaterSupport" maxlength="255">
+
+                <label for="rovSupport">ROVs Supported:</label>
+                <input type="text" id="rovSupport" name="rovSupport" maxlength="255">
+
+                <label for="auvSupport">AUVs Supported:</label>
+                <input type="text" id="auvSupport" name="auvSupport" maxlength="255">
+
+                <label for="submersibleSupport">Submersibles Supported:</label>
+                <input type="text" id="submersibleSupport" name="submersibleSupport" maxlength="255">
+
+                <h4>Diving Support</h4>
+                <label for="divingSupport">Diving Support:</label>
+                <input type="text" id="divingSupport" name="divingSupport" maxlength="255">
+            </details>
+        </div>
+
+        <div class="form-section">
+            <details>
+                <summary>Section 10: Data Processing and Communication</summary>
+                <label for="computerEquipment">Computer Equipment for Scientific Use:</label>
+                <input type="text" id="computerEquipment" name="computerEquipment" maxlength="255">
+
+                <label for="printingEquipment">Printing/Plotting Equipment for Scientific Use:</label>
+                <input type="text" id="printingEquipment" name="printingEquipment" maxlength="255">
+
+                <label for="navComm">Navigation and Communication Systems:</label>
+                <input type="text" id="navComm" name="navComm" maxlength="255">
+            </details>
+        </div>
+
+        <div class="form-section">
+            <details>
+                <summary>Section 11: Acoustics and Profiling</summary>
+                <label for="echoSounders">Echo Sounders and Frequencies:</label>
+                <input type="text" id="echoSounders" name="echoSounders" maxlength="255">
+
+                <label for="sonarType">Sonar Type:</label>
+                <input type="text" id="sonarType" name="sonarType" maxlength="255">
+
+                <label for="seaSurfaceMapping">Sea Surface Mapping System (SMS):</label>
+                <input type="text" id="seaSurfaceMapping" name="seaSurfaceMapping" maxlength="255">
+
+                <label for="sideScanning">Side Scanning:</label>
+                <input type="text" id="sideScanning" name="sideScanning" maxlength="255">
+
+                <label for="multibeam">Multibeam:</label>
+                <input type="text" id="multibeam" name="multibeam" maxlength="255">
+
+                <label for="adcp">Acoustic Doppler Current Profiler (ADCP):</label>
+                <input type="text" id="adcp" name="adcp" maxlength="255">
+
+                <label for="silentOperation">Provisions for Silent Ship Operation:</label>
+                <input type="text" id="silentOperation" name="silentOperation" maxlength="255">
+            </details>
+        </div>
+
+        <!-- Page 4: Engineering, Deck Equipment, and Additional Information -->
+        <div class="form-section">
+            <details>
+                <summary>Section 12: Engineering Design</summary>
+                <label for="mainEngineNumber">Main Engine Number:</label>
+                <input type="number" id="mainEngineNumber" name="mainEngineNumber" min="0">
+
+                <label for="engineModel">Engine Make/Model:</label>
+                <input type="text" id="engineModel" name="engineModel" maxlength="255">
+
+                <label for="enginePower">Power (BHP) of Each Main Engine:</label>
+                <input type="number" id="enginePower" name="enginePower" step="0.01" min="0">
+
+                <label for="propeller">Diameter and Max RPM of Propeller:</label>
+                <input type="text" id="propeller" name="propeller" maxlength="255">
+
+                <label for="auxPower">Total Power of Auxiliary Diesels:</label>
+                <input type="number" id="auxPower" name="auxPower" step="0.01" min="0">
+
+                <label for="dynamicPositioning">Dynamic Positioning Abilities:</label>
+                <input type="text" id="dynamicPositioning" name="dynamicPositioning" maxlength="255">
+            </details>
+        </div>
+
+        <div class="form-section">
+            <details>
+                <summary>Section 13: Electrical Systems</summary>
+                <label for="acVoltages">AC Voltages (kVA, phase, Hz):</label>
+                <input type="text" id="acVoltages" name="acVoltages" maxlength="255">
+
+                <label for="dcVoltage">DC Voltage (V):</label>
+                <input type="text" id="dcVoltage" name="dcVoltage" maxlength="255">
+
+                <label for="stabilizedSystem">Stabilized System for Scientific Equipment (VAC, AMP, Hz):</label>
+                <input type="text" id="stabilizedSystem" name="stabilizedSystem" maxlength="255">
+            </details>
+        </div>
+
+        <div class="form-section">
+            <details>
+                <summary>Section 14: Deck Equipment</summary>
+                <h4>Booms/Gantries/Frames</h4>
+                <label for="boomClearance">Clearance Above Deck (m):</label>
+                <input type="number" id="boomClearance" name="boomClearance" step="0.01" min="0">
+
+                <label for="boomExtension">Outboard Extension (m):</label>
+                <input type="number" id="boomExtension" name="boomExtension" step="0.01" min="0">
+
+                <label for="boomLoad">Safe Working Load at Max Reach (tons):</label>
+                <input type="number" id="boomLoad" name="boomLoad" step="0.01" min="0">
+
+                <h4>Crane</h4>
+                <label for="cranePosition">Position:</label>
+                <input type="text" id="cranePosition" name="cranePosition" maxlength="255">
+
+                <label for="craneClearance">Clearance Above Deck (m):</label>
+                <input type="number" id="craneClearance" name="craneClearance" step="0.01" min="0">
+
+                <label for="craneExtension">Outboard Extension (m):</label>
+                <input type="number" id="craneExtension" name="craneExtension" step="0.01" min="0">
+
+                <label for="craneLoad">Safe Working Load at Max Reach (tons):</label>
+                <input type="number" id="craneLoad" name="craneLoad" step="0.01" min="0">
+
+                <label for="otherWinches">Other Winches for Instrument/Sampling:</label>
+                <input type="text" id="otherWinches" name="otherWinches" maxlength="255">
+            </details>
+        </div>
+
+        <div class="form-section">
+            <details>
+                <summary>Section 15: Construction and Maintenance</summary>
+                <label for="constructionSupervised">Construction Supervised By:</label>
+                <input type="text" id="constructionSupervised" name="constructionSupervised" maxlength="50">
+
+                <label for="classificationSociety">Classification Society:</label>
+                <input type="text" id="classificationSociety" name="classificationSociety" maxlength="50">
+
+                <label for="othersSpecify">Others, Specify:</label>
+                <input type="text" id="othersSpecify" name="othersSpecify" maxlength="50">
+            </details>
+        </div>
+
+        <div class="form-section">
+            <details>
+                <summary>Section 16: Additional Information</summary>
+                <label for="safetyCertifications">Safety Certifications (e.g., SOLAS, MARPOL):</label>
+                <input type="text" id="safetyCertifications" name="safetyCertifications" maxlength="255">
+
+                <label for="envCompliance">Environmental Compliance (e.g., Emissions, Ballast Water):</label>
+                <input type="text" id="envCompliance" name="envCompliance" maxlength="255">
+
+                <label for="incidentHistory">Recent Incident History (Past 5 Years):</label>
+                <input type="text" id="incidentHistory" name="incidentHistory" maxlength="255">
+
+                <label for="operationalStatus">Operational Status:</label>
+                <select id="operationalStatus" name="operationalStatus">
+                    <option value="Active">Active</option>
+                    <option value="Under Repair">Under Repair</option>
+                    <option value="Decommissioned">Decommissioned</option>
+                </select>
+            </details>
+        </div>
+
+        <!-- Submission Button -->
+        <button type="submit">Submit Form</button>
+    </form>
+
+    <script>
+        document.getElementById('vesselForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+            // Basic client-side validation
+            const requiredFields = document.querySelectorAll('input[required]');
+            let valid = true;
+            requiredFields.forEach(field => {
+                if (!field.value) {
+                    valid = false;
+                    field.style.borderColor = 'red';
+                }
+            });
+            if (valid) {
+                alert('Form submitted successfully! (Note: Actual submission requires server-side handling.)');
+                // Uncomment below to actually submit the form to a server
+                // this.submit();
+            } else {
+                alert('Please fill out all required fields.');
+            }
+        });
+    </script>
+</body>
+</html>
