@@ -41,7 +41,7 @@
             color: #ffffff;
             text-decoration: underline;
         }
-        footer a:hover {
+        .footer a:hover {
             color: #cccccc;
         }
         .content-section {
@@ -176,9 +176,17 @@
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status} ${response.statusText}`);
                 }
-                return response.json();
+                return response.text(); // Get raw text first to check for errors
             })
-            .then(data => {
+            .then(text => {
+                // Try parsing the JSON
+                let data;
+                try {
+                    data = JSON.parse(text);
+                } catch (e) {
+                    throw new Error('Failed to parse JSON: ' + e.message);
+                }
+
                 console.log('Fetched JSON Data:', data);
 
                 // Access the ship_info array inside dataroot
@@ -188,14 +196,19 @@
                     throw new Error('No ship data found in JSON');
                 }
 
+                // Log the total number of ships before filtering
+                console.log('Total Ships in JSON:', allShips.length);
+
                 // Filter ships where oos is 0 (in service)
                 let ships = allShips.filter(ship => ship.oos === 0);
+
+                // Log the number of ships after filtering
+                console.log('Filtered Ships (oos = 0):', ships.length);
 
                 if (ships.length === 0) {
                     throw new Error('No active ships (oos = 0) found in JSON');
                 }
 
-                console.log('Filtered Ships (oos = 0):', ships);
                 populateTable(ships);
             })
             .catch(error => {
