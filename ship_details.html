@@ -126,6 +126,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link" href="https://researchvessels.org">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ship_info.html">Ship Info</a></li>
                     <li class="nav-item"><a class="nav-link" href="data_entry_forms.htm">Update Ship Data</a></li>
                     <li class="nav-item"><a class="nav-link" href="techlinks.htm">Tech Links</a></li>
                     <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
@@ -174,7 +175,7 @@
                     }
                 }
             });
-            return Array.from(allFields); // Return as array for iteration
+            return Array.from(allFields);
         }
 
         // Function to display ship details
@@ -188,13 +189,11 @@
             let html = '<h2>' + (ship.shipname || 'Unknown Ship') + ' (ID: ' + (ship.shipID || 'N/A') + ')</h2>';
             html += '<dl>';
 
-            // Iterate over all possible fields in their order of first appearance
             allFields.forEach(key => {
                 let value = ship[key];
                 if (value === null || value === undefined || value === '') {
-                    value = 'N/A'; // Display "N/A" for empty or undefined fields
+                    value = 'N/A';
                 }
-                // Handle URLs specially
                 if (key.toLowerCase().includes('url') && value !== 'N/A') {
                     value = `<a href="${value}" target="_blank">${value}</a>`;
                 }
@@ -220,14 +219,11 @@
                     return;
                 }
 
-                // Get all possible fields across all ships
                 const allFields = getAllPossibleFields(ships);
 
-                // Get the shipID and country from the URL query parameters
                 const shipID = getQueryParam('shipID');
                 const country = getQueryParam('country') || 'all';
 
-                // Set the "Back to Ship List" link with the country query parameter
                 const backLink = document.getElementById('backLink');
                 backLink.href = `ship_info.html?country=${encodeURIComponent(country)}`;
 
@@ -236,7 +232,6 @@
                     return;
                 }
 
-                // Find the ship with the matching shipID
                 const ship = ships.find(s => s.shipID.toString() === shipID.toString());
                 displayShipDetails(ship, allFields);
             })
