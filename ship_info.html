@@ -178,11 +178,11 @@
                 tableBody.appendChild(row);
             });
 
-            // Initialize DataTables for sorting
+            // Initialize DataTables for sorting, default to Ship Name (column 1) ascending
             table = $('#shipTable').DataTable({
                 "pageLength": 100,
                 "lengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]],
-                "order": [],
+                "order": [[1, 'asc']], // Sort by "Ship Name" (column 1) in ascending order
                 "language": {
                     "lengthMenu": "Display _MENU_ ships per page"
                 }
@@ -192,7 +192,7 @@
         // Function to populate the country dropdown
         function populateCountryDropdown(countries) {
             const countryFilter = document.getElementById('countryFilter');
-            countries.sort(); // Sort countries alphabetically
+            countries.sort();
             countries.forEach(country => {
                 const option = document.createElement('option');
                 option.value = country;
@@ -209,13 +209,11 @@
 
         // Function to filter ships based on selected country and oos
         function filterShips(selectedCountry) {
-            // Convert oos to number and filter ships where oos is 0 (in service)
             let filteredShips = allShips.filter(ship => {
                 const oosValue = parseInt(ship.oos);
                 return !isNaN(oosValue) && oosValue === 0;
             });
 
-            // Apply country filter if not "all"
             if (selectedCountry !== 'all') {
                 filteredShips = filteredShips.filter(ship => (ship.country || 'N/A') === selectedCountry);
             }
@@ -249,37 +247,30 @@
 
                 console.log('Fetched JSON Data:', data);
 
-                // Access the ship_info array inside dataroot
                 allShips = data?.dataroot?.ship_info || [];
 
                 if (allShips.length === 0) {
                     throw new Error('No ship data found in JSON');
                 }
 
-                // Log the total number of ships before filtering
                 console.log('Total Ships in JSON:', allShips.length);
 
-                // Filter ships where oos is 0 (in service)
                 let initialShips = allShips.filter(ship => {
                     const oosValue = parseInt(ship.oos);
                     return !isNaN(oosValue) && oosValue === 0;
                 });
 
-                // Log the number of ships after oos filtering
                 console.log('Filtered Ships (oos = 0):', initialShips.length);
 
                 if (initialShips.length === 0) {
                     throw new Error('No active ships (oos = 0) found in JSON');
                 }
 
-                // Populate the country dropdown
                 const uniqueCountries = getUniqueCountries(allShips);
                 populateCountryDropdown(uniqueCountries);
 
-                // Initial table population (only oos = 0)
                 populateTable(initialShips);
 
-                // Add event listener for country filter
                 document.getElementById('countryFilter').addEventListener('change', (e) => {
                     const selectedCountry = e.target.value;
                     const filteredShips = filterShips(selectedCountry);
