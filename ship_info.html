@@ -152,9 +152,9 @@
 
             // Initialize DataTables for sorting
             $('#shipTable').DataTable({
-                "pageLength": 100, // Set default number of items to 100
-                "lengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]], // Add "All" option
-                "order": [], // Optional: Disable initial sorting so the table shows data in JSON order
+                "pageLength": 100,
+                "lengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]],
+                "order": [],
                 "language": {
                     "lengthMenu": "Display _MENU_ ships per page"
                 }
@@ -182,13 +182,20 @@
                 console.log('Fetched JSON Data:', data);
 
                 // Access the ship_info array inside dataroot
-                let ships = data?.dataroot?.ship_info || [];
+                let allShips = data?.dataroot?.ship_info || [];
 
-                if (ships.length === 0) {
+                if (allShips.length === 0) {
                     throw new Error('No ship data found in JSON');
                 }
 
-                console.log('Ships Array:', ships);
+                // Filter ships where oos is 0 (in service)
+                let ships = allShips.filter(ship => ship.oos === 0);
+
+                if (ships.length === 0) {
+                    throw new Error('No active ships (oos = 0) found in JSON');
+                }
+
+                console.log('Filtered Ships (oos = 0):', ships);
                 populateTable(ships);
             })
             .catch(error => {
