@@ -164,8 +164,21 @@
             return urlParams.get(param);
         }
 
+        // Function to get all possible field keys from all ships
+        function getAllPossibleFields(ships) {
+            const allFields = new Set();
+            ships.forEach(ship => {
+                for (const key in ship) {
+                    if (ship.hasOwnProperty(key)) {
+                        allFields.add(key);
+                    }
+                }
+            });
+            return Array.from(allFields); // Return as array for iteration
+        }
+
         // Function to display ship details
-        function displayShipDetails(ship) {
+        function displayShipDetails(ship, allFields) {
             const detailsDiv = document.getElementById('shipDetails');
             if (!ship) {
                 detailsDiv.innerHTML = '<p class="error-message">Ship not found.</p>';
@@ -175,20 +188,18 @@
             let html = '<h2>' + (ship.shipname || 'Unknown Ship') + ' (ID: ' + (ship.shipID || 'N/A') + ')</h2>';
             html += '<dl>';
 
-            // Iterate over the fields in their natural order (as they appear in the JSON)
-            for (const key in ship) {
-                if (ship.hasOwnProperty(key)) {
-                    let value = ship[key];
-                    if (value === null || value === undefined || value === '') {
-                        value = 'N/A'; // Display "N/A" for empty or undefined fields
-                    }
-                    // Handle URLs specially
-                    if (key.toLowerCase().includes('url') && value !== 'N/A') {
-                        value = `<a href="${value}" target="_blank">${value}</a>`;
-                    }
-                    html += `<dt>${key.replace(/_/g, ' ')}</dt><dd>${value}</dd>`;
+            // Iterate over all possible fields in their order of first appearance
+            allFields.forEach(key => {
+                let value = ship[key];
+                if (value === null || value === undefined || value === '') {
+                    value = 'N/A'; // Display "N/A" for empty or undefined fields
                 }
-            }
+                // Handle URLs specially
+                if (key.toLowerCase().includes('url') && value !== 'N/A') {
+                    value = `<a href="${value}" target="_blank">${value}</a>`;
+                }
+                html += `<dt>${key.replace(/_/g, ' ')}</dt><dd>${value}</dd>`;
+            });
 
             html += '</dl>';
             detailsDiv.innerHTML = html;
@@ -209,6 +220,9 @@
                     return;
                 }
 
+                // Get all possible fields across all ships
+                const allFields = getAllPossibleFields(ships);
+
                 // Get the shipID and country from the URL query parameters
                 const shipID = getQueryParam('shipID');
                 const country = getQueryParam('country') || 'all';
@@ -224,7 +238,7 @@
 
                 // Find the ship with the matching shipID
                 const ship = ships.find(s => s.shipID.toString() === shipID.toString());
-                displayShipDetails(ship);
+                displayShipDetails(ship, allFields);
             })
             .catch(error => {
                 console.error('Error fetching or processing JSON:', error.message || error);
