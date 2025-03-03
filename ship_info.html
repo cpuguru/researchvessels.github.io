@@ -41,7 +41,7 @@
             color: #ffffff;
             text-decoration: underline;
         }
-        .footer a:hover {
+        footer a:hover {
             color: #cccccc;
         }
         .content-section {
@@ -63,6 +63,18 @@
         }
         #shipTable tbody tr:hover {
             background-color: #f0f0f0;
+        }
+        .filter-section {
+            margin-bottom: 20px;
+        }
+        .filter-section label {
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        .filter-section select {
+            padding: 5px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
         }
     </style>
 </head>
@@ -101,6 +113,13 @@
             <div class="col-lg-10 mx-auto">
                 <div class="card shadow-sm content-section">
                     <h1 class="fs-2 mb-3 text-center">Research Vessel List</h1>
+                    <div class="filter-section">
+                        <label for="countryFilter">Filter by Country:</label>
+                        <select id="countryFilter">
+                            <option value="all">All Countries</option>
+                            <!-- Options will be populated dynamically -->
+                        </select>
+                    </div>
                     <table id="shipTable" class="display table table-bordered">
                         <thead>
                             <tr>
@@ -135,8 +154,18 @@
         const jsonUrl = 'ship_info.json'; // Assuming local copy since it worked
         // const jsonUrl = 'https://researchvessels.org/ship_info.json'; // Original URL, comment out if using local
 
+        // Global variables to store all ships and filtered ships
+        let allShips = [];
+        let table = null;
+
         // Function to populate the table
         function populateTable(ships) {
+            // Destroy existing DataTable if it exists
+            if (table) {
+                table.destroy();
+                document.getElementById('shipTableBody').innerHTML = '';
+            }
+
             const tableBody = document.getElementById('shipTableBody');
             ships.forEach(ship => {
                 const row = document.createElement('tr');
@@ -151,7 +180,7 @@
             });
 
             // Initialize DataTables for sorting
-            $('#shipTable').DataTable({
+            table = $('#shipTable').DataTable({
                 "pageLength": 100,
                 "lengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]],
                 "order": [],
@@ -159,6 +188,33 @@
                     "lengthMenu": "Display _MENU_ ships per page"
                 }
             });
+        }
+
+        // Function to populate the country dropdown
+        function populateCountryDropdown(countries) {
+            const countryFilter = document.getElementById('countryFilter');
+            countries.sort(); // Sort countries alphabetically
+            countries.forEach(country => {
+                const option = document.createElement('option');
+                option.value = country;
+                option.textContent = country;
+                countryFilter.appendChild(option);
+            });
+        }
+
+        // Function to get unique countries
+        function getUniqueCountries(ships) {
+            const countries = new Set(ships.map(ship => ship.country || 'N/A'));
+            return Array.from(countries);
+        }
+
+        // Function to filter ships based on selected country and oos
+        function filterShips(selectedCountry) {
+            let filteredShips = allShips.filter(ship => ship.oos === 0);
+            if (selectedCountry !== 'all') {
+                filteredShips = filteredShips.filter(ship => (ship.country || 'N/A') === selectedCountry);
+            }
+            return filteredShips;
         }
 
         // Fetch the JSON data
@@ -176,10 +232,9 @@
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status} ${response.statusText}`);
                 }
-                return response.text(); // Get raw text first to check for errors
+                return response.text();
             })
             .then(text => {
-                // Try parsing the JSON
                 let data;
                 try {
                     data = JSON.parse(text);
@@ -190,7 +245,7 @@
                 console.log('Fetched JSON Data:', data);
 
                 // Access the ship_info array inside dataroot
-                let allShips = data?.dataroot?.ship_info || [];
+                allShips = data?.dataroot?.ship_info || [];
 
                 if (allShips.length === 0) {
                     throw new Error('No ship data found in JSON');
@@ -200,16 +255,29 @@
                 console.log('Total Ships in JSON:', allShips.length);
 
                 // Filter ships where oos is 0 (in service)
-                let ships = allShips.filter(ship => ship.oos === 0);
+                let initialShips = allShips.filter(ship => ship.oos === 0);
 
-                // Log the number of ships after filtering
-                console.log('Filtered Ships (oos = 0):', ships.length);
+                // Log the number of ships after oos filtering
+                console.log('Filtered Ships (oos = 0):', initialShips.length);
 
-                if (ships.length === 0) {
+                if (initialShips.length === 0) {
                     throw new Error('No active ships (oos = 0) found in JSON');
                 }
 
-                populateTable(ships);
+                // Populate the country dropdown
+                const uniqueCountries = getUniqueCountries(allShips);
+                populateCountryDropdown(uniqueCountries);
+
+                // Initial table population (only oos = 0)
+                populateTable(initialShips);
+
+                // Add event listener for country filter
+                document.getElementById('countryFilter').addEventListener('change', (e) => {
+                    const selectedCountry = e.target.value;
+                    const filteredShips = filterShips(selectedCountry);
+                    console.log(`Ships after country filter (${selectedCountry}):`, filteredShips.length);
+                    populateTable(filteredShips);
+                });
             })
             .catch(error => {
                 console.error('Error fetching or processing JSON:', error.message || error);
