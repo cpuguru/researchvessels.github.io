@@ -3,184 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Research Vessels</title>
-    <!-- DataTables CSS (via CDN) -->
+    <meta name="description" content="View research vessel schedules and specifications on ResearchVessels.org.">
+    <meta name="keywords" content="research vessels, ship data, oceanic, marine research">
+    <meta property="og:title" content="Ship Data | ResearchVessels.org">
+    <meta property="og:description" content="View research vessel schedules and specifications on ResearchVessels.org.">
+    <meta property="og:image" content="https://researchvessels.org/images/logo.webp">
+    <title>Ship Data | ResearchVessels.org</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- DataTables CSS -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
     <!-- jQuery (required for DataTables) -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- DataTables JS (via CDN) -->
+    <!-- DataTables JS -->
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
     <style>
         body {
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: #f5f5f5;
-            color: #333;
-            margin: 0;
-            padding: 0;
+            font-family: 'Roboto', sans-serif;
             line-height: 1.6;
         }
-        /* Header Styling */
-        header {
-            background-color: #fff;
-            padding: 20px;
-            border-bottom: 1px solid #ccc;
-            text-align: center;
-        }
-        header h1 {
-            font-size: 2em;
-            font-weight: bold;
-            margin: 0;
-        }
-        header p {
-            font-size: 1.1em;
-            color: #666;
-            margin: 5px 0 0;
-        }
-        /* Navigation Styling */
-        nav {
-            background-color: #e5e5e5;
-            padding: 10px 0;
-            border-bottom: 1px solid #ccc;
-        }
-        nav ul {
-            list-style: none;
+        .header-bg {
+            background: linear-gradient(135deg, #007bff 0%, #00c4cc 100%);
             padding: 0;
-            margin: 0;
-            text-align: center;
         }
-        nav ul li {
-            display: inline;
-            margin: 0 15px;
-        }
-        nav ul li a {
-            color: #0000EE;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        nav ul li a:hover {
-            text-decoration: underline;
-        }
-        /* Main Content Styling */
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 0 20px;
-        }
-        h2 {
-            font-size: 1.8em;
-            font-weight: bold;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        table {
+        .header-bg img {
             width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-            background-color: #fff;
+            height: auto;
+            display: block;
         }
-        th, td {
-            padding: 8px 12px;
-            text-align: left;
-            border: 1px solid #ccc;
+        .card {
+            transition: transform 0.2s;
         }
-        th {
-            background-color: #e5e5e5;
-            color: #333;
-            font-weight: bold;
-        }
-        tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-        tr:hover {
-            background-color: #f0f0f0;
-        }
-        a {
-            color: #0000EE;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        /* DataTables Adjustments */
-        .dataTables_wrapper .dataTables_length,
-        .dataTables_wrapper .dataTables_filter label {
-            font-size: 0.9em;
-            margin-bottom: 10px;
-        }
-        .dataTables_wrapper .dataTables_paginate .paginate_button {
-            padding: 5px 10px;
-            margin: 0 2px;
-            border: 1px solid #ccc;
-            border-radius: 3px;
-            background-color: #fff;
-            color: #333;
-        }
-        .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
-            background-color: #e5e5e5;
-        }
-        .dataTables_wrapper .dataTables_paginate .paginate_button.current {
-            background-color: #e5e5e5;
-            border: 1px solid #999;
-        }
-        /* Footer Styling */
-        footer {
-            background-color: #fff;
-            border-top: 1px solid #ccc;
-            padding: 15px;
-            text-align: center;
-            font-size: 0.9em;
-            color: #666;
-            margin-top: 20px;
+        .card:hover {
+            transform: translateY(-5px);
         }
         footer a {
-            color: #0000EE;
-            text-decoration: none;
+            color: #ffffff;
+            text-decoration: underline;
         }
         footer a:hover {
-            text-decoration: underline;
+            color: #cccccc;
+        }
+        .content-section {
+            padding: 2rem;
+            border-radius: 8px;
+        }
+        /* Adjust DataTables styling to fit the Bootstrap theme */
+        #shipTable_wrapper {
+            margin-top: 20px;
+        }
+        #shipTable th, #shipTable td {
+            padding: 8px 12px;
+            text-align: left;
+        }
+        #shipTable thead {
+            background-color: #e5e5e5;
+        }
+        #shipTable tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        #shipTable tbody tr:hover {
+            background-color: #f0f0f0;
         }
     </style>
 </head>
 <body>
     <!-- Header -->
-    <header>
-        <h1>Research Vessels</h1>
-        <p>Exploring the World's Oceans for Science</p> <!-- Placeholder tagline -->
+    <header class="header-bg">
+        <div class="container">
+            <a href="/">
+                <img src="images/IRVSI-oceanic-header.jpg" alt="International Research Vessel Schedules Logo" class="img-fluid" loading="lazy">
+            </a>
+        </div>
     </header>
 
     <!-- Navigation -->
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="vessels.html">Vessels</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="https://www.oceandata.org">OCEANIC</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="https://researchvessels.org">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="data_entry_forms.htm">Update Ship Data</a></li>
+                    <li class="nav-item"><a class="nav-link" href="techlinks.htm">Tech Links</a></li>
+                    <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about_ships.html">About Ships</a></li>
+                </ul>
+            </div>
+        </div>
     </nav>
 
     <!-- Main Content -->
-    <div class="container">
-        <h2>Vessel List</h2>
-        <table id="shipTable" class="display">
-            <thead>
-                <tr>
-                    <th>Ship ID</th>
-                    <th>Ship Name</th>
-                    <th>Operator Name</th>
-                    <th>URL</th>
-                </tr>
-            </thead>
-            <tbody id="shipTableBody">
-                <!-- Data will be populated dynamically via JavaScript -->
-            </tbody>
-        </table>
-    </div>
+    <main class="container my-5">
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <div class="card shadow-sm content-section">
+                    <h1 class="fs-2 mb-3 text-center">Research Vessel List</h1>
+                    <table id="shipTable" class="display table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Ship ID</th>
+                                <th>Ship Name</th>
+                                <th>Operator Name</th>
+                                <th>URL</th>
+                            </tr>
+                        </thead>
+                        <tbody id="shipTableBody">
+                            <!-- Data will be populated dynamically via JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
 
     <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 Research Vessels. All rights reserved. | <a href="contact.html">Contact Us</a></p>
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <p>© 2025 <a href="https://oceandata.org/">OCEANIC</a> - <a href="https://researchvessels.org/">Ships Schedules & Information Pages</a> | Email: <a href="mailto:info@oceandata.org">info@oceandata.org</a></p>
+            <a href="#top" class="btn btn-outline-light btn-sm mt-2">Back to Top</a>
+        </div>
     </footer>
 
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         // Fetch the JSON data
         fetch('https://researchvessels.org/ship_info.json')
@@ -205,7 +154,10 @@
                 });
 
                 // Initialize DataTables for sorting
-                $('#shipTable').DataTable();
+                $('#shipTable').DataTable({
+                    "pageLength": 10,
+                    "lengthMenu": [10, 25, 50, 100]
+                });
             })
             .catch(error => {
                 console.error('Error fetching JSON:', error);
