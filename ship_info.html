@@ -157,6 +157,12 @@
         let allShips = [];
         let table = null;
 
+        // Function to get query parameter from URL
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
         // Function to populate the table
         function populateTable(ships) {
             if (table) {
@@ -165,10 +171,15 @@
             }
 
             const tableBody = document.getElementById('shipTableBody');
+            const countryFilter = document.getElementById('countryFilter');
+            const selectedCountry = countryFilter.value;
+
             ships.forEach(ship => {
                 const row = document.createElement('tr');
+                // Include the selected country in the ship_details.html URL
+                const detailsUrl = `ship_details.html?shipID=${ship.shipID}&country=${encodeURIComponent(selectedCountry)}`;
                 row.innerHTML = `
-                    <td><a href="ship_details.html?shipID=${ship.shipID}" target="_blank">${ship.shipID || 'N/A'}</a></td>
+                    <td><a href="${detailsUrl}" target="_blank">${ship.shipID || 'N/A'}</a></td>
                     <td>${ship.shipname || 'N/A'}</td>
                     <td>${ship.country || 'N/A'}</td>
                     <td>${ship.Operator_Name || 'N/A'}</td>
@@ -267,9 +278,20 @@
                 const uniqueCountries = getUniqueCountries(allShips);
                 populateCountryDropdown(uniqueCountries);
 
-                populateTable(initialShips);
+                // Check for country query parameter in URL and set dropdown
+                const urlCountry = getQueryParam('country');
+                const countryFilter = document.getElementById('countryFilter');
+                if (urlCountry && uniqueCountries.includes(urlCountry)) {
+                    countryFilter.value = urlCountry;
+                    const filteredShips = filterShips(urlCountry);
+                    populateTable(filteredShips);
+                } else {
+                    countryFilter.value = 'all';
+                    populateTable(initialShips);
+                }
 
-                document.getElementById('countryFilter').addEventListener('change', (e) => {
+                // Update selected country in URLs when dropdown changes
+                countryFilter.addEventListener('change', (e) => {
                     const selectedCountry = e.target.value;
                     const filteredShips = filterShips(selectedCountry);
                     console.log(`Ships after country filter (${selectedCountry}):`, filteredShips.length);

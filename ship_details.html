@@ -140,7 +140,7 @@
         <div class="content-section">
             <h1>Ship Details</h1>
             <div id="shipDetails"></div>
-            <a href="ship_info.html" class="back-link">Back to Ship List</a>
+            <a id="backLink" class="back-link">Back to Ship List</a>
         </div>
     </main>
 
@@ -209,8 +209,14 @@
                     return;
                 }
 
-                // Get the shipID from the URL query parameter
+                // Get the shipID and country from the URL query parameters
                 const shipID = getQueryParam('shipID');
+                const country = getQueryParam('country') || 'all';
+
+                // Set the "Back to Ship List" link with the country query parameter
+                const backLink = document.getElementById('backLink');
+                backLink.href = `ship_info.html?country=${encodeURIComponent(country)}`;
+
                 if (!shipID) {
                     document.getElementById('shipDetails').innerHTML = '<p class="error-message">No Ship ID provided in URL.</p>';
                     return;
