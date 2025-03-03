@@ -175,19 +175,20 @@
             let html = '<h2>' + (ship.shipname || 'Unknown Ship') + ' (ID: ' + (ship.shipID || 'N/A') + ')</h2>';
             html += '<dl>';
 
-            // Sort keys alphabetically and display all fields
-            const keys = Object.keys(ship).sort();
-            keys.forEach(key => {
-                let value = ship[key];
-                if (value === null || value === undefined || value === '') {
-                    value = 'N/A';
+            // Iterate over the fields in their natural order (as they appear in the JSON)
+            for (const key in ship) {
+                if (ship.hasOwnProperty(key)) {
+                    let value = ship[key];
+                    if (value === null || value === undefined || value === '') {
+                        value = 'N/A'; // Display "N/A" for empty or undefined fields
+                    }
+                    // Handle URLs specially
+                    if (key.toLowerCase().includes('url') && value !== 'N/A') {
+                        value = `<a href="${value}" target="_blank">${value}</a>`;
+                    }
+                    html += `<dt>${key.replace(/_/g, ' ')}</dt><dd>${value}</dd>`;
                 }
-                // Handle URLs specially
-                if (key.toLowerCase().includes('url') && value !== 'N/A') {
-                    value = `<a href="${value}" target="_blank">${value}</a>`;
-                }
-                html += `<dt>${key.replace(/_/g, ' ')}</dt><dd>${value}</dd>`;
-            });
+            }
 
             html += '</dl>';
             detailsDiv.innerHTML = html;
