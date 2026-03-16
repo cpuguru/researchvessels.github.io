@@ -1,0 +1,19 @@
+﻿# _data/organizations/national-institute-for-marine-research-and-development-grigore-antipa-nimrd.yml
+
+name: National Institute for Marine Research and Development "Grigore Antipa" (NIMRD)
+slug: national-institute-for-marine-research-and-development-grigore-antipa-nimrd
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  00581 Constanta
+  Blvd Mamaia 300 ROMANIA
+primary_contact:
+phone: 
+fax: 
+email: 
+url: "http://www.rmri.ro/"
+url_fleet:
+record_updated:
+notes:

@@ -1,0 +1,20 @@
+﻿# _data/organizations/gteborg-university-centre-of-marine-research.yml
+
+name: Göteborg University Centre of Marine Research
+slug: gteborg-university-centre-of-marine-research
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Earth Sciences Centre
+  Göteborg University
+  Box 460, SE-405 30 Göteborg, Sweden
+primary_contact:
+phone: +4670374820
+fax: +46317732888
+email: "mibo@gvc.gu.se"
+url: "http://www.gmf.gu.se/"
+url_fleet:
+record_updated:
+notes:

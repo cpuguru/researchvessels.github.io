@@ -1,0 +1,20 @@
+﻿# _data/organizations/texas-am-research-foundation-gerg.yml
+
+name: "Texas A&M Research Foundation (GERG)"
+slug: texas-am-research-foundation-gerg
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Texas A&M Research Foundation (GERG)
+  833 Graham Road
+  College Station, TX 77802 USA
+primary_contact:
+phone: (409) 690-0095
+fax: (409) 690-0059
+email: 
+url: 
+url_fleet:
+record_updated:
+notes:

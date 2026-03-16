@@ -1,0 +1,20 @@
+﻿# _data/organizations/far-east-hydrometeorological-institute.yml
+
+name: Far East Hydrometeorological Institute
+slug: far-east-hydrometeorological-institute
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Far East Hydrometeorological Institute
+  Dzerzhinskiy 24
+  Vladivostok 690600 Russia
+primary_contact:
+phone: 29788
+fax: 
+email: 
+url: 
+url_fleet:
+record_updated:
+notes:

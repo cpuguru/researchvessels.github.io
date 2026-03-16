@@ -1,0 +1,20 @@
+﻿# _data/organizations/dimar-armada-nacional.yml
+
+name: Dimar - Armada Nacional
+slug: dimar-armada-nacional
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Dimar - Armada Nacional Bas Naval, Arc Bolivar
+  A.A. 982 Columbia
+  Cartagena 982 Columbia
+primary_contact:
+phone: 655696
+fax: 953680706
+email: 
+url: 
+url_fleet:
+record_updated:
+notes:

@@ -1,0 +1,20 @@
+﻿# _data/organizations/canadian-scientific-submersible-facility.yml
+
+name: Canadian Scientific Submersible Facility
+slug: canadian-scientific-submersible-facility
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  c/o Institute of Ocean Sciences
+  9860 West Saanich Road
+  North Saanich, British Columbia,  Canada, V8L 3S1
+primary_contact:
+phone: 250-363-6332
+fax: 250-363-6357
+email: "shepherd@ropos.com"
+url: "http://www.ropos.com/cssf/cssf.htm"
+url_fleet:
+record_updated:
+notes:

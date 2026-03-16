@@ -1,0 +1,215 @@
+﻿# _data/vessels/john-n-cobb.yml
+
+# -----------------------------------------
+# IDENTITY
+# -----------------------------------------
+name: John N. Cobb
+slug: john-n-cobb
+imo_number: 
+nodc_code: 
+call_sign: WMVC
+year_built: 1950
+
+# -----------------------------------------
+# STATUS AND CLASSIFICATION
+# -----------------------------------------
+status: Active
+vessel_use_type: Dedicated Research
+vessel_class: 
+main_activity: "Fisheries Research, Marine mammal surveys"
+ice_class: 
+ice_breaking: 
+dp_class: 
+dp_system: 
+ism_certified: 
+vessel_classification: 
+vessel_construction: 
+charter_available: false
+
+# -----------------------------------------
+# FLAG AND HOME PORT
+# -----------------------------------------
+flag_country: USA
+homeport: "MOC - Seattle, WA"
+homeport_country: 
+
+# -----------------------------------------
+# OWNERSHIP AND OPERATION
+# -----------------------------------------
+owner: national-oceanic-and-atmospheric-administration
+operator: office-of-marine-and-aviation-operations-omao
+managing_agency: NOAA
+operator_contact: 
+operator_phone: 907-586-7507
+operator_fax: 
+operator_email: "NOAA.Ship.Cobb@noaa.gov"
+
+# -----------------------------------------
+# PHYSICAL DIMENSIONS
+# -----------------------------------------
+length_m: 28.3
+beam_m: 7.9
+draft_m: 3.4
+gross_tons: 185
+hull_material: Wood
+freeboard_deck_m: 
+
+# -----------------------------------------
+# PROPULSION AND PERFORMANCE
+# -----------------------------------------
+engine_count: 1
+engine_make: Diesel (Direct Reversing) Fairbanks Morse
+engine_power: 
+power_hp: 
+aux_diesel_power_hp: 
+prop_diameter_m: 1.52
+prop_max_rpm: 
+speed_cruise_kts: 10
+speed_max_kts: 
+range_nm: 2850
+endurance_days: 13
+
+# -----------------------------------------
+# CAPACITY
+# -----------------------------------------
+crew: 5
+officers: 2
+scientists: 4
+air_conditioning: ~
+fuel_capacity_mt: 31
+capacity_dry_stores_mt: 
+water_capacity_mt: 23
+water_generation_mt_day: 2.84
+water_treatment: "Desalinator, Reverse Osmosis"
+
+# -----------------------------------------
+# LABORATORY AND DECK FACILITIES
+# -----------------------------------------
+lab_wet_area_m2: 
+lab_dry_area_m2: 
+free_deck_area_m2: 
+container_lab_space: 
+radioactive_lab: 
+diving_support: 
+
+# -----------------------------------------
+# SCIENTIFIC EQUIPMENT
+# -----------------------------------------
+multibeam: 
+adcp: 
+sidescan_sonar: 
+sub_bottom_profiler: 
+echo_sounder: "Shallow Water Echo Sounder, Color Sounder"
+acoustic_sonar: "Fish Finder, Forward Looking Sonar, Net Sonde"
+acoustic_quiet: 
+
+ctd:
+  capable: 
+  make: 
+  fluorometer: 
+  oxygen_sensor: 
+  rosette: 
+  towed: 
+  transmissometer: 
+
+coring:
+  capable: 
+  box_core: 
+  grab_sampler: 
+  gravity_core: 
+  multi_core: 
+  piston_core: 
+
+underwater_vehicles: 
+rov_support: 
+auv_support: 
+submarine_support: 
+
+# -----------------------------------------
+# DECK EQUIPMENT
+# -----------------------------------------
+winches:
+  count: 1
+  steel_wire_length_m: 4877
+  steel_wire_load_mt: 
+  conducting_cable_length_m: 
+  conducting_cable_load_mt: 
+  trawl_length_m: 
+  trawl_load_mt: 
+  other_length_m: 
+  other_load_mt: 
+  notes: "Trawl Winch, Net reel Winch"
+
+gantry:
+  position: 
+  height_above_deck_m: 
+  outboard_extension_m: 
+  load_capacity_mt: 
+
+cranes:
+  position: 
+  height_above_deck_m: 
+  outboard_extension_m: 
+  load_capacity_mt: 
+
+# -----------------------------------------
+# NAVIGATION AND COMMUNICATIONS
+# -----------------------------------------
+navigation_equipment: "X-Band Radar Loran, Gyrocompass, Autopilot"
+navigation_gps: GPS Receiver
+communications: "VHF/FM Transceivers (2), HF Marine Band Transceiver (2), INMARSAT mini-M Radio Transceiver, IMARSAT Standard c, Wavetalk SATcom Tranceiver, Emergency Postion Indicator Radio Beacons, Search and Rescue transponder, AIS, E-mail"
+satcomm: 
+
+# -----------------------------------------
+# ELECTRICAL SYSTEMS
+# -----------------------------------------
+ac_voltage: 110/220/240V
+ac_power_kva: 
+ac_phases: 1/3
+ac_frequency_hz: 60/60
+ac_voltage_stabilized: 
+ac_freq_stabilized_hz: 
+ac_amps_stabilized: 
+dc_voltages: 
+dc_voltage_max: 
+
+# -----------------------------------------
+# DATA SYSTEMS
+# -----------------------------------------
+computing_equipment: IBM Compatible (1) connected to GPS
+data_printing: 
+
+# -----------------------------------------
+# OPERATING PROFILE
+# -----------------------------------------
+operating_area_notes: Southeast Alaska and U.S. Pacific water
+operating_grids: "NP5, 6, and 9"
+operating_regions:         # TODO: populate from operating_area_notes
+mission_capabilities:      # TODO: populate based on equipment fields
+
+# -----------------------------------------
+# PROGRAM MEMBERSHIPS
+# -----------------------------------------
+programs:
+  unols: false
+  go_ship: false
+  samos: false
+  vos: false
+  iwgfi: false
+  euro: false
+  bonus: false
+
+# -----------------------------------------
+# LINKS
+# -----------------------------------------
+url_vessel: "http://www.pmc.noaa.gov/jc/"
+url_operator: "http://nmml01.afsc.noaa.gov/"
+url_schedule: "http://www.pmc.noaa.gov/schedule/jc.htm"
+photo_url: 
+
+# -----------------------------------------
+# ADMINISTRATIVE
+# -----------------------------------------
+record_updated: 2005-01-21
+notes: 
+vessel_other: 

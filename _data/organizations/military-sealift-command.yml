@@ -1,0 +1,20 @@
+﻿# _data/organizations/military-sealift-command.yml
+
+name: Military Sealift Command
+slug: military-sealift-command
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Public Affairs Office, Military Sealift Command
+  914 Charles Morris Court SE
+  Washington Navy Yard, D.C. 20398-5540
+primary_contact:
+phone: +1(202) 685-5055
+fax: 
+email: www.msc.navy.mil
+url: "http://www.msc.navy.mil/"
+url_fleet:
+record_updated:
+notes:

@@ -1,0 +1,20 @@
+﻿# _data/organizations/marine-and-coastal-management.yml
+
+name: Marine and Coastal Management
+slug: marine-and-coastal-management
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Foretrust House, Martin Hammerschlag Way
+  Private Bag X2
+  Rogge Bay 8012, Cape Town,  Rep S. Africa
+primary_contact:
+phone: +27-21-402 3110
+fax: +27-21- 252 920
+email: "jcsmith@sfri.wcape.gov.za"
+url: 
+url_fleet:
+record_updated:
+notes:

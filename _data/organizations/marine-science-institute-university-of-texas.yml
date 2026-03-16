@@ -1,0 +1,20 @@
+﻿# _data/organizations/marine-science-institute-university-of-texas.yml
+
+name: "Marine Science Institute, University of Texas"
+slug: marine-science-institute-university-of-texas
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Marine Science Institute
+  750 Channel View
+  Port Aransas, TX  78373
+primary_contact:
+phone: 361 749 6760
+fax: 361 749 6777
+email: "Lanoux@utmsi.utexas.edu"
+url: "http://wwwutmsi.zo.utexas.edu/index.htm"
+url_fleet:
+record_updated:
+notes:

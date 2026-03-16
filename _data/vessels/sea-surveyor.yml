@@ -1,0 +1,215 @@
+﻿# _data/vessels/sea-surveyor.yml
+
+# -----------------------------------------
+# IDENTITY
+# -----------------------------------------
+name: Sea Surveyor
+slug: sea-surveyor
+imo_number: 
+nodc_code: 
+call_sign: HP7358
+year_built: 1974
+
+# -----------------------------------------
+# STATUS AND CLASSIFICATION
+# -----------------------------------------
+status: Active
+vessel_use_type: Dedicated Research
+vessel_class: 
+main_activity: Research with IUI in Eilat 100 days per annum
+ice_class: 
+ice_breaking: Ice "c"
+dp_class: 
+dp_system: 
+ism_certified: 
+vessel_classification: "DNV +!A1 Ice \"C\" fishing vessel"
+vessel_construction: DNV
+charter_available: false
+
+# -----------------------------------------
+# FLAG AND HOME PORT
+# -----------------------------------------
+flag_country: USA
+homeport: Panama
+homeport_country: 
+
+# -----------------------------------------
+# OWNERSHIP AND OPERATION
+# -----------------------------------------
+owner: sea-surveyor
+operator: sea-surveyor
+managing_agency: 
+operator_contact: Bernardo Herzer
+operator_phone: (310) 285-8678
+operator_fax: (310) 943-2172
+operator_email: "seasurveyor@usa.net"
+
+# -----------------------------------------
+# PHYSICAL DIMENSIONS
+# -----------------------------------------
+length_m: 36.8
+beam_m: 7.2
+draft_m: 3.2
+gross_tons: 246
+hull_material: Steel
+freeboard_deck_m: 1.2
+
+# -----------------------------------------
+# PROPULSION AND PERFORMANCE
+# -----------------------------------------
+engine_count: 1
+engine_make: "B&W Alpha"
+engine_power: 750
+power_hp: 750
+aux_diesel_power_hp: 300
+prop_diameter_m: 1.8
+prop_max_rpm: 350
+speed_cruise_kts: 8
+speed_max_kts: 9.5
+range_nm: 11000
+endurance_days: 30
+
+# -----------------------------------------
+# CAPACITY
+# -----------------------------------------
+crew: 6
+officers: 3
+scientists: 18
+air_conditioning: false
+fuel_capacity_mt: 38
+capacity_dry_stores_mt: 40
+water_capacity_mt: 60
+water_generation_mt_day: 2.5
+water_treatment: Filtered
+
+# -----------------------------------------
+# LABORATORY AND DECK FACILITIES
+# -----------------------------------------
+lab_wet_area_m2: 40
+lab_dry_area_m2: 40
+free_deck_area_m2: 80
+container_lab_space: none
+radioactive_lab: yes 4mx3m
+diving_support: "Yes"
+
+# -----------------------------------------
+# SCIENTIFIC EQUIPMENT
+# -----------------------------------------
+multibeam: 
+adcp: 
+sidescan_sonar: 
+sub_bottom_profiler: 
+echo_sounder: Koden
+acoustic_sonar: 
+acoustic_quiet: 380/220
+
+ctd:
+  capable: "Sea Bird, and rosette"
+  make: Sea Bird
+  fluorometer: Chelsea
+  oxygen_sensor: "yes"
+  rosette: Sea Bird
+  towed: "no"
+  transmissometer: "yes"
+
+coring:
+  capable: 
+  box_core: 
+  grab_sampler: 
+  gravity_core: 
+  multi_core: 
+  piston_core: 
+
+underwater_vehicles: 
+rov_support: 
+auv_support: 
+submarine_support: 
+
+# -----------------------------------------
+# DECK EQUIPMENT
+# -----------------------------------------
+winches:
+  count: 2
+  steel_wire_length_m: 4000
+  steel_wire_load_mt: 1
+  conducting_cable_length_m: 4000
+  conducting_cable_load_mt: 1
+  trawl_length_m: 
+  trawl_load_mt: 
+  other_length_m: 1800
+  other_load_mt: 0.5
+  notes: 
+
+gantry:
+  position: midships
+  height_above_deck_m: 1.2
+  outboard_extension_m: 2.4
+  load_capacity_mt: 0.6
+
+cranes:
+  position: 2
+  height_above_deck_m: 8
+  outboard_extension_m: 6
+  load_capacity_mt: 1
+
+# -----------------------------------------
+# NAVIGATION AND COMMUNICATIONS
+# -----------------------------------------
+navigation_equipment: "Radar, Autopilot,Gyro Compass, 2 flux gate compasses"
+navigation_gps: "Nav Add 7000 with plotter, Furuno"
+communications: SSB (2) VHF (2) handheld 3
+satcomm: Satcom-C
+
+# -----------------------------------------
+# ELECTRICAL SYSTEMS
+# -----------------------------------------
+ac_voltage: 380/220/110
+ac_power_kva: 2x140
+ac_phases: 3
+ac_frequency_hz: 50
+ac_voltage_stabilized: 
+ac_freq_stabilized_hz: 50
+ac_amps_stabilized: 63
+dc_voltages: 12/24
+dc_voltage_max: 1400 Amp/H
+
+# -----------------------------------------
+# DATA SYSTEMS
+# -----------------------------------------
+computing_equipment: 3 PC
+data_printing: 
+
+# -----------------------------------------
+# OPERATING PROFILE
+# -----------------------------------------
+operating_area_notes: "Red Sea, Indian Ocean, Mediterrenean"
+operating_grids: 
+operating_regions:         # TODO: populate from operating_area_notes
+mission_capabilities:      # TODO: populate based on equipment fields
+
+# -----------------------------------------
+# PROGRAM MEMBERSHIPS
+# -----------------------------------------
+programs:
+  unols: false
+  go_ship: false
+  samos: false
+  vos: false
+  iwgfi: false
+  euro: false
+  bonus: false
+
+# -----------------------------------------
+# LINKS
+# -----------------------------------------
+url_vessel: "http://www.sea-surveyor.com"
+url_operator: "http://www.sea-surveyor.com"
+url_schedule: "http://www.sea-surveyor.com/schedules.htm"
+photo_url: 
+
+# -----------------------------------------
+# ADMINISTRATIVE
+# -----------------------------------------
+record_updated: 2003-08-21
+notes: 
+vessel_other: 

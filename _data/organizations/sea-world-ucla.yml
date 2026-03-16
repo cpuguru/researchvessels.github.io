@@ -1,0 +1,20 @@
+﻿# _data/organizations/sea-world-ucla.yml
+
+name: Sea World UCLA
+slug: sea-world-ucla
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  University of California at Los Angeles
+  621 Charles E. Young South
+  Los Angeles, CA 90095-1606
+primary_contact:
+phone: 310-433-5008
+fax: 
+email: 
+url: "http://www.ioe.ucla.edu/Sea_World/index.html"
+url_fleet:
+record_updated:
+notes:

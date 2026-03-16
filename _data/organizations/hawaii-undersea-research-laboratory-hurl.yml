@@ -1,0 +1,20 @@
+﻿# _data/organizations/hawaii-undersea-research-laboratory-hurl.yml
+
+name: Hawai'i Undersea Research Laboratory (HURL)
+slug: hawaii-undersea-research-laboratory-hurl
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  School of Ocean and Earth Science and Technology
+  University Of Hawaii, 1680 East-West Road, POST 802
+  Honolulu, HI, USA 96822
+primary_contact:
+phone: 
+fax: 
+email: 
+url: "http://www.soest.hawaii.edu/HURL/facilities.html"
+url_fleet:
+record_updated:
+notes:

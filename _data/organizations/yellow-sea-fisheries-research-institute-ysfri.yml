@@ -1,0 +1,20 @@
+﻿# _data/organizations/yellow-sea-fisheries-research-institute-ysfri.yml
+
+name: Yellow Sea Fisheries Research Institute (Ysfri)
+slug: yellow-sea-fisheries-research-institute-ysfri
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Yellow Sea Fisheries Research Institute (Ysfri)
+  19 Laiyang Road
+  Qingdao, Shandong 266003 China
+primary_contact:
+phone: 0532 2869103
+fax: 2870702
+email: 
+url: 
+url_fleet:
+record_updated:
+notes:

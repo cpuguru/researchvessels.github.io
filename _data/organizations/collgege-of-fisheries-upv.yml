@@ -1,0 +1,20 @@
+﻿# _data/organizations/collgege-of-fisheries-upv.yml
+
+name: "Collgege of Fisheries, UPV"
+slug: collgege-of-fisheries-upv
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  University of the Philippines In the Viazyas,Collgege of Fisheries, UPV
+  Miagao, Iloilo 5023 Philippines
+  81535
+primary_contact:
+phone: 81534
+fax: 
+email: 
+url: 
+url_fleet:
+record_updated:
+notes:

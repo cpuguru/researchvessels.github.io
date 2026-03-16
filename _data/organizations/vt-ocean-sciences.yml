@@ -1,0 +1,20 @@
+﻿# _data/organizations/vt-ocean-sciences.yml
+
+name: VT Ocean Sciences
+slug: vt-ocean-sciences
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  VT Ocean Sciences
+  Fleet Way, Portsmouth, Hants
+  PO1 3AQ
+primary_contact:
+phone: +44 (0)2392 857318
+fax: +44 (0)2392 857257
+email: "vivienne.breen@vtplc.com"
+url: "http://www.vtplc.com/ocean"
+url_fleet:
+record_updated:
+notes:

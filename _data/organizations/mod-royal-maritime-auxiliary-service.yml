@@ -1,0 +1,20 @@
+﻿# _data/organizations/mod-royal-maritime-auxiliary-service.yml
+
+name: "MoD, Royal Maritime Auxiliary Service"
+slug: mod-royal-maritime-auxiliary-service
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  RMAS HQ, H.M. Mooring Depot
+  Fort Road, Pembroke Dock, Pembrokeshire
+  England, UK SA72 6TB
+primary_contact:
+phone: 044 (0) 1646 683235 Ext. 228
+fax: 
+email: "gm-rmas@a.dii.mod.uk"
+url: "http://www.marine.gov.uk/index.html"
+url_fleet:
+record_updated:
+notes:

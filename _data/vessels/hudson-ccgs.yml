@@ -1,0 +1,215 @@
+﻿# _data/vessels/hudson-ccgs.yml
+
+# -----------------------------------------
+# IDENTITY
+# -----------------------------------------
+name: Hudson (CCGS)
+slug: hudson-ccgs
+imo_number: 
+nodc_code: 18HU
+call_sign: CGDG
+year_built: 1963
+
+# -----------------------------------------
+# STATUS AND CLASSIFICATION
+# -----------------------------------------
+status: Active
+vessel_use_type: Dedicated Research
+vessel_class: 
+main_activity: Oceanography Geology
+ice_class: 
+ice_breaking: 
+dp_class: 
+dp_system: 
+ism_certified: 
+vessel_classification: "Ice class: 100 A"
+vessel_construction: "Saint John SB & DD Ltd., Saint John, New Brunswick"
+charter_available: false
+
+# -----------------------------------------
+# FLAG AND HOME PORT
+# -----------------------------------------
+flag_country: Canada
+homeport: "Dartmouth, Nova Scotia, Canada"
+homeport_country: 
+
+# -----------------------------------------
+# OWNERSHIP AND OPERATION
+# -----------------------------------------
+owner: canadian-coast-guard
+operator: bedford-institute-of-oceanography-bio
+managing_agency: 
+operator_contact: "Chief, Marine Services"
+operator_phone: 902-426-7292
+operator_fax: 902-426-7827
+operator_email: bionet.bio.ns.ca
+
+# -----------------------------------------
+# PHYSICAL DIMENSIONS
+# -----------------------------------------
+length_m: 90.4
+beam_m: 15.4
+draft_m: 6.8
+gross_tons: 3740
+hull_material: Steel
+freeboard_deck_m: 2.7
+
+# -----------------------------------------
+# PROPULSION AND PERFORMANCE
+# -----------------------------------------
+engine_count: 4
+engine_make: Alco 16 cyl Diesel Electric AC/DC
+engine_power: 8000 at 1000rpm
+power_hp: 8000
+aux_diesel_power_hp: 1640
+prop_diameter_m: 3.2
+prop_max_rpm: 220
+speed_cruise_kts: 10.5
+speed_max_kts: 17
+range_nm: 23100
+endurance_days: 105
+
+# -----------------------------------------
+# CAPACITY
+# -----------------------------------------
+crew: 26
+officers: 11
+scientists: 23
+air_conditioning: true
+fuel_capacity_mt: 1268
+capacity_dry_stores_mt: 365
+water_capacity_mt: 105
+water_generation_mt_day: 30
+water_treatment: 
+
+# -----------------------------------------
+# LABORATORY AND DECK FACILITIES
+# -----------------------------------------
+lab_wet_area_m2: 99
+lab_dry_area_m2: 99
+free_deck_area_m2: 
+container_lab_space: 3 x 7
+radioactive_lab: 
+diving_support: 
+
+# -----------------------------------------
+# SCIENTIFIC EQUIPMENT
+# -----------------------------------------
+multibeam: 
+adcp: 
+sidescan_sonar: n/a
+sub_bottom_profiler: 
+echo_sounder: "12kHz, Depth Sounder,"
+acoustic_sonar: 
+acoustic_quiet: 
+
+ctd:
+  capable: 
+  make: 
+  fluorometer: 
+  oxygen_sensor: 
+  rosette: 
+  towed: 
+  transmissometer: 
+
+coring:
+  capable: 
+  box_core: 
+  grab_sampler: 
+  gravity_core: 
+  multi_core: 
+  piston_core: 
+
+underwater_vehicles: 
+rov_support: 
+auv_support: 
+submarine_support: 
+
+# -----------------------------------------
+# DECK EQUIPMENT
+# -----------------------------------------
+winches:
+  count: 3
+  steel_wire_length_m: 600
+  steel_wire_load_mt: 5
+  conducting_cable_length_m: 6000
+  conducting_cable_load_mt: 2
+  trawl_length_m: 6000
+  trawl_load_mt: 5
+  other_length_m: 6000
+  other_load_mt: 3
+  notes: various for specific cruises
+
+gantry:
+  position: Stern
+  height_above_deck_m: 4
+  outboard_extension_m: 2
+  load_capacity_mt: 5
+
+cranes:
+  position: Stern
+  height_above_deck_m: 9
+  outboard_extension_m: 7
+  load_capacity_mt: 
+
+# -----------------------------------------
+# NAVIGATION AND COMMUNICATIONS
+# -----------------------------------------
+navigation_equipment: "Radar Loran SatNav Gyro DopLog, auto pilot, speed log, MF DF, VHF DF."
+navigation_gps: 1 - Magnavox MX-380
+communications: "Fax SatCom, VHF:FM & AM, HF, WeatherFax"
+satcomm: 
+
+# -----------------------------------------
+# ELECTRICAL SYSTEMS
+# -----------------------------------------
+ac_voltage: 440/0V 220/110V
+ac_power_kva: 750/50
+ac_phases: 3/3
+ac_frequency_hz: 60/60
+ac_voltage_stabilized: 110
+ac_freq_stabilized_hz: 60
+ac_amps_stabilized: 200
+dc_voltages: 250V
+dc_voltage_max: 9
+
+# -----------------------------------------
+# DATA SYSTEMS
+# -----------------------------------------
+computing_equipment: HP (x2) HP1000
+data_printing: 
+
+# -----------------------------------------
+# OPERATING PROFILE
+# -----------------------------------------
+operating_area_notes: 
+operating_grids: 
+operating_regions:         # TODO: populate from operating_area_notes
+mission_capabilities:      # TODO: populate based on equipment fields
+
+# -----------------------------------------
+# PROGRAM MEMBERSHIPS
+# -----------------------------------------
+programs:
+  unols: false
+  go_ship: true
+  samos: false
+  vos: true
+  iwgfi: false
+  euro: false
+  bonus: false
+
+# -----------------------------------------
+# LINKS
+# -----------------------------------------
+url_vessel: "http://www.ccg-gcc.gc.ca/vessels-navires/details_e.asp?id=F-2"
+url_operator: "http://www.bio.gc.ca/welcome-e.html"
+url_schedule: 
+photo_url: 
+
+# -----------------------------------------
+# ADMINISTRATIVE
+# -----------------------------------------
+record_updated: 2005-02-24
+notes: "refitted:1990, Helicopter deck, hangar, hangar storage and fuel. Hydrographic Lab:112 m2, Oceanographic Lab:20 m2."
+vessel_other: 

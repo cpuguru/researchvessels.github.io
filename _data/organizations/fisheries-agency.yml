@@ -1,0 +1,20 @@
+﻿# _data/organizations/fisheries-agency.yml
+
+name: Fisheries Agency
+slug: fisheries-agency
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Fisheries Agency Far Seas Fish Res Lab
+  5-7-1- Orido Shimizu
+  Shizuoka 424 Japan
+primary_contact:
+phone: 0543-34-0715
+fax: 0543-35-9642
+email: 
+url: 
+url_fleet:
+record_updated:
+notes:

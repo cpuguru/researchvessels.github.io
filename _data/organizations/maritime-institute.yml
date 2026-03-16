@@ -1,0 +1,20 @@
+﻿# _data/organizations/maritime-institute.yml
+
+name: Maritime Institute
+slug: maritime-institute
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Maritime Institute
+  Dlugi Targ 41/42 80-830
+  Gdansk, Poland
+primary_contact:
+phone: 
+fax: 
+email: "leogaj@im.gda.pl"
+url: "http://baltyk.imgw.gdynia.pl"
+url_fleet:
+record_updated:
+notes:

@@ -1,0 +1,216 @@
+﻿---
+# -----------------------------------------
+# IDENTITY
+# -----------------------------------------
+name: Argus
+slug: argus
+imo_number: 
+nodc_code: 
+call_sign: PBVR
+year_built: 1985
+
+# -----------------------------------------
+# STATUS AND CLASSIFICATION
+# -----------------------------------------
+status: Active
+vessel_use_type: Dedicated Research
+vessel_class: 
+main_activity: Ecology
+ice_class: 
+ice_breaking: 
+dp_class: 
+dp_system: 
+ism_certified: 
+vessel_classification: 
+vessel_construction: 
+charter_available: false
+
+# -----------------------------------------
+# FLAG AND HOME PORT
+# -----------------------------------------
+flag_country: Netherlands
+homeport: Vlissingen
+homeport_country: 
+
+# -----------------------------------------
+# OWNERSHIP AND OPERATION
+# -----------------------------------------
+owner: rijkswaterstaat-directie-zeeland
+operator: meetinformatiedienst-zeeland
+managing_agency: 
+operator_contact: Jacqueline de Nooij
+operator_phone: 0118-422212
+operator_fax: 0118-472772
+operator_email: "j.denooij@dzl.rws.minvenw.nl"
+
+# -----------------------------------------
+# PHYSICAL DIMENSIONS
+# -----------------------------------------
+length_m: 33
+beam_m: 7
+draft_m: 180
+gross_tons: 226
+hull_material: 
+freeboard_deck_m: 150
+
+# -----------------------------------------
+# PROPULSION AND PERFORMANCE
+# -----------------------------------------
+engine_count: 2
+engine_make: Mercedes
+engine_power: 320
+power_hp: 640
+aux_diesel_power_hp: 640
+prop_diameter_m: 90
+prop_max_rpm: 630
+speed_cruise_kts: 85
+speed_max_kts: 85
+range_nm: 
+endurance_days: 5
+
+# -----------------------------------------
+# CAPACITY
+# -----------------------------------------
+crew: 2
+officers: 1
+scientists: 5
+air_conditioning: ~
+fuel_capacity_mt: 12
+capacity_dry_stores_mt: 
+water_capacity_mt: 9
+water_generation_mt_day: 
+water_treatment: demi
+
+# -----------------------------------------
+# LABORATORY AND DECK FACILITIES
+# -----------------------------------------
+lab_wet_area_m2: 40
+lab_dry_area_m2: 
+free_deck_area_m2: 60
+container_lab_space: 20 feet
+radioactive_lab: 
+diving_support: 
+
+# -----------------------------------------
+# SCIENTIFIC EQUIPMENT
+# -----------------------------------------
+multibeam: 
+adcp: 
+sidescan_sonar: 
+sub_bottom_profiler: Locman
+echo_sounder: Simrad 38+200KHz
+acoustic_sonar: 
+acoustic_quiet: 220
+
+ctd:
+  capable: Y.S.I.
+  make: 6 series
+  fluorometer: Y.S.I.
+  oxygen_sensor: Y.S.I.
+  rosette: 
+  towed: "yes"
+  transmissometer: 
+
+coring:
+  capable: 
+  box_core: Sea bad
+  grab_sampler: 
+  gravity_core: 
+  multi_core: 
+  piston_core: 
+
+underwater_vehicles: 
+rov_support: 
+auv_support: 
+submarine_support: 
+
+# -----------------------------------------
+# DECK EQUIPMENT
+# -----------------------------------------
+winches:
+  count: 
+  steel_wire_length_m: 
+  steel_wire_load_mt: 
+  conducting_cable_length_m: 0
+  conducting_cable_load_mt: 0
+  trawl_length_m: 4
+  trawl_load_mt: 5
+  other_length_m: 
+  other_load_mt: 
+  notes: 
+
+gantry:
+  position: 
+  height_above_deck_m: 
+  outboard_extension_m: 
+  load_capacity_mt: 
+
+cranes:
+  position: SB rear deck
+  height_above_deck_m: 15
+  outboard_extension_m: 
+  load_capacity_mt: 14
+
+# -----------------------------------------
+# NAVIGATION AND COMMUNICATIONS
+# -----------------------------------------
+navigation_equipment: "Sea+river radar, Nautex auto pilot"
+navigation_gps: Sercel 103
+communications: "marifoon sailor, RT 144c + Furuno 8500"
+satcomm: 
+
+# -----------------------------------------
+# ELECTRICAL SYSTEMS
+# -----------------------------------------
+ac_voltage: 380
+ac_power_kva: 163
+ac_phases: 3
+ac_frequency_hz: 50
+ac_voltage_stabilized: 
+ac_freq_stabilized_hz: 50
+ac_amps_stabilized: 40
+dc_voltages: 24
+dc_voltage_max: 400A/hour 20 hours
+
+# -----------------------------------------
+# DATA SYSTEMS
+# -----------------------------------------
+computing_equipment: Hiltop 1000MHz 128MB-20GB HD
+data_printing: HP Paintjet 3630A
+
+# -----------------------------------------
+# OPERATING PROFILE
+# -----------------------------------------
+operating_area_notes: Nedetherlands (South west part) + coastal area 30 miles
+operating_grids: 
+operating_regions:         # TODO: populate from operating_area_notes
+mission_capabilities:      # TODO: populate based on equipment fields
+
+# -----------------------------------------
+# PROGRAM MEMBERSHIPS
+# -----------------------------------------
+programs:
+  unols: false
+  go_ship: false
+  samos: false
+  vos: false
+  iwgfi: false
+  euro: true
+  bonus: false
+
+# -----------------------------------------
+# LINKS
+# -----------------------------------------
+url_vessel: 
+url_operator: 
+url_schedule: 
+photo_url: 
+
+# -----------------------------------------
+# ADMINISTRATIVE
+# -----------------------------------------
+record_updated: 2003-07-21
+notes: 
+vessel_other: 
+
+---

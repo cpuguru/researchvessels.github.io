@@ -1,0 +1,20 @@
+﻿# _data/organizations/hcmr-marine-department.yml
+
+name: H.C.M.R Marine Department
+slug: hcmr-marine-department
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  H.C.M.R Marine Departement 46,7 km, Athinon –
+  Souniou P.O.B. :712, P.C.: 19013 Anavissos
+  Athens, Greece
+primary_contact:
+phone: +302291076406
+fax: +302291076406
+email: "mparask@ncmr.gr"
+url: "http://www.hcmr.gr"
+url_fleet:
+record_updated:
+notes:

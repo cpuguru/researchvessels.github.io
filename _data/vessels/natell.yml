@@ -1,0 +1,215 @@
+﻿# _data/vessels/natell.yml
+
+# -----------------------------------------
+# IDENTITY
+# -----------------------------------------
+name: Natell
+slug: natell
+imo_number: 
+nodc_code: 
+call_sign: 
+year_built: 1976
+
+# -----------------------------------------
+# STATUS AND CLASSIFICATION
+# -----------------------------------------
+status: Active
+vessel_use_type: Dedicated Research
+vessel_class: 
+main_activity: Diving and expeditions
+ice_class: 
+ice_breaking: 
+dp_class: 
+dp_system: 
+ism_certified: 
+vessel_classification: 
+vessel_construction: 
+charter_available: false
+
+# -----------------------------------------
+# FLAG AND HOME PORT
+# -----------------------------------------
+flag_country: "St Vincent & Grenadines"
+homeport: "Langkawi, Malaysia"
+homeport_country: 
+
+# -----------------------------------------
+# OWNERSHIP AND OPERATION
+# -----------------------------------------
+owner: 
+operator: wavemaster-langkawi-yacht-centre
+managing_agency: 
+operator_contact: Brenden Wright / Keneth Fricsay
+operator_phone: +664 966 5555
+operator_fax: +664 967 1231
+operator_email: "info@wmlyc.com"
+
+# -----------------------------------------
+# PHYSICAL DIMENSIONS
+# -----------------------------------------
+length_m: 26.56
+beam_m: 6.5
+draft_m: 4
+gross_tons: 123
+hull_material: Steel
+freeboard_deck_m: 
+
+# -----------------------------------------
+# PROPULSION AND PERFORMANCE
+# -----------------------------------------
+engine_count: 
+engine_make: Blackstone
+engine_power: 750
+power_hp: 750
+aux_diesel_power_hp: 170
+prop_diameter_m: 1.6
+prop_max_rpm: 
+speed_cruise_kts: 9
+speed_max_kts: 10
+range_nm: 8000
+endurance_days: 21
+
+# -----------------------------------------
+# CAPACITY
+# -----------------------------------------
+crew: 5
+officers: 1
+scientists: 10
+air_conditioning: ~
+fuel_capacity_mt: 36
+capacity_dry_stores_mt: 
+water_capacity_mt: 15
+water_generation_mt_day: 
+water_treatment: 
+
+# -----------------------------------------
+# LABORATORY AND DECK FACILITIES
+# -----------------------------------------
+lab_wet_area_m2: 
+lab_dry_area_m2: 
+free_deck_area_m2: 120
+container_lab_space: 
+radioactive_lab: 
+diving_support: "Compressor, dive platform, air bank, divemaster"
+
+# -----------------------------------------
+# SCIENTIFIC EQUIPMENT
+# -----------------------------------------
+multibeam: 
+adcp: 
+sidescan_sonar: 
+sub_bottom_profiler: 
+echo_sounder: 
+acoustic_sonar: 
+acoustic_quiet: 
+
+ctd:
+  capable: 
+  make: 
+  fluorometer: 
+  oxygen_sensor: 
+  rosette: 
+  towed: 
+  transmissometer: 
+
+coring:
+  capable: 
+  box_core: 
+  grab_sampler: 
+  gravity_core: 
+  multi_core: 
+  piston_core: 
+
+underwater_vehicles: 
+rov_support: 
+auv_support: 
+submarine_support: 
+
+# -----------------------------------------
+# DECK EQUIPMENT
+# -----------------------------------------
+winches:
+  count: 
+  steel_wire_length_m: 
+  steel_wire_load_mt: 
+  conducting_cable_length_m: 0
+  conducting_cable_load_mt: 0
+  trawl_length_m: 
+  trawl_load_mt: 
+  other_length_m: 
+  other_load_mt: 
+  notes: 
+
+gantry:
+  position: 
+  height_above_deck_m: 
+  outboard_extension_m: 
+  load_capacity_mt: 
+
+cranes:
+  position: "Stern, top deck"
+  height_above_deck_m: 2.5
+  outboard_extension_m: 2
+  load_capacity_mt: 0.5
+
+# -----------------------------------------
+# NAVIGATION AND COMMUNICATIONS
+# -----------------------------------------
+navigation_equipment: "NavTex, GPS"
+navigation_gps: Furuno GP50
+communications: "VHF, MF/HF, VHF DSC"
+satcomm: 
+
+# -----------------------------------------
+# ELECTRICAL SYSTEMS
+# -----------------------------------------
+ac_voltage: 220 415
+ac_power_kva: 50
+ac_phases: 3
+ac_frequency_hz: 
+ac_voltage_stabilized: 
+ac_freq_stabilized_hz: 
+ac_amps_stabilized: 
+dc_voltages: 24
+dc_voltage_max: 
+
+# -----------------------------------------
+# DATA SYSTEMS
+# -----------------------------------------
+computing_equipment: 
+data_printing: 
+
+# -----------------------------------------
+# OPERATING PROFILE
+# -----------------------------------------
+operating_area_notes: Asia Pacific
+operating_grids: 
+operating_regions:         # TODO: populate from operating_area_notes
+mission_capabilities:      # TODO: populate based on equipment fields
+
+# -----------------------------------------
+# PROGRAM MEMBERSHIPS
+# -----------------------------------------
+programs:
+  unols: false
+  go_ship: false
+  samos: false
+  vos: false
+  iwgfi: false
+  euro: false
+  bonus: false
+
+# -----------------------------------------
+# LINKS
+# -----------------------------------------
+url_vessel: "http://www.mybfg.net/03_com_wmlyc_charter.htm"
+url_operator: "http://www.wmlyc.com"
+url_schedule: 
+photo_url: 
+
+# -----------------------------------------
+# ADMINISTRATIVE
+# -----------------------------------------
+record_updated: 2002-06-18
+notes: 
+vessel_other: 

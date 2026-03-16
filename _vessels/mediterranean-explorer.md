@@ -1,0 +1,216 @@
+﻿---
+# -----------------------------------------
+# IDENTITY
+# -----------------------------------------
+name: Mediterranean Explorer
+slug: mediterranean-explorer
+imo_number: 
+nodc_code: 
+call_sign: 
+year_built: 2004
+
+# -----------------------------------------
+# STATUS AND CLASSIFICATION
+# -----------------------------------------
+status: Active
+vessel_use_type: Dedicated Research
+vessel_class: 
+main_activity: Marine Research
+ice_class: 
+ice_breaking: none
+dp_class: 
+dp_system: none
+ism_certified: 
+vessel_classification: Bureau Veritas
+vessel_construction: "OCEA Shipyard, France"
+charter_available: false
+
+# -----------------------------------------
+# FLAG AND HOME PORT
+# -----------------------------------------
+flag_country: Israel
+homeport: Hertzlia
+homeport_country: 
+
+# -----------------------------------------
+# OWNERSHIP AND OPERATION
+# -----------------------------------------
+owner: weil-shipping-ltd
+operator: weil-shipping-ltd
+managing_agency: EcoOcean
+operator_contact: Andreas Weil
+operator_phone: +972 54 4220173
+operator_fax: 
+operator_email: "andreas@ecoocean.com"
+
+# -----------------------------------------
+# PHYSICAL DIMENSIONS
+# -----------------------------------------
+length_m: 20.5
+beam_m: 6.5
+draft_m: 1.7
+gross_tons: 52
+hull_material: Aluminum
+freeboard_deck_m: 1.4
+
+# -----------------------------------------
+# PROPULSION AND PERFORMANCE
+# -----------------------------------------
+engine_count: 2
+engine_make: Cummins Marine
+engine_power: 255
+power_hp: 
+aux_diesel_power_hp: 32
+prop_diameter_m: 1
+prop_max_rpm: 600
+speed_cruise_kts: 8.5
+speed_max_kts: 11
+range_nm: 1700
+endurance_days: 8
+
+# -----------------------------------------
+# CAPACITY
+# -----------------------------------------
+crew: 1
+officers: 2
+scientists: 12
+air_conditioning: true
+fuel_capacity_mt: 8
+capacity_dry_stores_mt: 
+water_capacity_mt: 3
+water_generation_mt_day: 1.4
+water_treatment: 
+
+# -----------------------------------------
+# LABORATORY AND DECK FACILITIES
+# -----------------------------------------
+lab_wet_area_m2: 23.5
+lab_dry_area_m2: 
+free_deck_area_m2: 36.5
+container_lab_space: none
+radioactive_lab: none
+diving_support: "Yes"
+
+# -----------------------------------------
+# SCIENTIFIC EQUIPMENT
+# -----------------------------------------
+multibeam: 
+adcp: 
+sidescan_sonar: Hummingbird 981C
+sub_bottom_profiler: 
+echo_sounder: "Furuno FCV1100L, 8 channels of  28 -200 Khz"
+acoustic_sonar: 
+acoustic_quiet: 
+
+ctd:
+  capable: "Yes"
+  make: SeaBird SBE 911+
+  fluorometer: "Yes"
+  oxygen_sensor: "No"
+  rosette: 12x8 Liter Niskin Bottles
+  towed: "Yes"
+  transmissometer: "Yes"
+
+coring:
+  capable: "Yes"
+  box_core: 
+  grab_sampler: 40/30 cm opening
+  gravity_core: "4\" diameter, 3m long pipes - 350Kg corer"
+  multi_core: 
+  piston_core: 
+
+underwater_vehicles: "Yes"
+rov_support: Seabotix LBV 150
+auv_support: 
+submarine_support: 
+
+# -----------------------------------------
+# DECK EQUIPMENT
+# -----------------------------------------
+winches:
+  count: 1
+  steel_wire_length_m: 500
+  steel_wire_load_mt: 1.5
+  conducting_cable_length_m: 500
+  conducting_cable_load_mt: 0.4
+  trawl_length_m: 500
+  trawl_load_mt: 1.5
+  other_length_m: 
+  other_load_mt: 
+  notes: 
+
+gantry:
+  position: 
+  height_above_deck_m: 
+  outboard_extension_m: 
+  load_capacity_mt: 
+
+cranes:
+  position: Aft Deck
+  height_above_deck_m: 
+  outboard_extension_m: 7
+  load_capacity_mt: 1.06
+
+# -----------------------------------------
+# NAVIGATION AND COMMUNICATIONS
+# -----------------------------------------
+navigation_equipment: "2  *  Transas Navigator Pro Navigation software"
+navigation_gps: "Furuno 32 wass  & Garmin 76 hand held"
+communications: "Furuno Fm 8500 VHF, Icom 401 VHF, Icom M802 SSB, Icom Hand Held                                  VHF, On Board Intercom system,  Furuno XN 500 navtex"
+satcomm: Iridum Sat Phone ( No Email / Internet ability)
+
+# -----------------------------------------
+# ELECTRICAL SYSTEMS
+# -----------------------------------------
+ac_voltage: 380/220
+ac_power_kva: 
+ac_phases: 3
+ac_frequency_hz: 50
+ac_voltage_stabilized: 
+ac_freq_stabilized_hz: 
+ac_amps_stabilized: 
+dc_voltages: 12/24
+dc_voltage_max: 24
+
+# -----------------------------------------
+# DATA SYSTEMS
+# -----------------------------------------
+computing_equipment: Two standard Pentium 4
+data_printing: One Standard printer
+
+# -----------------------------------------
+# OPERATING PROFILE
+# -----------------------------------------
+operating_area_notes: Eastern Mediterranean and Red Sea
+operating_grids: 
+operating_regions:         # TODO: populate from operating_area_notes
+mission_capabilities:      # TODO: populate based on equipment fields
+
+# -----------------------------------------
+# PROGRAM MEMBERSHIPS
+# -----------------------------------------
+programs:
+  unols: false
+  go_ship: false
+  samos: false
+  vos: false
+  iwgfi: false
+  euro: false
+  bonus: false
+
+# -----------------------------------------
+# LINKS
+# -----------------------------------------
+url_vessel: "http://www.ecoocean.org"
+url_operator: "http://www.ecoocean.org"
+url_schedule: 
+photo_url: 
+
+# -----------------------------------------
+# ADMINISTRATIVE
+# -----------------------------------------
+record_updated: 2006-12-11
+notes: 
+vessel_other: Vessel regulated - Israeli ministry of transport
+
+---

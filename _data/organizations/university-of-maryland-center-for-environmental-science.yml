@@ -1,0 +1,20 @@
+﻿# _data/organizations/university-of-maryland-center-for-environmental-science.yml
+
+name: "University of Maryland, Center for Environmental Science"
+slug: university-of-maryland-center-for-environmental-science
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  University of Maryland, Center for Environmental Science
+  Research Fleet Operations, Chesapeake Biological Laboratory
+  P.O. Box 38, Solomons, MD 20688
+primary_contact:
+phone: (410) 326-7358
+fax: (410) 326-7342
+email: "rfo@cbl.umces.edu"
+url: 
+url_fleet:
+record_updated:
+notes:

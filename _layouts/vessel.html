@@ -1,0 +1,458 @@
+---
+layout: default
+---
+<div class="container my-4">
+
+  {%- comment %} ---- Page header ---- {%- endcomment %}
+  <div class="d-flex justify-content-between align-items-start mb-3 flex-wrap gap-2">
+    <div>
+      <h1 class="mb-1">{{ page.name }}</h1>
+      <div class="d-flex flex-wrap gap-2">
+        {%- if page.status == "Active" %}
+          <span class="badge bg-success">Active</span>
+        {%- elsif page.status == "Out of Service" %}
+          <span class="badge bg-secondary">Out of Service</span>
+        {%- elsif page.status == "Decommissioned" %}
+          <span class="badge bg-dark">Decommissioned</span>
+        {%- elsif page.status == "Under Construction" %}
+          <span class="badge bg-warning text-dark">Under Construction</span>
+        {%- endif %}
+        {%- if page.vessel_class %}<span class="badge bg-info text-dark">{{ page.vessel_class }} Class</span>{%- endif %}
+        {%- if page.vessel_use_type and page.vessel_use_type != "Dedicated Research" %}
+          <span class="badge bg-primary">{{ page.vessel_use_type }}</span>
+        {%- endif %}
+        {%- if page.charter_available %}<span class="badge bg-warning text-dark">Charter Available</span>{%- endif %}
+      </div>
+    </div>
+    <a href="/vessels/" class="btn btn-outline-secondary btn-sm">&#8592; Back to Vessel List</a>
+  </div>
+
+  <div class="row g-4">
+
+    {%- comment %} ---- LEFT COLUMN ---- {%- endcomment %}
+    <div class="col-lg-8">
+
+      {%- comment %} Identity & Classification {%- endcomment %}
+      <div class="card shadow-sm mb-4">
+        <div class="card-header bg-dark text-white"><strong>Identity &amp; Classification</strong></div>
+        <div class="card-body">
+          <dl class="row mb-0">
+            {%- if page.year_built %}<dt class="col-sm-5">Year Built</dt><dd class="col-sm-7">{{ page.year_built }}</dd>{%- endif %}
+            {%- if page.imo_number %}<dt class="col-sm-5">IMO Number</dt><dd class="col-sm-7">{{ page.imo_number }}</dd>{%- endif %}
+            {%- if page.nodc_code %}<dt class="col-sm-5">NODC Code</dt><dd class="col-sm-7">{{ page.nodc_code }}</dd>{%- endif %}
+            {%- if page.call_sign %}<dt class="col-sm-5">Call Sign</dt><dd class="col-sm-7">{{ page.call_sign }}</dd>{%- endif %}
+            {%- if page.main_activity %}<dt class="col-sm-5">Main Activity</dt><dd class="col-sm-7">{{ page.main_activity }}</dd>{%- endif %}
+            {%- if page.vessel_classification %}<dt class="col-sm-5">Vessel Classification</dt><dd class="col-sm-7">{{ page.vessel_classification }}</dd>{%- endif %}
+            {%- if page.vessel_construction %}<dt class="col-sm-5">Construction</dt><dd class="col-sm-7">{{ page.vessel_construction }}</dd>{%- endif %}
+            {%- if page.hull_material %}<dt class="col-sm-5">Hull Material</dt><dd class="col-sm-7">{{ page.hull_material }}</dd>{%- endif %}
+            {%- if page.ice_breaking %}<dt class="col-sm-5">Ice Breaking</dt><dd class="col-sm-7">{{ page.ice_breaking }}</dd>{%- endif %}
+            {%- if page.ice_class %}<dt class="col-sm-5">Ice Class</dt><dd class="col-sm-7">{{ page.ice_class }}</dd>{%- endif %}
+            {%- if page.ism_certified %}<dt class="col-sm-5">ISM Certified</dt><dd class="col-sm-7">{{ page.ism_certified }}</dd>{%- endif %}
+          </dl>
+        </div>
+      </div>
+
+      {%- comment %} Flag & Home Port {%- endcomment %}
+      {%- if page.flag_country or page.homeport %}
+      <div class="card shadow-sm mb-4">
+        <div class="card-header bg-dark text-white"><strong>Flag &amp; Home Port</strong></div>
+        <div class="card-body">
+          <dl class="row mb-0">
+            {%- if page.flag_country %}<dt class="col-sm-5">Flag Country</dt><dd class="col-sm-7">{{ page.flag_country }}</dd>{%- endif %}
+            {%- if page.homeport %}<dt class="col-sm-5">Home Port</dt><dd class="col-sm-7">{{ page.homeport }}</dd>{%- endif %}
+            {%- if page.homeport_country %}<dt class="col-sm-5">Home Port Country</dt><dd class="col-sm-7">{{ page.homeport_country }}</dd>{%- endif %}
+          </dl>
+        </div>
+      </div>
+      {%- endif %}
+
+      {%- comment %} Ownership & Operation {%- endcomment %}
+      <div class="card shadow-sm mb-4">
+        <div class="card-header bg-dark text-white"><strong>Ownership &amp; Operation</strong></div>
+        <div class="card-body">
+          <dl class="row mb-0">
+            {%- if page.owner %}
+              {%- assign owner_org = site.data.organizations[page.owner] %}
+              <dt class="col-sm-5">Owner</dt>
+              <dd class="col-sm-7">
+                {%- if owner_org %}{{ owner_org.name }}{%- else %}{{ page.owner | replace: '-', ' ' | capitalize }}{%- endif %}
+              </dd>
+            {%- endif %}
+            {%- if page.operator %}
+              {%- assign operator_org = site.data.organizations[page.operator] %}
+              <dt class="col-sm-5">Operator</dt>
+              <dd class="col-sm-7">
+                {%- if operator_org and operator_org.url %}
+                  <a href="{{ operator_org.url }}" target="_blank">{{ operator_org.name }}</a>
+                {%- elsif operator_org %}
+                  {{ operator_org.name }}
+                {%- else %}
+                  {{ page.operator | replace: '-', ' ' | capitalize }}
+                {%- endif %}
+              </dd>
+            {%- endif %}
+            {%- if page.managing_agency %}<dt class="col-sm-5">Managing Agency</dt><dd class="col-sm-7">{{ page.managing_agency }}</dd>{%- endif %}
+            {%- if page.operator_contact %}<dt class="col-sm-5">Contact</dt><dd class="col-sm-7">{{ page.operator_contact }}</dd>{%- endif %}
+            {%- if page.operator_phone %}<dt class="col-sm-5">Phone</dt><dd class="col-sm-7">{{ page.operator_phone }}</dd>{%- endif %}
+            {%- if page.operator_fax %}<dt class="col-sm-5">Fax</dt><dd class="col-sm-7">{{ page.operator_fax }}</dd>{%- endif %}
+            {%- if page.operator_email %}<dt class="col-sm-5">Email</dt><dd class="col-sm-7"><a href="mailto:{{ page.operator_email }}">{{ page.operator_email }}</a></dd>{%- endif %}
+          </dl>
+        </div>
+      </div>
+
+      {%- comment %} Physical Dimensions {%- endcomment %}
+      {%- if page.length_m or page.gross_tons %}
+      <div class="card shadow-sm mb-4">
+        <div class="card-header bg-dark text-white"><strong>Physical Dimensions</strong></div>
+        <div class="card-body">
+          <dl class="row mb-0">
+            {%- if page.length_m %}<dt class="col-sm-5">Length</dt><dd class="col-sm-7">{{ page.length_m }} m</dd>{%- endif %}
+            {%- if page.beam_m %}<dt class="col-sm-5">Beam</dt><dd class="col-sm-7">{{ page.beam_m }} m</dd>{%- endif %}
+            {%- if page.draft_m %}<dt class="col-sm-5">Draft</dt><dd class="col-sm-7">{{ page.draft_m }} m</dd>{%- endif %}
+            {%- if page.freeboard_deck_m %}<dt class="col-sm-5">Freeboard</dt><dd class="col-sm-7">{{ page.freeboard_deck_m }} m</dd>{%- endif %}
+            {%- if page.gross_tons %}<dt class="col-sm-5">Gross Tonnage</dt><dd class="col-sm-7">{{ page.gross_tons }} GT</dd>{%- endif %}
+          </dl>
+        </div>
+      </div>
+      {%- endif %}
+
+      {%- comment %} Propulsion & Performance {%- endcomment %}
+      {%- if page.speed_cruise_kts or page.range_nm or page.engine_count %}
+      <div class="card shadow-sm mb-4">
+        <div class="card-header bg-dark text-white"><strong>Propulsion &amp; Performance</strong></div>
+        <div class="card-body">
+          <dl class="row mb-0">
+            {%- if page.engine_count %}<dt class="col-sm-5">Engines</dt><dd class="col-sm-7">{{ page.engine_count }}</dd>{%- endif %}
+            {%- if page.engine_make %}<dt class="col-sm-5">Engine Make</dt><dd class="col-sm-7">{{ page.engine_make }}</dd>{%- endif %}
+            {%- if page.engine_power %}<dt class="col-sm-5">Engine Power</dt><dd class="col-sm-7">{{ page.engine_power }}</dd>{%- endif %}
+            {%- if page.power_hp %}<dt class="col-sm-5">Power (HP)</dt><dd class="col-sm-7">{{ page.power_hp }}</dd>{%- endif %}
+            {%- if page.aux_diesel_power_hp %}<dt class="col-sm-5">Auxiliary Diesel (HP)</dt><dd class="col-sm-7">{{ page.aux_diesel_power_hp }}</dd>{%- endif %}
+            {%- if page.prop_diameter_m %}<dt class="col-sm-5">Propeller Diameter</dt><dd class="col-sm-7">{{ page.prop_diameter_m }} m</dd>{%- endif %}
+            {%- if page.prop_max_rpm %}<dt class="col-sm-5">Propeller Max RPM</dt><dd class="col-sm-7">{{ page.prop_max_rpm }}</dd>{%- endif %}
+            {%- if page.dp_system %}<dt class="col-sm-5">Dynamic Positioning</dt><dd class="col-sm-7">{{ page.dp_system }}</dd>{%- endif %}
+            {%- if page.dp_class %}<dt class="col-sm-5">DP Class</dt><dd class="col-sm-7">{{ page.dp_class }}</dd>{%- endif %}
+            {%- if page.speed_cruise_kts %}<dt class="col-sm-5">Cruise Speed</dt><dd class="col-sm-7">{{ page.speed_cruise_kts }} kts</dd>{%- endif %}
+            {%- if page.speed_max_kts %}<dt class="col-sm-5">Max Speed</dt><dd class="col-sm-7">{{ page.speed_max_kts }} kts</dd>{%- endif %}
+            {%- if page.range_nm %}<dt class="col-sm-5">Range</dt><dd class="col-sm-7">{{ page.range_nm }} nm</dd>{%- endif %}
+            {%- if page.endurance_days %}<dt class="col-sm-5">Endurance</dt><dd class="col-sm-7">{{ page.endurance_days }} days</dd>{%- endif %}
+          </dl>
+        </div>
+      </div>
+      {%- endif %}
+
+      {%- comment %} Capacity {%- endcomment %}
+      {%- if page.crew or page.scientists %}
+      <div class="card shadow-sm mb-4">
+        <div class="card-header bg-dark text-white"><strong>Capacity</strong></div>
+        <div class="card-body">
+          <dl class="row mb-0">
+            {%- if page.crew %}<dt class="col-sm-5">Crew</dt><dd class="col-sm-7">{{ page.crew }}</dd>{%- endif %}
+            {%- if page.officers %}<dt class="col-sm-5">Officers</dt><dd class="col-sm-7">{{ page.officers }}</dd>{%- endif %}
+            {%- if page.scientists %}<dt class="col-sm-5">Scientists</dt><dd class="col-sm-7">{{ page.scientists }}</dd>{%- endif %}
+            {%- if page.scientists_day_only %}<dt class="col-sm-5">Scientists (day only)</dt><dd class="col-sm-7">{{ page.scientists_day_only }}</dd>{%- endif %}
+            {%- if page.berths %}<dt class="col-sm-5">Berths</dt><dd class="col-sm-7">{{ page.berths }}</dd>{%- endif %}
+            <dt class="col-sm-5">Air Conditioning</dt>
+            <dd class="col-sm-7">
+              {%- if page.air_conditioning == true %}Yes
+              {%- elsif page.air_conditioning == false %}No
+              {%- else %}Unknown{%- endif %}
+            </dd>
+            {%- if page.fuel_capacity_mt %}<dt class="col-sm-5">Fuel Capacity</dt><dd class="col-sm-7">{{ page.fuel_capacity_mt }} mt</dd>{%- endif %}
+            {%- if page.capacity_dry_stores_mt %}<dt class="col-sm-5">Dry Stores</dt><dd class="col-sm-7">{{ page.capacity_dry_stores_mt }} mt</dd>{%- endif %}
+            {%- if page.water_capacity_mt %}<dt class="col-sm-5">Fresh Water Capacity</dt><dd class="col-sm-7">{{ page.water_capacity_mt }} mt</dd>{%- endif %}
+            {%- if page.water_generation_mt_day %}<dt class="col-sm-5">Water Generation</dt><dd class="col-sm-7">{{ page.water_generation_mt_day }} mt/day</dd>{%- endif %}
+            {%- if page.water_treatment %}<dt class="col-sm-5">Water Treatment</dt><dd class="col-sm-7">{{ page.water_treatment }}</dd>{%- endif %}
+          </dl>
+        </div>
+      </div>
+      {%- endif %}
+
+      {%- comment %} Laboratory & Deck Facilities {%- endcomment %}
+      {%- if page.lab_wet_area_m2 or page.lab_dry_area_m2 or page.free_deck_area_m2 %}
+      <div class="card shadow-sm mb-4">
+        <div class="card-header bg-dark text-white"><strong>Laboratory &amp; Deck Facilities</strong></div>
+        <div class="card-body">
+          <dl class="row mb-0">
+            {%- if page.lab_wet_area_m2 %}<dt class="col-sm-5">Wet Lab Area</dt><dd class="col-sm-7">{{ page.lab_wet_area_m2 }} m²</dd>{%- endif %}
+            {%- if page.lab_dry_area_m2 %}<dt class="col-sm-5">Dry Lab Area</dt><dd class="col-sm-7">{{ page.lab_dry_area_m2 }} m²</dd>{%- endif %}
+            {%- if page.free_deck_area_m2 %}<dt class="col-sm-5">Free Deck Area</dt><dd class="col-sm-7">{{ page.free_deck_area_m2 }} m²</dd>{%- endif %}
+            {%- if page.container_lab_space %}<dt class="col-sm-5">Container Lab Space</dt><dd class="col-sm-7">{{ page.container_lab_space }}</dd>{%- endif %}
+            {%- if page.radioactive_lab %}<dt class="col-sm-5">Radioactive Lab</dt><dd class="col-sm-7">{{ page.radioactive_lab }}</dd>{%- endif %}
+            {%- if page.diving_support %}<dt class="col-sm-5">Diving Support</dt><dd class="col-sm-7">{{ page.diving_support }}</dd>{%- endif %}
+          </dl>
+        </div>
+      </div>
+      {%- endif %}
+
+      {%- comment %} Scientific Equipment {%- endcomment %}
+      <div class="card shadow-sm mb-4">
+        <div class="card-header bg-dark text-white"><strong>Scientific Equipment</strong></div>
+        <div class="card-body">
+          <dl class="row mb-0">
+            {%- if page.multibeam %}<dt class="col-sm-5">Multibeam Sonar</dt><dd class="col-sm-7">{{ page.multibeam }}</dd>{%- endif %}
+            {%- if page.adcp %}<dt class="col-sm-5">ADCP</dt><dd class="col-sm-7">{{ page.adcp }}</dd>{%- endif %}
+            {%- if page.sidescan_sonar %}<dt class="col-sm-5">Sidescan Sonar</dt><dd class="col-sm-7">{{ page.sidescan_sonar }}</dd>{%- endif %}
+            {%- if page.sub_bottom_profiler %}<dt class="col-sm-5">Sub-Bottom Profiler</dt><dd class="col-sm-7">{{ page.sub_bottom_profiler }}</dd>{%- endif %}
+            {%- if page.echo_sounder %}<dt class="col-sm-5">Echo Sounder</dt><dd class="col-sm-7">{{ page.echo_sounder }}</dd>{%- endif %}
+            {%- if page.acoustic_sonar %}<dt class="col-sm-5">Acoustic Sonar</dt><dd class="col-sm-7">{{ page.acoustic_sonar }}</dd>{%- endif %}
+            {%- if page.acoustic_quiet %}<dt class="col-sm-5">Acoustic Quiet</dt><dd class="col-sm-7">{{ page.acoustic_quiet }}</dd>{%- endif %}
+            {%- if page.ctd %}
+              {%- if page.ctd.capable %}<dt class="col-sm-5">CTD</dt><dd class="col-sm-7">{{ page.ctd.capable }}</dd>{%- endif %}
+              {%- if page.ctd.make %}<dt class="col-sm-5">CTD Make</dt><dd class="col-sm-7">{{ page.ctd.make }}</dd>{%- endif %}
+              {%- if page.ctd.rosette %}<dt class="col-sm-5">CTD Rosette</dt><dd class="col-sm-7">{{ page.ctd.rosette }}</dd>{%- endif %}
+              {%- if page.ctd.fluorometer %}<dt class="col-sm-5">Fluorometer</dt><dd class="col-sm-7">{{ page.ctd.fluorometer }}</dd>{%- endif %}
+              {%- if page.ctd.oxygen_sensor %}<dt class="col-sm-5">Oxygen Sensor</dt><dd class="col-sm-7">{{ page.ctd.oxygen_sensor }}</dd>{%- endif %}
+              {%- if page.ctd.transmissometer %}<dt class="col-sm-5">Transmissometer</dt><dd class="col-sm-7">{{ page.ctd.transmissometer }}</dd>{%- endif %}
+              {%- if page.ctd.towed %}<dt class="col-sm-5">Towed CTD</dt><dd class="col-sm-7">{{ page.ctd.towed }}</dd>{%- endif %}
+            {%- endif %}
+            {%- if page.coring %}
+              {%- if page.coring.capable %}<dt class="col-sm-5">Coring Capable</dt><dd class="col-sm-7">{{ page.coring.capable }}</dd>{%- endif %}
+              {%- if page.coring.gravity_core %}<dt class="col-sm-5">Gravity Core</dt><dd class="col-sm-7">{{ page.coring.gravity_core }}</dd>{%- endif %}
+              {%- if page.coring.piston_core %}<dt class="col-sm-5">Piston Core</dt><dd class="col-sm-7">{{ page.coring.piston_core }}</dd>{%- endif %}
+              {%- if page.coring.box_core %}<dt class="col-sm-5">Box Core</dt><dd class="col-sm-7">{{ page.coring.box_core }}</dd>{%- endif %}
+              {%- if page.coring.multi_core %}<dt class="col-sm-5">Multi Core</dt><dd class="col-sm-7">{{ page.coring.multi_core }}</dd>{%- endif %}
+              {%- if page.coring.grab_sampler %}<dt class="col-sm-5">Grab Sampler</dt><dd class="col-sm-7">{{ page.coring.grab_sampler }}</dd>{%- endif %}
+            {%- endif %}
+            {%- if page.underwater_vehicles %}<dt class="col-sm-5">Underwater Vehicles</dt><dd class="col-sm-7">{{ page.underwater_vehicles }}</dd>{%- endif %}
+            {%- if page.rov_support %}<dt class="col-sm-5">ROV Support</dt><dd class="col-sm-7">{{ page.rov_support }}</dd>{%- endif %}
+            {%- if page.auv_support %}<dt class="col-sm-5">AUV Support</dt><dd class="col-sm-7">{{ page.auv_support }}</dd>{%- endif %}
+            {%- if page.submarine_support %}<dt class="col-sm-5">Submarine Support</dt><dd class="col-sm-7">{{ page.submarine_support }}</dd>{%- endif %}
+          </dl>
+        </div>
+      </div>
+
+      {%- comment %} Deck Equipment {%- endcomment %}
+      {%- if page.winches or page.cranes or page.gantry %}
+      <div class="card shadow-sm mb-4">
+        <div class="card-header bg-dark text-white"><strong>Deck Equipment</strong></div>
+        <div class="card-body">
+          {%- if page.winches %}
+          <h6 class="text-muted mb-2">Winches</h6>
+          <dl class="row mb-3">
+            {%- if page.winches.count %}<dt class="col-sm-5">Number of Winches</dt><dd class="col-sm-7">{{ page.winches.count }}</dd>{%- endif %}
+            {%- if page.winches.steel_wire_length_m %}<dt class="col-sm-5">Steel Wire Length</dt><dd class="col-sm-7">{{ page.winches.steel_wire_length_m }} m</dd>{%- endif %}
+            {%- if page.winches.steel_wire_load_mt %}<dt class="col-sm-5">Steel Wire Load</dt><dd class="col-sm-7">{{ page.winches.steel_wire_load_mt }} mt</dd>{%- endif %}
+            {%- if page.winches.conducting_cable_length_m %}<dt class="col-sm-5">Conducting Cable Length</dt><dd class="col-sm-7">{{ page.winches.conducting_cable_length_m }} m</dd>{%- endif %}
+            {%- if page.winches.conducting_cable_load_mt %}<dt class="col-sm-5">Conducting Cable Load</dt><dd class="col-sm-7">{{ page.winches.conducting_cable_load_mt }} mt</dd>{%- endif %}
+            {%- if page.winches.trawl_length_m %}<dt class="col-sm-5">Trawl Wire Length</dt><dd class="col-sm-7">{{ page.winches.trawl_length_m }} m</dd>{%- endif %}
+            {%- if page.winches.trawl_load_mt %}<dt class="col-sm-5">Trawl Wire Load</dt><dd class="col-sm-7">{{ page.winches.trawl_load_mt }} mt</dd>{%- endif %}
+            {%- if page.winches.other_length_m %}<dt class="col-sm-5">Other Wire Length</dt><dd class="col-sm-7">{{ page.winches.other_length_m }} m</dd>{%- endif %}
+            {%- if page.winches.other_load_mt %}<dt class="col-sm-5">Other Wire Load</dt><dd class="col-sm-7">{{ page.winches.other_load_mt }} mt</dd>{%- endif %}
+            {%- if page.winches.notes %}<dt class="col-sm-5">Notes</dt><dd class="col-sm-7">{{ page.winches.notes }}</dd>{%- endif %}
+          </dl>
+          {%- endif %}
+          {%- if page.gantry and page.gantry.position %}
+          <h6 class="text-muted mb-2">Gantry</h6>
+          <dl class="row mb-3">
+            {%- if page.gantry.position %}<dt class="col-sm-5">Position</dt><dd class="col-sm-7">{{ page.gantry.position }}</dd>{%- endif %}
+            {%- if page.gantry.height_above_deck_m %}<dt class="col-sm-5">Height Above Deck</dt><dd class="col-sm-7">{{ page.gantry.height_above_deck_m }} m</dd>{%- endif %}
+            {%- if page.gantry.outboard_extension_m %}<dt class="col-sm-5">Outboard Extension</dt><dd class="col-sm-7">{{ page.gantry.outboard_extension_m }} m</dd>{%- endif %}
+            {%- if page.gantry.load_capacity_mt %}<dt class="col-sm-5">Load Capacity</dt><dd class="col-sm-7">{{ page.gantry.load_capacity_mt }} mt</dd>{%- endif %}
+          </dl>
+          {%- endif %}
+          {%- if page.cranes and page.cranes.position %}
+          <h6 class="text-muted mb-2">Cranes</h6>
+          <dl class="row mb-0">
+            {%- if page.cranes.position %}<dt class="col-sm-5">Position</dt><dd class="col-sm-7">{{ page.cranes.position }}</dd>{%- endif %}
+            {%- if page.cranes.height_above_deck_m %}<dt class="col-sm-5">Height Above Deck</dt><dd class="col-sm-7">{{ page.cranes.height_above_deck_m }} m</dd>{%- endif %}
+            {%- if page.cranes.outboard_extension_m %}<dt class="col-sm-5">Outboard Extension</dt><dd class="col-sm-7">{{ page.cranes.outboard_extension_m }} m</dd>{%- endif %}
+            {%- if page.cranes.load_capacity_mt %}<dt class="col-sm-5">Load Capacity</dt><dd class="col-sm-7">{{ page.cranes.load_capacity_mt }} mt</dd>{%- endif %}
+          </dl>
+          {%- endif %}
+        </div>
+      </div>
+      {%- endif %}
+
+      {%- comment %} Navigation & Communications {%- endcomment %}
+      {%- if page.navigation_equipment or page.communications %}
+      <div class="card shadow-sm mb-4">
+        <div class="card-header bg-dark text-white"><strong>Navigation &amp; Communications</strong></div>
+        <div class="card-body">
+          <dl class="row mb-0">
+            {%- if page.navigation_equipment %}<dt class="col-sm-5">Navigation Equipment</dt><dd class="col-sm-7">{{ page.navigation_equipment }}</dd>{%- endif %}
+            {%- if page.navigation_gps %}<dt class="col-sm-5">GPS Systems</dt><dd class="col-sm-7">{{ page.navigation_gps }}</dd>{%- endif %}
+            {%- if page.communications %}<dt class="col-sm-5">Communications</dt><dd class="col-sm-7">{{ page.communications }}</dd>{%- endif %}
+            {%- if page.satcomm %}<dt class="col-sm-5">Satellite Comms</dt><dd class="col-sm-7">{{ page.satcomm }}</dd>{%- endif %}
+          </dl>
+        </div>
+      </div>
+      {%- endif %}
+
+      {%- comment %} Electrical Systems {%- endcomment %}
+      {%- if page.ac_voltage %}
+      <div class="card shadow-sm mb-4">
+        <div class="card-header bg-dark text-white"><strong>Electrical Systems</strong></div>
+        <div class="card-body">
+          <dl class="row mb-0">
+            {%- if page.ac_voltage %}<dt class="col-sm-5">AC Voltage</dt><dd class="col-sm-7">{{ page.ac_voltage }}</dd>{%- endif %}
+            {%- if page.ac_power_kva %}<dt class="col-sm-5">AC Power (kVA)</dt><dd class="col-sm-7">{{ page.ac_power_kva }}</dd>{%- endif %}
+            {%- if page.ac_phases %}<dt class="col-sm-5">AC Phases</dt><dd class="col-sm-7">{{ page.ac_phases }}</dd>{%- endif %}
+            {%- if page.ac_frequency_hz %}<dt class="col-sm-5">AC Frequency</dt><dd class="col-sm-7">{{ page.ac_frequency_hz }} Hz</dd>{%- endif %}
+            {%- if page.ac_voltage_stabilized %}<dt class="col-sm-5">Stabilized Voltage</dt><dd class="col-sm-7">{{ page.ac_voltage_stabilized }}</dd>{%- endif %}
+            {%- if page.ac_freq_stabilized_hz %}<dt class="col-sm-5">Stabilized Frequency</dt><dd class="col-sm-7">{{ page.ac_freq_stabilized_hz }} Hz</dd>{%- endif %}
+            {%- if page.ac_amps_stabilized %}<dt class="col-sm-5">Stabilized Amps</dt><dd class="col-sm-7">{{ page.ac_amps_stabilized }}</dd>{%- endif %}
+            {%- if page.dc_voltages %}<dt class="col-sm-5">DC Voltages</dt><dd class="col-sm-7">{{ page.dc_voltages }}</dd>{%- endif %}
+            {%- if page.dc_voltage_max %}<dt class="col-sm-5">DC Max Voltage</dt><dd class="col-sm-7">{{ page.dc_voltage_max }}</dd>{%- endif %}
+          </dl>
+        </div>
+      </div>
+      {%- endif %}
+
+      {%- comment %} Data Systems {%- endcomment %}
+      {%- if page.computing_equipment %}
+      <div class="card shadow-sm mb-4">
+        <div class="card-header bg-dark text-white"><strong>Data Systems</strong></div>
+        <div class="card-body">
+          <dl class="row mb-0">
+            {%- if page.computing_equipment %}<dt class="col-sm-5">Computing Equipment</dt><dd class="col-sm-7">{{ page.computing_equipment }}</dd>{%- endif %}
+            {%- if page.data_printing %}<dt class="col-sm-5">Printing</dt><dd class="col-sm-7">{{ page.data_printing }}</dd>{%- endif %}
+          </dl>
+        </div>
+      </div>
+      {%- endif %}
+
+      {%- comment %} Notes {%- endcomment %}
+      {%- if page.notes or page.vessel_other %}
+      <div class="card shadow-sm mb-4">
+        <div class="card-header bg-dark text-white"><strong>Notes</strong></div>
+        <div class="card-body">
+          {%- if page.notes %}<p class="mb-1">{{ page.notes }}</p>{%- endif %}
+          {%- if page.vessel_other %}<p class="mb-0 text-muted">{{ page.vessel_other }}</p>{%- endif %}
+        </div>
+      </div>
+      {%- endif %}
+
+    </div>{%- comment %} end left column {%- endcomment %}
+
+    {%- comment %} ---- RIGHT COLUMN ---- {%- endcomment %}
+    <div class="col-lg-4">
+
+      {%- comment %} Photo placeholder {%- endcomment %}
+      <div class="card shadow-sm mb-4">
+        <div class="card-body text-center p-3">
+          {%- if page.photo_url %}
+            <img src="{{ page.photo_url }}" alt="{{ page.name }}" class="img-fluid rounded">
+          {%- else %}
+            <div class="bg-light rounded d-flex align-items-center justify-content-center" style="height:180px;">
+              <span class="text-muted">No photo available</span>
+            </div>
+          {%- endif %}
+        </div>
+      </div>
+
+      {%- comment %} Quick facts {%- endcomment %}
+      <div class="card shadow-sm mb-4">
+        <div class="card-header bg-dark text-white"><strong>Quick Facts</strong></div>
+        <div class="card-body p-0">
+          <ul class="list-group list-group-flush">
+            {%- if page.flag_country %}<li class="list-group-item"><strong>Flag:</strong> {{ page.flag_country }}</li>{%- endif %}
+            {%- if page.year_built %}<li class="list-group-item"><strong>Built:</strong> {{ page.year_built }}</li>{%- endif %}
+            {%- if page.length_m %}<li class="list-group-item"><strong>Length:</strong> {{ page.length_m }} m</li>{%- endif %}
+            {%- if page.gross_tons %}<li class="list-group-item"><strong>Gross Tons:</strong> {{ page.gross_tons }}</li>{%- endif %}
+            {%- if page.scientists %}<li class="list-group-item"><strong>Scientists:</strong> {{ page.scientists }}</li>{%- endif %}
+            {%- if page.crew %}<li class="list-group-item"><strong>Crew:</strong> {{ page.crew }}</li>{%- endif %}
+            {%- if page.range_nm %}<li class="list-group-item"><strong>Range:</strong> {{ page.range_nm }} nm</li>{%- endif %}
+            {%- if page.endurance_days %}<li class="list-group-item"><strong>Endurance:</strong> {{ page.endurance_days }} days</li>{%- endif %}
+          </ul>
+        </div>
+      </div>
+
+      {%- comment %} Operating regions {%- endcomment %}
+      {%- if page.operating_regions %}
+      <div class="card shadow-sm mb-4">
+        <div class="card-header bg-dark text-white"><strong>Operating Regions</strong></div>
+        <div class="card-body">
+          <ul class="list-unstyled mb-0">
+            {%- for region in page.operating_regions %}
+            <li>{{ region }}</li>
+            {%- endfor %}
+          </ul>
+        </div>
+      </div>
+      {%- endif %}
+
+      {%- comment %} Mission capabilities {%- endcomment %}
+      {%- if page.mission_capabilities %}
+      <div class="card shadow-sm mb-4">
+        <div class="card-header bg-dark text-white"><strong>Mission Capabilities</strong></div>
+        <div class="card-body">
+          <ul class="list-unstyled mb-0">
+            {%- for cap in page.mission_capabilities %}
+            <li><span class="badge bg-secondary me-1">{{ cap }}</span></li>
+            {%- endfor %}
+          </ul>
+        </div>
+      </div>
+      {%- endif %}
+
+      {%- comment %} Program memberships {%- endcomment %}
+      {%- if page.programs %}
+      <div class="card shadow-sm mb-4">
+        <div class="card-header bg-dark text-white"><strong>Program Memberships</strong></div>
+        <div class="card-body">
+          <div class="d-flex flex-wrap gap-1">
+            {%- if page.programs.unols %}<span class="badge bg-primary">UNOLS</span>{%- endif %}
+            {%- if page.programs.go_ship %}<span class="badge bg-primary">GO-SHIP</span>{%- endif %}
+            {%- if page.programs.samos %}<span class="badge bg-primary">SAMOS</span>{%- endif %}
+            {%- if page.programs.vos %}<span class="badge bg-primary">VOS</span>{%- endif %}
+            {%- if page.programs.iwgfi %}<span class="badge bg-primary">IWGFI</span>{%- endif %}
+            {%- if page.programs.euro %}<span class="badge bg-primary">Euro</span>{%- endif %}
+            {%- if page.programs.bonus %}<span class="badge bg-primary">BONUS</span>{%- endif %}
+          </div>
+          {%- unless page.programs.unols or page.programs.go_ship or page.programs.samos or page.programs.vos or page.programs.iwgfi or page.programs.euro or page.programs.bonus %}
+          <p class="text-muted mb-0 small">No program memberships listed.</p>
+          {%- endunless %}
+        </div>
+      </div>
+      {%- endif %}
+
+      {%- comment %} Charter info {%- endcomment %}
+      {%- if page.charter_available %}
+      <div class="card shadow-sm mb-4 border-warning">
+        <div class="card-header bg-warning text-dark"><strong>Charter Information</strong></div>
+        <div class="card-body">
+          {%- if page.charter_notes %}<p>{{ page.charter_notes }}</p>{%- endif %}
+          {%- if page.charter_contact %}<p class="mb-1"><strong>Contact:</strong> {{ page.charter_contact }}</p>{%- endif %}
+          {%- if page.charter_email %}<p class="mb-1"><strong>Email:</strong> <a href="mailto:{{ page.charter_email }}">{{ page.charter_email }}</a></p>{%- endif %}
+          {%- if page.charter_min_days %}<p class="mb-1"><strong>Min. Charter:</strong> {{ page.charter_min_days }} days</p>{%- endif %}
+          {%- if page.charter_url %}<a href="{{ page.charter_url }}" class="btn btn-warning btn-sm mt-2" target="_blank">Inquire About Charter</a>{%- endif %}
+        </div>
+      </div>
+      {%- endif %}
+
+      {%- comment %} Links {%- endcomment %}
+      <div class="card shadow-sm mb-4">
+        <div class="card-header bg-dark text-white"><strong>Links</strong></div>
+        <div class="card-body">
+          <ul class="list-unstyled mb-0">
+            {%- if page.url_vessel %}<li><a href="{{ page.url_vessel }}" target="_blank">Vessel Website</a></li>{%- endif %}
+            {%- if page.url_schedule %}<li><a href="{{ page.url_schedule }}" target="_blank">Cruise Schedule</a></li>{%- endif %}
+            {%- if page.url_operator %}
+              {%- assign op_org = site.data.organizations[page.operator] %}
+              <li><a href="{{ page.url_operator }}" target="_blank">
+                {%- if op_org %}{{ op_org.name }}{%- else %}Operator Website{%- endif %}
+              </a></li>
+            {%- endif %}
+          </ul>
+          {%- unless page.url_vessel or page.url_schedule or page.url_operator %}
+          <p class="text-muted mb-0 small">No links available.</p>
+          {%- endunless %}
+        </div>
+      </div>
+
+      {%- comment %} Operating area notes {%- endcomment %}
+      {%- if page.operating_area_notes %}
+      <div class="card shadow-sm mb-4">
+        <div class="card-header bg-dark text-white"><strong>Operating Area</strong></div>
+        <div class="card-body">
+          <p class="mb-0 small">{{ page.operating_area_notes }}</p>
+        </div>
+      </div>
+      {%- endif %}
+
+      <p class="text-muted small">Record last updated: {{ page.record_updated }}</p>
+
+    </div>{%- comment %} end right column {%- endcomment %}
+
+  </div>{%- comment %} end row {%- endcomment %}
+</div>

@@ -1,0 +1,215 @@
+﻿# _data/vessels/tangaroa.yml
+
+# -----------------------------------------
+# IDENTITY
+# -----------------------------------------
+name: Tangaroa
+slug: tangaroa
+imo_number: 
+nodc_code: 
+call_sign: ZMFR
+year_built: 1991
+
+# -----------------------------------------
+# STATUS AND CLASSIFICATION
+# -----------------------------------------
+status: Active
+vessel_use_type: Dedicated Research
+vessel_class: 
+main_activity: Marine Science
+ice_class: 
+ice_breaking: Ice strengthened hull (DNV Ice 1C)
+dp_class: 
+dp_system: 
+ism_certified: 
+vessel_classification: DNV
+vessel_construction: 
+charter_available: false
+
+# -----------------------------------------
+# FLAG AND HOME PORT
+# -----------------------------------------
+flag_country: New Zealand
+homeport: Wellington
+homeport_country: 
+
+# -----------------------------------------
+# OWNERSHIP AND OPERATION
+# -----------------------------------------
+owner: national-institute-of-water-and-atmospheric-research-limited-niwa-niwa-vessel-management-limited
+operator: niwa-vessel-management-limited
+managing_agency: 
+operator_contact: "Mr Clive Glover, General Manager"
+operator_phone: + 64 4 386 0300
+operator_fax: + 64 4 386 0555
+operator_email: "c.glover@niwa.cri.nz"
+
+# -----------------------------------------
+# PHYSICAL DIMENSIONS
+# -----------------------------------------
+length_m: 70
+beam_m: 13.8
+draft_m: 7.2
+gross_tons: 2282
+hull_material: Steel
+freeboard_deck_m: 1
+
+# -----------------------------------------
+# PROPULSION AND PERFORMANCE
+# -----------------------------------------
+engine_count: 1
+engine_make: Wartsila Vasa 8R 32D
+engine_power: 4000 at 750rpm
+power_hp: 
+aux_diesel_power_hp: 1600
+prop_diameter_m: 4.6
+prop_max_rpm: 130
+speed_cruise_kts: 12.5
+speed_max_kts: 16
+range_nm: 18000
+endurance_days: 60
+
+# -----------------------------------------
+# CAPACITY
+# -----------------------------------------
+crew: 8
+officers: 5
+scientists: 25
+air_conditioning: false
+fuel_capacity_mt: 681
+capacity_dry_stores_mt: 485
+water_capacity_mt: 82
+water_generation_mt_day: 10
+water_treatment: filtered
+
+# -----------------------------------------
+# LABORATORY AND DECK FACILITIES
+# -----------------------------------------
+lab_wet_area_m2: 120
+lab_dry_area_m2: 240
+free_deck_area_m2: 200
+container_lab_space: "yes"
+radioactive_lab: "yes"
+diving_support: 
+
+# -----------------------------------------
+# SCIENTIFIC EQUIPMENT
+# -----------------------------------------
+multibeam: "Simrad EM300 (30kHz) with velocity profiler & TSS POS/MV motion sensor"
+adcp: RDI Broad Band acoustic profiler (150 kHz)
+sidescan_sonar: Klein dual frequency towed system (mobilised as required)
+sub_bottom_profiler: 
+echo_sounder: "Simard EK 500 (12, 27, 38, 120 kHz), Simrad EA 500 (12, 120 kHz), Kaijo Denki KMC 2000 (12kHz)"
+acoustic_sonar: sub bottom profiler ORE model 140 (3.5kHz).
+acoustic_quiet: 
+
+ctd:
+  capable: Seabird 911plus system is mobilised as required
+  make: Seabird 911plus
+  fluorometer: "yes"
+  oxygen_sensor: "yes"
+  rosette: "yes"
+  towed: "no"
+  transmissometer: "yes"
+
+coring:
+  capable: "Rock dredges, grab samplers and bottom corers mobilised as required"
+  box_core: "yes"
+  grab_sampler: "yes"
+  gravity_core: "yes"
+  multi_core: "yes"
+  piston_core: "yes"
+
+underwater_vehicles: 
+rov_support: 
+auv_support: 
+submarine_support: 
+
+# -----------------------------------------
+# DECK EQUIPMENT
+# -----------------------------------------
+winches:
+  count: 10
+  steel_wire_length_m: 2500
+  steel_wire_load_mt: 12
+  conducting_cable_length_m: 1200
+  conducting_cable_load_mt: 0
+  trawl_length_m: 4000
+  trawl_load_mt: 12
+  other_length_m: 
+  other_load_mt: 
+  notes: CTD winch 2000-3000m
+
+gantry:
+  position: "Stern, Midships A frame"
+  height_above_deck_m: 6
+  outboard_extension_m: 
+  load_capacity_mt: 5
+
+cranes:
+  position: "3 Seacrans - Stern, Midships"
+  height_above_deck_m: 7
+  outboard_extension_m: 7
+  load_capacity_mt: 1
+
+# -----------------------------------------
+# NAVIGATION AND COMMUNICATIONS
+# -----------------------------------------
+navigation_equipment: "Radars, SatNav, Gyro, Autopilot, Video plotter, DopLog, echo sounders"
+navigation_gps: "Magnavox 4200, Furuno GP 500, Ashtech 3DF ADU,"
+communications: "Cell phone/fax (64 25 427 510), Satcom, Radio,"
+satcomm: "Satcom system B (voice - 008 72  3  512 01127, fax- 008 72 3 512 01128, data- 008 72 3 512 01129, HSD- 008 72 3 512 01788, email - tangaroa@niwa.cri.nz) Satcom system C (email - 451200427@telstra.ves.net)"
+
+# -----------------------------------------
+# ELECTRICAL SYSTEMS
+# -----------------------------------------
+ac_voltage: 0/440V /240V
+ac_power_kva: 
+ac_phases: 3/1
+ac_frequency_hz: 60/60
+ac_voltage_stabilized: 
+ac_freq_stabilized_hz: 
+ac_amps_stabilized: 
+dc_voltages: 24V
+dc_voltage_max: 
+
+# -----------------------------------------
+# DATA SYSTEMS
+# -----------------------------------------
+computing_equipment: "Datacom, Unix-Dos Network"
+data_printing: 
+
+# -----------------------------------------
+# OPERATING PROFILE
+# -----------------------------------------
+operating_area_notes: "Mainly within South Pacific, New Zealand Continental  Shelf and Antarctic Region"
+operating_grids: 
+operating_regions:         # TODO: populate from operating_area_notes
+mission_capabilities:      # TODO: populate based on equipment fields
+
+# -----------------------------------------
+# PROGRAM MEMBERSHIPS
+# -----------------------------------------
+programs:
+  unols: false
+  go_ship: false
+  samos: false
+  vos: false
+  iwgfi: false
+  euro: false
+  bonus: false
+
+# -----------------------------------------
+# LINKS
+# -----------------------------------------
+url_vessel: "http://www.niwa.co.nz/rc/vessels/tangaroa"
+url_operator: "http://www.niwa.cri.nz/vesselco/index.html"
+url_schedule: 
+photo_url: 
+
+# -----------------------------------------
+# ADMINISTRATIVE
+# -----------------------------------------
+record_updated: 2001-08-15
+notes: 
+vessel_other: Lloyds Safe Ship Management system

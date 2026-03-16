@@ -1,0 +1,19 @@
+﻿# _data/organizations/aurora-magnetica-ltd.yml
+
+name: Aurora Magnetica ltd
+slug: aurora-magnetica-ltd
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  12 Victoria Street
+  Alderney, GY9 3UF, G.B.
+primary_contact:
+phone: 
+fax: 
+email: "auroramagnetica@gmail.com"
+url: "http://www.auroramagnetica.com"
+url_fleet:
+record_updated:
+notes:

@@ -1,0 +1,215 @@
+﻿# _data/vessels/wega.yml
+
+# -----------------------------------------
+# IDENTITY
+# -----------------------------------------
+name: Wega
+slug: wega
+imo_number: 
+nodc_code: 06AC
+call_sign: DBBC
+year_built: 1990
+
+# -----------------------------------------
+# STATUS AND CLASSIFICATION
+# -----------------------------------------
+status: Active
+vessel_use_type: Dedicated Research
+vessel_class: 
+main_activity: Measurement and Monitoring
+ice_class: 
+ice_breaking: 
+dp_class: 
+dp_system: "no"
+ism_certified: 
+vessel_classification: GL- Germanischer Lloyd
+vessel_construction: BAW Bundesanstalt für Wasserbau
+charter_available: false
+
+# -----------------------------------------
+# FLAG AND HOME PORT
+# -----------------------------------------
+flag_country: Germany
+homeport: Hamburg
+homeport_country: 
+
+# -----------------------------------------
+# OWNERSHIP AND OPERATION
+# -----------------------------------------
+owner: federal-ministry-of-transport-building-and-housing
+operator: federal-ministry-of-transport-building-and-housing
+managing_agency: "BSH, Ferderal Maritime and Hydrograph Agency"
+operator_contact: "Poeschke, Hans-Joachim"
+operator_phone: ++49 40-3190-4500
+operator_fax: ++49 40-3190-5000
+operator_email: "hans-joachim.poeschke@bsh.de"
+
+# -----------------------------------------
+# PHYSICAL DIMENSIONS
+# -----------------------------------------
+length_m: 52.05
+beam_m: 11.4
+draft_m: 3.45
+gross_tons: 969
+hull_material: Steel
+freeboard_deck_m: 3.45
+
+# -----------------------------------------
+# PROPULSION AND PERFORMANCE
+# -----------------------------------------
+engine_count: 2
+engine_make: MTU Typ 8V396TC53
+engine_power: 545
+power_hp: 760
+aux_diesel_power_hp: 760
+prop_diameter_m: 1.9
+prop_max_rpm: 300
+speed_cruise_kts: 10
+speed_max_kts: 11.6
+range_nm: 2000
+endurance_days: 14
+
+# -----------------------------------------
+# CAPACITY
+# -----------------------------------------
+crew: 16
+officers: 7
+scientists: 7
+air_conditioning: true
+fuel_capacity_mt: 81
+capacity_dry_stores_mt: 
+water_capacity_mt: 42
+water_generation_mt_day: 2
+water_treatment: 
+
+# -----------------------------------------
+# LABORATORY AND DECK FACILITIES
+# -----------------------------------------
+lab_wet_area_m2: 17.3
+lab_dry_area_m2: 30
+free_deck_area_m2: 
+container_lab_space: "2x20`or  6x10` Container"
+radioactive_lab: 
+diving_support: 2 Diver with extensive Diving equipment
+
+# -----------------------------------------
+# SCIENTIFIC EQUIPMENT
+# -----------------------------------------
+multibeam: Simrad EM 3000
+adcp: 
+sidescan_sonar: Klein 2000
+sub_bottom_profiler: 
+echo_sounder: 1 Echo sounder (navigation) 30 kHz; 1 Echo sounder (navigation) 38 kHz; 1 Vertical sounder 230 kHz; 1 Horizontal sonar 24 kHz; 1 Sick Scan 100kHz/500 kHz; 1 Multibeam 300 kHz
+acoustic_sonar: Elac LAZ
+acoustic_quiet: 
+
+ctd:
+  capable: "Yes"
+  make: CTDplus 1000 SIS (Producer)
+  fluorometer: 
+  oxygen_sensor: 
+  rosette: "no"
+  towed: "no"
+  transmissometer: Serial port (COMX) to Windows PC (cable)
+
+coring:
+  capable: "no"
+  box_core: 
+  grab_sampler: 
+  gravity_core: 
+  multi_core: 
+  piston_core: 
+
+underwater_vehicles: "no"
+rov_support: 
+auv_support: 
+submarine_support: 
+
+# -----------------------------------------
+# DECK EQUIPMENT
+# -----------------------------------------
+winches:
+  count: 1
+  steel_wire_length_m: 600
+  steel_wire_load_mt: 3
+  conducting_cable_length_m: 600
+  conducting_cable_load_mt: 0.4
+  trawl_length_m: 
+  trawl_load_mt: 
+  other_length_m: 200
+  other_load_mt: 0.8
+  notes: 
+
+gantry:
+  position: 
+  height_above_deck_m: 
+  outboard_extension_m: 
+  load_capacity_mt: 
+
+cranes:
+  position: AH
+  height_above_deck_m: 8
+  outboard_extension_m: 12
+  load_capacity_mt: 4.8
+
+# -----------------------------------------
+# NAVIGATION AND COMMUNICATIONS
+# -----------------------------------------
+navigation_equipment: "2 Daylight Radar Systems X-, S-Band, 1 Echo sounder, 1 Leica DGPS MX 412 Professional1 Doppel-log, 1 EM-log"
+navigation_gps: 1 Leica MX 412 Professional (DGPS)
+communications: "3 VHF, 1 HF-SSB Radio System (Skanti), DSC MF/HF, DSC VHF, INMARSAT B,C,E"
+satcomm: "INMARSAT B,C"
+
+# -----------------------------------------
+# ELECTRICAL SYSTEMS
+# -----------------------------------------
+ac_voltage: 380/220V
+ac_power_kva: 1260
+ac_phases: 
+ac_frequency_hz: 50
+ac_voltage_stabilized: 
+ac_freq_stabilized_hz: 
+ac_amps_stabilized: 
+dc_voltages: 24
+dc_voltage_max: 50
+
+# -----------------------------------------
+# DATA SYSTEMS
+# -----------------------------------------
+computing_equipment: "1 PC, with Windows NT"
+data_printing: 1
+
+# -----------------------------------------
+# OPERATING PROFILE
+# -----------------------------------------
+operating_area_notes: North Sea /Baltic Sea
+operating_grids: 
+operating_regions:         # TODO: populate from operating_area_notes
+mission_capabilities:      # TODO: populate based on equipment fields
+
+# -----------------------------------------
+# PROGRAM MEMBERSHIPS
+# -----------------------------------------
+programs:
+  unols: false
+  go_ship: false
+  samos: false
+  vos: false
+  iwgfi: false
+  euro: true
+  bonus: true
+
+# -----------------------------------------
+# LINKS
+# -----------------------------------------
+url_vessel: "http://www.bsh.de/en/The%20BSH/Organisation/Ships/index.jsp"
+url_operator: "http://www.bsh.de/de/index.jsp"
+url_schedule: "http://www.bsh.de/en/Marine%20uses/Science/Research%20vessels/index.jsp"
+photo_url: 
+
+# -----------------------------------------
+# ADMINISTRATIVE
+# -----------------------------------------
+record_updated: 2004-02-27
+notes: 
+vessel_other: SeeBG- Seeberufsgenossenschaft

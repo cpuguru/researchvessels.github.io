@@ -1,0 +1,19 @@
+﻿# _data/organizations/mv-outer-limits-inc.yml
+
+name: "M/V Outer Limits, Inc."
+slug: mv-outer-limits-inc
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  11464 Eastridge Place
+  San Diego, CA, 92131  USA
+primary_contact:
+phone: 1 (619) 972-1463
+fax: 1 (858) 689-1828
+email: "Kfranke3@san.rr.com"
+url: 
+url_fleet:
+record_updated:
+notes:

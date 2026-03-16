@@ -1,0 +1,19 @@
+﻿# _data/organizations/institute-of-fisheries-and-aqua-culture.yml
+
+name: Institute of Fisheries and Aqua Culture
+slug: institute-of-fisheries-and-aqua-culture
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Institute of Fisheries and Aqua Culture
+  9000 Varna Bulgaria
+primary_contact:
+phone: 
+fax: 
+email: "kprodanov@abv.bg"
+url: 
+url_fleet:
+record_updated:
+notes:

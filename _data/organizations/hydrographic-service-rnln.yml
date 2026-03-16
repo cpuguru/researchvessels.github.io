@@ -1,0 +1,20 @@
+﻿# _data/organizations/hydrographic-service-rnln.yml
+
+name: Hydrographic Service - RNLN
+slug: hydrographic-service-rnln
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Hydrographic Service - RNLN
+  Badhuisweg 171 / POST BOX 90704
+  The Hague 2509 LS Netherlands
+primary_contact:
+phone: 31-070 3162841
+fax: 31-703162843
+email: 
+url: "http://www.hydro.nl/en/index_en.htm"
+url_fleet:
+record_updated:
+notes:

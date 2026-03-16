@@ -1,0 +1,20 @@
+﻿# _data/organizations/hydrographic-service.yml
+
+name: Hydrographic Service
+slug: hydrographic-service
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Hydrographic Service
+  161 Walker Street P.O. Box 1332
+  North Sydney 2060 Australia
+primary_contact:
+phone: 02 9254800
+fax: 02 9254835
+email: 
+url: 
+url_fleet:
+record_updated:
+notes:

@@ -1,0 +1,215 @@
+﻿# _data/vessels/juku.yml
+
+# -----------------------------------------
+# IDENTITY
+# -----------------------------------------
+name: Juku
+slug: juku
+imo_number: 
+nodc_code: 
+call_sign: ES2246
+year_built: 1953
+
+# -----------------------------------------
+# STATUS AND CLASSIFICATION
+# -----------------------------------------
+status: Active
+vessel_use_type: Dedicated Research
+vessel_class: 
+main_activity: General Service
+ice_class: 
+ice_breaking: "no"
+dp_class: 
+dp_system: 
+ism_certified: 
+vessel_classification: "Estonian Maritime Administration, Maritime Safety"
+vessel_construction: Russian Maritime Register of Shipping
+charter_available: false
+
+# -----------------------------------------
+# FLAG AND HOME PORT
+# -----------------------------------------
+flag_country: Estonia
+homeport: Tallinn
+homeport_country: 
+
+# -----------------------------------------
+# OWNERSHIP AND OPERATION
+# -----------------------------------------
+owner: 
+operator: nautical-college-of-estonian-maritime-academy
+managing_agency: "Estonian Maritime Administration, Maritime Safety"
+operator_contact: Rein Ausmees
+operator_phone: +(372) 6552 724
+operator_fax: +(372) 6552 724
+operator_email: "rein.ausmees@merekool.edu.ee"
+
+# -----------------------------------------
+# PHYSICAL DIMENSIONS
+# -----------------------------------------
+length_m: 23.95
+beam_m: 5.2
+draft_m: 2.55
+gross_tons: 71
+hull_material: Steel
+freeboard_deck_m: 0.75
+
+# -----------------------------------------
+# PROPULSION AND PERFORMANCE
+# -----------------------------------------
+engine_count: 1
+engine_make: SKL Magdeburg
+engine_power: 135
+power_hp: 
+aux_diesel_power_hp: 125
+prop_diameter_m: 1.06
+prop_max_rpm: 375
+speed_cruise_kts: 8
+speed_max_kts: 8.2
+range_nm: 1000
+endurance_days: 6
+
+# -----------------------------------------
+# CAPACITY
+# -----------------------------------------
+crew: 6
+officers: 
+scientists: 12
+air_conditioning: 
+fuel_capacity_mt: 4
+capacity_dry_stores_mt: 
+water_capacity_mt: 3.8
+water_generation_mt_day: 
+water_treatment: millipore system
+
+# -----------------------------------------
+# LABORATORY AND DECK FACILITIES
+# -----------------------------------------
+lab_wet_area_m2: 8
+lab_dry_area_m2: 8
+free_deck_area_m2: 
+container_lab_space: 
+radioactive_lab: 
+diving_support: 
+
+# -----------------------------------------
+# SCIENTIFIC EQUIPMENT
+# -----------------------------------------
+multibeam: 
+adcp: 
+sidescan_sonar: 
+sub_bottom_profiler: 
+echo_sounder: 
+acoustic_sonar: 
+acoustic_quiet: 
+
+ctd:
+  capable: "yes"
+  make: Seastar CTD-021 and Mark III
+  fluorometer: 
+  oxygen_sensor: 
+  rosette: 
+  towed: 
+  transmissometer: 
+
+coring:
+  capable: 
+  box_core: 
+  grab_sampler: 
+  gravity_core: 
+  multi_core: 
+  piston_core: 
+
+underwater_vehicles: 
+rov_support: 
+auv_support: 
+submarine_support: 
+
+# -----------------------------------------
+# DECK EQUIPMENT
+# -----------------------------------------
+winches:
+  count: 
+  steel_wire_length_m: 
+  steel_wire_load_mt: 
+  conducting_cable_length_m: 
+  conducting_cable_load_mt: 
+  trawl_length_m: 
+  trawl_load_mt: 
+  other_length_m: 
+  other_load_mt: 
+  notes: 
+
+gantry:
+  position: 
+  height_above_deck_m: 
+  outboard_extension_m: 
+  load_capacity_mt: 
+
+cranes:
+  position: Poop deck
+  height_above_deck_m: 3.2
+  outboard_extension_m: 3
+  load_capacity_mt: 0.15
+
+# -----------------------------------------
+# NAVIGATION AND COMMUNICATIONS
+# -----------------------------------------
+navigation_equipment: ECHO Sounder; radar; dKart Navigator
+navigation_gps: GPS Navigator Echostar 790;
+communications: Sailor RT4801 - Simplex VHF DSC
+satcomm: 
+
+# -----------------------------------------
+# ELECTRICAL SYSTEMS
+# -----------------------------------------
+ac_voltage: 220
+ac_power_kva: "4 x 0,6 kVA"
+ac_phases: 1
+ac_frequency_hz: 50
+ac_voltage_stabilized: "yes"
+ac_freq_stabilized_hz: "yes"
+ac_amps_stabilized: "yes"
+dc_voltages: "12V, 24V, 220V"
+dc_voltage_max: 
+
+# -----------------------------------------
+# DATA SYSTEMS
+# -----------------------------------------
+computing_equipment: 
+data_printing: 
+
+# -----------------------------------------
+# OPERATING PROFILE
+# -----------------------------------------
+operating_area_notes: Baltic Sea
+operating_grids: 
+operating_regions:         # TODO: populate from operating_area_notes
+mission_capabilities:      # TODO: populate based on equipment fields
+
+# -----------------------------------------
+# PROGRAM MEMBERSHIPS
+# -----------------------------------------
+programs:
+  unols: false
+  go_ship: false
+  samos: false
+  vos: false
+  iwgfi: false
+  euro: true
+  bonus: true
+
+# -----------------------------------------
+# LINKS
+# -----------------------------------------
+url_vessel: 
+url_operator: www.emara.ee
+url_schedule: 
+photo_url: 
+
+# -----------------------------------------
+# ADMINISTRATIVE
+# -----------------------------------------
+record_updated: 2004-06-14
+notes: 
+vessel_other: 

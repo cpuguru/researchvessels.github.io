@@ -1,0 +1,20 @@
+﻿# _data/organizations/vg-shipping.yml
+
+name: VG-shipping
+slug: vg-shipping
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Mechelininkatu 34 A
+  PO Box 140
+  FI-00251 Helsinki, Finland
+primary_contact:
+phone: +358 40 182 3180
+fax: +358 9 5490 2290
+email: "juha.flinkman@ymparisto.fi"
+url: "http://www.vg-shipping.fi/fi/company.html"
+url_fleet:
+record_updated:
+notes:

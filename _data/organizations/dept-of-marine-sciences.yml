@@ -1,0 +1,20 @@
+﻿# _data/organizations/dept-of-marine-sciences.yml
+
+name: Dept. of Marine Sciences
+slug: dept-of-marine-sciences
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Dept. of Marine Sciences
+  Mayaguez Campus
+  Mayaguez, Puerto Rico 681-5000
+primary_contact:
+phone: (809) 899-2048
+fax: (809) 899-5500
+email: 
+url: 
+url_fleet:
+record_updated:
+notes:

@@ -1,0 +1,20 @@
+﻿# _data/organizations/college-of-marine-studies-university-of-delaware.yml
+
+name: "College of Marine Studies, University of Delaware"
+slug: college-of-marine-studies-university-of-delaware
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  College of Marine Studies, University of Delaware
+  700 Pilottown Road, MOB
+  Lewes, De 19958 USA
+primary_contact:
+phone: (302) 645-4341
+fax: (302) 645-4006
+email: "hawkins@udel.edu"
+url: "http://www.ocean.udel.edu/index.html"
+url_fleet:
+record_updated:
+notes:

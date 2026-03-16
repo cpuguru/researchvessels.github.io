@@ -1,0 +1,20 @@
+﻿# _data/organizations/scripps-institution-of-oceanography-marine-physical-laboratory-ucsd.yml
+
+name: "Scripps Institution of Oceanography, Marine Physical Laboratory (UCSD)"
+slug: scripps-institution-of-oceanography-marine-physical-laboratory-ucsd
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Marine Physical Laboratory
+  291 Rosecrans Street
+  San Diego, Ca. 92106
+primary_contact:
+phone: (858) 534-1797
+fax: (858) 553-0764
+email: "wag@mpl.ucsd.edu"
+url: "http://www-mpl.ucsd.edu/"
+url_fleet:
+record_updated:
+notes:

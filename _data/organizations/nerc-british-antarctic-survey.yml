@@ -1,0 +1,20 @@
+﻿# _data/organizations/nerc-british-antarctic-survey.yml
+
+name: "NERC, British Antarctic Survey"
+slug: nerc-british-antarctic-survey
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  British Antarctic Survey
+  High Cross, Madingley Road
+  CAMBRIDGE, CB3 0ET UK
+primary_contact:
+phone: +44 (0)1223 221400
+fax: +44 (0)1223 362616
+email: "CJHH@bas.ac.uk"
+url: "http://www.antarctica.ac.uk/"
+url_fleet:
+record_updated:
+notes:

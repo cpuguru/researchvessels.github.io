@@ -1,0 +1,17 @@
+﻿# _data/organizations/oregon-institute-of-marine-biology.yml
+
+name: Oregon Institute of Marine Biology
+slug: oregon-institute-of-marine-biology
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+primary_contact:
+phone: 541-888-2581
+fax: 541-888-3250
+email: 
+url: "http://darkwing.uoregon.edu/~oimb/"
+url_fleet:
+record_updated:
+notes:

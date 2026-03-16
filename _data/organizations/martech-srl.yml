@@ -1,0 +1,20 @@
+﻿# _data/organizations/martech-srl.yml
+
+name: MarTech SRL
+slug: martech-srl
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  MarTech SRL
+  Viale Trieste 65/i, 09123 Cagliari
+  Italy
+primary_contact:
+phone: +39 070 6848202
+fax: +39 070 6404743
+email: "info@martech.it"
+url: "http://www.martech.it/"
+url_fleet:
+record_updated:
+notes:

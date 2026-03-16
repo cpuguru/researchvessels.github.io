@@ -1,0 +1,20 @@
+﻿# _data/organizations/marine-research-institute-reykjavik-iceland.yml
+
+name: "Marine Research Institute, Reykjavik, Iceland"
+slug: marine-research-institute-reykjavik-iceland
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Marine Research Institute
+  Skulagata 4
+  Reykjavik 101 Iceland
+primary_contact:
+phone: +354-552-0240
+fax: +354-562-3790
+email: "vignir@hafro.is"
+url: "http://www.hafro.is/sjalf.e.html"
+url_fleet:
+record_updated:
+notes:

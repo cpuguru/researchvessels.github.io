@@ -1,0 +1,20 @@
+﻿# _data/organizations/coastal-marine-geology-program.yml
+
+name: "Coastal & Marine Geology Program"
+slug: coastal-marine-geology-program
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  USGS National Center, MS 915
+  12201 Sunrise Valley Drive
+  Reston, Virginia 20192
+primary_contact:
+phone: 650-329-5860
+fax: 
+email: 
+url: "http://marine.usgs.gov/"
+url_fleet:
+record_updated:
+notes:

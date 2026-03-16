@@ -1,0 +1,20 @@
+﻿# _data/organizations/university-of-north-carolina-at-wilmington.yml
+
+name: University of North Carolina at Wilmington
+slug: university-of-north-carolina-at-wilmington
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Center for Marine Science Research
+  5600 Marvin K. Moss Lane
+  Wilmington, North Carolina 28409
+primary_contact:
+phone: 910-962-2436
+fax: 910-962-2410
+email: 
+url: "http://www.uncwil.edu/cmsr/index.htm"
+url_fleet:
+record_updated:
+notes:

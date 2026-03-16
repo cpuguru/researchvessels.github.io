@@ -1,0 +1,20 @@
+﻿# _data/organizations/noaa-marine-operations-center-pacific.yml
+
+name: "NOAA, Marine Operations Center, Pacific"
+slug: noaa-marine-operations-center-pacific
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Operations Division, Marine Operations Center, Pacific
+  1801 Fairview Avenue East
+  Seattle, WA 98102-3767
+primary_contact:
+phone: 
+fax: 
+email: "Noaa.Ship.Hiialakai@noaa.gov"
+url: 
+url_fleet:
+record_updated:
+notes:

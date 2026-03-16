@@ -1,0 +1,216 @@
+﻿---
+# -----------------------------------------
+# IDENTITY
+# -----------------------------------------
+name: Jan Mayen
+slug: jan-mayen
+imo_number: 
+nodc_code: 58JM
+call_sign: LAVH
+year_built: 1988
+
+# -----------------------------------------
+# STATUS AND CLASSIFICATION
+# -----------------------------------------
+status: Active
+vessel_use_type: Dedicated Research
+vessel_class: 
+main_activity: "Fish/shrimp stock assessment, geological survey, student training"
+ice_class: 
+ice_breaking: None
+dp_class: 
+dp_system: 
+ism_certified: 
+vessel_classification: Det Norske Veritas  (DnV Ice 1A)
+vessel_construction: 
+charter_available: false
+
+# -----------------------------------------
+# FLAG AND HOME PORT
+# -----------------------------------------
+flag_country: Norway
+homeport: 
+homeport_country: 
+
+# -----------------------------------------
+# OWNERSHIP AND OPERATION
+# -----------------------------------------
+owner: as-jan-mayen-fosnavgen
+operator: univeristy-of-tromsonorwegian-college-of-fisheries-science
+managing_agency: 
+operator_contact: Mr. Odd Hondegard/Jon E. Hansen
+operator_phone: +47 77 64 51 01
+operator_fax: +47 64 60 20
+operator_email: "jone@nfh.uit.no"
+
+# -----------------------------------------
+# PHYSICAL DIMENSIONS
+# -----------------------------------------
+length_m: 63.8
+beam_m: 13
+draft_m: 
+gross_tons: 2052
+hull_material: Steel
+freeboard_deck_m: 6
+
+# -----------------------------------------
+# PROPULSION AND PERFORMANCE
+# -----------------------------------------
+engine_count: 1
+engine_make: Wärtsila Vasa 8R32E
+engine_power: 4080
+power_hp: 3000
+aux_diesel_power_hp: 1086
+prop_diameter_m: 3.8
+prop_max_rpm: 750
+speed_cruise_kts: 12.5
+speed_max_kts: 16
+range_nm: 8000
+endurance_days: 21
+
+# -----------------------------------------
+# CAPACITY
+# -----------------------------------------
+crew: 11
+officers: 
+scientists: 29
+air_conditioning: ~
+fuel_capacity_mt: 574
+capacity_dry_stores_mt: 500
+water_capacity_mt: 24
+water_generation_mt_day: 11.3
+water_treatment: 
+
+# -----------------------------------------
+# LABORATORY AND DECK FACILITIES
+# -----------------------------------------
+lab_wet_area_m2: 30
+lab_dry_area_m2: 50
+free_deck_area_m2: 50
+container_lab_space: 
+radioactive_lab: "Isotope room, 5.5 m2 Room with special equipment for the treatment of radioactive samples"
+diving_support: Compressor 200/300 bar
+
+# -----------------------------------------
+# SCIENTIFIC EQUIPMENT
+# -----------------------------------------
+multibeam: Simrad EM 300
+adcp: RD/-VM 150
+sidescan_sonar: 
+sub_bottom_profiler: 
+echo_sounder: "Simrad EK 60 38 and 120 kHz split beam, SCI fish multibeam"
+acoustic_sonar: Furuno 180
+acoustic_quiet: Provisions for silent ship operation
+
+ctd:
+  capable: "Yes"
+  make: SeaBird 911
+  fluorometer: "Yes"
+  oxygen_sensor: "Yes"
+  rosette: "Yes, 12 bottle rosette"
+  towed: "No"
+  transmissometer: 
+
+coring:
+  capable: "Yes"
+  box_core: "Yes"
+  grab_sampler: 
+  gravity_core: "Yes"
+  multi_core: "No"
+  piston_core: "No"
+
+underwater_vehicles: "Yes"
+rov_support: "Aglantha, 2000 m depth rating"
+auv_support: None
+submarine_support: None
+
+# -----------------------------------------
+# DECK EQUIPMENT
+# -----------------------------------------
+winches:
+  count: 1
+  steel_wire_length_m: 
+  steel_wire_load_mt: 
+  conducting_cable_length_m: 4000
+  conducting_cable_load_mt: 1.5
+  trawl_length_m: 3000
+  trawl_load_mt: 
+  other_length_m: 
+  other_load_mt: 40
+  notes: "CTDO-winch: 4000m, Hydrographic winch:3000m, Dredge winch: 3500m,Trawleye winch: 2400m, Trawlsystem"
+
+gantry:
+  position: Stern
+  height_above_deck_m: 
+  outboard_extension_m: 
+  load_capacity_mt: 
+
+cranes:
+  position: Stern
+  height_above_deck_m: 
+  outboard_extension_m: 13
+  load_capacity_mt: 4
+
+# -----------------------------------------
+# NAVIGATION AND COMMUNICATIONS
+# -----------------------------------------
+navigation_equipment: "3 cm and 10 cm radar, Loran C, Furuno RSN70 satnav"
+navigation_gps: Furuno GP - 500/GP - 300
+communications: "VHF, GSM, Inmarsat C"
+satcomm: Marconi Oceanray 2
+
+# -----------------------------------------
+# ELECTRICAL SYSTEMS
+# -----------------------------------------
+ac_voltage: 0/440V
+ac_power_kva: 2180
+ac_phases: 3
+ac_frequency_hz: 60
+ac_voltage_stabilized: 220
+ac_freq_stabilized_hz: 50
+ac_amps_stabilized: 23
+dc_voltages: 
+dc_voltage_max: 
+
+# -----------------------------------------
+# DATA SYSTEMS
+# -----------------------------------------
+computing_equipment: Pc’s and UNIX workstations in network
+data_printing: LaserPrinter and Ink color Printers
+
+# -----------------------------------------
+# OPERATING PROFILE
+# -----------------------------------------
+operating_area_notes: "Open and ice covered waters (1-2 m drift ice), Barents sea"
+operating_grids: 
+operating_regions:         # TODO: populate from operating_area_notes
+mission_capabilities:      # TODO: populate based on equipment fields
+
+# -----------------------------------------
+# PROGRAM MEMBERSHIPS
+# -----------------------------------------
+programs:
+  unols: false
+  go_ship: false
+  samos: false
+  vos: false
+  iwgfi: false
+  euro: true
+  bonus: false
+
+# -----------------------------------------
+# LINKS
+# -----------------------------------------
+url_vessel: "http://www.nfh.uit.no/hmenyvis.aspx?id=194"
+url_operator: www.nfh.vit.no
+url_schedule: 
+photo_url: 
+
+# -----------------------------------------
+# ADMINISTRATIVE
+# -----------------------------------------
+record_updated: 2005-03-04
+notes: redisigned and refitted 1992
+vessel_other: 
+
+---

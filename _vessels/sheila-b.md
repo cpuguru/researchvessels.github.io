@@ -1,0 +1,216 @@
+﻿---
+# -----------------------------------------
+# IDENTITY
+# -----------------------------------------
+name: Sheila B.
+slug: sheila-b
+imo_number: 
+nodc_code: 
+call_sign: 
+year_built: 2001
+
+# -----------------------------------------
+# STATUS AND CLASSIFICATION
+# -----------------------------------------
+status: Active
+vessel_use_type: Dedicated Research
+vessel_class: 
+main_activity: "Trawling, Bird/Mammal surveys, Diving, Animal Tagging, Acoustics, Equipment Deployment"
+ice_class: 
+ice_breaking: "no"
+dp_class: 
+dp_system: 
+ism_certified: 
+vessel_classification: 
+vessel_construction: E. Munson Co.
+charter_available: false
+
+# -----------------------------------------
+# FLAG AND HOME PORT
+# -----------------------------------------
+flag_country: USA
+homeport: "Moss Landing, CA"
+homeport_country: 
+
+# -----------------------------------------
+# OWNERSHIP AND OPERATION
+# -----------------------------------------
+owner: moss-landing-marine-laboratory
+operator: moss-landing-marine-labs
+managing_agency: 
+operator_contact: John Douglas
+operator_phone: (831) 633-7022
+operator_fax: 
+operator_email: "Douglas@mlml.calstate.edu"
+
+# -----------------------------------------
+# PHYSICAL DIMENSIONS
+# -----------------------------------------
+length_m: 9.27
+beam_m: 3.05
+draft_m: 0.41
+gross_tons: 
+hull_material: PackCat Aluminum
+freeboard_deck_m: 
+
+# -----------------------------------------
+# PROPULSION AND PERFORMANCE
+# -----------------------------------------
+engine_count: 
+engine_make: 
+engine_power: 
+power_hp: 600
+aux_diesel_power_hp: 
+prop_diameter_m: 
+prop_max_rpm: 
+speed_cruise_kts: 
+speed_max_kts: 30
+range_nm: 
+endurance_days: 
+
+# -----------------------------------------
+# CAPACITY
+# -----------------------------------------
+crew: 
+officers: 1
+scientists: 10
+air_conditioning: 
+fuel_capacity_mt: 0.57
+capacity_dry_stores_mt: 
+water_capacity_mt: 
+water_generation_mt_day: 
+water_treatment: 
+
+# -----------------------------------------
+# LABORATORY AND DECK FACILITIES
+# -----------------------------------------
+lab_wet_area_m2: 
+lab_dry_area_m2: 
+free_deck_area_m2: 
+container_lab_space: 
+radioactive_lab: 
+diving_support: 
+
+# -----------------------------------------
+# SCIENTIFIC EQUIPMENT
+# -----------------------------------------
+multibeam: 
+adcp: 
+sidescan_sonar: 
+sub_bottom_profiler: 
+echo_sounder: 
+acoustic_sonar: 
+acoustic_quiet: 
+
+ctd:
+  capable: 
+  make: 
+  fluorometer: 
+  oxygen_sensor: 
+  rosette: 
+  towed: 
+  transmissometer: 
+
+coring:
+  capable: 
+  box_core: 
+  grab_sampler: 
+  gravity_core: 
+  multi_core: 
+  piston_core: 
+
+underwater_vehicles: 
+rov_support: 
+auv_support: 
+submarine_support: 
+
+# -----------------------------------------
+# DECK EQUIPMENT
+# -----------------------------------------
+winches:
+  count: 
+  steel_wire_length_m: 
+  steel_wire_load_mt: 
+  conducting_cable_length_m: 
+  conducting_cable_load_mt: 
+  trawl_length_m: 
+  trawl_load_mt: 
+  other_length_m: 
+  other_load_mt: 
+  notes: 
+
+gantry:
+  position: 
+  height_above_deck_m: 
+  outboard_extension_m: 
+  load_capacity_mt: 
+
+cranes:
+  position: 
+  height_above_deck_m: 
+  outboard_extension_m: 
+  load_capacity_mt: 
+
+# -----------------------------------------
+# NAVIGATION AND COMMUNICATIONS
+# -----------------------------------------
+navigation_equipment: 
+navigation_gps: 
+communications: 
+satcomm: 
+
+# -----------------------------------------
+# ELECTRICAL SYSTEMS
+# -----------------------------------------
+ac_voltage: 
+ac_power_kva: 
+ac_phases: 
+ac_frequency_hz: 
+ac_voltage_stabilized: 
+ac_freq_stabilized_hz: 
+ac_amps_stabilized: 
+dc_voltages: 
+dc_voltage_max: 
+
+# -----------------------------------------
+# DATA SYSTEMS
+# -----------------------------------------
+computing_equipment: 
+data_printing: 
+
+# -----------------------------------------
+# OPERATING PROFILE
+# -----------------------------------------
+operating_area_notes: "Elkhorn Slough, Pt. Lobos to Half Moon Bay"
+operating_grids: 
+operating_regions:         # TODO: populate from operating_area_notes
+mission_capabilities:      # TODO: populate based on equipment fields
+
+# -----------------------------------------
+# PROGRAM MEMBERSHIPS
+# -----------------------------------------
+programs:
+  unols: false
+  go_ship: false
+  samos: false
+  vos: false
+  iwgfi: false
+  euro: false
+  bonus: false
+
+# -----------------------------------------
+# LINKS
+# -----------------------------------------
+url_vessel: "http://marineops.mlml.calstate.edu/"
+url_operator: 
+url_schedule: 
+photo_url: 
+
+# -----------------------------------------
+# ADMINISTRATIVE
+# -----------------------------------------
+record_updated: 2005-03-28
+notes: 
+vessel_other: 
+
+---

@@ -1,0 +1,216 @@
+﻿---
+# -----------------------------------------
+# IDENTITY
+# -----------------------------------------
+name: Belgica
+slug: belgica
+imo_number: 
+nodc_code: 11BE
+call_sign: ORGQ
+year_built: 1984
+
+# -----------------------------------------
+# STATUS AND CLASSIFICATION
+# -----------------------------------------
+status: Active
+vessel_use_type: Dedicated Research
+vessel_class: 
+main_activity: "Oceanography, Fisheries, Geology, Hydrography"
+ice_class: 
+ice_breaking: "No"
+dp_class: 
+dp_system: 
+ism_certified: 
+vessel_classification: Germanischer Lloyd
+vessel_construction: Belgian Navy
+charter_available: false
+
+# -----------------------------------------
+# FLAG AND HOME PORT
+# -----------------------------------------
+flag_country: Belgium
+homeport: Zeebrugge
+homeport_country: 
+
+# -----------------------------------------
+# OWNERSHIP AND OPERATION
+# -----------------------------------------
+owner: ministry-of-science-policy
+operator: management-unit-of-the-north-sea-mathematical-model
+managing_agency: MUMM
+operator_contact: Ing. André Pollentier
+operator_phone: + 32 (0)59 70.01.31
+operator_fax: + 32 (0)59 70.49.35
+operator_email: "bmmost@mumm.ac.be"
+
+# -----------------------------------------
+# PHYSICAL DIMENSIONS
+# -----------------------------------------
+length_m: 50.9
+beam_m: 10
+draft_m: 4.6
+gross_tons: 765
+hull_material: Steel
+freeboard_deck_m: 1.2
+
+# -----------------------------------------
+# PROPULSION AND PERFORMANCE
+# -----------------------------------------
+engine_count: 1
+engine_make: Diesel ABC 6D
+engine_power: 1568 HP at 900rpm
+power_hp: 1154
+aux_diesel_power_hp: 900
+prop_diameter_m: 1.95
+prop_max_rpm: 900
+speed_cruise_kts: 12
+speed_max_kts: 13.5
+range_nm: 5000
+endurance_days: 20
+
+# -----------------------------------------
+# CAPACITY
+# -----------------------------------------
+crew: 12
+officers: 3
+scientists: 16
+air_conditioning: ~
+fuel_capacity_mt: 165
+capacity_dry_stores_mt: 12
+water_capacity_mt: 98
+water_generation_mt_day: 0
+water_treatment: Milli-RO and Milli-Q (ultrapure) water
+
+# -----------------------------------------
+# LABORATORY AND DECK FACILITIES
+# -----------------------------------------
+lab_wet_area_m2: 96
+lab_dry_area_m2: 91
+free_deck_area_m2: 140
+container_lab_space: "2 containers (6 * 3) m"
+radioactive_lab: container
+diving_support: Aircompressor
+
+# -----------------------------------------
+# SCIENTIFIC EQUIPMENT
+# -----------------------------------------
+multibeam: Kongsberg Simrad EM1002
+adcp: RDI Workhorse Mariner WH300
+sidescan_sonar: "No"
+sub_bottom_profiler: "No"
+echo_sounder: "Atlas Deso22 30kHz and 210 kHz, Furuno FCV 28 kHz and 88 kHz"
+acoustic_sonar: "No"
+acoustic_quiet: "Yes, electrical motor"
+
+ctd:
+  capable: CTD held at MUMM - Measurement Service
+  make: "Sea-Bird SBE19, SBE09plus"
+  fluorometer: "No"
+  oxygen_sensor: YSI
+  rosette: Sea-Bird
+  towed: "No"
+  transmissometer: OBS
+
+coring:
+  capable: "No"
+  box_core: "NIOZ model, Reineck"
+  grab_sampler: Van Veen
+  gravity_core: "No"
+  multi_core: "Bowers & Connelly"
+  piston_core: "No"
+
+underwater_vehicles: "No"
+rov_support: "No"
+auv_support: "No"
+submarine_support: "No"
+
+# -----------------------------------------
+# DECK EQUIPMENT
+# -----------------------------------------
+winches:
+  count: 2
+  steel_wire_length_m: 1800
+  steel_wire_load_mt: 1
+  conducting_cable_length_m: 1500
+  conducting_cable_load_mt: 1
+  trawl_length_m: 1000
+  trawl_load_mt: 8
+  other_length_m: 
+  other_load_mt: 
+  notes: "fishnet winch cap. 7 m3, diam 0.47m : 14.8 tons"
+
+gantry:
+  position: Stern
+  height_above_deck_m: 6
+  outboard_extension_m: 3
+  load_capacity_mt: 16
+
+cranes:
+  position: Midships
+  height_above_deck_m: 6
+  outboard_extension_m: 9
+  load_capacity_mt: 2
+
+# -----------------------------------------
+# NAVIGATION AND COMMUNICATIONS
+# -----------------------------------------
+navigation_equipment: "DGPS, Radar, Gyro, Doppler Log, GMDSS"
+navigation_gps: "Ashtech Aquarius-02, Magnavox MX200"
+communications: "SatCom B, SatCom Mini-M, GSM, Fax, Debeg VHF,"
+satcomm: "Nera SatCom B, Nera satCom Mini-M"
+
+# -----------------------------------------
+# ELECTRICAL SYSTEMS
+# -----------------------------------------
+ac_voltage: 220/220V
+ac_power_kva: 550
+ac_phases: 3
+ac_frequency_hz: 60
+ac_voltage_stabilized: 220
+ac_freq_stabilized_hz: 50
+ac_amps_stabilized: 70
+dc_voltages: 24V
+dc_voltage_max: 24V
+
+# -----------------------------------------
+# DATA SYSTEMS
+# -----------------------------------------
+computing_equipment: "HP1000/A400, HP9000/748i, SUN Ultra5, HP Vectra VL800"
+data_printing: "HP LaserJet4, HP DeskJet 1600C, Lexmark OptraColor"
+
+# -----------------------------------------
+# OPERATING PROFILE
+# -----------------------------------------
+operating_area_notes: North Sea
+operating_grids: "NA5, NA7, NA2, NA5A"
+operating_regions:         # TODO: populate from operating_area_notes
+mission_capabilities:      # TODO: populate based on equipment fields
+
+# -----------------------------------------
+# PROGRAM MEMBERSHIPS
+# -----------------------------------------
+programs:
+  unols: false
+  go_ship: false
+  samos: false
+  vos: false
+  iwgfi: false
+  euro: true
+  bonus: false
+
+# -----------------------------------------
+# LINKS
+# -----------------------------------------
+url_vessel: "http://www.mumm.ac.be/EN/Monitoring/Belgica/index.php"
+url_operator: "http://www.mumm.ac.be"
+url_schedule: "http://www.mumm.ac.be/EN/Monitoring/Belgica/campaigns.php"
+photo_url: 
+
+# -----------------------------------------
+# ADMINISTRATIVE
+# -----------------------------------------
+record_updated: 2003-02-06
+notes: 
+vessel_other: 
+
+---

@@ -1,0 +1,216 @@
+﻿---
+# -----------------------------------------
+# IDENTITY
+# -----------------------------------------
+name: Roagan
+slug: roagan
+imo_number: 
+nodc_code: 
+call_sign: MNCN7
+year_built: 1982
+
+# -----------------------------------------
+# STATUS AND CLASSIFICATION
+# -----------------------------------------
+status: Active
+vessel_use_type: Dedicated Research
+vessel_class: 
+main_activity: Marine Biology
+ice_class: 
+ice_breaking: 
+dp_class: 
+dp_system: 
+ism_certified: 
+vessel_classification: 
+vessel_construction: 
+charter_available: false
+
+# -----------------------------------------
+# FLAG AND HOME PORT
+# -----------------------------------------
+flag_country: UK
+homeport: 
+homeport_country: 
+
+# -----------------------------------------
+# OWNERSHIP AND OPERATION
+# -----------------------------------------
+owner: port-erin-marine-laboratory-university-of-liverpool
+operator: port-erin-marine-laboratory
+managing_agency: 
+operator_contact: Richmond Murphy
+operator_phone: 
+operator_fax: 
+operator_email: 
+
+# -----------------------------------------
+# PHYSICAL DIMENSIONS
+# -----------------------------------------
+length_m: 23.75
+beam_m: 6.5
+draft_m: 3.54
+gross_tons: 104.44
+hull_material: 
+freeboard_deck_m: 
+
+# -----------------------------------------
+# PROPULSION AND PERFORMANCE
+# -----------------------------------------
+engine_count: 2
+engine_make: Diesel; Caterpillar 34067
+engine_power: 
+power_hp: 
+aux_diesel_power_hp: 
+prop_diameter_m: 
+prop_max_rpm: 
+speed_cruise_kts: 10
+speed_max_kts: 10
+range_nm: 
+endurance_days: 8
+
+# -----------------------------------------
+# CAPACITY
+# -----------------------------------------
+crew: 4
+officers: 
+scientists: 6
+air_conditioning: false
+fuel_capacity_mt: 
+capacity_dry_stores_mt: 
+water_capacity_mt: 0
+water_generation_mt_day: 
+water_treatment: 
+
+# -----------------------------------------
+# LABORATORY AND DECK FACILITIES
+# -----------------------------------------
+lab_wet_area_m2: 12.74
+lab_dry_area_m2: 7.75
+free_deck_area_m2: 35
+container_lab_space: 
+radioactive_lab: 
+diving_support: 
+
+# -----------------------------------------
+# SCIENTIFIC EQUIPMENT
+# -----------------------------------------
+multibeam: 
+adcp: 
+sidescan_sonar: 
+sub_bottom_profiler: 
+echo_sounder: "Simrad EY200 50 kHz, 120 kHz, 200 kHz, Simrad EY500 38 kHz"
+acoustic_sonar: C/Max CM800 sidescan sonar with hf towfish (range 50 - 125 m each side)
+acoustic_quiet: 
+
+ctd:
+  capable: "Yes"
+  make: 
+  fluorometer: 
+  oxygen_sensor: 
+  rosette: 
+  towed: 
+  transmissometer: 
+
+coring:
+  capable: 
+  box_core: 
+  grab_sampler: 
+  gravity_core: 
+  multi_core: 
+  piston_core: 
+
+underwater_vehicles: "Yes"
+rov_support: MiniRover Mkl
+auv_support: 
+submarine_support: 
+
+# -----------------------------------------
+# DECK EQUIPMENT
+# -----------------------------------------
+winches:
+  count: 
+  steel_wire_length_m: 
+  steel_wire_load_mt: 
+  conducting_cable_length_m: 0
+  conducting_cable_load_mt: 0
+  trawl_length_m: 200
+  trawl_load_mt: 
+  other_length_m: 
+  other_load_mt: 
+  notes: 
+
+gantry:
+  position: 
+  height_above_deck_m: 
+  outboard_extension_m: 
+  load_capacity_mt: 
+
+cranes:
+  position: 
+  height_above_deck_m: 
+  outboard_extension_m: 
+  load_capacity_mt: 
+
+# -----------------------------------------
+# NAVIGATION AND COMMUNICATIONS
+# -----------------------------------------
+navigation_equipment: "Autopilt Wagner; Speed logs;  Decca Mk 5 with DGPS supplying data to Furuno RS2000 plotter, radars Furuno; Echosounder"
+navigation_gps: "Yes"
+communications: "VHF radios, wideband radio and celinet telephone"
+satcomm: 
+
+# -----------------------------------------
+# ELECTRICAL SYSTEMS
+# -----------------------------------------
+ac_voltage: 240
+ac_power_kva: 5
+ac_phases: 1
+ac_frequency_hz: 50
+ac_voltage_stabilized: 
+ac_freq_stabilized_hz: 
+ac_amps_stabilized: 
+dc_voltages: 24
+dc_voltage_max: 24
+
+# -----------------------------------------
+# DATA SYSTEMS
+# -----------------------------------------
+computing_equipment: 2 Pentium computers and 1 PC
+data_printing: 
+
+# -----------------------------------------
+# OPERATING PROFILE
+# -----------------------------------------
+operating_area_notes: Irish Sea
+operating_grids: 
+operating_regions:         # TODO: populate from operating_area_notes
+mission_capabilities:      # TODO: populate based on equipment fields
+
+# -----------------------------------------
+# PROGRAM MEMBERSHIPS
+# -----------------------------------------
+programs:
+  unols: false
+  go_ship: false
+  samos: false
+  vos: false
+  iwgfi: false
+  euro: true
+  bonus: false
+
+# -----------------------------------------
+# LINKS
+# -----------------------------------------
+url_vessel: "http://www.marine.gov.uk/roagan.htm"
+url_operator: "http://www.liv.ac.uk/peml/"
+url_schedule: 
+photo_url: 
+
+# -----------------------------------------
+# ADMINISTRATIVE
+# -----------------------------------------
+record_updated: 2003-11-05
+notes: Major refit in 1991
+vessel_other: 
+
+---

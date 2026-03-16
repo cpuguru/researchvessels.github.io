@@ -1,0 +1,19 @@
+﻿# _data/organizations/schmidt-ocean-institute.yml
+
+name: Schmidt Ocean Institute
+slug: schmidt-ocean-institute
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  555 Bryant Street, #374
+  Palo Alto, California 94301
+primary_contact:
+phone: 206-428-1950
+fax: 650-681-8413
+email: "eking@schmidtocean.org"
+url: "http://www.schmidtocean.org"
+url_fleet:
+record_updated:
+notes:

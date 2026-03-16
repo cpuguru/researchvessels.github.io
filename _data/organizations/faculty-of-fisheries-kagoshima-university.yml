@@ -1,0 +1,20 @@
+﻿# _data/organizations/faculty-of-fisheries-kagoshima-university.yml
+
+name: "Faculty of Fisheries, Kagoshima University"
+slug: faculty-of-fisheries-kagoshima-university
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Faculty of Fisheries, Kagoshima University
+  4-50-20 Shimoarata
+  Kagoshima-Shi 890 Japan
+primary_contact:
+phone: 0992 54-0870
+fax: 
+email: 
+url: 
+url_fleet:
+record_updated:
+notes:

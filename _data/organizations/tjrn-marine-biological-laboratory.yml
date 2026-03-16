@@ -1,0 +1,20 @@
+﻿# _data/organizations/tjrn-marine-biological-laboratory.yml
+
+name: Tjärnö Marine Biological Laboratory
+slug: tjrn-marine-biological-laboratory
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Göteborg university, Tjärnö marine biological laboratory
+  R/V Nereus, 452 96  Strömstad
+  Sweden
+primary_contact:
+phone: +46 526 686 49
+fax: +46 526 686 07
+email: "Ingemar.adolfsson@tmbl.gu.se"
+url: "http://www.tmbl.gu.se/"
+url_fleet:
+record_updated:
+notes:

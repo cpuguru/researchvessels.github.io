@@ -1,0 +1,20 @@
+﻿# _data/organizations/nederlands-instituut-voor-onderzoek-der-zee-nloz.yml
+
+name: Nederlands Instituut voor Onderzoek der Zee (NlOZ)
+slug: nederlands-instituut-voor-onderzoek-der-zee-nloz
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Dienst vaartuigen en logistiek
+  P.O.Box 59
+  NL-1790 AB Den Burg (Texel)
+primary_contact:
+phone: (+31) (0)222 369375
+fax: (+31) (0)222 369480
+email: "rietveld@nioz.nl"
+url: "http://www.nioz.nl/"
+url_fleet:
+record_updated:
+notes:

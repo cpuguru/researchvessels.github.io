@@ -1,0 +1,20 @@
+﻿# _data/organizations/inocar.yml
+
+name: Inocar
+slug: inocar
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Inocar
+  Base Naval Sur - Via Puerto Maritimo
+  Guayaquil 5940 Ecuador
+primary_contact:
+phone: 593 - 4-2431816
+fax: 593 -4-2488077
+email: "orion-cmd@inocar.mil.ec"
+url: 
+url_fleet:
+record_updated:
+notes:

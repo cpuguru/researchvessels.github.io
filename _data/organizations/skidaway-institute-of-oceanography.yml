@@ -1,0 +1,19 @@
+﻿# _data/organizations/skidaway-institute-of-oceanography.yml
+
+name: Skidaway Institute of Oceanography
+slug: skidaway-institute-of-oceanography
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  10 Ocean Science Circle
+  Savannah, GA 31411
+primary_contact:
+phone: 
+fax: 
+email: "braxton@skio.peachnet.edu"
+url: "http://www.skio.peachnet.edu"
+url_fleet:
+record_updated:
+notes:

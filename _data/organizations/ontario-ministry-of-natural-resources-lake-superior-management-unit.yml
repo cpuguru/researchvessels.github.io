@@ -1,0 +1,20 @@
+﻿# _data/organizations/ontario-ministry-of-natural-resources-lake-superior-management-unit.yml
+
+name: Ontario Ministry of Natural Resources - Lake Superior Management Unit
+slug: ontario-ministry-of-natural-resources-lake-superior-management-unit
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Upper Great Lakes Management Unit
+  435 James St. S. Suite 221E
+  Thunder Bay, Ontario, Canada P7E 6S8
+primary_contact:
+phone: 807-475-1231
+fax: 807-473-3024
+email: 
+url: "http://www.fws.gov/midwest/sturgeon/omnr.htm"
+url_fleet:
+record_updated:
+notes:

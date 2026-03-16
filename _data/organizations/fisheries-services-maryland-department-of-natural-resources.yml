@@ -1,0 +1,20 @@
+﻿# _data/organizations/fisheries-services-maryland-department-of-natural-resources.yml
+
+name: "Fisheries Services, Maryland Department of Natural Resources"
+slug: fisheries-services-maryland-department-of-natural-resources
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Fisheries Services, Maryland Department of Natural Resources
+  141 S. 3rd. Box 589
+  Bayfield, Wisconsin, 54814, USA
+primary_contact:
+phone: 715 779-4035 ext 12
+fax: +81-332-481-250
+email: "dw@udel.edu"
+url: "http://www.dnr.state.wi.us/"
+url_fleet:
+record_updated:
+notes:

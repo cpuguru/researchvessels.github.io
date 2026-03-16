@@ -1,0 +1,20 @@
+﻿# _data/organizations/royal-caribbean-cruise-lines.yml
+
+name: Royal Caribbean Cruise Lines
+slug: royal-caribbean-cruise-lines
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Program Manager, Rosenstiel Labs on Explorer of the Seas
+  University of Miami, 4600 Rickenbacker Cswy
+  Miami, Fl 33149
+primary_contact:
+phone: 305-361-4070
+fax: 305-361-4696
+email: "ex_pm@rsmas.miami.edu"
+url: "http://www.rsmas.miami.edu"
+url_fleet:
+record_updated:
+notes:

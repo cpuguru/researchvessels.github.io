@@ -1,0 +1,20 @@
+﻿# _data/organizations/centro-argentino-de-datos-oceanograficos.yml
+
+name: Centro Argentino de Datos Oceanograficos
+slug: centro-argentino-de-datos-oceanograficos
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Centro Argentino de Datos Oceanograficos
+  Montes de Oca 2124 (1271)
+  Argentina
+primary_contact:
+phone: (01)21-0061/69
+fax: 
+email: "ceado@hidro.gov.ar"
+url: 
+url_fleet:
+record_updated:
+notes:

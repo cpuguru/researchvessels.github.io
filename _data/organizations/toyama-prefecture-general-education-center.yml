@@ -1,0 +1,20 @@
+﻿# _data/organizations/toyama-prefecture-general-education-center.yml
+
+name: Toyama Prefecture General Education Center
+slug: toyama-prefecture-general-education-center
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Toyama Prefecture General Education Center
+  525 Takata
+  Toyama-Shi, Toyama-Ke 930 Japan
+primary_contact:
+phone: 0764 44-6161
+fax: 0764 44-6170
+email: 
+url: 
+url_fleet:
+record_updated:
+notes:

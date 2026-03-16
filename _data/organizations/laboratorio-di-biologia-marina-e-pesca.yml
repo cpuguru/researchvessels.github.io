@@ -1,0 +1,20 @@
+﻿# _data/organizations/laboratorio-di-biologia-marina-e-pesca.yml
+
+name: Laboratorio di Biologia Marina e Pesca
+slug: laboratorio-di-biologia-marina-e-pesca
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Laboratorio di Biologia Marina e Pesca
+  Viale Adriatico nº1/N
+  61032 FANO (PU) (Italy)
+primary_contact:
+phone: +39/0721/802689
+fax: +39/0721/801654
+email: "cpiccinetti@mobilia.it"
+url: 
+url_fleet:
+record_updated:
+notes:

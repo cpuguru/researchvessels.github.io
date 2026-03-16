@@ -1,0 +1,20 @@
+﻿# _data/organizations/coast-guard-base-amherstburg.yml
+
+name: Coast Guard Base Amherstburg
+slug: coast-guard-base-amherstburg
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  370 Dalhousie St
+  Amherstburg, Ontario
+  Canada N9V 1X3
+primary_contact:
+phone: 519-736-3312
+fax: 519-736-6165
+email: 
+url: "http://www.ccg-gcc.gc.ca/main_e.htm"
+url_fleet:
+record_updated:
+notes:

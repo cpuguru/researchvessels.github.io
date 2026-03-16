@@ -1,0 +1,20 @@
+﻿# _data/organizations/lake-huron-fisheries-research-unit-omnr.yml
+
+name: "Lake Huron Fisheries Research Unit, OMNR"
+slug: lake-huron-fisheries-research-unit-omnr
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Lake Huron Fisheries Research Unit, OMNR, 1450 7th ave. E.
+  Owen Sound, ON
+  Canada, N4K 2Z1
+primary_contact:
+phone: 519-371-5608
+fax: 519-371-5844
+email: "robert.keetch@mnr.gov.on.ca"
+url: "http://www.mnr.gov.on.ca/MNR/"
+url_fleet:
+record_updated:
+notes:

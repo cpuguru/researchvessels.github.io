@@ -1,0 +1,20 @@
+﻿# _data/organizations/mod-hydrographic-surveying-squadron.yml
+
+name: "MoD, Hydrographic Surveying Squadron"
+slug: mod-hydrographic-surveying-squadron
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  The Director of Naval Surveying, Oceanography and Meteorology
+  Ministry of Defence, Lacon House, Theobalds Road, Holborn
+  London, England, UK WC1X 8RY
+primary_contact:
+phone: +44 (0)20 7305 6290
+fax: +44 (0)20 7305 6919
+email: 
+url: "http://www.marine.gov.uk/index.html"
+url_fleet:
+record_updated:
+notes:

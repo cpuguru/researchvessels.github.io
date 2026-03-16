@@ -1,0 +1,20 @@
+﻿# _data/organizations/dukeunc-oceanographic-consortium.yml
+
+name: Duke/UNC Oceanographic Consortium
+slug: dukeunc-oceanographic-consortium
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Duke University Marine Laboratory
+  135 Duke Marine Lab Road
+  Beaufort, NC 28516-7579
+primary_contact:
+phone: (252) 504-7579
+fax: (252) 504-7651
+email: "joeu@duke.edu"
+url: "http://www.nicholas.duke.edu/"
+url_fleet:
+record_updated:
+notes:

@@ -1,0 +1,20 @@
+﻿# _data/organizations/onohama-fisheries-high-school.yml
+
+name: Onohama Fisheries High School
+slug: onohama-fisheries-high-school
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Onohama Fisheries High School
+  153 Shimokajiro Onahama
+  Iwaki 970-03 Japan
+primary_contact:
+phone: 02465 43001
+fax: 
+email: 
+url: 
+url_fleet:
+record_updated:
+notes:

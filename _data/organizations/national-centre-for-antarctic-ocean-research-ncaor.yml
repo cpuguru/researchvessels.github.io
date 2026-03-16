@@ -1,0 +1,20 @@
+﻿# _data/organizations/national-centre-for-antarctic-ocean-research-ncaor.yml
+
+name: "National Centre for Antarctic & Ocean Research (NCAOR)"
+slug: national-centre-for-antarctic-ocean-research-ncaor
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  The Director or Programme Manager (ORV Sagar Kanya Ship Cell)
+  (Department of Ocean Development, Government of India)
+  Headland Sada, Vasco-da-Gama, Goa 403804, India
+primary_contact:
+phone: +91-832-2520863/64/65/66 (EPBX)
+fax: +91-832-2520871/73/77
+email: "sagarkanya@ncaor.org"
+url: "http://ncaor.nic.in/welcome.htm"
+url_fleet:
+record_updated:
+notes:

@@ -1,0 +1,20 @@
+﻿# _data/organizations/csiro-marine-atmospheric-research.yml
+
+name: "CSIRO Marine & Atmospheric Research"
+slug: csiro-marine-atmospheric-research
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  CSIRO Marine & Atmospheric Research
+  GPO Box 1538
+  Hobart, Tasmania 7001 Australia
+primary_contact:
+phone: +61 6232 5205
+fax: +61 6232 5000
+email: "Ron.plaschke@csiro.au"
+url: "http://www.marine.csiro.au/nationalfacility/index.htm"
+url_fleet:
+record_updated:
+notes:

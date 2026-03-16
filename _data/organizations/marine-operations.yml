@@ -1,0 +1,19 @@
+﻿# _data/organizations/marine-operations.yml
+
+name: Marine Operations
+slug: marine-operations
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Harbour Branch Oceanographice Institution , Inc
+  Sea-link
+primary_contact:
+phone: 
+fax: 
+email: 
+url: "http://www.hboi.edu/index_04.html"
+url_fleet:
+record_updated:
+notes:

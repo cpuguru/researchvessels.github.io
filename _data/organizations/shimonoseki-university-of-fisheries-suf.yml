@@ -1,0 +1,20 @@
+﻿# _data/organizations/shimonoseki-university-of-fisheries-suf.yml
+
+name: Shimonoseki University of Fisheries (SUF)
+slug: shimonoseki-university-of-fisheries-suf
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Shimonoseki University of Fisheries (SUF)
+  2-7-1 Nagat Honmachi / P.O. Box.3, Yoshimi, Yamaguchi Pref.
+  Shimonoseki 759-65 Japan
+primary_contact:
+phone: 0832 86-5111
+fax: 0832-86-2292
+email: 
+url: 
+url_fleet:
+record_updated:
+notes:

@@ -1,0 +1,20 @@
+﻿# _data/organizations/niwa-vessel-management-limited.yml
+
+name: NIWA Vessel Management Limited
+slug: niwa-vessel-management-limited
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  301 Evans Bay Parade, Greta Point
+  P O Box 14 901, Kilbirnie
+  Wellington, New Zealand
+primary_contact:
+phone: + 64 4 386 0300
+fax: + 64 4 386 0555
+email: "c.glover@niwa.cri.nz"
+url: "http://www.niwa.cri.nz/vesselco/"
+url_fleet:
+record_updated:
+notes:

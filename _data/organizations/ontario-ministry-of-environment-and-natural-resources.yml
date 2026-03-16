@@ -1,0 +1,20 @@
+﻿# _data/organizations/ontario-ministry-of-environment-and-natural-resources.yml
+
+name: Ontario Ministry of Environment and Natural Resources
+slug: ontario-ministry-of-environment-and-natural-resources
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Ontario Ministry of Environment and Natural Resources
+  125 Resources Rd, Etobicoke
+  ONT M9P 3V6, Canada
+primary_contact:
+phone: 416 235-6222
+fax: 416 235-6235
+email: "Fleiscfr@EPO.GOV.ON.CA"
+url: "http://www.mnr.gov.on.ca/MNR/"
+url_fleet:
+record_updated:
+notes:

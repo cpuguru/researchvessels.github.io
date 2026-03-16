@@ -1,0 +1,217 @@
+﻿# _data/vessels/mt-mitchell.yml
+
+# -----------------------------------------
+# IDENTITY
+# -----------------------------------------
+name: Mt Mitchell
+slug: mt-mitchell
+imo_number: 
+nodc_code: 33MI
+call_sign: WDA 9674
+year_built: 1967
+
+# -----------------------------------------
+# STATUS AND CLASSIFICATION
+# -----------------------------------------
+status: Active
+vessel_use_type: Dedicated Research
+vessel_class: 
+main_activity: Crewed Oceanographic Operations Platform/Non Equipped (Note 1)
+ice_class: 
+ice_breaking: IS-3
+dp_class: 
+dp_system: N/A
+ism_certified: 
+vessel_classification: ABS
+vessel_construction: Built by MARAD to ABS Standards.
+charter_available: false
+
+# -----------------------------------------
+# FLAG AND HOME PORT
+# -----------------------------------------
+flag_country: USA
+homeport: "Ketchikan, AK"
+homeport_country: 
+
+# -----------------------------------------
+# OWNERSHIP AND OPERATION
+# -----------------------------------------
+owner: mt-mitchell-llc
+operator: mt-mitchell-llc
+managing_agency: Private
+operator_contact: Dave Auckland
+operator_phone: +1-206-770-7801
+operator_fax: +1-206-770-0511
+operator_email: "info@rvmtmitchell.com"
+
+# -----------------------------------------
+# PHYSICAL DIMENSIONS
+# -----------------------------------------
+length_m: 70
+beam_m: 42
+draft_m: 13
+gross_tons: 1453
+hull_material: Steel
+freeboard_deck_m: 2.1
+
+# -----------------------------------------
+# PROPULSION AND PERFORMANCE
+# -----------------------------------------
+engine_count: 2
+engine_make: General Motors EMD/567C
+engine_power: 1200
+power_hp: 2400
+aux_diesel_power_hp: 905
+prop_diameter_m: 2.59
+prop_max_rpm: 
+speed_cruise_kts: 11
+speed_max_kts: 13
+range_nm: 10925
+endurance_days: 45
+
+# -----------------------------------------
+# CAPACITY
+# -----------------------------------------
+crew: 5
+officers: 8
+scientists: 49
+air_conditioning: true
+fuel_capacity_mt: 397.4682
+capacity_dry_stores_mt: 1088.41
+water_capacity_mt: 60.56659
+water_generation_mt_day: 11.35624
+water_treatment: N/A
+
+# -----------------------------------------
+# LABORATORY AND DECK FACILITIES
+# -----------------------------------------
+lab_wet_area_m2: 182.92
+lab_dry_area_m2: 280.42
+free_deck_area_m2: 123.56
+container_lab_space: "Yes, Multiple Containers"
+radioactive_lab: N/A
+diving_support: 
+
+# -----------------------------------------
+# SCIENTIFIC EQUIPMENT
+# -----------------------------------------
+multibeam: 
+adcp: 
+sidescan_sonar: 
+sub_bottom_profiler: 
+echo_sounder: 
+acoustic_sonar: 
+acoustic_quiet: 
+
+ctd:
+  capable: 
+  make: 
+  fluorometer: 
+  oxygen_sensor: 
+  rosette: 
+  towed: 
+  transmissometer: 
+
+coring:
+  capable: 
+  box_core: 
+  grab_sampler: 
+  gravity_core: 
+  multi_core: 
+  piston_core: 
+
+underwater_vehicles: 
+rov_support: 
+auv_support: 
+submarine_support: 
+
+# -----------------------------------------
+# DECK EQUIPMENT
+# -----------------------------------------
+winches:
+  count: 
+  steel_wire_length_m: 
+  steel_wire_load_mt: 
+  conducting_cable_length_m: 
+  conducting_cable_load_mt: 
+  trawl_length_m: 
+  trawl_load_mt: 
+  other_length_m: 
+  other_load_mt: 
+  notes: 
+
+gantry:
+  position: 
+  height_above_deck_m: 
+  outboard_extension_m: 
+  load_capacity_mt: 
+
+cranes:
+  position: Aft
+  height_above_deck_m: 
+  outboard_extension_m: 
+  load_capacity_mt: 
+
+# -----------------------------------------
+# NAVIGATION AND COMMUNICATIONS
+# -----------------------------------------
+navigation_equipment: "ARPA Radars, G/DGPS, Gyrocompass, Nobletec, etc"
+navigation_gps: FURUNO W/ WAAS
+communications: "SSB, VHF, etc."
+satcomm: "Satcom B, Telex, GMDSS Handheld"
+
+# -----------------------------------------
+# ELECTRICAL SYSTEMS
+# -----------------------------------------
+ac_voltage: 475
+ac_power_kva: 
+ac_phases: 3
+ac_frequency_hz: 60
+ac_voltage_stabilized: N/A – Can provide UPS Equipment
+ac_freq_stabilized_hz: N/A – Can provide UPS Equipment
+ac_amps_stabilized: N/A – Can provide UPS Equipment
+dc_voltages: 12
+dc_voltage_max: 12
+
+# -----------------------------------------
+# DATA SYSTEMS
+# -----------------------------------------
+computing_equipment: Dual LAN systems interconnected
+data_printing: N/A
+
+# -----------------------------------------
+# OPERATING PROFILE
+# -----------------------------------------
+operating_area_notes: Global
+operating_grids: "NP2, NP3, NP4, NP5, NP6, NP7, NP8, NP9, NP10, NP11, NP12, NP13, SP1, SP2, SP3, SP4, SP5, SP6, SP7, SP8, SP9, SP9A"
+operating_regions:         # TODO: populate from operating_area_notes
+mission_capabilities:      # TODO: populate based on equipment fields
+
+# -----------------------------------------
+# PROGRAM MEMBERSHIPS
+# -----------------------------------------
+programs:
+  unols: false
+  go_ship: false
+  samos: false
+  vos: false
+  iwgfi: false
+  euro: false
+  bonus: false
+
+# -----------------------------------------
+# LINKS
+# -----------------------------------------
+url_vessel: "http://www.rvmtmitchell.com"
+url_operator: "http://www.rvmtmitchell.com"
+url_schedule: 
+photo_url: 
+
+# -----------------------------------------
+# ADMINISTRATIVE
+# -----------------------------------------
+record_updated: 2004-01-06
+notes: "Last Major Refit: 2001-2003
+
+Note 1: Vessel is charters as bareboat with qualified crew. Vessel can be configured as per clients needs"
+vessel_other: Re-fit supervised by ABS and USCG

@@ -1,0 +1,20 @@
+﻿# _data/organizations/school-of-marine-science-and-technology.yml
+
+name: School of Marine Science and Technology
+slug: school-of-marine-science-and-technology
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Dove Marine Laboratory
+  Cullercoats, North Shields
+  Tyne and Wear, NE30 4PZ, England
+primary_contact:
+phone: +44 (0) 191 252 4850
+fax: + 44 (0) 191 252 1054
+email: "C.L.J.Frid@ncl.ac.uk"
+url: "http://www.ncl.ac.uk/marine/"
+url_fleet:
+record_updated:
+notes:

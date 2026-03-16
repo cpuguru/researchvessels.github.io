@@ -1,0 +1,216 @@
+﻿---
+# -----------------------------------------
+# IDENTITY
+# -----------------------------------------
+name: Longhorn
+slug: longhorn
+imo_number: 
+nodc_code: 32LH
+call_sign: WZL3621
+year_built: 1971
+
+# -----------------------------------------
+# STATUS AND CLASSIFICATION
+# -----------------------------------------
+status: Active
+vessel_use_type: Dedicated Research
+vessel_class: 
+main_activity: Oceanography
+ice_class: 
+ice_breaking: 
+dp_class: 
+dp_system: 
+ism_certified: 
+vessel_classification: 
+vessel_construction: 
+charter_available: false
+
+# -----------------------------------------
+# FLAG AND HOME PORT
+# -----------------------------------------
+flag_country: USA
+homeport: "Port Aransas, TX"
+homeport_country: 
+
+# -----------------------------------------
+# OWNERSHIP AND OPERATION
+# -----------------------------------------
+owner: university-of-texas
+operator: marine-science-institute-university-of-texas
+managing_agency: 
+operator_contact: Steven M Lanoux
+operator_phone: 361 749 6760
+operator_fax: 361 749 6777
+operator_email: "Lanoux@utmsi.utexas.edu"
+
+# -----------------------------------------
+# PHYSICAL DIMENSIONS
+# -----------------------------------------
+length_m: 31.4
+beam_m: 7.38
+draft_m: 2.23
+gross_tons: 152.7
+hull_material: Steel
+freeboard_deck_m: 
+
+# -----------------------------------------
+# PROPULSION AND PERFORMANCE
+# -----------------------------------------
+engine_count: 2
+engine_make: Diesel
+engine_power: 
+power_hp: 
+aux_diesel_power_hp: 
+prop_diameter_m: 
+prop_max_rpm: 
+speed_cruise_kts: 9.5
+speed_max_kts: 10
+range_nm: 3000
+endurance_days: 14
+
+# -----------------------------------------
+# CAPACITY
+# -----------------------------------------
+crew: 4
+officers: 2
+scientists: 1210
+air_conditioning: ~
+fuel_capacity_mt: 42
+capacity_dry_stores_mt: 
+water_capacity_mt: 
+water_generation_mt_day: 2.3
+water_treatment: Desalination
+
+# -----------------------------------------
+# LABORATORY AND DECK FACILITIES
+# -----------------------------------------
+lab_wet_area_m2: 37
+lab_dry_area_m2: 37
+free_deck_area_m2: 
+container_lab_space: 
+radioactive_lab: 
+diving_support: 
+
+# -----------------------------------------
+# SCIENTIFIC EQUIPMENT
+# -----------------------------------------
+multibeam: 
+adcp: 
+sidescan_sonar: 
+sub_bottom_profiler: 
+echo_sounder: 
+acoustic_sonar: 
+acoustic_quiet: 
+
+ctd:
+  capable: "yes"
+  make: Sea-bird 911-plus
+  fluorometer: Sea Tec FLo500(500-m depth case)
+  oxygen_sensor: Sea-bird SBE-13
+  rosette: 
+  towed: Rock Dredge
+  transmissometer: Sea Tec TR2025 25-cm
+
+coring:
+  capable: "yes, Box-corer"
+  box_core: 
+  grab_sampler: 
+  gravity_core: 
+  multi_core: 
+  piston_core: (2) 7.6cm diameter
+
+underwater_vehicles: 
+rov_support: 
+auv_support: 
+submarine_support: 
+
+# -----------------------------------------
+# DECK EQUIPMENT
+# -----------------------------------------
+winches:
+  count: 
+  steel_wire_length_m: 
+  steel_wire_load_mt: 
+  conducting_cable_length_m: 
+  conducting_cable_load_mt: 
+  trawl_length_m: 
+  trawl_load_mt: 
+  other_length_m: 
+  other_load_mt: 
+  notes: (2) Hydrographice winchs
+
+gantry:
+  position: 
+  height_above_deck_m: 
+  outboard_extension_m: 
+  load_capacity_mt: 
+
+cranes:
+  position: Amidships
+  height_above_deck_m: 
+  outboard_extension_m: 
+  load_capacity_mt: 
+
+# -----------------------------------------
+# NAVIGATION AND COMMUNICATIONS
+# -----------------------------------------
+navigation_equipment: "Radar Loran, Gyro, Depth Recorder, Precision Depth Recorder, GPS Weather fax"
+navigation_gps: 
+communications: "VHF Radio: Unimetrics Sea Com 55, Hummingbird (3 units) SSB Radio: Stephens 222, Harris RF3200, cell phone"
+satcomm: "QualComm Omnitracs 200 SatCommunicator, MarineSat"
+
+# -----------------------------------------
+# ELECTRICAL SYSTEMS
+# -----------------------------------------
+ac_voltage: 110/220
+ac_power_kva: 
+ac_phases: 
+ac_frequency_hz: 
+ac_voltage_stabilized: 
+ac_freq_stabilized_hz: 
+ac_amps_stabilized: 
+dc_voltages: 12
+dc_voltage_max: 
+
+# -----------------------------------------
+# DATA SYSTEMS
+# -----------------------------------------
+computing_equipment: IBM-PC Computer
+data_printing: 
+
+# -----------------------------------------
+# OPERATING PROFILE
+# -----------------------------------------
+operating_area_notes: 
+operating_grids: 
+operating_regions:         # TODO: populate from operating_area_notes
+mission_capabilities:      # TODO: populate based on equipment fields
+
+# -----------------------------------------
+# PROGRAM MEMBERSHIPS
+# -----------------------------------------
+programs:
+  unols: true
+  go_ship: false
+  samos: false
+  vos: false
+  iwgfi: false
+  euro: false
+  bonus: false
+
+# -----------------------------------------
+# LINKS
+# -----------------------------------------
+url_vessel: "http://wwwutmsi.zo.utexas.edu/institute/longhorn/longhorn.htm"
+url_operator: "http://wwwutmsi.zo.utexas.edu/index.htm"
+url_schedule: "http://www.gso.uri.edu/unols/schedules/Longhorn/Longhorn_05.html"
+photo_url: 
+
+# -----------------------------------------
+# ADMINISTRATIVE
+# -----------------------------------------
+record_updated: 2005-01-26
+notes: refit 1986
+vessel_other: "TEXAS PARKS & WILDLIFE"
+
+---

@@ -1,0 +1,216 @@
+﻿---
+# -----------------------------------------
+# IDENTITY
+# -----------------------------------------
+name: Seawolf
+slug: seawolf
+imo_number: 
+nodc_code: 
+call_sign: 
+year_built: 1982
+
+# -----------------------------------------
+# STATUS AND CLASSIFICATION
+# -----------------------------------------
+status: Active
+vessel_use_type: Dedicated Research
+vessel_class: 
+main_activity: coastal Large-scale oceanographic sampling and trawling
+ice_class: 
+ice_breaking: "no"
+dp_class: 
+dp_system: 
+ism_certified: 
+vessel_classification: 
+vessel_construction: "Washburn and Doughty Associates, Woolrich, ME"
+charter_available: false
+
+# -----------------------------------------
+# FLAG AND HOME PORT
+# -----------------------------------------
+flag_country: USA
+homeport: "Port Jefferson, NY, USA"
+homeport_country: 
+
+# -----------------------------------------
+# OWNERSHIP AND OPERATION
+# -----------------------------------------
+owner: research-foundation-for-the-state-of-new-york
+operator: marine-sciences-research-center-suny-stony-brook
+managing_agency: 
+operator_contact: "Stephen J. Cluett, Captain"
+operator_phone: 631-632-8723
+operator_fax: 631-632-9441
+operator_email: "Stephen.Cluett@sunysb.edu"
+
+# -----------------------------------------
+# PHYSICAL DIMENSIONS
+# -----------------------------------------
+length_m: 24.384
+beam_m: 6.4
+draft_m: 3.3528
+gross_tons: 122
+hull_material: "1/4\"fwd,3/8\"aft steel"
+freeboard_deck_m: 1.1
+
+# -----------------------------------------
+# PROPULSION AND PERFORMANCE
+# -----------------------------------------
+engine_count: 1
+engine_make: Cummins KT38
+engine_power: 750
+power_hp: 800
+aux_diesel_power_hp: 
+prop_diameter_m: 72
+prop_max_rpm: 420
+speed_cruise_kts: 9.2
+speed_max_kts: 10.2
+range_nm: 2000
+endurance_days: 12
+
+# -----------------------------------------
+# CAPACITY
+# -----------------------------------------
+crew: 2
+officers: 2
+scientists: 6
+air_conditioning: true
+fuel_capacity_mt: 26.5
+capacity_dry_stores_mt: 68
+water_capacity_mt: 4.9205
+water_generation_mt_day: 0
+water_treatment: 
+
+# -----------------------------------------
+# LABORATORY AND DECK FACILITIES
+# -----------------------------------------
+lab_wet_area_m2: 11.148
+lab_dry_area_m2: 11.8912
+free_deck_area_m2: 52
+container_lab_space: 4.6 x 2.4 m2 van
+radioactive_lab: 
+diving_support: 
+
+# -----------------------------------------
+# SCIENTIFIC EQUIPMENT
+# -----------------------------------------
+multibeam: Simrad EM 3000
+adcp: RDI 300khz
+sidescan_sonar: 
+sub_bottom_profiler: 
+echo_sounder: "Furuno 50/200 1kw, 28khz 3kw"
+acoustic_sonar: 
+acoustic_quiet: 
+
+ctd:
+  capable: 
+  make: 
+  fluorometer: 
+  oxygen_sensor: 
+  rosette: 
+  towed: 
+  transmissometer: 
+
+coring:
+  capable: 
+  box_core: 
+  grab_sampler: 
+  gravity_core: 
+  multi_core: 
+  piston_core: 
+
+underwater_vehicles: 
+rov_support: 
+auv_support: 
+submarine_support: 
+
+# -----------------------------------------
+# DECK EQUIPMENT
+# -----------------------------------------
+winches:
+  count: 1
+  steel_wire_length_m: 1100
+  steel_wire_load_mt: 
+  conducting_cable_length_m: 0
+  conducting_cable_load_mt: 0
+  trawl_length_m: 
+  trawl_load_mt: 
+  other_length_m: 
+  other_load_mt: 
+  notes: (2) Trawl winchs
+
+gantry:
+  position: side (1 ton) and stern (6 ton)
+  height_above_deck_m: 6.4
+  outboard_extension_m: 2.4
+  load_capacity_mt: 6
+
+cranes:
+  position: midships
+  height_above_deck_m: 3
+  outboard_extension_m: 4.6
+  load_capacity_mt: 2.5
+
+# -----------------------------------------
+# NAVIGATION AND COMMUNICATIONS
+# -----------------------------------------
+navigation_equipment: "differential gps, w/secondary backup, Radars, Nobeltec Visual Series PC charting"
+navigation_gps: "Northstar 941, Furuno GP30"
+communications: "vhf (2), single side band"
+satcomm: 
+
+# -----------------------------------------
+# ELECTRICAL SYSTEMS
+# -----------------------------------------
+ac_voltage: 110/220208
+ac_power_kva: 85
+ac_phases: 3
+ac_frequency_hz: 60
+ac_voltage_stabilized: 
+ac_freq_stabilized_hz: 
+ac_amps_stabilized: 
+dc_voltages: 12
+dc_voltage_max: 12
+
+# -----------------------------------------
+# DATA SYSTEMS
+# -----------------------------------------
+computing_equipment: desktop pc platforms with network capabilities
+data_printing: 
+
+# -----------------------------------------
+# OPERATING PROFILE
+# -----------------------------------------
+operating_area_notes: "Long Island Sound; near-shore coastal waters of the Atlantic Ocean from Boston, MA to Beaufort, NC / Range - 600 NM"
+operating_grids: 
+operating_regions:         # TODO: populate from operating_area_notes
+mission_capabilities:      # TODO: populate based on equipment fields
+
+# -----------------------------------------
+# PROGRAM MEMBERSHIPS
+# -----------------------------------------
+programs:
+  unols: false
+  go_ship: false
+  samos: false
+  vos: false
+  iwgfi: false
+  euro: false
+  bonus: false
+
+# -----------------------------------------
+# LINKS
+# -----------------------------------------
+url_vessel: "http://www.msrc.sunysb.edu/inst_fac/inst_fac_rvseawolf.htm"
+url_operator: "http://www.msrc.sunysb.edu/"
+url_schedule: "http://alpha1.msrc.sunysb.edu/~vessels/Seawolf/schedule.htm"
+photo_url: 
+
+# -----------------------------------------
+# ADMINISTRATIVE
+# -----------------------------------------
+record_updated: 2005-02-03
+notes: COnversion
+vessel_other: 
+
+---

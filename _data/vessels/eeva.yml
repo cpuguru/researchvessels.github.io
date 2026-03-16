@@ -1,0 +1,215 @@
+﻿# _data/vessels/eeva.yml
+
+# -----------------------------------------
+# IDENTITY
+# -----------------------------------------
+name: Eeva
+slug: eeva
+imo_number: 
+nodc_code: 
+call_sign: ECEZ
+year_built: 1987
+
+# -----------------------------------------
+# STATUS AND CLASSIFICATION
+# -----------------------------------------
+status: Active
+vessel_use_type: Dedicated Research
+vessel_class: 
+main_activity: Oceanography – Survey - Enviromental
+ice_class: 
+ice_breaking: "no"
+dp_class: 
+dp_system: 
+ism_certified: 
+vessel_classification: 
+vessel_construction: 
+charter_available: false
+
+# -----------------------------------------
+# FLAG AND HOME PORT
+# -----------------------------------------
+flag_country: Spain
+homeport: Santa Cruz de Tenerife
+homeport_country: 
+
+# -----------------------------------------
+# OWNERSHIP AND OPERATION
+# -----------------------------------------
+owner: ecometria
+operator: ecometria
+managing_agency: 
+operator_contact: Pablo Cuesta
+operator_phone: +34-922-531-275
+operator_fax: +34-922-531-334
+operator_email: "pablocuesta@ecometria.net"
+
+# -----------------------------------------
+# PHYSICAL DIMENSIONS
+# -----------------------------------------
+length_m: 36.5
+beam_m: 9
+draft_m: 3.5
+gross_tons: 372
+hull_material: 
+freeboard_deck_m: 
+
+# -----------------------------------------
+# PROPULSION AND PERFORMANCE
+# -----------------------------------------
+engine_count: 1
+engine_make: "MAN&BW"
+engine_power: 1250
+power_hp: 1200
+aux_diesel_power_hp: 
+prop_diameter_m: 
+prop_max_rpm: 
+speed_cruise_kts: 8
+speed_max_kts: 10
+range_nm: 
+endurance_days: 36
+
+# -----------------------------------------
+# CAPACITY
+# -----------------------------------------
+crew: 10
+officers: 
+scientists: 14
+air_conditioning: true
+fuel_capacity_mt: 40
+capacity_dry_stores_mt: 50
+water_capacity_mt: 3
+water_generation_mt_day: 30
+water_treatment: Distiled water
+
+# -----------------------------------------
+# LABORATORY AND DECK FACILITIES
+# -----------------------------------------
+lab_wet_area_m2: 20
+lab_dry_area_m2: 20
+free_deck_area_m2: 72
+container_lab_space: (2) 6.1 m
+radioactive_lab: 
+diving_support: "Compresor, Complette equipment, Auxiliar boat Polar Circle"
+
+# -----------------------------------------
+# SCIENTIFIC EQUIPMENT
+# -----------------------------------------
+multibeam: Seabat Reson 2160 50 Khz. Simrad EM3000D 3000 Khz
+adcp: RDI ADCP Long range 75 Khz
+sidescan_sonar: Klein 3000
+sub_bottom_profiler: 
+echo_sounder: ATLAS 38 Khz. Koden
+acoustic_sonar: Anticollision Wesmar
+acoustic_quiet: "no"
+
+ctd:
+  capable: Valeport
+  make: 606+ 8 parameters real time
+  fluorometer: "yes"
+  oxygen_sensor: "yes"
+  rosette: "yes"
+  towed: "yes"
+  transmissometer: "yes"
+
+coring:
+  capable: 
+  box_core: 
+  grab_sampler: 
+  gravity_core: 
+  multi_core: 
+  piston_core: 
+
+underwater_vehicles: "yes"
+rov_support: "ROV SeaEye 300m – Camera, CDT, Manipulator"
+auv_support: 
+submarine_support: 
+
+# -----------------------------------------
+# DECK EQUIPMENT
+# -----------------------------------------
+winches:
+  count: 1
+  steel_wire_length_m: 
+  steel_wire_load_mt: 
+  conducting_cable_length_m: 
+  conducting_cable_load_mt: 
+  trawl_length_m: 
+  trawl_load_mt: 
+  other_length_m: 
+  other_load_mt: 
+  notes: 
+
+gantry:
+  position: Stern
+  height_above_deck_m: 
+  outboard_extension_m: 
+  load_capacity_mt: 
+
+cranes:
+  position: Stern
+  height_above_deck_m: 
+  outboard_extension_m: 
+  load_capacity_mt: 
+
+# -----------------------------------------
+# NAVIGATION AND COMMUNICATIONS
+# -----------------------------------------
+navigation_equipment: "Radar: Furno, Simrad, Autopilot Robertson Simrad, Gyro, Doppler speed log, Seapath Seatax, Plotter: Simrad, OLEX. AIS, motion sensor."
+navigation_gps: "Simrad, Trimble DGPS"
+communications: "(2)  VHF, HF/MF, GSM phone, Radio USB"
+satcomm: Inmarsat-M (mini M)
+
+# -----------------------------------------
+# ELECTRICAL SYSTEMS
+# -----------------------------------------
+ac_voltage: 220 VAC
+ac_power_kva: 1000
+ac_phases: 3
+ac_frequency_hz: 50
+ac_voltage_stabilized: 220 VAC
+ac_freq_stabilized_hz: 50
+ac_amps_stabilized: 20
+dc_voltages: 
+dc_voltage_max: 
+
+# -----------------------------------------
+# DATA SYSTEMS
+# -----------------------------------------
+computing_equipment: 7 PC’s 15 m2 capture + postprocess room + 25 m2 multipurpose room
+data_printing: Color printer + Color A1 scanner
+
+# -----------------------------------------
+# OPERATING PROFILE
+# -----------------------------------------
+operating_area_notes: Worldwide
+operating_grids: 
+operating_regions:         # TODO: populate from operating_area_notes
+mission_capabilities:      # TODO: populate based on equipment fields
+
+# -----------------------------------------
+# PROGRAM MEMBERSHIPS
+# -----------------------------------------
+programs:
+  unols: false
+  go_ship: false
+  samos: false
+  vos: false
+  iwgfi: false
+  euro: true
+  bonus: false
+
+# -----------------------------------------
+# LINKS
+# -----------------------------------------
+url_vessel: "http://www.ecometria.net/es.buque.htm"
+url_operator: "http://www.ecometria.net/empresa.htm"
+url_schedule: 
+photo_url: 
+
+# -----------------------------------------
+# ADMINISTRATIVE
+# -----------------------------------------
+record_updated: 2005-10-26
+notes: refit 1996/2004
+vessel_other: 

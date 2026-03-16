@@ -1,0 +1,18 @@
+﻿# _data/organizations/mta-general-directorate.yml
+
+name: MTA General Directorate
+slug: mta-general-directorate
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  MTA, 06520 Ankara, Turkey
+primary_contact:
+phone: +90 (312) 287 34 30
+fax: +90 (312) 287 91 88
+email: "hakyemez@mta.gov.tr"
+url: "http://www.mta.gov.tr/"
+url_fleet:
+record_updated:
+notes:

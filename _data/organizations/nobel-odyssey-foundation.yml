@@ -1,0 +1,20 @@
+﻿# _data/organizations/nobel-odyssey-foundation.yml
+
+name: Nobel Odyssey Foundation
+slug: nobel-odyssey-foundation
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Nobel Odyssey Foundation, 9000 Gale Rd,
+  White Lake, Michigan 48386
+  USA
+primary_contact:
+phone: 248-666-9359
+fax: 
+email: "lclyburn@comcast.net"
+url: "http://www.nobleodyssey.org/index.html"
+url_fleet:
+record_updated:
+notes:

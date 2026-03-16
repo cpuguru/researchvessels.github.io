@@ -1,0 +1,20 @@
+﻿# _data/organizations/monterey-bay-aquariom-research-intitute-mbari.yml
+
+name: Monterey Bay Aquariom Research Intitute (MBARI)
+slug: monterey-bay-aquariom-research-intitute-mbari
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  7700 Sandholdt Road
+  Moss Landing
+  CA 95039-9644, USA
+primary_contact:
+phone: 831-775-1700
+fax: 831-775-1620
+email: 
+url: "http://www.mbari.org/default.htm"
+url_fleet:
+record_updated:
+notes:

@@ -1,0 +1,20 @@
+﻿# _data/organizations/dte-energy-corporation.yml
+
+name: DTE Energy Corporation
+slug: dte-energy-corporation
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  DTE Energy Corporation
+  1600 W. Warren, H-136
+  Detroit, MI 48210, USA
+primary_contact:
+phone: 313-897-1334
+fax: 
+email: "longtong@dteenergy.com"
+url: "http://www.dteenergy.com/"
+url_fleet:
+record_updated:
+notes:

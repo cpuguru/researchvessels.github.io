@@ -1,0 +1,20 @@
+﻿# _data/organizations/faroese-fisheries-laboratory.yml
+
+name: Faroese Fisheries Laboratory
+slug: faroese-fisheries-laboratory
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Faroese Fisheries Laboratory
+  PO-Box 3051, Nóatún 1,
+  FO-110 Tórshavn, Føroyar
+primary_contact:
+phone: (+298) 31 50 92
+fax: (+298) 31 82 64
+email: 
+url: 
+url_fleet:
+record_updated:
+notes:

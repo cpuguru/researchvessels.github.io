@@ -1,0 +1,20 @@
+﻿# _data/organizations/mar-inc-rockville-md.yml
+
+name: "Mar Inc, Rockville, MD"
+slug: mar-inc-rockville-md
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Naval Facilities Engineering Service Center
+  1100 23rd Avenue (Code ESC54RE)
+  Port Hueneme, CA  93043-4370
+primary_contact:
+phone: 805-982-1270
+fax: 805-985-1197
+email: "erichrw@nfesc.navy.mil"
+url: 
+url_fleet:
+record_updated:
+notes:

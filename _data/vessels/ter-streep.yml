@@ -1,0 +1,215 @@
+﻿# _data/vessels/ter-streep.yml
+
+# -----------------------------------------
+# IDENTITY
+# -----------------------------------------
+name: Ter Streep
+slug: ter-streep
+imo_number: 
+nodc_code: 
+call_sign: ORDJ
+year_built: 1985
+
+# -----------------------------------------
+# STATUS AND CLASSIFICATION
+# -----------------------------------------
+status: Active
+vessel_use_type: Dedicated Research
+vessel_class: 
+main_activity: Bathymetric surveys
+ice_class: 
+ice_breaking: none
+dp_class: 
+dp_system: 
+ism_certified: 
+vessel_classification: None
+vessel_construction: Flemish Maritime and Waterways  Administration
+charter_available: false
+
+# -----------------------------------------
+# FLAG AND HOME PORT
+# -----------------------------------------
+flag_country: Belgium
+homeport: Oostende
+homeport_country: 
+
+# -----------------------------------------
+# OWNERSHIP AND OPERATION
+# -----------------------------------------
+owner: flemish-maritime-and-waterways-administration-fleet-division
+operator: flemish-maritime-and-waterways-administration
+managing_agency: 
+operator_contact: Arnold Fremout and Piet Leeuwerck
+operator_phone: +32 (0)59 55 42 49
+operator_fax: +32 (0)59 51 00 41
+operator_email: "arnold.fremout@lin.vlaanderen.be; piet.leeuwerck@lin.vlaanderen.be"
+
+# -----------------------------------------
+# PHYSICAL DIMENSIONS
+# -----------------------------------------
+length_m: 49.55
+beam_m: 9.6
+draft_m: 3.25
+gross_tons: 643
+hull_material: Steel
+freeboard_deck_m: 5
+
+# -----------------------------------------
+# PROPULSION AND PERFORMANCE
+# -----------------------------------------
+engine_count: 2
+engine_make: ABC 6MDXC-740-080 K
+engine_power: 810
+power_hp: 1620
+aux_diesel_power_hp: 492
+prop_diameter_m: 2200
+prop_max_rpm: 750
+speed_cruise_kts: 8
+speed_max_kts: 13
+range_nm: 800
+endurance_days: 1
+
+# -----------------------------------------
+# CAPACITY
+# -----------------------------------------
+crew: 12
+officers: 
+scientists: 6
+air_conditioning: ~
+fuel_capacity_mt: 49
+capacity_dry_stores_mt: 
+water_capacity_mt: 
+water_generation_mt_day: 
+water_treatment: 
+
+# -----------------------------------------
+# LABORATORY AND DECK FACILITIES
+# -----------------------------------------
+lab_wet_area_m2: -1
+lab_dry_area_m2: -1
+free_deck_area_m2: 30
+container_lab_space: "no"
+radioactive_lab: 
+diving_support: not carried
+
+# -----------------------------------------
+# SCIENTIFIC EQUIPMENT
+# -----------------------------------------
+multibeam: Simrad EM950 (95kc)
+adcp: 
+sidescan_sonar: Klein 5000 SSS
+sub_bottom_profiler: 
+echo_sounder: Atlas Deso 25 (33kc/210kc) ODOM echotrac (33kc/210kc)
+acoustic_sonar: 
+acoustic_quiet: 
+
+ctd:
+  capable: yes. 2
+  make: Odom digibar Pro / Valeport SVP
+  fluorometer: "no"
+  oxygen_sensor: "no"
+  rosette: "no"
+  towed: "no"
+  transmissometer: "no"
+
+coring:
+  capable: "no"
+  box_core: "no"
+  grab_sampler: "no"
+  gravity_core: "no"
+  multi_core: "no"
+  piston_core: "no"
+
+underwater_vehicles: not carried
+rov_support: not carried
+auv_support: not carried
+submarine_support: 
+
+# -----------------------------------------
+# DECK EQUIPMENT
+# -----------------------------------------
+winches:
+  count: 2
+  steel_wire_length_m: 
+  steel_wire_load_mt: 
+  conducting_cable_length_m: 
+  conducting_cable_load_mt: 0.5
+  trawl_length_m: 
+  trawl_load_mt: 
+  other_length_m: 
+  other_load_mt: 0.5
+  notes: small side davits
+
+gantry:
+  position: Aft
+  height_above_deck_m: 6
+  outboard_extension_m: 3.2
+  load_capacity_mt: 
+
+cranes:
+  position: Aft
+  height_above_deck_m: 2.5
+  outboard_extension_m: 10
+  load_capacity_mt: 
+
+# -----------------------------------------
+# NAVIGATION AND COMMUNICATIONS
+# -----------------------------------------
+navigation_equipment: Leica MX420IZ
+navigation_gps: Ashtech Aquarius 5002 LRK
+communications: VHF SSB Skanti TRP1250
+satcomm: None
+
+# -----------------------------------------
+# ELECTRICAL SYSTEMS
+# -----------------------------------------
+ac_voltage: 380
+ac_power_kva: 190/15
+ac_phases: 3
+ac_frequency_hz: 50
+ac_voltage_stabilized: 
+ac_freq_stabilized_hz: 50
+ac_amps_stabilized: 220
+dc_voltages: 24
+dc_voltage_max: 
+
+# -----------------------------------------
+# DATA SYSTEMS
+# -----------------------------------------
+computing_equipment: "1 sun 3 win XP (all dedicated to survey)  1 win98 (survey & general use)"
+data_printing: "Printing/Plotting equipment available for scientific use:   A4 laserjet (survey & general use) A3 laserjet A3 inkjet A4 matrix  (all dedicated to survey)"
+
+# -----------------------------------------
+# OPERATING PROFILE
+# -----------------------------------------
+operating_area_notes: Southern North Sea
+operating_grids: 
+operating_regions:         # TODO: populate from operating_area_notes
+mission_capabilities:      # TODO: populate based on equipment fields
+
+# -----------------------------------------
+# PROGRAM MEMBERSHIPS
+# -----------------------------------------
+programs:
+  unols: false
+  go_ship: false
+  samos: false
+  vos: false
+  iwgfi: false
+  euro: true
+  bonus: false
+
+# -----------------------------------------
+# LINKS
+# -----------------------------------------
+url_vessel: 
+url_operator: "http://www.awz.be"
+url_schedule: 
+photo_url: 
+
+# -----------------------------------------
+# ADMINISTRATIVE
+# -----------------------------------------
+record_updated: 2004-03-12
+notes: 
+vessel_other: 

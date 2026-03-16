@@ -1,0 +1,20 @@
+﻿# _data/organizations/noaa-pacific-marine-operations-centre.yml
+
+name: "NOAA, Pacific Marine Operations Centre"
+slug: noaa-pacific-marine-operations-centre
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  1801 Fairview Avenue East
+  Seattle, WA 98102-3767
+  USA
+primary_contact:
+phone: 
+fax: 
+email: "Noaa.Ship.Oscar.Dyson@noaa.gov"
+url: 
+url_fleet:
+record_updated:
+notes:

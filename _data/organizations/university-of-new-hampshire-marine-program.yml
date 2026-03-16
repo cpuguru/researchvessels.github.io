@@ -1,0 +1,20 @@
+﻿# _data/organizations/university-of-new-hampshire-marine-program.yml
+
+name: University of New Hampshire Marine Program
+slug: university-of-new-hampshire-marine-program
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Centre for Coastal and Ocean Mapping, Joint Hydrographic Centre, Chase Ocean Engineering Lab
+  24 Colovos Road, Durham
+  NH 03824, USA
+primary_contact:
+phone: 603-862-3433
+fax: 603-862-0839
+email: "info@ccom.unh.edu"
+url: "http://marine.unh.edu/facilitiesoverview.html"
+url_fleet:
+record_updated:
+notes:

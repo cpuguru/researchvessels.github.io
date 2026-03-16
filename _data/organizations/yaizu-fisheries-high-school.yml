@@ -1,0 +1,20 @@
+﻿# _data/organizations/yaizu-fisheries-high-school.yml
+
+name: Yaizu Fisheries High School
+slug: yaizu-fisheries-high-school
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Yaizu Fisheries High School
+  5-5-2 Yaizu
+  Yaizu-Shi, Shizuoka 425 Japan
+primary_contact:
+phone: 054 628-6148
+fax: 054 628-1556
+email: 
+url: 
+url_fleet:
+record_updated:
+notes:

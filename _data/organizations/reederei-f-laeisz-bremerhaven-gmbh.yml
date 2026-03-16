@@ -1,0 +1,20 @@
+﻿# _data/organizations/reederei-f-laeisz-bremerhaven-gmbh.yml
+
+name: Reederei F. Laeisz (Bremerhaven) GmbH
+slug: reederei-f-laeisz-bremerhaven-gmbh
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Alfred Wegener Institute for Polar and Marine Research
+  Burgermeister- Smidt-Strasse 20
+  D-27568 Bremerhaven
+primary_contact:
+phone: +49 (471) 4831-1435
+fax: +49 (471) 4831-1590
+email: "amacario@awi-bremerhaven.de"
+url: 
+url_fleet:
+record_updated:
+notes:

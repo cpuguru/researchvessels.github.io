@@ -1,0 +1,216 @@
+﻿---
+# -----------------------------------------
+# IDENTITY
+# -----------------------------------------
+name: Diablo
+slug: diablo
+imo_number: 
+nodc_code: 
+call_sign: 
+year_built: 1994
+
+# -----------------------------------------
+# STATUS AND CLASSIFICATION
+# -----------------------------------------
+status: Active
+vessel_use_type: Dedicated Research
+vessel_class: 
+main_activity: Dive/Survey vessel
+ice_class: 
+ice_breaking: n/a
+dp_class: 
+dp_system: "No"
+ism_certified: 
+vessel_classification: MCA Yellow / Brown Commercial code 4 20 mile 60 mi
+vessel_construction: Cygnus Marine
+charter_available: false
+
+# -----------------------------------------
+# FLAG AND HOME PORT
+# -----------------------------------------
+flag_country: UK
+homeport: "Royal Quays North Shields Tyne & Wear"
+homeport_country: 
+
+# -----------------------------------------
+# OWNERSHIP AND OPERATION
+# -----------------------------------------
+owner: diablo-charters
+operator: diablo-charters
+managing_agency: 
+operator_contact: Ken Miles
+operator_phone: +44191 2512855 Mob07765 781577
+operator_fax: +44191 2512855
+operator_email: "ken.miles@blueyonder.co.uk"
+
+# -----------------------------------------
+# PHYSICAL DIMENSIONS
+# -----------------------------------------
+length_m: 10
+beam_m: 3.5
+draft_m: 0.9
+gross_tons: 6
+hull_material: GRP
+freeboard_deck_m: 0.6
+
+# -----------------------------------------
+# PROPULSION AND PERFORMANCE
+# -----------------------------------------
+engine_count: 1
+engine_make: Cummins turbo Diesel BT6
+engine_power: 250
+power_hp: 250
+aux_diesel_power_hp: 0
+prop_diameter_m: 0.3
+prop_max_rpm: 2800
+speed_cruise_kts: 15
+speed_max_kts: 20
+range_nm: 200
+endurance_days: 1
+
+# -----------------------------------------
+# CAPACITY
+# -----------------------------------------
+crew: 
+officers: 2
+scientists: 
+air_conditioning: false
+fuel_capacity_mt: 0.5
+capacity_dry_stores_mt: 
+water_capacity_mt: 0
+water_generation_mt_day: 0
+water_treatment: n/a
+
+# -----------------------------------------
+# LABORATORY AND DECK FACILITIES
+# -----------------------------------------
+lab_wet_area_m2: 9
+lab_dry_area_m2: 4
+free_deck_area_m2: 9
+container_lab_space: n/a
+radioactive_lab: 
+diving_support: This vessel has been specifically designed for dive support and has electric diver lift at rear with walkthrough Transom ideal to launch survey equipment fish/ transponders
+
+# -----------------------------------------
+# SCIENTIFIC EQUIPMENT
+# -----------------------------------------
+multibeam: 
+adcp: 
+sidescan_sonar: 
+sub_bottom_profiler: 
+echo_sounder: Koden 7ins 50hz / 200hz
+acoustic_sonar: 
+acoustic_quiet: 
+
+ctd:
+  capable: 
+  make: 
+  fluorometer: 
+  oxygen_sensor: 
+  rosette: 
+  towed: 
+  transmissometer: 
+
+coring:
+  capable: Has worked using coring sampler hired in for specific survey
+  box_core: 
+  grab_sampler: Has worked using Grab sampler hired in for specific survey
+  gravity_core: 
+  multi_core: 
+  piston_core: 
+
+underwater_vehicles: Can be arranged
+rov_support: "Yes"
+auv_support: 
+submarine_support: "No"
+
+# -----------------------------------------
+# DECK EQUIPMENT
+# -----------------------------------------
+winches:
+  count: 1
+  steel_wire_length_m: 
+  steel_wire_load_mt: 
+  conducting_cable_length_m: 
+  conducting_cable_load_mt: 
+  trawl_length_m: 
+  trawl_load_mt: 
+  other_length_m: 
+  other_load_mt: 
+  notes: 1 ton capstan winch
+
+gantry:
+  position: Rear deck
+  height_above_deck_m: 2.5
+  outboard_extension_m: 0.75
+  load_capacity_mt: 0.75
+
+cranes:
+  position: 
+  height_above_deck_m: 
+  outboard_extension_m: 
+  load_capacity_mt: 
+
+# -----------------------------------------
+# NAVIGATION AND COMMUNICATIONS
+# -----------------------------------------
+navigation_equipment: GPS plotter Ratheon 20mile Radar
+navigation_gps: "CMAP UK WATERS PLOTTER dgps  Furuno GPS, Ratheon 20xx Radar"
+communications: ICOM DSC VHF Navico VHF Humminbird handheld
+satcomm: n/a
+
+# -----------------------------------------
+# ELECTRICAL SYSTEMS
+# -----------------------------------------
+ac_voltage: 250
+ac_power_kva: 1
+ac_phases: 1
+ac_frequency_hz: 50
+ac_voltage_stabilized: 250
+ac_freq_stabilized_hz: 50
+ac_amps_stabilized: 4
+dc_voltages: 12
+dc_voltage_max: 12
+
+# -----------------------------------------
+# DATA SYSTEMS
+# -----------------------------------------
+computing_equipment: 
+data_printing: 
+
+# -----------------------------------------
+# OPERATING PROFILE
+# -----------------------------------------
+operating_area_notes: Northeast UK
+operating_grids: 
+operating_regions:         # TODO: populate from operating_area_notes
+mission_capabilities:      # TODO: populate based on equipment fields
+
+# -----------------------------------------
+# PROGRAM MEMBERSHIPS
+# -----------------------------------------
+programs:
+  unols: false
+  go_ship: false
+  samos: false
+  vos: false
+  iwgfi: false
+  euro: true
+  bonus: false
+
+# -----------------------------------------
+# LINKS
+# -----------------------------------------
+url_vessel: "http://www.diablocharters.co.uk/index.htm"
+url_operator: "http://www.diablocharters.co.uk/index.htm"
+url_schedule: 
+photo_url: 
+
+# -----------------------------------------
+# ADMINISTRATIVE
+# -----------------------------------------
+record_updated: 2006-04-19
+notes: 
+vessel_other: 
+
+---

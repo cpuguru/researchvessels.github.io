@@ -1,0 +1,216 @@
+﻿---
+# -----------------------------------------
+# IDENTITY
+# -----------------------------------------
+name: Odyssey (WCI)
+slug: odyssey-wci
+imo_number: 
+nodc_code: 
+call_sign: WCC 7729
+year_built: 1976
+
+# -----------------------------------------
+# STATUS AND CLASSIFICATION
+# -----------------------------------------
+status: Active
+vessel_use_type: Dedicated Research
+vessel_class: 
+main_activity: working with whales
+ice_class: 
+ice_breaking: "no"
+dp_class: 
+dp_system: 
+ism_certified: 
+vessel_classification: 
+vessel_construction: "Whangarei, New Zealand"
+charter_available: false
+
+# -----------------------------------------
+# FLAG AND HOME PORT
+# -----------------------------------------
+flag_country: USA
+homeport: 
+homeport_country: 
+
+# -----------------------------------------
+# OWNERSHIP AND OPERATION
+# -----------------------------------------
+owner: ocean-alliance-whale-conservation-institute
+operator: ocean-alliance-whale-conservation-institute
+managing_agency: 
+operator_contact: 
+operator_phone: "781-259-0423, 1-(800)-96WHALE, (1-800-969-4253)"
+operator_fax: 781-259-0288
+operator_email: "question@oceanalliance.org"
+
+# -----------------------------------------
+# PHYSICAL DIMENSIONS
+# -----------------------------------------
+length_m: 28.4
+beam_m: 5.6
+draft_m: 3.5
+gross_tons: 
+hull_material: "Steel, full keel"
+freeboard_deck_m: 
+
+# -----------------------------------------
+# PROPULSION AND PERFORMANCE
+# -----------------------------------------
+engine_count: 1
+engine_make: General Motors 6-71 N
+engine_power: 218 HP
+power_hp: 
+aux_diesel_power_hp: 
+prop_diameter_m: 
+prop_max_rpm: 
+speed_cruise_kts: 
+speed_max_kts: 
+range_nm: 4000
+endurance_days: 
+
+# -----------------------------------------
+# CAPACITY
+# -----------------------------------------
+crew: 4
+officers: 
+scientists: 14
+air_conditioning: 
+fuel_capacity_mt: 12.1
+capacity_dry_stores_mt: 
+water_capacity_mt: 4.5
+water_generation_mt_day: 1.9
+water_treatment: HRO
+
+# -----------------------------------------
+# LABORATORY AND DECK FACILITIES
+# -----------------------------------------
+lab_wet_area_m2: 
+lab_dry_area_m2: 
+free_deck_area_m2: 
+container_lab_space: 
+radioactive_lab: 
+diving_support: "Two scuba compressors, ten scuba tanks, six complete dive rigs, two dive computers, eight wet suits, four Bcs etc.,Hooka rig, 60 ft of hose,"
+
+# -----------------------------------------
+# SCIENTIFIC EQUIPMENT
+# -----------------------------------------
+multibeam: Furano CH 12 multibeam scanning sonar
+adcp: 
+sidescan_sonar: 
+sub_bottom_profiler: 
+echo_sounder: "Interphase Probe scanning depthsounder,  Two Data marine depthsounders"
+acoustic_sonar: Furano CH 50 Tracking Sonar
+acoustic_quiet: 
+
+ctd:
+  capable: 
+  make: 
+  fluorometer: 
+  oxygen_sensor: 
+  rosette: 
+  towed: 
+  transmissometer: 
+
+coring:
+  capable: 
+  box_core: 
+  grab_sampler: 
+  gravity_core: 
+  multi_core: 
+  piston_core: 
+
+underwater_vehicles: 
+rov_support: 
+auv_support: 
+submarine_support: 
+
+# -----------------------------------------
+# DECK EQUIPMENT
+# -----------------------------------------
+winches:
+  count: 
+  steel_wire_length_m: 
+  steel_wire_load_mt: 
+  conducting_cable_length_m: 
+  conducting_cable_load_mt: 
+  trawl_length_m: 
+  trawl_load_mt: 
+  other_length_m: 
+  other_load_mt: 
+  notes: 
+
+gantry:
+  position: 
+  height_above_deck_m: 
+  outboard_extension_m: 
+  load_capacity_mt: 
+
+cranes:
+  position: 
+  height_above_deck_m: 
+  outboard_extension_m: 
+  load_capacity_mt: 0.5
+
+# -----------------------------------------
+# NAVIGATION AND COMMUNICATIONS
+# -----------------------------------------
+navigation_equipment: "Radars, Autopilot, fair tide master log, Loran, Cetrek"
+navigation_gps: "Magellan GPS 5000D, 2 Apelco GPS,"
+communications: "Radio: ICOM M-600 transceiver, Apelco VHF, Three Apelco VHF HH (hand held)"
+satcomm: "Furuno Inmarsat B Phone/Fax/Internet Satellite, Inmarsat C SatCom, AT&T High Seas Direct"
+
+# -----------------------------------------
+# ELECTRICAL SYSTEMS
+# -----------------------------------------
+ac_voltage: 110/220 VAC
+ac_power_kva: 
+ac_phases: 
+ac_frequency_hz: 60 Hz
+ac_voltage_stabilized: 
+ac_freq_stabilized_hz: 
+ac_amps_stabilized: 
+dc_voltages: 36/24/12/6 VDC
+dc_voltage_max: 
+
+# -----------------------------------------
+# DATA SYSTEMS
+# -----------------------------------------
+computing_equipment: "Apple Quadra 800 mainframe, one Apple powerbook, MO drive 120 Mb, Panasonic notebook linked to Satcom"
+data_printing: "Apple laser printer,  Bubble jet printer,"
+
+# -----------------------------------------
+# OPERATING PROFILE
+# -----------------------------------------
+operating_area_notes: 
+operating_grids: 
+operating_regions:         # TODO: populate from operating_area_notes
+mission_capabilities:      # TODO: populate based on equipment fields
+
+# -----------------------------------------
+# PROGRAM MEMBERSHIPS
+# -----------------------------------------
+programs:
+  unols: false
+  go_ship: false
+  samos: false
+  vos: false
+  iwgfi: false
+  euro: false
+  bonus: false
+
+# -----------------------------------------
+# LINKS
+# -----------------------------------------
+url_vessel: "http://www.whale.org/voyage/voyage_rvodyssey.html"
+url_operator: "http://www.whale.org/index.html"
+url_schedule: 
+photo_url: 
+
+# -----------------------------------------
+# ADMINISTRATIVE
+# -----------------------------------------
+record_updated: 2005-04-22
+notes: "Refitted 1991, Rig: Ketch, mast height 26.8 m +2.4 m antenna"
+vessel_other: 
+
+---

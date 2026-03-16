@@ -1,0 +1,216 @@
+﻿---
+# -----------------------------------------
+# IDENTITY
+# -----------------------------------------
+name: Laurentian
+slug: laurentian
+imo_number: 
+nodc_code: 33LA
+call_sign: 
+year_built: 1974
+
+# -----------------------------------------
+# STATUS AND CLASSIFICATION
+# -----------------------------------------
+status: Active
+vessel_use_type: Dedicated Research
+vessel_class: 
+main_activity: Oceanography
+ice_class: 
+ice_breaking: 
+dp_class: 
+dp_system: 
+ism_certified: 
+vessel_classification: 
+vessel_construction: 
+charter_available: false
+
+# -----------------------------------------
+# FLAG AND HOME PORT
+# -----------------------------------------
+flag_country: USA
+homeport: "Muskegon, Michigan/Lake Michigan"
+homeport_country: 
+
+# -----------------------------------------
+# OWNERSHIP AND OPERATION
+# -----------------------------------------
+owner: great-lakes-environmental-research-laboratory-glerl
+operator: glerl
+managing_agency: NOAA
+operator_contact: Dennis Donahue (Mgr.)
+operator_phone: 231-759-5173 or 231-759-2314
+operator_fax: 231-759-2414
+operator_email: "donahue@glerl.noaa.gov"
+
+# -----------------------------------------
+# PHYSICAL DIMENSIONS
+# -----------------------------------------
+length_m: 24
+beam_m: 6.55
+draft_m: 2.67
+gross_tons: 129
+hull_material: Steel
+freeboard_deck_m: 58
+
+# -----------------------------------------
+# PROPULSION AND PERFORMANCE
+# -----------------------------------------
+engine_count: 1
+engine_make: Diesel
+engine_power: 340 at 2100rpm
+power_hp: 
+aux_diesel_power_hp: 
+prop_diameter_m: 1.68
+prop_max_rpm: 320
+speed_cruise_kts: 8.5
+speed_max_kts: 10
+range_nm: 2500
+endurance_days: 10
+
+# -----------------------------------------
+# CAPACITY
+# -----------------------------------------
+crew: 4
+officers: 
+scientists: 10
+air_conditioning: true
+fuel_capacity_mt: 36
+capacity_dry_stores_mt: 
+water_capacity_mt: 
+water_generation_mt_day: 
+water_treatment: 
+
+# -----------------------------------------
+# LABORATORY AND DECK FACILITIES
+# -----------------------------------------
+lab_wet_area_m2: 13
+lab_dry_area_m2: 36
+free_deck_area_m2: 
+container_lab_space: 
+radioactive_lab: 
+diving_support: 
+
+# -----------------------------------------
+# SCIENTIFIC EQUIPMENT
+# -----------------------------------------
+multibeam: 
+adcp: 
+sidescan_sonar: "yes"
+sub_bottom_profiler: 
+echo_sounder: "146 kHz, Ross D-600D; Ross 250C"
+acoustic_sonar: Sector-scan
+acoustic_quiet: 
+
+ctd:
+  capable: "yes"
+  make: Seabird
+  fluorometer: 
+  oxygen_sensor: 
+  rosette: 
+  towed: 
+  transmissometer: 
+
+coring:
+  capable: 
+  box_core: 
+  grab_sampler: Ponars
+  gravity_core: 
+  multi_core: 
+  piston_core: "Yes"
+
+underwater_vehicles: 
+rov_support: 
+auv_support: 
+submarine_support: 
+
+# -----------------------------------------
+# DECK EQUIPMENT
+# -----------------------------------------
+winches:
+  count: 4
+  steel_wire_length_m: 610
+  steel_wire_load_mt: 
+  conducting_cable_length_m: 700
+  conducting_cable_load_mt: 
+  trawl_length_m: 
+  trawl_load_mt: 
+  other_length_m: 518
+  other_load_mt: 
+  notes: "Hydro, length 305M"
+
+gantry:
+  position: Midships
+  height_above_deck_m: 5
+  outboard_extension_m: 
+  load_capacity_mt: 
+
+cranes:
+  position: Midships
+  height_above_deck_m: 5
+  outboard_extension_m: 
+  load_capacity_mt: 
+
+# -----------------------------------------
+# NAVIGATION AND COMMUNICATIONS
+# -----------------------------------------
+navigation_equipment: Radar Loran SatNav Gyro EMLog
+navigation_gps: Trimble 104
+communications: "Radio SSB, RAytheon Ray"
+satcomm: 
+
+# -----------------------------------------
+# ELECTRICAL SYSTEMS
+# -----------------------------------------
+ac_voltage: 208AC / 115AC
+ac_power_kva: 40
+ac_phases: 3
+ac_frequency_hz: 60
+ac_voltage_stabilized: 120
+ac_freq_stabilized_hz: 60
+ac_amps_stabilized: 20
+dc_voltages: 
+dc_voltage_max: 
+
+# -----------------------------------------
+# DATA SYSTEMS
+# -----------------------------------------
+computing_equipment: IBM Compatible(2) 80486
+data_printing: 
+
+# -----------------------------------------
+# OPERATING PROFILE
+# -----------------------------------------
+operating_area_notes: Great Lakes
+operating_grids: GL4
+operating_regions:         # TODO: populate from operating_area_notes
+mission_capabilities:      # TODO: populate based on equipment fields
+
+# -----------------------------------------
+# PROGRAM MEMBERSHIPS
+# -----------------------------------------
+programs:
+  unols: true
+  go_ship: false
+  samos: false
+  vos: false
+  iwgfi: false
+  euro: false
+  bonus: false
+
+# -----------------------------------------
+# LINKS
+# -----------------------------------------
+url_vessel: "http://borris.glerl.noaa.gov/lmfs/vessels/laurentian/laurentian1.html"
+url_operator: "http://www.glerl.noaa.gov/"
+url_schedule: "http://gso.uri.edu/unols/schedules/Laurentian/Laurentian_00.html"
+photo_url: 
+
+# -----------------------------------------
+# ADMINISTRATIVE
+# -----------------------------------------
+record_updated: 2005-04-15
+notes: "Field season: April to Nov.,"
+vessel_other: 
+
+---

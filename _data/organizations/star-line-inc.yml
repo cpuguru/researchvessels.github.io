@@ -1,0 +1,20 @@
+﻿# _data/organizations/star-line-inc.yml
+
+name: Star Line Inc.
+slug: star-line-inc
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Star Line Inc., 3 Wharf Road
+  Clarenville, NL A5A 2B2
+  Canada
+primary_contact:
+phone: (709) 466-6196
+fax: (709) 466-7454
+email: "chris.starline@nfld.net"
+url: "http://www.starlineinc.com/index.html"
+url_fleet:
+record_updated:
+notes:

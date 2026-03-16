@@ -1,0 +1,19 @@
+﻿# _data/organizations/cape-fear-community-college.yml
+
+name: Cape Fear Community College
+slug: cape-fear-community-college
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Coordinator of Ship Operations
+  Wilmington, NC 28401-3993
+primary_contact:
+phone: 910-251-6941
+fax: 910-763-2279
+email: "sbeuth@capefear.cc.nc.us"
+url: "http://www.wilmington.net/index.html"
+url_fleet:
+record_updated:
+notes:

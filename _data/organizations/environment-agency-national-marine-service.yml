@@ -1,0 +1,20 @@
+﻿# _data/organizations/environment-agency-national-marine-service.yml
+
+name: "Environment Agency, National Marine Service"
+slug: environment-agency-national-marine-service
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Environment Agency - Anglian Region
+  Kingfisher House - Orton Goldhay
+  Peterborough, Cambridgeshire PE2-5ZR
+primary_contact:
+phone: +44(0)1243 555906
+fax: 
+email: "branca.PETERBOROUGH1.AN@environment-agency.gov.uk"
+url: "http://www.environment-agency.gov.uk/"
+url_fleet:
+record_updated:
+notes:

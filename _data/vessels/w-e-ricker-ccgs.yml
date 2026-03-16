@@ -1,0 +1,215 @@
+﻿# _data/vessels/w-e-ricker-ccgs.yml
+
+# -----------------------------------------
+# IDENTITY
+# -----------------------------------------
+name: W. E. Ricker (CCGS)
+slug: w-e-ricker-ccgs
+imo_number: 
+nodc_code: 18RK
+call_sign: CG2965
+year_built: 1978
+
+# -----------------------------------------
+# STATUS AND CLASSIFICATION
+# -----------------------------------------
+status: Active
+vessel_use_type: Dedicated Research
+vessel_class: 
+main_activity: Fisheries Research
+ice_class: 
+ice_breaking: "No"
+dp_class: 
+dp_system: 
+ism_certified: 
+vessel_classification: 100A1
+vessel_construction: "Narasaki Senpakukogyo Ltd., Muroran Hokkaido Japan"
+charter_available: false
+
+# -----------------------------------------
+# FLAG AND HOME PORT
+# -----------------------------------------
+flag_country: Canada
+homeport: "Patricia Bay, British Columbia, Canada"
+homeport_country: 
+
+# -----------------------------------------
+# OWNERSHIP AND OPERATION
+# -----------------------------------------
+owner: canadian-coast-guard
+operator: canadian-coast-guard-pacific-region
+managing_agency: 
+operator_contact: 
+operator_phone: 604-775-8888
+operator_fax: 
+operator_email: 
+
+# -----------------------------------------
+# PHYSICAL DIMENSIONS
+# -----------------------------------------
+length_m: 58
+beam_m: 9.5
+draft_m: 4.5
+gross_tons: 1104.5
+hull_material: Steel
+freeboard_deck_m: 1.9
+
+# -----------------------------------------
+# PROPULSION AND PERFORMANCE
+# -----------------------------------------
+engine_count: 1
+engine_make: Akasaka AH40- 6 cyl
+engine_power: 2500 hp
+power_hp: 2500
+aux_diesel_power_hp: 450
+prop_diameter_m: 2.6
+prop_max_rpm: 290
+speed_cruise_kts: 10
+speed_max_kts: 11.5
+range_nm: 6000
+endurance_days: 50
+
+# -----------------------------------------
+# CAPACITY
+# -----------------------------------------
+crew: 13
+officers: 6
+scientists: 17
+air_conditioning: false
+fuel_capacity_mt: 290
+capacity_dry_stores_mt: 0
+water_capacity_mt: 31
+water_generation_mt_day: 7
+water_treatment: N/A
+
+# -----------------------------------------
+# LABORATORY AND DECK FACILITIES
+# -----------------------------------------
+lab_wet_area_m2: 51
+lab_dry_area_m2: 13
+free_deck_area_m2: 150
+container_lab_space: "No"
+radioactive_lab: "No"
+diving_support: N/A
+
+# -----------------------------------------
+# SCIENTIFIC EQUIPMENT
+# -----------------------------------------
+multibeam: 
+adcp: RDI - ADCP
+sidescan_sonar: 1 - Wesmar SS265
+sub_bottom_profiler: N/A
+echo_sounder: "Depth Sounders, Simrad EQ55: EK500"
+acoustic_sonar: Wesmar HD600E
+acoustic_quiet: N/A
+
+ctd:
+  capable: "Yes"
+  make: Sea-Bird 911
+  fluorometer: "Yes"
+  oxygen_sensor: "Yes"
+  rosette: "No"
+  towed: "No"
+  transmissometer: "Yes"
+
+coring:
+  capable: N/A
+  box_core: N/A
+  grab_sampler: Can be carried
+  gravity_core: N/A
+  multi_core: N/A
+  piston_core: N/A
+
+underwater_vehicles: "No"
+rov_support: "No"
+auv_support: "No"
+submarine_support: "No"
+
+# -----------------------------------------
+# DECK EQUIPMENT
+# -----------------------------------------
+winches:
+  count: 2
+  steel_wire_length_m: 
+  steel_wire_load_mt: 
+  conducting_cable_length_m: 0
+  conducting_cable_load_mt: 0
+  trawl_length_m: 2000
+  trawl_load_mt: 10
+  other_length_m: 
+  other_load_mt: 
+  notes: "port side hiab 8.3m reach @ 1.25tonnes, 1 CTD winch"
+
+gantry:
+  position: stern
+  height_above_deck_m: 8
+  outboard_extension_m: 2
+  load_capacity_mt: 5
+
+cranes:
+  position: stbd aft hiab
+  height_above_deck_m: 
+  outboard_extension_m: 8.4
+  load_capacity_mt: 2.06
+
+# -----------------------------------------
+# NAVIGATION AND COMMUNICATIONS
+# -----------------------------------------
+navigation_equipment: "Radar (X & S Band); Loran C; Gyro Compass; OSL ECPINS; MF/VHF DF"
+navigation_gps: 2 X Northstar 941X
+communications: "VHF: AM & FM, HF, WeatherFax,"
+satcomm: 1 - JRC JUE-45A
+
+# -----------------------------------------
+# ELECTRICAL SYSTEMS
+# -----------------------------------------
+ac_voltage: 240/120
+ac_power_kva: 
+ac_phases: 3/3
+ac_frequency_hz: 60/60
+ac_voltage_stabilized: "No"
+ac_freq_stabilized_hz: 
+ac_amps_stabilized: 
+dc_voltages: 24
+dc_voltage_max: 
+
+# -----------------------------------------
+# DATA SYSTEMS
+# -----------------------------------------
+computing_equipment: Not Supplied
+data_printing: Not Supplied
+
+# -----------------------------------------
+# OPERATING PROFILE
+# -----------------------------------------
+operating_area_notes: Pacific Ocean
+operating_grids: 
+operating_regions:         # TODO: populate from operating_area_notes
+mission_capabilities:      # TODO: populate based on equipment fields
+
+# -----------------------------------------
+# PROGRAM MEMBERSHIPS
+# -----------------------------------------
+programs:
+  unols: false
+  go_ship: false
+  samos: false
+  vos: true
+  iwgfi: false
+  euro: false
+  bonus: false
+
+# -----------------------------------------
+# LINKS
+# -----------------------------------------
+url_vessel: "http://www.ccg-gcc.gc.ca/vessels-navires/details_e.asp?id=G-3"
+url_operator: "http://www.ccg-gcc.gc.ca/main_e.htm"
+url_schedule: 
+photo_url: 
+
+# -----------------------------------------
+# ADMINISTRATIVE
+# -----------------------------------------
+record_updated: 2005-02-28
+notes: 
+vessel_other: 

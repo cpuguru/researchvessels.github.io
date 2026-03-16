@@ -1,0 +1,19 @@
+﻿# _data/organizations/southern-california-marine-institute-scmi.yml
+
+name: Southern California Marine Institute (SCMI)
+slug: southern-california-marine-institute-scmi
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  820 South Seaside Ave
+  Terminal Island, CA 90731
+primary_contact:
+phone: (310) 519-3179
+fax: 
+email: "cdwarren@csulb.edu"
+url: "http://www.scmi.us/"
+url_fleet:
+record_updated:
+notes:

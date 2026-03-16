@@ -1,0 +1,20 @@
+﻿# _data/organizations/norwegian-university-of-science-and-technology-ntnu.yml
+
+name: Norwegian University of Science and Technology (NTNU)
+slug: norwegian-university-of-science-and-technology-ntnu
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  NTNU,
+  Technical department,
+  N-7491 Trondheim, Norway
+primary_contact:
+phone: ++ 47 73595415 / ++ 47 73591598
+fax: ++ 47 73591287
+email: "Kjell.nasje@adm.ntnu.no"
+url: "http://www.bio.ntnu.no/tbs"
+url_fleet:
+record_updated:
+notes:

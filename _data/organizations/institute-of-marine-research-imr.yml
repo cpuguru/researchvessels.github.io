@@ -1,0 +1,20 @@
+﻿# _data/organizations/institute-of-marine-research-imr.yml
+
+name: Institute of Marine Research (IMR)
+slug: institute-of-marine-research-imr
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Institute of Marine Research (IMR), Research Vessels Department,
+  P.O. Box 1879 Nordnes,
+  N-5817 Bergen, Norway
+primary_contact:
+phone: + 47 55 23 68 49
+fax: +47 55 23 85 32
+email: "pern@imr.no"
+url: "http://www.imr.no"
+url_fleet:
+record_updated:
+notes:

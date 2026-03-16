@@ -1,0 +1,18 @@
+﻿# _data/organizations/center-of-marine-research.yml
+
+name: Center of Marine Research
+slug: center-of-marine-research
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Taikos pr.26, 5802 Klaipeda
+primary_contact:
+phone: 370 46 41 04 50
+fax: 370 46 41 04 60
+email: "CMR@klaipeda.omnitel.net"
+url: "http://www1.omnitel.net/juriniai_tyrimai/index.htm"
+url_fleet:
+record_updated:
+notes:

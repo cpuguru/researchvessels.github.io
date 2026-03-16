@@ -1,0 +1,216 @@
+﻿---
+# -----------------------------------------
+# IDENTITY
+# -----------------------------------------
+name: Coriollis II
+slug: coriollis-ii
+imo_number: 
+nodc_code: 
+call_sign: CGDN
+year_built: 1990
+
+# -----------------------------------------
+# STATUS AND CLASSIFICATION
+# -----------------------------------------
+status: Active
+vessel_use_type: Dedicated Research
+vessel_class: 
+main_activity: Oceanography
+ice_class: 
+ice_breaking: None
+dp_class: 
+dp_system: "No"
+ism_certified: 
+vessel_classification: Canadian Marine
+vessel_construction: Canadian Coast Guard
+charter_available: false
+
+# -----------------------------------------
+# FLAG AND HOME PORT
+# -----------------------------------------
+flag_country: Canada
+homeport: Quebec
+homeport_country: 
+
+# -----------------------------------------
+# OWNERSHIP AND OPERATION
+# -----------------------------------------
+owner: university-of-quebec-in-rimouski
+operator: reformar
+managing_agency: 
+operator_contact: Bruno Beaulieu
+operator_phone: (418) 724-2822 ext 2026
+operator_fax: (418) 724-0606
+operator_email: "reformar@imq.qc.ca"
+
+# -----------------------------------------
+# PHYSICAL DIMENSIONS
+# -----------------------------------------
+length_m: 49.95
+beam_m: 11
+draft_m: 5.2
+gross_tons: 836
+hull_material: Steel
+freeboard_deck_m: 1.9
+
+# -----------------------------------------
+# PROPULSION AND PERFORMANCE
+# -----------------------------------------
+engine_count: 4
+engine_make: Deutz SBV6M628
+engine_power: 4800
+power_hp: 
+aux_diesel_power_hp: 750
+prop_diameter_m: 2.5
+prop_max_rpm: 250
+speed_cruise_kts: 14
+speed_max_kts: 17
+range_nm: 
+endurance_days: 20
+
+# -----------------------------------------
+# CAPACITY
+# -----------------------------------------
+crew: 9
+officers: 
+scientists: 15
+air_conditioning: false
+fuel_capacity_mt: 145
+capacity_dry_stores_mt: 26.25
+water_capacity_mt: 18.2
+water_generation_mt_day: 10
+water_treatment: Reverse Osmosis
+
+# -----------------------------------------
+# LABORATORY AND DECK FACILITIES
+# -----------------------------------------
+lab_wet_area_m2: 120
+lab_dry_area_m2: 120
+free_deck_area_m2: 133
+container_lab_space: 23.8
+radioactive_lab: None
+diving_support: Some equip upon request
+
+# -----------------------------------------
+# SCIENTIFIC EQUIPMENT
+# -----------------------------------------
+multibeam: "Simrad EK60MK1 30, 120 & 200kHz"
+adcp: "RDI OS 75 VM& 150"
+sidescan_sonar: 
+sub_bottom_profiler: 
+echo_sounder: "Skipper GDS101, Datamarine Intl Offshore 3000"
+acoustic_sonar: 
+acoustic_quiet: 
+
+ctd:
+  capable: "Yes"
+  make: Seabird
+  fluorometer: "Wetstar & Seapoint"
+  oxygen_sensor: Seabird SBE 5T
+  rosette: Seabird SBE 32
+  towed: 
+  transmissometer: Wetlabs C-Star
+
+coring:
+  capable: "Yes"
+  box_core: Pouliot Swing Arm
+  grab_sampler: Pouliot Van Veen
+  gravity_core: Pouliot Lehigh
+  multi_core: 
+  piston_core: "Yes"
+
+underwater_vehicles: 
+rov_support: 
+auv_support: 
+submarine_support: 
+
+# -----------------------------------------
+# DECK EQUIPMENT
+# -----------------------------------------
+winches:
+  count: 5
+  steel_wire_length_m: 
+  steel_wire_load_mt: 
+  conducting_cable_length_m: 0
+  conducting_cable_load_mt: 0
+  trawl_length_m: 
+  trawl_load_mt: 
+  other_length_m: 
+  other_load_mt: 
+  notes: 
+
+gantry:
+  position: "Main Deck Aft, Main Deck Port"
+  height_above_deck_m: 6.4
+  outboard_extension_m: 2.5
+  load_capacity_mt: 9
+
+cranes:
+  position: "Main Deck Aft Port, Upper Deck Mid"
+  height_above_deck_m: 
+  outboard_extension_m: 8
+  load_capacity_mt: 9
+
+# -----------------------------------------
+# NAVIGATION AND COMMUNICATIONS
+# -----------------------------------------
+navigation_equipment: "Radar, Loran C, Compass, Autopilot, Gyro compass, Elec Chart"
+navigation_gps: "Furuno WAAS GP-32, Furuno GP-31"
+communications: "VHF, HF, Cell Phone"
+satcomm: "Inmarsat B, Inmarsat C"
+
+# -----------------------------------------
+# ELECTRICAL SYSTEMS
+# -----------------------------------------
+ac_voltage: 600
+ac_power_kva: 
+ac_phases: 3
+ac_frequency_hz: 60
+ac_voltage_stabilized: 2-powerware 9120 UPS 2000VA
+ac_freq_stabilized_hz: 
+ac_amps_stabilized: 
+dc_voltages: 
+dc_voltage_max: 
+
+# -----------------------------------------
+# DATA SYSTEMS
+# -----------------------------------------
+computing_equipment: 3 IBM PCs
+data_printing: "HP Inkjet, HP Laserjet, EPC HSP-100 Thermal"
+
+# -----------------------------------------
+# OPERATING PROFILE
+# -----------------------------------------
+operating_area_notes: "Gulf of St. Lawrence, St. Lawrence River, East Coast, Great Lakes"
+operating_grids: 
+operating_regions:         # TODO: populate from operating_area_notes
+mission_capabilities:      # TODO: populate based on equipment fields
+
+# -----------------------------------------
+# PROGRAM MEMBERSHIPS
+# -----------------------------------------
+programs:
+  unols: false
+  go_ship: false
+  samos: false
+  vos: false
+  iwgfi: false
+  euro: false
+  bonus: false
+
+# -----------------------------------------
+# LINKS
+# -----------------------------------------
+url_vessel: "http://www.ismer.ca"
+url_operator: "http://www.ismer.ca"
+url_schedule: 
+photo_url: 
+
+# -----------------------------------------
+# ADMINISTRATIVE
+# -----------------------------------------
+record_updated: 2004-03-05
+notes: 
+vessel_other: "Construction & Modifications approved by ABS"
+
+---

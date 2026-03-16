@@ -1,0 +1,19 @@
+﻿# _data/organizations/centre-for-environment-fisheries-and-aquaculture-science-cefas.yml
+
+name: "Centre for Environment, Fisheries and Aquaculture Science (CEFAS)"
+slug: centre-for-environment-fisheries-and-aquaculture-science-cefas
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Marketing Dept, CEFAS Laboratory
+  Pakefield Road, Lowestoft, Suffolk NR33 OHT
+primary_contact:
+phone: +44 (0) 1502 562244
+fax: +44 (0) 1502 513865
+email: "marketing@cefas.co.uk"
+url: "http://www.cefas.co.uk"
+url_fleet:
+record_updated:
+notes:

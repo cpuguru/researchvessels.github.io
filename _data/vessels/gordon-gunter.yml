@@ -1,0 +1,215 @@
+﻿# _data/vessels/gordon-gunter.yml
+
+# -----------------------------------------
+# IDENTITY
+# -----------------------------------------
+name: Gordon Gunter
+slug: gordon-gunter
+imo_number: 
+nodc_code: 33GG
+call_sign: WTEO
+year_built: 1989
+
+# -----------------------------------------
+# STATUS AND CLASSIFICATION
+# -----------------------------------------
+status: Active
+vessel_use_type: Dedicated Research
+vessel_class: 
+main_activity: "Fishery, Marine mammals, Oceanographic and Habitiat investigations"
+ice_class: 
+ice_breaking: Ice Strengthened
+dp_class: 
+dp_system: "No"
+ism_certified: 
+vessel_classification: American Bureau of Shipping
+vessel_construction: US Navy Supervised
+charter_available: false
+
+# -----------------------------------------
+# FLAG AND HOME PORT
+# -----------------------------------------
+flag_country: USA
+homeport: "Pascagoula, MS"
+homeport_country: 
+
+# -----------------------------------------
+# OWNERSHIP AND OPERATION
+# -----------------------------------------
+owner: national-oceanic-and-atmospheric-administration
+operator: national-oceanic-and-atmospheric-administration
+managing_agency: NOAA
+operator_contact: 
+operator_phone: 757-441-6842
+operator_fax: 
+operator_email: "Noaa.Ship.Gordon.Gunter@noaa.gov"
+
+# -----------------------------------------
+# PHYSICAL DIMENSIONS
+# -----------------------------------------
+length_m: 68.3
+beam_m: 13.1
+draft_m: 4.6
+gross_tons: 1904
+hull_material: Steel
+freeboard_deck_m: 
+
+# -----------------------------------------
+# PROPULSION AND PERFORMANCE
+# -----------------------------------------
+engine_count: 4
+engine_make: Caterpillar D398
+engine_power: 800
+power_hp: 1600
+aux_diesel_power_hp: 1600
+prop_diameter_m: 2.44
+prop_max_rpm: 
+speed_cruise_kts: 10
+speed_max_kts: 12
+range_nm: 8000
+endurance_days: 30
+
+# -----------------------------------------
+# CAPACITY
+# -----------------------------------------
+crew: 14
+officers: 6
+scientists: 15
+air_conditioning: true
+fuel_capacity_mt: 600
+capacity_dry_stores_mt: 
+water_capacity_mt: 18
+water_generation_mt_day: 18.5
+water_treatment: Distilling Plant
+
+# -----------------------------------------
+# LABORATORY AND DECK FACILITIES
+# -----------------------------------------
+lab_wet_area_m2: 52
+lab_dry_area_m2: 33
+free_deck_area_m2: 
+container_lab_space: 
+radioactive_lab: 
+diving_support: 
+
+# -----------------------------------------
+# SCIENTIFIC EQUIPMENT
+# -----------------------------------------
+multibeam: 
+adcp: RD Instruments Ocean Surveyor
+sidescan_sonar: 
+sub_bottom_profiler: 
+echo_sounder: "Raytheon Deep Water  and Shallow water  (Simrad EQ-50) Echo Sounder, Simrad EK-500"
+acoustic_sonar: 
+acoustic_quiet: 
+
+ctd:
+  capable: 
+  make: Seabird 9-11 CTD
+  fluorometer: 
+  oxygen_sensor: 
+  rosette: 
+  towed: 
+  transmissometer: 
+
+coring:
+  capable: 
+  box_core: 
+  grab_sampler: 
+  gravity_core: 
+  multi_core: 
+  piston_core: 
+
+underwater_vehicles: 
+rov_support: 
+auv_support: 
+submarine_support: 
+
+# -----------------------------------------
+# DECK EQUIPMENT
+# -----------------------------------------
+winches:
+  count: 3
+  steel_wire_length_m: 2000
+  steel_wire_load_mt: 
+  conducting_cable_length_m: 
+  conducting_cable_load_mt: 
+  trawl_length_m: 10000
+  trawl_load_mt: 
+  other_length_m: 
+  other_load_mt: 
+  notes: "10,000 m for CTD, 2000 m for Bongo, Neuston"
+
+gantry:
+  position: "A-Frame on 1 Deck aft, J-Frame on 01 deck aft port"
+  height_above_deck_m: 
+  outboard_extension_m: 
+  load_capacity_mt: 10
+
+cranes:
+  position: "02 Deck, port amidships; 1 Deck, centerline aft"
+  height_above_deck_m: 
+  outboard_extension_m: 13.7
+  load_capacity_mt: 1.75
+
+# -----------------------------------------
+# NAVIGATION AND COMMUNICATIONS
+# -----------------------------------------
+navigation_equipment: "Sperry X- and S-Band Radars, Sperry MK 227Gyrocompass, Simrad EQ50 echo sounder, Furuno navigational echo sounder FE-700-2000, Nobletec Admiralty, Furuno Universal AIS FA-100"
+navigation_gps: "2 Simrad DGPS, 1 Furuno GPS Navigator GP-150/Dual"
+communications: "VHF/HF/FM Marine Band, Skycell Transceiver, NOAA Frequency VHF-FM Transceiver, Portable VHF-FM Transceivers, Raio Teletype Capability, NAVTEX receiver, cell Phone, E-mail"
+satcomm: "INMARSAT Stadard A and C Radio Transceivers, Iridium phone,"
+
+# -----------------------------------------
+# ELECTRICAL SYSTEMS
+# -----------------------------------------
+ac_voltage: 120/450V
+ac_power_kva: 200
+ac_phases: 1/3
+ac_frequency_hz: 60/60
+ac_voltage_stabilized: 120/450
+ac_freq_stabilized_hz: 60
+ac_amps_stabilized: 
+dc_voltages: 
+dc_voltage_max: 
+
+# -----------------------------------------
+# DATA SYSTEMS
+# -----------------------------------------
+computing_equipment: "2 High Powered Dell PowerEdge 4200PII-300 and 4300 PII-300, several Work station NTGateway servers"
+data_printing: 
+
+# -----------------------------------------
+# OPERATING PROFILE
+# -----------------------------------------
+operating_area_notes: "Gulf of Mexico, Atlantic Ocean, and Caribbean"
+operating_grids: NA9
+operating_regions:         # TODO: populate from operating_area_notes
+mission_capabilities:      # TODO: populate based on equipment fields
+
+# -----------------------------------------
+# PROGRAM MEMBERSHIPS
+# -----------------------------------------
+programs:
+  unols: false
+  go_ship: false
+  samos: true
+  vos: true
+  iwgfi: false
+  euro: false
+  bonus: false
+
+# -----------------------------------------
+# LINKS
+# -----------------------------------------
+url_vessel: "http://www.omao.noaa.gov/learn/marine-operations/ships/gordon-gunter"
+url_operator: 
+url_schedule: "https://sdat.noaa.gov/Account/Login?ReturnUrl=%2FHome%2FSchedule"
+photo_url: 
+
+# -----------------------------------------
+# ADMINISTRATIVE
+# -----------------------------------------
+record_updated: 2017-03-09
+notes: 
+vessel_other: "IMO# 008835255"

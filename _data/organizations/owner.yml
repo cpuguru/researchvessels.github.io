@@ -1,0 +1,20 @@
+﻿# _data/organizations/owner.yml
+
+name: owner
+slug: owner
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  College of William & Mary
+  Virginia Inst. of Marine Science
+  Gloucester Point, VA 23062, USA
+primary_contact:
+phone: 804-684-7055
+fax: 
+email: "smiller@vims.edu"
+url: "http://cbl.umces.edu/SRVI/srvi.html"
+url_fleet:
+record_updated:
+notes:

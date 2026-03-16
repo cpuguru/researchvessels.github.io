@@ -1,0 +1,216 @@
+﻿---
+# -----------------------------------------
+# IDENTITY
+# -----------------------------------------
+name: NRP "Andrómeda"
+slug: nrp-andrmeda
+imo_number: 
+nodc_code: 
+call_sign: CTHK
+year_built: 1985
+
+# -----------------------------------------
+# STATUS AND CLASSIFICATION
+# -----------------------------------------
+status: Active
+vessel_use_type: Dedicated Research
+vessel_class: 
+main_activity: Estuary and coastal research
+ice_class: 
+ice_breaking: "No"
+dp_class: 
+dp_system: "No"
+ism_certified: 
+vessel_classification: 
+vessel_construction: Arsenal do Alfeite - Portugal
+charter_available: false
+
+# -----------------------------------------
+# FLAG AND HOME PORT
+# -----------------------------------------
+flag_country: Portugal
+homeport: Lisboa - Alfeite
+homeport_country: 
+
+# -----------------------------------------
+# OWNERSHIP AND OPERATION
+# -----------------------------------------
+owner: marinha-de-guerra-portuguesa-instituto-hidrogrfico
+operator: instituto-hidrogrfico
+managing_agency: 
+operator_contact: Skipper of the Ship
+operator_phone: +351 212728090   Ship Commander
+operator_fax: +351 210943299  Ship Operator
+operator_email: "navios@hidrografico.pt"
+
+# -----------------------------------------
+# PHYSICAL DIMENSIONS
+# -----------------------------------------
+length_m: 31.4
+beam_m: 7.74
+draft_m: 2.8
+gross_tons: 245
+hull_material: Steel
+freeboard_deck_m: 1.5
+
+# -----------------------------------------
+# PROPULSION AND PERFORMANCE
+# -----------------------------------------
+engine_count: 2
+engine_make: Diesel engine MTU  and Electric motor
+engine_power: 1100
+power_hp: 1100
+aux_diesel_power_hp: 0
+prop_diameter_m: 1.4
+prop_max_rpm: 410
+speed_cruise_kts: 10
+speed_max_kts: 12
+range_nm: 1980
+endurance_days: 1.5
+
+# -----------------------------------------
+# CAPACITY
+# -----------------------------------------
+crew: 11
+officers: 2
+scientists: 6
+air_conditioning: false
+fuel_capacity_mt: 34790
+capacity_dry_stores_mt: 
+water_capacity_mt: 11
+water_generation_mt_day: 0
+water_treatment: "No"
+
+# -----------------------------------------
+# LABORATORY AND DECK FACILITIES
+# -----------------------------------------
+lab_wet_area_m2: 0
+lab_dry_area_m2: 15
+free_deck_area_m2: 30
+container_lab_space: 6 m2
+radioactive_lab: 
+diving_support: Provided by the scientific team
+
+# -----------------------------------------
+# SCIENTIFIC EQUIPMENT
+# -----------------------------------------
+multibeam: none
+adcp: none
+sidescan_sonar: Provided by scientific team
+sub_bottom_profiler: Hydrographic processor system - HYPACK
+echo_sounder: Single beam echo sounder 33 and 210 kHz
+acoustic_sonar: "No"
+acoustic_quiet: 
+
+ctd:
+  capable: Provided by the scientific team
+  make: 
+  fluorometer: 
+  oxygen_sensor: 
+  rosette: 
+  towed: 
+  transmissometer: 
+
+coring:
+  capable: Provided by the scientific team
+  box_core: 
+  grab_sampler: 
+  gravity_core: 
+  multi_core: 
+  piston_core: 
+
+underwater_vehicles: Provided by the scientific team
+rov_support: 
+auv_support: 
+submarine_support: 
+
+# -----------------------------------------
+# DECK EQUIPMENT
+# -----------------------------------------
+winches:
+  count: 1
+  steel_wire_length_m: 1500
+  steel_wire_load_mt: 0.5
+  conducting_cable_length_m: 1800
+  conducting_cable_load_mt: 
+  trawl_length_m: 
+  trawl_load_mt: 
+  other_length_m: 
+  other_load_mt: 
+  notes: 
+
+gantry:
+  position: Main deck astern
+  height_above_deck_m: 3
+  outboard_extension_m: 1.5
+  load_capacity_mt: 2
+
+cranes:
+  position: Main deck
+  height_above_deck_m: 6
+  outboard_extension_m: 4
+  load_capacity_mt: 0.9
+
+# -----------------------------------------
+# NAVIGATION AND COMMUNICATIONS
+# -----------------------------------------
+navigation_equipment: "Gyro, Gyropilot, Speed Log, Direction Finder MF/HF and VHF, Radar, DGPS, and NAVTEX"
+navigation_gps: DGPS
+communications: HF and VHF
+satcomm: "No"
+
+# -----------------------------------------
+# ELECTRICAL SYSTEMS
+# -----------------------------------------
+ac_voltage: 380/220/115 VAC
+ac_power_kva: 
+ac_phases: 1
+ac_frequency_hz: 50
+ac_voltage_stabilized: 
+ac_freq_stabilized_hz: 
+ac_amps_stabilized: 
+dc_voltages: 24
+dc_voltage_max: 
+
+# -----------------------------------------
+# DATA SYSTEMS
+# -----------------------------------------
+computing_equipment: Provided by scientific team
+data_printing: Provided by scientific team
+
+# -----------------------------------------
+# OPERATING PROFILE
+# -----------------------------------------
+operating_area_notes: Portuguese coast
+operating_grids: 
+operating_regions:         # TODO: populate from operating_area_notes
+mission_capabilities:      # TODO: populate based on equipment fields
+
+# -----------------------------------------
+# PROGRAM MEMBERSHIPS
+# -----------------------------------------
+programs:
+  unols: false
+  go_ship: false
+  samos: false
+  vos: false
+  iwgfi: false
+  euro: true
+  bonus: false
+
+# -----------------------------------------
+# LINKS
+# -----------------------------------------
+url_vessel: "http://www.marinha.pt/Marinha/PT/Menu/DescobrirMarinha/MeiosOperacionais/Superficie/cientificos/Andromeda/nrp_andromeda.htm"
+url_operator: "http://www.hidrografico.pt/"
+url_schedule: 
+photo_url: 
+
+# -----------------------------------------
+# ADMINISTRATIVE
+# -----------------------------------------
+record_updated: 2005-08-29
+notes: 
+vessel_other: 
+
+---

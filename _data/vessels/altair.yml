@@ -1,0 +1,215 @@
+﻿# _data/vessels/altair.yml
+
+# -----------------------------------------
+# IDENTITY
+# -----------------------------------------
+name: Altair
+slug: altair
+imo_number: 
+nodc_code: 57AL
+call_sign: 
+year_built: 1961
+
+# -----------------------------------------
+# STATUS AND CLASSIFICATION
+# -----------------------------------------
+status: Active
+vessel_use_type: Dedicated Research
+vessel_class: 
+main_activity: Oceanography Geology Hydrography
+ice_class: 
+ice_breaking: 
+dp_class: 
+dp_system: 
+ism_certified: 
+vessel_classification: ABS
+vessel_construction: 
+charter_available: false
+
+# -----------------------------------------
+# FLAG AND HOME PORT
+# -----------------------------------------
+flag_country: Mexico
+homeport: 
+homeport_country: 
+
+# -----------------------------------------
+# OWNERSHIP AND OPERATION
+# -----------------------------------------
+owner: 
+operator: secretaria-de-marina
+managing_agency: 
+operator_contact: 
+operator_phone: 6448188
+operator_fax: 
+operator_email: 
+
+# -----------------------------------------
+# PHYSICAL DIMENSIONS
+# -----------------------------------------
+length_m: 63
+beam_m: 11.21
+draft_m: 4.8
+gross_tons: 975
+hull_material: Steel
+freeboard_deck_m: 2.2
+
+# -----------------------------------------
+# PROPULSION AND PERFORMANCE
+# -----------------------------------------
+engine_count: 2
+engine_make: Diesel El
+engine_power: 1200 at 1200rpm
+power_hp: 
+aux_diesel_power_hp: 870
+prop_diameter_m: 2.41
+prop_max_rpm: 200
+speed_cruise_kts: 7
+speed_max_kts: 10
+range_nm: 5500
+endurance_days: 25
+
+# -----------------------------------------
+# CAPACITY
+# -----------------------------------------
+crew: 29
+officers: 12
+scientists: 15
+air_conditioning: ~
+fuel_capacity_mt: 160
+capacity_dry_stores_mt: 
+water_capacity_mt: 
+water_generation_mt_day: 1
+water_treatment: 
+
+# -----------------------------------------
+# LABORATORY AND DECK FACILITIES
+# -----------------------------------------
+lab_wet_area_m2: 19
+lab_dry_area_m2: 44
+free_deck_area_m2: 130
+container_lab_space: 3 x 7
+radioactive_lab: 
+diving_support: 
+
+# -----------------------------------------
+# SCIENTIFIC EQUIPMENT
+# -----------------------------------------
+multibeam: 
+adcp: 
+sidescan_sonar: 
+sub_bottom_profiler: 
+echo_sounder: 2kHz 50kHz
+acoustic_sonar: 
+acoustic_quiet: Silent Ship
+
+ctd:
+  capable: 
+  make: 
+  fluorometer: 
+  oxygen_sensor: 
+  rosette: 
+  towed: 
+  transmissometer: 
+
+coring:
+  capable: 
+  box_core: 
+  grab_sampler: 
+  gravity_core: 
+  multi_core: 
+  piston_core: 
+
+underwater_vehicles: 
+rov_support: 
+auv_support: 
+submarine_support: 
+
+# -----------------------------------------
+# DECK EQUIPMENT
+# -----------------------------------------
+winches:
+  count: 2
+  steel_wire_length_m: 1500
+  steel_wire_load_mt: 
+  conducting_cable_length_m: 3000
+  conducting_cable_load_mt: 1
+  trawl_length_m: 
+  trawl_load_mt: 
+  other_length_m: 
+  other_load_mt: 
+  notes: Ctd
+
+gantry:
+  position: 
+  height_above_deck_m: 
+  outboard_extension_m: 
+  load_capacity_mt: 
+
+cranes:
+  position: 
+  height_above_deck_m: 
+  outboard_extension_m: 
+  load_capacity_mt: 
+
+# -----------------------------------------
+# NAVIGATION AND COMMUNICATIONS
+# -----------------------------------------
+navigation_equipment: Radar Loran SatNav Gyro DopLog
+navigation_gps: 
+communications: Fax
+satcomm: 
+
+# -----------------------------------------
+# ELECTRICAL SYSTEMS
+# -----------------------------------------
+ac_voltage: 110/440V /440V
+ac_power_kva: 375/375
+ac_phases: 3/3
+ac_frequency_hz: 60/60
+ac_voltage_stabilized: 
+ac_freq_stabilized_hz: 
+ac_amps_stabilized: 
+dc_voltages: 
+dc_voltage_max: 
+
+# -----------------------------------------
+# DATA SYSTEMS
+# -----------------------------------------
+computing_equipment: S/M 386SX
+data_printing: 
+
+# -----------------------------------------
+# OPERATING PROFILE
+# -----------------------------------------
+operating_area_notes: 
+operating_grids: 
+operating_regions:         # TODO: populate from operating_area_notes
+mission_capabilities:      # TODO: populate based on equipment fields
+
+# -----------------------------------------
+# PROGRAM MEMBERSHIPS
+# -----------------------------------------
+programs:
+  unols: false
+  go_ship: false
+  samos: false
+  vos: false
+  iwgfi: false
+  euro: false
+  bonus: false
+
+# -----------------------------------------
+# LINKS
+# -----------------------------------------
+url_vessel: "http://www.semar.gob.mx/galeria/buques/escinv/investigacion/altair/Altair.htm"
+url_operator: 
+url_schedule: 
+photo_url: 
+
+# -----------------------------------------
+# ADMINISTRATIVE
+# -----------------------------------------
+record_updated: 
+notes: 
+vessel_other: 

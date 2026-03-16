@@ -1,0 +1,20 @@
+﻿# _data/organizations/pennsylvania-fish-and-boat-commission.yml
+
+name: Pennsylvania Fish and Boat Commission
+slug: pennsylvania-fish-and-boat-commission
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Pennsylvania Fish and Boat Commission, Lake Erie Research Unit, P.O. Box 531,
+  Fairview, Pennsylvania, 16415,
+  USA
+primary_contact:
+phone: 814 474-1515
+fax: 814 474-5658
+email: "rbkenyon@erie.net"
+url: "http://sites.state.pa.us/PA_Exec/Fish_Boat/mpag1.htm"
+url_fleet:
+record_updated:
+notes:

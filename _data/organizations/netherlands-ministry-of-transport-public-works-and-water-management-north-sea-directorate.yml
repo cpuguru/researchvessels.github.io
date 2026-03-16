@@ -1,0 +1,20 @@
+﻿# _data/organizations/netherlands-ministry-of-transport-public-works-and-water-management-north-sea-directorate.yml
+
+name: "Netherlands Ministry of Transport, Public Works and Water Management, North Sea Directorate"
+slug: netherlands-ministry-of-transport-public-works-and-water-management-north-sea-directorate
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  North Sea Directorate
+  P.O. Box 5807
+  2280 HV Rijswijk, The Netherlands
+primary_contact:
+phone: 070- 336 66 00
+fax: 070- 390 06 91
+email: "G.Langelaar@dnz.rws.minvenw.nl"
+url: "http://www.noordzee.org/rws/dnz/"
+url_fleet:
+record_updated:
+notes:

@@ -1,0 +1,20 @@
+﻿# _data/organizations/department-of-transport-and-communications.yml
+
+name: Department of Transport and Communications
+slug: department-of-transport-and-communications
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Department of Transport and Communications
+  Adelaide Street PO Box 10000
+  Brisbane, Qld. 4000 Australia
+primary_contact:
+phone: 07 8353622
+fax: 8321202
+email: 
+url: 
+url_fleet:
+record_updated:
+notes:

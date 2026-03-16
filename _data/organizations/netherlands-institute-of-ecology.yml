@@ -1,0 +1,19 @@
+﻿# _data/organizations/netherlands-institute-of-ecology.yml
+
+name: Netherlands Institute of Ecology
+slug: netherlands-institute-of-ecology
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Rijksstraatweg 6, Nieuwersluis, The Netherlands
+  P.O. Box 1299, 3600 BG Maarssen, The Netherlands
+primary_contact:
+phone: + 31 (0)294 239312
+fax: 
+email: "c.heip@nioo.knaw.nl  ; M.vanDamme@nioo.knaw.nl"
+url: "http://www.nioo.knaw.nl/NIOO/index.htm"
+url_fleet:
+record_updated:
+notes:

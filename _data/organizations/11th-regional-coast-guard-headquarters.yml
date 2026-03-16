@@ -1,0 +1,20 @@
+﻿# _data/organizations/11th-regional-coast-guard-headquarters.yml
+
+name: 11th Regional Coast Guard Headquarters
+slug: 11th-regional-coast-guard-headquarters
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  2-11-1, Minatomachi, Naha-shi
+  Okinawa, 900-8547
+  Japan
+primary_contact:
+phone: 
+fax: 
+email: 
+url: "http://www1.kaiho.mlit.go.jp/jhd-E.html"
+url_fleet:
+record_updated:
+notes:

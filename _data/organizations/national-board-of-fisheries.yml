@@ -1,0 +1,19 @@
+﻿# _data/organizations/national-board-of-fisheries.yml
+
+name: National Board of Fisheries
+slug: national-board-of-fisheries
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  National Board of Fisheries
+  P.O. Box 423, SE 401 26 Goteborg
+primary_contact:
+phone: +46 31 743 03 71
+fax: +46 31 743 04 44
+email: "per.bratten@fiskeriverket.se"
+url: 
+url_fleet:
+record_updated:
+notes:

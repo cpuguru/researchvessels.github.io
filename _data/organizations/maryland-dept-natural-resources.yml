@@ -1,0 +1,20 @@
+﻿# _data/organizations/maryland-dept-natural-resources.yml
+
+name: Maryland Dept. Natural Resources
+slug: maryland-dept-natural-resources
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Tawes State Office Building, MANTA C-2
+  580 Taylor Avenue
+  Annapolis, MD 21401
+primary_contact:
+phone: 410-326-3142
+fax: 410-326-3142
+email: "rvkerhin@chesapeake.net"
+url: "http://www.dnr.state.md.us/bay/monitoring/kerhin/kerhin.html"
+url_fleet:
+record_updated:
+notes:

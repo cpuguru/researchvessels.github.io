@@ -1,0 +1,19 @@
+﻿# _data/organizations/seamens-training-center-western-united-states-inc.yml
+
+name: Seamen's Training Center Western United States Inc.
+slug: seamens-training-center-western-united-states-inc
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  1001 Bridgeway Suite 551
+  Sausalito, Ca. USA. 94965
+primary_contact:
+phone: (707) 552-6053
+fax: -- email please
+email: "vince@whiteholly.org"
+url: "http://www.whiteholly.org"
+url_fleet:
+record_updated:
+notes:

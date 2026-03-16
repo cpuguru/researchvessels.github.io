@@ -1,0 +1,20 @@
+﻿# _data/organizations/shipping-corporation-of-india-ltd.yml
+
+name: Shipping Corporation of India Ltd.
+slug: shipping-corporation-of-india-ltd
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Shipping Corporation of India Ltd.
+  16, Bank Street
+  Bombay 400023 India
+primary_contact:
+phone: 
+fax: 
+email: 
+url: 
+url_fleet:
+record_updated:
+notes:

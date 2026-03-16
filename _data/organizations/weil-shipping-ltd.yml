@@ -1,0 +1,19 @@
+﻿# _data/organizations/weil-shipping-ltd.yml
+
+name: Weil Shipping LTD
+slug: weil-shipping-ltd
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Ben Gurion Street 11
+  634 54 Tel Aviv, Israel
+primary_contact:
+phone: +972 54 4220173
+fax: 
+email: "andreas@ecoocean.com"
+url: "http://www.ecoocean.org"
+url_fleet:
+record_updated:
+notes:

@@ -1,0 +1,215 @@
+﻿# _data/vessels/osprey.yml
+
+# -----------------------------------------
+# IDENTITY
+# -----------------------------------------
+name: Osprey
+slug: osprey
+imo_number: 
+nodc_code: 33OS
+call_sign: 
+year_built: 1968
+
+# -----------------------------------------
+# STATUS AND CLASSIFICATION
+# -----------------------------------------
+status: Active
+vessel_use_type: Dedicated Research
+vessel_class: 
+main_activity: General Oceanographic
+ice_class: 
+ice_breaking: None
+dp_class: 
+dp_system: 
+ism_certified: 
+vessel_classification: 
+vessel_construction: U. S. Navy
+charter_available: false
+
+# -----------------------------------------
+# FLAG AND HOME PORT
+# -----------------------------------------
+flag_country: USA
+homeport: "Miami, Florida USA"
+homeport_country: 
+
+# -----------------------------------------
+# OWNERSHIP AND OPERATION
+# -----------------------------------------
+owner: tlg-of-miami-inc
+operator: tlg-of-miami-inc
+managing_agency: 
+operator_contact: Timmy Garner
+operator_phone: 305-490-7549
+operator_fax: 305-460-5082
+operator_email: "rvosprey01@aol.com"
+
+# -----------------------------------------
+# PHYSICAL DIMENSIONS
+# -----------------------------------------
+length_m: 29
+beam_m: 7
+draft_m: 2.4
+gross_tons: 132
+hull_material: Alum'm
+freeboard_deck_m: 2
+
+# -----------------------------------------
+# PROPULSION AND PERFORMANCE
+# -----------------------------------------
+engine_count: 2
+engine_make: Detroit Diesel 1271
+engine_power: 465
+power_hp: 880
+aux_diesel_power_hp: 180
+prop_diameter_m: 1.32
+prop_max_rpm: 1600
+speed_cruise_kts: 13
+speed_max_kts: 14.7
+range_nm: 3000
+endurance_days: 40
+
+# -----------------------------------------
+# CAPACITY
+# -----------------------------------------
+crew: 2
+officers: 2
+scientists: 12
+air_conditioning: true
+fuel_capacity_mt: 34
+capacity_dry_stores_mt: 76
+water_capacity_mt: 
+water_generation_mt_day: 
+water_treatment: 
+
+# -----------------------------------------
+# LABORATORY AND DECK FACILITIES
+# -----------------------------------------
+lab_wet_area_m2: 
+lab_dry_area_m2: 14
+free_deck_area_m2: 56
+container_lab_space: 
+radioactive_lab: 
+diving_support: 
+
+# -----------------------------------------
+# SCIENTIFIC EQUIPMENT
+# -----------------------------------------
+multibeam: 
+adcp: 
+sidescan_sonar: 
+sub_bottom_profiler: 
+echo_sounder: 
+acoustic_sonar: 
+acoustic_quiet: 
+
+ctd:
+  capable: 
+  make: 
+  fluorometer: 
+  oxygen_sensor: 
+  rosette: 
+  towed: 
+  transmissometer: 
+
+coring:
+  capable: "Yes"
+  box_core: 
+  grab_sampler: 
+  gravity_core: 
+  multi_core: 
+  piston_core: 
+
+underwater_vehicles: Dive support
+rov_support: ROV support
+auv_support: 
+submarine_support: 
+
+# -----------------------------------------
+# DECK EQUIPMENT
+# -----------------------------------------
+winches:
+  count: 2
+  steel_wire_length_m: 1525
+  steel_wire_load_mt: 3
+  conducting_cable_length_m: 
+  conducting_cable_load_mt: 
+  trawl_length_m: 1525
+  trawl_load_mt: 3
+  other_length_m: 460
+  other_load_mt: 0.375
+  notes: "Trawl winch, Hydrographic winch, Extended Hydraulic J frame"
+
+gantry:
+  position: Starboard/Aft J-Frame
+  height_above_deck_m: 4
+  outboard_extension_m: 2
+  load_capacity_mt: 5
+
+cranes:
+  position: Center/foredeck and port side aft deck
+  height_above_deck_m: 6
+  outboard_extension_m: 8
+  load_capacity_mt: 0.75
+
+# -----------------------------------------
+# NAVIGATION AND COMMUNICATIONS
+# -----------------------------------------
+navigation_equipment: "Chart viewer, Auto-Pilot, Radar, Depth Sounder, ROBERTSON autopilot AP40"
+navigation_gps: 2 x Furino
+communications: "2 VHF, SSB"
+satcomm: 2 phones
+
+# -----------------------------------------
+# ELECTRICAL SYSTEMS
+# -----------------------------------------
+ac_voltage: 110/240V
+ac_power_kva: 45
+ac_phases: 
+ac_frequency_hz: 60
+ac_voltage_stabilized: 
+ac_freq_stabilized_hz: 
+ac_amps_stabilized: 
+dc_voltages: 12
+dc_voltage_max: 24
+
+# -----------------------------------------
+# DATA SYSTEMS
+# -----------------------------------------
+computing_equipment: 
+data_printing: 
+
+# -----------------------------------------
+# OPERATING PROFILE
+# -----------------------------------------
+operating_area_notes: "Caribbean, Gulf, C. America, S. America, S. Atlantic"
+operating_grids: 
+operating_regions:         # TODO: populate from operating_area_notes
+mission_capabilities:      # TODO: populate based on equipment fields
+
+# -----------------------------------------
+# PROGRAM MEMBERSHIPS
+# -----------------------------------------
+programs:
+  unols: false
+  go_ship: false
+  samos: false
+  vos: false
+  iwgfi: false
+  euro: false
+  bonus: false
+
+# -----------------------------------------
+# LINKS
+# -----------------------------------------
+url_vessel: "http://www.rvosprey.com/home.htm"
+url_operator: 
+url_schedule: 
+photo_url: 
+
+# -----------------------------------------
+# ADMINISTRATIVE
+# -----------------------------------------
+record_updated: 2005-02-02
+notes: 
+vessel_other: 

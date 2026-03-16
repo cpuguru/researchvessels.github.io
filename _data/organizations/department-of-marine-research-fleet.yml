@@ -1,0 +1,20 @@
+﻿# _data/organizations/department-of-marine-research-fleet.yml
+
+name: Department of Marine Research Fleet
+slug: department-of-marine-research-fleet
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Department of Marine Research Fleet, 690600 Vladivostok
+  Sukhanova St., 7.
+  Russia
+primary_contact:
+phone: +7(4232) 43 40 36
+fax: +7(4232) 43 28 29
+email: "unif@marine.febras.ru"
+url: "http://www.unif.febras.ru"
+url_fleet:
+record_updated:
+notes:

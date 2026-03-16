@@ -1,0 +1,20 @@
+﻿# _data/organizations/mlml-small-boatdiving-operations.yml
+
+name: MLML Small Boat/Diving Operations
+slug: mlml-small-boatdiving-operations
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  7700 Sandholdt Rd. Bldg. D
+  Moss Landing, CA 95039
+  USA
+primary_contact:
+phone: (831) 633-7022
+fax: 
+email: "douglas@mlml.calstate.edu"
+url: "http://www.mlml.calstate.edu/"
+url_fleet:
+record_updated:
+notes:

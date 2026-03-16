@@ -1,0 +1,20 @@
+﻿# _data/organizations/cayuga-wooden-boat-works.yml
+
+name: Cayuga Wooden Boat Works
+slug: cayuga-wooden-boat-works
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Cayuga Wooden Boat Works
+  435 Old Taughannock Blvd
+  Ithaca, New York, 14850, USA
+primary_contact:
+phone: 1-607-697-0166
+fax: 1-607-272-1601
+email: "dennis@cwbw.com"
+url: "http://www.cayugawoodenboatworks.com/"
+url_fleet:
+record_updated:
+notes:

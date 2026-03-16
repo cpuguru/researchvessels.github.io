@@ -1,0 +1,17 @@
+﻿# _data/organizations/mid-continent-ecology-division-epa.yml
+
+name: Mid-Continent Ecology Division (EPA)
+slug: mid-continent-ecology-division-epa
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+primary_contact:
+phone: 218-529-5119
+fax: 
+email: "kelly.johnr@epa.gov"
+url: "http://www.epa.gov/"
+url_fleet:
+record_updated:
+notes:

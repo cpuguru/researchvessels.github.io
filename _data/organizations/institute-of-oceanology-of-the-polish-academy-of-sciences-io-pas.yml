@@ -1,0 +1,20 @@
+﻿# _data/organizations/institute-of-oceanology-of-the-polish-academy-of-sciences-io-pas.yml
+
+name: Institute of Oceanology of the Polish Academy of Sciences (IO-PAS)
+slug: institute-of-oceanology-of-the-polish-academy-of-sciences-io-pas
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Institute of Oceanology PAS
+  ul. Powstancow Warszawy 55
+  81-712 Sopot, Poland
+primary_contact:
+phone: (+48-58) 550-32-32
+fax: (+48-58) 551-21-30
+email: "akad@iopan.gda.pl"
+url: "http://www.iopan.gda.pl/"
+url_fleet:
+record_updated:
+notes:

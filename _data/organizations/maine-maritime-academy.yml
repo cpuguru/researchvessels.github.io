@@ -1,0 +1,19 @@
+﻿# _data/organizations/maine-maritime-academy.yml
+
+name: Maine Maritime Academy
+slug: maine-maritime-academy
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Castine, Maine
+  04420
+primary_contact:
+phone: 1-800-227-8465
+fax: 
+email: 
+url: "http://www.mainemaritime.edu/index.php"
+url_fleet:
+record_updated:
+notes:

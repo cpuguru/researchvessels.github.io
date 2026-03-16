@@ -1,0 +1,20 @@
+﻿# _data/organizations/port-erin-marine-laboratory.yml
+
+name: Port Erin Marine Laboratory
+slug: port-erin-marine-laboratory
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  School of Biological Sciences
+  The Marine Lab Port Erin
+  Isle of Man IM9 6JA UK
+primary_contact:
+phone: 
+fax: 
+email: 
+url: "http://www.liv.ac.uk/peml/"
+url_fleet:
+record_updated:
+notes:

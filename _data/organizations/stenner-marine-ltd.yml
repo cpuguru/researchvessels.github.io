@@ -1,0 +1,20 @@
+﻿# _data/organizations/stenner-marine-ltd.yml
+
+name: Stenner Marine Ltd.
+slug: stenner-marine-ltd
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  9520 Ardmore Drive
+  Sidney, B.C.
+  Canada, V8L 5H3
+primary_contact:
+phone: 250-361-6343
+fax: 250-655-1804
+email: "pandhstenner@shaw.ca"
+url: 
+url_fleet:
+record_updated:
+notes:

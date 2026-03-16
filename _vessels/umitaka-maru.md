@@ -1,0 +1,216 @@
+﻿---
+# -----------------------------------------
+# IDENTITY
+# -----------------------------------------
+name: Umitaka Maru
+slug: umitaka-maru
+imo_number: 
+nodc_code: 
+call_sign: 
+year_built: 1973
+
+# -----------------------------------------
+# STATUS AND CLASSIFICATION
+# -----------------------------------------
+status: Active
+vessel_use_type: Dedicated Research
+vessel_class: 
+main_activity: Fisheries
+ice_class: 
+ice_breaking: 
+dp_class: 
+dp_system: 
+ism_certified: 
+vessel_classification: 
+vessel_construction: 
+charter_available: false
+
+# -----------------------------------------
+# FLAG AND HOME PORT
+# -----------------------------------------
+flag_country: Japan
+homeport: 
+homeport_country: 
+
+# -----------------------------------------
+# OWNERSHIP AND OPERATION
+# -----------------------------------------
+owner: 
+operator: tokyo-university-of-fisheries
+managing_agency: 
+operator_contact: President
+operator_phone: 03 4711251
+operator_fax: 4501206
+operator_email: 
+
+# -----------------------------------------
+# PHYSICAL DIMENSIONS
+# -----------------------------------------
+length_m: 79
+beam_m: 12.4
+draft_m: 6.2
+gross_tons: 1828
+hull_material: Steel
+freeboard_deck_m: 4.2
+
+# -----------------------------------------
+# PROPULSION AND PERFORMANCE
+# -----------------------------------------
+engine_count: 2
+engine_make: Diesel
+engine_power: 3320 at 204rpm
+power_hp: 3320
+aux_diesel_power_hp: 480
+prop_diameter_m: 3.2
+prop_max_rpm: 204
+speed_cruise_kts: 14
+speed_max_kts: 15
+range_nm: 5000
+endurance_days: 35
+
+# -----------------------------------------
+# CAPACITY
+# -----------------------------------------
+crew: 20
+officers: 12
+scientists: 47
+air_conditioning: true
+fuel_capacity_mt: 572
+capacity_dry_stores_mt: 445
+water_capacity_mt: 
+water_generation_mt_day: 18
+water_treatment: 
+
+# -----------------------------------------
+# LABORATORY AND DECK FACILITIES
+# -----------------------------------------
+lab_wet_area_m2: 17
+lab_dry_area_m2: 88
+free_deck_area_m2: 
+container_lab_space: 
+radioactive_lab: 
+diving_support: 
+
+# -----------------------------------------
+# SCIENTIFIC EQUIPMENT
+# -----------------------------------------
+multibeam: 
+adcp: 
+sidescan_sonar: 
+sub_bottom_profiler: 
+echo_sounder: 120kHz 49kHz
+acoustic_sonar: Fisheries
+acoustic_quiet: 
+
+ctd:
+  capable: 
+  make: 
+  fluorometer: 
+  oxygen_sensor: 
+  rosette: 
+  towed: 
+  transmissometer: 
+
+coring:
+  capable: 
+  box_core: 
+  grab_sampler: 
+  gravity_core: 
+  multi_core: 
+  piston_core: 
+
+underwater_vehicles: 
+rov_support: 
+auv_support: 
+submarine_support: 
+
+# -----------------------------------------
+# DECK EQUIPMENT
+# -----------------------------------------
+winches:
+  count: 2
+  steel_wire_length_m: 5000
+  steel_wire_load_mt: 1
+  conducting_cable_length_m: 
+  conducting_cable_load_mt: 
+  trawl_length_m: 
+  trawl_load_mt: 
+  other_length_m: 2500
+  other_load_mt: 
+  notes: 
+
+gantry:
+  position: Stern
+  height_above_deck_m: 2
+  outboard_extension_m: 
+  load_capacity_mt: 
+
+cranes:
+  position: 
+  height_above_deck_m: 
+  outboard_extension_m: 
+  load_capacity_mt: 
+
+# -----------------------------------------
+# NAVIGATION AND COMMUNICATIONS
+# -----------------------------------------
+navigation_equipment: radar Loran Decca SatNav Gyro EMLog DopLog
+navigation_gps: 
+communications: Fax SatCom
+satcomm: 
+
+# -----------------------------------------
+# ELECTRICAL SYSTEMS
+# -----------------------------------------
+ac_voltage: 0/450V 0/450V
+ac_power_kva: 400/400
+ac_phases: 
+ac_frequency_hz: 60/60
+ac_voltage_stabilized: 
+ac_freq_stabilized_hz: 
+ac_amps_stabilized: 
+dc_voltages: 
+dc_voltage_max: 
+
+# -----------------------------------------
+# DATA SYSTEMS
+# -----------------------------------------
+computing_equipment: 
+data_printing: 
+
+# -----------------------------------------
+# OPERATING PROFILE
+# -----------------------------------------
+operating_area_notes: 
+operating_grids: 
+operating_regions:         # TODO: populate from operating_area_notes
+mission_capabilities:      # TODO: populate based on equipment fields
+
+# -----------------------------------------
+# PROGRAM MEMBERSHIPS
+# -----------------------------------------
+programs:
+  unols: false
+  go_ship: false
+  samos: false
+  vos: false
+  iwgfi: false
+  euro: false
+  bonus: false
+
+# -----------------------------------------
+# LINKS
+# -----------------------------------------
+url_vessel: "http://www.tokyo-u-fish.ac.jp/English/facilities/ew11.html#umitaka"
+url_operator: "http://www.tokyo-u-fish.ac.jp/English/index-e.html"
+url_schedule: 
+photo_url: 
+
+# -----------------------------------------
+# ADMINISTRATIVE
+# -----------------------------------------
+record_updated: 
+notes: 
+vessel_other: Japanese Govt.
+
+---

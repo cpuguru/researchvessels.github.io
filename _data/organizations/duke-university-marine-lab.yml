@@ -1,0 +1,20 @@
+﻿# _data/organizations/duke-university-marine-lab.yml
+
+name: Duke University Marine Lab
+slug: duke-university-marine-lab
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Manager, Marine Operations
+  135 Duke Marine Lab Road
+  Beaufort, NC 28516-9721
+primary_contact:
+phone: 252-504-7580
+fax: 252-504-7651
+email: "quentin@duke.edu"
+url: "http://www.env.duke.edu/"
+url_fleet:
+record_updated:
+notes:

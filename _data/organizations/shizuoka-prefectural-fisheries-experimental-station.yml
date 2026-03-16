@@ -1,0 +1,20 @@
+﻿# _data/organizations/shizuoka-prefectural-fisheries-experimental-station.yml
+
+name: Shizuoka Prefectural Fisheries Experimental Station
+slug: shizuoka-prefectural-fisheries-experimental-station
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Shizuoka Prefectural Fisheries Experimental Station
+  3690 Shioiri Kogawa
+  Yaizu Shi 425 Japan
+primary_contact:
+phone: 054 627-1815
+fax: 054 627-3084
+email: 
+url: 
+url_fleet:
+record_updated:
+notes:

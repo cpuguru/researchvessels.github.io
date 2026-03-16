@@ -1,0 +1,20 @@
+﻿# _data/organizations/michigan-dept-of-natural-resources.yml
+
+name: Michigan Dept. of Natural Resources
+slug: michigan-dept-of-natural-resources
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Michigan Dept. of Natural Resources
+  33135 S. River Rd, Mt Clemens
+  MI 48045 USA
+primary_contact:
+phone: 586-465-4771
+fax: 810 465-7504
+email: "HODGEJ@MICHIGAN.GOV"
+url: "http://www.michigan.gov/dnr/0,1607,7-153-10364_10951_11304-26631--,00.html"
+url_fleet:
+record_updated:
+notes:

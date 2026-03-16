@@ -1,0 +1,18 @@
+﻿# _data/organizations/the-ministry-of-agriculture-nature-conservation-and-fisheries.yml
+
+name: "The Ministry of Agriculture, Nature Conservation and Fisheries"
+slug: the-ministry-of-agriculture-nature-conservation-and-fisheries
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Bezuidenhoutseweg 73, p.o. box:20401, 2500 EK The Hague
+primary_contact:
+phone: 00 31 70 3784349
+fax: 00 31 703786421
+email: "tridens@mlnv.seaservices.net"
+url: "http://www.minlnv.nl"
+url_fleet:
+record_updated:
+notes:

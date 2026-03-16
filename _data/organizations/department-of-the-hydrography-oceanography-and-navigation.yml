@@ -1,0 +1,20 @@
+﻿# _data/organizations/department-of-the-hydrography-oceanography-and-navigation.yml
+
+name: "Department of the Hydrography, Oceanography and Navigation"
+slug: department-of-the-hydrography-oceanography-and-navigation
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Turkish Navy,
+  Department of the Hydrography, Oceanography and Navigation
+  Istanbul 81647 Turkey
+primary_contact:
+phone: +90 216 322 25 80
+fax: +90 216 331 05 25
+email: "director@shodb.gov.tr"
+url: "http://www.shodb.gov.tr/"
+url_fleet:
+record_updated:
+notes:

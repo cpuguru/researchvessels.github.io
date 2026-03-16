@@ -1,0 +1,216 @@
+﻿---
+# -----------------------------------------
+# IDENTITY
+# -----------------------------------------
+name: Bosei Maru
+slug: bosei-maru
+imo_number: 
+nodc_code: 
+call_sign: JGAW
+year_built: 1993
+
+# -----------------------------------------
+# STATUS AND CLASSIFICATION
+# -----------------------------------------
+status: Active
+vessel_use_type: Dedicated Research
+vessel_class: 
+main_activity: "Passenger Ship and Research, Training"
+ice_class: 
+ice_breaking: 
+dp_class: 
+dp_system: 
+ism_certified: 
+vessel_classification: "JG,NK"
+vessel_construction: Miho Shipyard
+charter_available: false
+
+# -----------------------------------------
+# FLAG AND HOME PORT
+# -----------------------------------------
+flag_country: Japan
+homeport: 
+homeport_country: 
+
+# -----------------------------------------
+# OWNERSHIP AND OPERATION
+# -----------------------------------------
+owner: tokai-university
+operator: tokai-university
+managing_agency: 
+operator_contact: 
+operator_phone: 054-335-9341
+operator_fax: 054-334-0876
+operator_email: "capta@scc.u-tokai.ac.jp"
+
+# -----------------------------------------
+# PHYSICAL DIMENSIONS
+# -----------------------------------------
+length_m: 87.98
+beam_m: 12.8
+draft_m: 6
+gross_tons: 2174
+hull_material: Steel
+freeboard_deck_m: 
+
+# -----------------------------------------
+# PROPULSION AND PERFORMANCE
+# -----------------------------------------
+engine_count: 2
+engine_make: Diesel
+engine_power: 5000 at 0rpm
+power_hp: 5000
+aux_diesel_power_hp: 
+prop_diameter_m: 3
+prop_max_rpm: 
+speed_cruise_kts: 13
+speed_max_kts: 15
+range_nm: 12100
+endurance_days: 
+
+# -----------------------------------------
+# CAPACITY
+# -----------------------------------------
+crew: 17
+officers: 11
+scientists: 37
+air_conditioning: true
+fuel_capacity_mt: 401
+capacity_dry_stores_mt: 
+water_capacity_mt: 185
+water_generation_mt_day: 20
+water_treatment: 
+
+# -----------------------------------------
+# LABORATORY AND DECK FACILITIES
+# -----------------------------------------
+lab_wet_area_m2: 
+lab_dry_area_m2: 
+free_deck_area_m2: 
+container_lab_space: 
+radioactive_lab: 
+diving_support: 
+
+# -----------------------------------------
+# SCIENTIFIC EQUIPMENT
+# -----------------------------------------
+multibeam: 
+adcp: "Yes"
+sidescan_sonar: 
+sub_bottom_profiler: 
+echo_sounder: "Precision Depth Recorder 11kHz, Sub-bottom Profiler 3.5KHz"
+acoustic_sonar: Geological
+acoustic_quiet: 
+
+ctd:
+  capable: 
+  make: 
+  fluorometer: "Yes"
+  oxygen_sensor: 
+  rosette: "Yes"
+  towed: 
+  transmissometer: 
+
+coring:
+  capable: "Yes"
+  box_core: 
+  grab_sampler: 
+  gravity_core: 
+  multi_core: 
+  piston_core: 
+
+underwater_vehicles: 
+rov_support: 
+auv_support: 
+submarine_support: 
+
+# -----------------------------------------
+# DECK EQUIPMENT
+# -----------------------------------------
+winches:
+  count: 4
+  steel_wire_length_m: 8000
+  steel_wire_load_mt: 
+  conducting_cable_length_m: 
+  conducting_cable_load_mt: 
+  trawl_length_m: 
+  trawl_load_mt: 
+  other_length_m: 
+  other_load_mt: 
+  notes: "Ctd Winch, 6000 Meter, Dia 7.4 Mm"
+
+gantry:
+  position: 
+  height_above_deck_m: 
+  outboard_extension_m: 
+  load_capacity_mt: 
+
+cranes:
+  position: 
+  height_above_deck_m: 
+  outboard_extension_m: 
+  load_capacity_mt: 
+
+# -----------------------------------------
+# NAVIGATION AND COMMUNICATIONS
+# -----------------------------------------
+navigation_equipment: "Autopilot,gyro compass,magnetic compass, Arpa-radar,ais,vdr,ecds"
+navigation_gps: "Yes"
+communications: "MF/HF 800W,VHF,EPIRB"
+satcomm: "Inmarsat-B, Inmarsat-C, Inmarsat-F"
+
+# -----------------------------------------
+# ELECTRICAL SYSTEMS
+# -----------------------------------------
+ac_voltage: 0/445V 0/445V
+ac_power_kva: 600/600
+ac_phases: 3/3
+ac_frequency_hz: 60/60
+ac_voltage_stabilized: 
+ac_freq_stabilized_hz: 
+ac_amps_stabilized: 
+dc_voltages: 
+dc_voltage_max: 
+
+# -----------------------------------------
+# DATA SYSTEMS
+# -----------------------------------------
+computing_equipment: "Yes"
+data_printing: "Yes"
+
+# -----------------------------------------
+# OPERATING PROFILE
+# -----------------------------------------
+operating_area_notes: 
+operating_grids: 
+operating_regions:         # TODO: populate from operating_area_notes
+mission_capabilities:      # TODO: populate based on equipment fields
+
+# -----------------------------------------
+# PROGRAM MEMBERSHIPS
+# -----------------------------------------
+programs:
+  unols: false
+  go_ship: false
+  samos: false
+  vos: false
+  iwgfi: false
+  euro: false
+  bonus: false
+
+# -----------------------------------------
+# LINKS
+# -----------------------------------------
+url_vessel: 
+url_operator: 
+url_schedule: 
+photo_url: 
+
+# -----------------------------------------
+# ADMINISTRATIVE
+# -----------------------------------------
+record_updated: 2007-03-01
+notes: 
+vessel_other: 
+
+---

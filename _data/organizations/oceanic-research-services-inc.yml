@@ -1,0 +1,20 @@
+﻿# _data/organizations/oceanic-research-services-inc.yml
+
+name: "Oceanic Research Services, Inc."
+slug: oceanic-research-services-inc
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  P.O.Box 192
+  Ester, Alaska  99725
+  USA
+primary_contact:
+phone: 907-479-5426
+fax: 907-479-5425
+email: "bkopplin@mosquitonet.com"
+url: "http://www.rvannikamarie.com/"
+url_fleet:
+record_updated:
+notes:

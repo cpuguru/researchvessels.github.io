@@ -1,0 +1,20 @@
+﻿# _data/organizations/university-of-miami-rsmas.yml
+
+name: "University of Miami, RSMAS"
+slug: university-of-miami-rsmas
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  U. of Miami, RSMAS
+  4600 Rickenbacker Cswy.
+  Miami, FL 33149
+primary_contact:
+phone: 305-361-4832
+fax: 305-361-4174
+email: "dpowell@rsmas.miami.edu"
+url: "http://www.rsmas.miami.edu/"
+url_fleet:
+record_updated:
+notes:

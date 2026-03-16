@@ -1,0 +1,20 @@
+﻿# _data/organizations/fishery-survey-of-india-fsi.yml
+
+name: Fishery Survey of India (FSI)
+slug: fishery-survey-of-india-fsi
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Fishery Survey of India (FSI)
+  Sir P.M. Road, Fort / Post bag 10004
+  Bombay 400001 India
+primary_contact:
+phone: 2717144
+fax: 
+email: 
+url: 
+url_fleet:
+record_updated:
+notes:

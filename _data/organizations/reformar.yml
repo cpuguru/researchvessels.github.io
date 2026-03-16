@@ -1,0 +1,20 @@
+﻿# _data/organizations/reformar.yml
+
+name: REFORMAR
+slug: reformar
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  REFORMAR
+  53 St. Germain Ouest
+  Rimouski, Quebec  G5L-4B4  Canada
+primary_contact:
+phone: (418) 724-2822 ext 2026
+fax: (418) 724-0606
+email: "reformar@imq.qc.ca"
+url: "http://www.ismer.ca"
+url_fleet:
+record_updated:
+notes:

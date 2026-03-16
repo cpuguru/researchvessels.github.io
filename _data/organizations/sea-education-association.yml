@@ -1,0 +1,20 @@
+﻿# _data/organizations/sea-education-association.yml
+
+name: Sea Education Association
+slug: sea-education-association
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Sea Education Association
+  171 Woods Hole Rd., E. / P.O. Box 6, Woods Hole
+  Falmouth MA 02540 USA
+primary_contact:
+phone: (508) 540-3954
+fax: (508) 457-4673
+email: "psacks@sea.edu"
+url: "http://www.sea.edu/home/index_flash.asp"
+url_fleet:
+record_updated:
+notes:

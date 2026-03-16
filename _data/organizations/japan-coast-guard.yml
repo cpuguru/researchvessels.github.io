@@ -1,0 +1,20 @@
+﻿# _data/organizations/japan-coast-guard.yml
+
+name: Japan Coast Guard
+slug: japan-coast-guard
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  5-3-1, Tsukiji,
+  Chuo-ku, Tokyo
+  104-0045 Japan
+primary_contact:
+phone: +81-3-3541-3685
+fax: 81 335452885
+email: +81-3-3248-1250
+url: "http://www.jhd.go.jp/jhd-E.html"
+url_fleet:
+record_updated:
+notes:

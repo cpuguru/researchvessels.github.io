@@ -1,0 +1,18 @@
+﻿# _data/organizations/conisma-consorzio-nazionale-interuniversitario-per-le-scienze-del-mare.yml
+
+name: CoNISMa - Consorzio Nazionale Interuniversitario per le Scienze del Mare
+slug: conisma-consorzio-nazionale-interuniversitario-per-le-scienze-del-mare
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  CoNISMa, via Isonzo 32 - 00198 Roma
+primary_contact:
+phone: 340/9656511
+fax: 00781/600261431
+email: "cutrona@conisma.it"
+url: "http://www.conisma.it/index1.htm"
+url_fleet:
+record_updated:
+notes:

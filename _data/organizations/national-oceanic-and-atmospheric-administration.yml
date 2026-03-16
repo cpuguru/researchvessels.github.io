@@ -1,0 +1,20 @@
+﻿# _data/organizations/national-oceanic-and-atmospheric-administration.yml
+
+name: National Oceanic and Atmospheric Administration
+slug: national-oceanic-and-atmospheric-administration
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Gulf Marine Support Facility
+  151 Watts Ave
+  Pascagoula, MS 39567-4102
+primary_contact:
+phone: 757-441-6842
+fax: 
+email: "Noaa.Ship.Gordon.Gunter@noaa.gov"
+url: 
+url_fleet:
+record_updated:
+notes:

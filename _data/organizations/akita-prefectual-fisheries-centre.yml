@@ -1,0 +1,20 @@
+﻿# _data/organizations/akita-prefectual-fisheries-centre.yml
+
+name: Akita Prefectual Fisheries Centre
+slug: akita-prefectual-fisheries-centre
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Akita Prefectual Fisheries Centre
+  16 Unosaki Daishima Funakawaminato
+  Oga-City 01005 Japan
+primary_contact:
+phone: 0185 233243
+fax: 0185 232773
+email: 
+url: 
+url_fleet:
+record_updated:
+notes:

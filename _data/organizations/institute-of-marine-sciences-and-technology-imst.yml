@@ -1,0 +1,20 @@
+﻿# _data/organizations/institute-of-marine-sciences-and-technology-imst.yml
+
+name: Institute of marine Sciences and Technology (IMST)
+slug: institute-of-marine-sciences-and-technology-imst
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Dokuz Eylül University,
+  Baku Bulvari 32,
+  35340 Inciralti-Izmir
+primary_contact:
+phone: +90.232.278 51 12
+fax: +90.232 278 50 82
+email: "bulent.cihangir@deu.edu.tr"
+url: "http://www.deu.edu.tr/"
+url_fleet:
+record_updated:
+notes:

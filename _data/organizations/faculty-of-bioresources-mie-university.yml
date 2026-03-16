@@ -1,0 +1,20 @@
+﻿# _data/organizations/faculty-of-bioresources-mie-university.yml
+
+name: "Faculty of Bioresources, Mie University"
+slug: faculty-of-bioresources-mie-university
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Faculty of Bioresources, Mie University
+  1515 Kamiha - Cho
+  Tsu-Shi, Mie 514 Japan
+primary_contact:
+phone: 0592 3212112
+fax: 
+email: 
+url: 
+url_fleet:
+record_updated:
+notes:

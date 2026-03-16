@@ -1,0 +1,20 @@
+﻿# _data/organizations/marine-sciences-research-center-suny-stony-brook.yml
+
+name: "Marine Sciences Research Center, SUNY Stony Brook"
+slug: marine-sciences-research-center-suny-stony-brook
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  139 Discovery Hall
+  State University of New York at Stony Brook
+  Stony Brook, NY 11794-5000
+primary_contact:
+phone: 631-632-8723
+fax: 631-632-9441
+email: "Stephen.Cluett@sunysb.edu"
+url: "http://www.msrc.sunysb.edu/"
+url_fleet:
+record_updated:
+notes:

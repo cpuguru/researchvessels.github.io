@@ -1,0 +1,216 @@
+﻿---
+# -----------------------------------------
+# IDENTITY
+# -----------------------------------------
+name: Oceania
+slug: oceania
+imo_number: 
+nodc_code: 
+call_sign: SQOC
+year_built: 1985
+
+# -----------------------------------------
+# STATUS AND CLASSIFICATION
+# -----------------------------------------
+status: Active
+vessel_use_type: Dedicated Research
+vessel_class: 
+main_activity: Oceanography
+ice_class: 
+ice_breaking: "No"
+dp_class: 
+dp_system: "No"
+ism_certified: 
+vessel_classification: PRS
+vessel_construction: 
+charter_available: false
+
+# -----------------------------------------
+# FLAG AND HOME PORT
+# -----------------------------------------
+flag_country: Poland
+homeport: Gdansk
+homeport_country: 
+
+# -----------------------------------------
+# OWNERSHIP AND OPERATION
+# -----------------------------------------
+owner: polish-academy-of-sciences
+operator: institute-of-oceanology-of-the-polish-academy-of-sciences-io-pas
+managing_agency: 
+operator_contact: "Dr eng. Jacek Wyrwinski, Dr Andrzej Kadlubicki"
+operator_phone: (+48-58) 550-32-32
+operator_fax: (+48-58) 551-21-30
+operator_email: "akad@iopan.gda.pl"
+
+# -----------------------------------------
+# PHYSICAL DIMENSIONS
+# -----------------------------------------
+length_m: 48.93
+beam_m: 8.99
+draft_m: 3.47
+gross_tons: 370
+hull_material: Steel
+freeboard_deck_m: 2
+
+# -----------------------------------------
+# PROPULSION AND PERFORMANCE
+# -----------------------------------------
+engine_count: 1
+engine_make: Diesel
+engine_power: 310
+power_hp: 337.9
+aux_diesel_power_hp: 
+prop_diameter_m: 
+prop_max_rpm: 
+speed_cruise_kts: 9
+speed_max_kts: 15
+range_nm: 
+endurance_days: 60
+
+# -----------------------------------------
+# CAPACITY
+# -----------------------------------------
+crew: 15
+officers: 3
+scientists: 18
+air_conditioning: false
+fuel_capacity_mt: 
+capacity_dry_stores_mt: 
+water_capacity_mt: 52
+water_generation_mt_day: 2
+water_treatment: Distillation device
+
+# -----------------------------------------
+# LABORATORY AND DECK FACILITIES
+# -----------------------------------------
+lab_wet_area_m2: 20
+lab_dry_area_m2: 37
+free_deck_area_m2: 30
+container_lab_space: 
+radioactive_lab: 
+diving_support: 
+
+# -----------------------------------------
+# SCIENTIFIC EQUIPMENT
+# -----------------------------------------
+multibeam: 
+adcp: RDI VM BB 150 kHz
+sidescan_sonar: 
+sub_bottom_profiler: 
+echo_sounder: "Radmor, ATLAS-DESO 20 (33, 210kHz),Honeywell-Elac, LAZ 4700 (30, 50, 210kHz)"
+acoustic_sonar: 
+acoustic_quiet: 
+
+ctd:
+  capable: "Yes"
+  make: "911 Seabird, SBE49 FastCAT, Idronaut Ocean Seven 316"
+  fluorometer: 
+  oxygen_sensor: 
+  rosette: Seabird 32
+  towed: "Yes"
+  transmissometer: 
+
+coring:
+  capable: core sampler for subbottom deposits
+  box_core: Reinech type
+  grab_sampler: "sediment grab, max operational depth 500 m"
+  gravity_core: 
+  multi_core: 
+  piston_core: 
+
+underwater_vehicles: 
+rov_support: 
+auv_support: 
+submarine_support: 
+
+# -----------------------------------------
+# DECK EQUIPMENT
+# -----------------------------------------
+winches:
+  count: 7
+  steel_wire_length_m: 2000
+  steel_wire_load_mt: 1
+  conducting_cable_length_m: 3000
+  conducting_cable_load_mt: 1
+  trawl_length_m: 5000
+  trawl_load_mt: 1
+  other_length_m: 300
+  other_load_mt: 1
+  notes: 
+
+gantry:
+  position: Stern
+  height_above_deck_m: 3
+  outboard_extension_m: 1.5
+  load_capacity_mt: 6
+
+cranes:
+  position: Stern
+  height_above_deck_m: 5
+  outboard_extension_m: 3
+  load_capacity_mt: 1.5
+
+# -----------------------------------------
+# NAVIGATION AND COMMUNICATIONS
+# -----------------------------------------
+navigation_equipment: "Radars:  Furuno FR 1505 DA and Furuno 1830; DECCA: Navstar 2000D; Gyro-compass: Wega and automatic stearing system PLATH"
+navigation_gps: GPS 800 Honeywell-Elac
+communications: RK Mewa
+satcomm: 
+
+# -----------------------------------------
+# ELECTRICAL SYSTEMS
+# -----------------------------------------
+ac_voltage: 400/220
+ac_power_kva: 135
+ac_phases: 3
+ac_frequency_hz: 50
+ac_voltage_stabilized: 220
+ac_freq_stabilized_hz: 50
+ac_amps_stabilized: 
+dc_voltages: 12
+dc_voltage_max: 400
+
+# -----------------------------------------
+# DATA SYSTEMS
+# -----------------------------------------
+computing_equipment: "Server, network, PC's on board, on-line connection to ship's navigation systems"
+data_printing: "Printers, receiver for facsimile weather maps"
+
+# -----------------------------------------
+# OPERATING PROFILE
+# -----------------------------------------
+operating_area_notes: "The Baltic, Norwegian, Greenland, Barents Seas"
+operating_grids: "NA5A, NA2, AR2"
+operating_regions:         # TODO: populate from operating_area_notes
+mission_capabilities:      # TODO: populate based on equipment fields
+
+# -----------------------------------------
+# PROGRAM MEMBERSHIPS
+# -----------------------------------------
+programs:
+  unols: false
+  go_ship: false
+  samos: false
+  vos: false
+  iwgfi: false
+  euro: true
+  bonus: true
+
+# -----------------------------------------
+# LINKS
+# -----------------------------------------
+url_vessel: "http://www.iopan.gda.pl/oceania/oceania.html"
+url_operator: "http://www.iopan.gda.pl/"
+url_schedule: "http://www.iopan.gda.pl/CeSSS-WP7/"
+photo_url: 
+
+# -----------------------------------------
+# ADMINISTRATIVE
+# -----------------------------------------
+record_updated: 2004-06-07
+notes: 
+vessel_other: 
+
+---

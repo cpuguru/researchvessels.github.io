@@ -1,0 +1,20 @@
+﻿# _data/organizations/great-lakes-science-center-usgsbrd.yml
+
+name: Great Lakes Science Center USGS/BRD
+slug: great-lakes-science-center-usgsbrd
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Great Lakes Science Center USGS/BRD
+  606 Water Street, Cheboygan, MI
+  USA 49721
+primary_contact:
+phone: +1-231-627-4571
+fax: +1-231-627-8791
+email: "jspicciani@usgs.gov"
+url: "http://www.glsc.usgs.gov/main.php?content=aboutus_theglsc&title=The%20GLSC0&menu=aboutus"
+url_fleet:
+record_updated:
+notes:

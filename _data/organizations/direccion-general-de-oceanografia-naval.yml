@@ -1,0 +1,20 @@
+﻿# _data/organizations/direccion-general-de-oceanografia-naval.yml
+
+name: Direccion General De Oceanografia Naval
+slug: direccion-general-de-oceanografia-naval
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Direccion General De Oceanografia Naval
+  Eje 2 ote. Tramo Hca Esc Nav Mil. #861, col Cipreses
+  Mexico, D.F. 04830 Mexico
+primary_contact:
+phone: 648188
+fax: 
+email: 
+url: 
+url_fleet:
+record_updated:
+notes:

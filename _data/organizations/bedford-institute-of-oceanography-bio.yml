@@ -1,0 +1,20 @@
+﻿# _data/organizations/bedford-institute-of-oceanography-bio.yml
+
+name: Bedford Institute of Oceanography (Bio)
+slug: bedford-institute-of-oceanography-bio
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  P.O.Box 1006
+  Dartmouth, N.S. B2Y 4A2
+  Canada
+primary_contact:
+phone: 902-426-3492
+fax: 902-426-8484
+email: 
+url: "http://www.bio.gc.ca/welcome-e.html"
+url_fleet:
+record_updated:
+notes:

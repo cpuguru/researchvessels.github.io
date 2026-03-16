@@ -1,0 +1,20 @@
+﻿# _data/organizations/instituto-de-investigaciones-marinas-de-vigo.yml
+
+name: Instituto de Investigaciones Marinas de Vigo
+slug: instituto-de-investigaciones-marinas-de-vigo
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Consejo Superior de Investigaciones Cientificas
+  Eduardo Cabello, 6
+  36208 – Vigo – Spain
+primary_contact:
+phone: 986231930
+fax: 986292762
+email: "ger_iim@iim.csic.es"
+url: "http://www.iim.csic.es/"
+url_fleet:
+record_updated:
+notes:

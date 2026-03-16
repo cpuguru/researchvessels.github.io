@@ -1,0 +1,20 @@
+﻿# _data/organizations/geophysical-institute-of-the-university-of-bergen-and-institute-of-marine-research-imr.yml
+
+name: Geophysical Institute of the University of Bergen and Institute of Marine Research (IMR)
+slug: geophysical-institute-of-the-university-of-bergen-and-institute-of-marine-research-imr
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Institute of Marine Research
+  Rederiavdelingen, Postboks, 1870 Nordnes
+  N-5024 Bergen  Norway
+primary_contact:
+phone: + 47 55 23 68 49
+fax: +47 55 23 85 32
+email: "pern@imr.no"
+url: "http://www.imr.no"
+url_fleet:
+record_updated:
+notes:

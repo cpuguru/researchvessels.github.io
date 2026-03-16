@@ -1,0 +1,20 @@
+﻿# _data/organizations/mines-and-geosciences-bureau.yml
+
+name: Mines and Geosciences Bureau
+slug: mines-and-geosciences-bureau
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Mines and Geosciences Bureau
+  North Avenue / MGB NORTH AVE. DILIMAN
+  Quezon Philippines
+primary_contact:
+phone: 
+fax: 
+email: 
+url: 
+url_fleet:
+record_updated:
+notes:

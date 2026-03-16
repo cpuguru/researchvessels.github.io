@@ -1,0 +1,20 @@
+﻿# _data/organizations/soela-marine-research-pty-ltd.yml
+
+name: Soela marine Research Pty Ltd
+slug: soela-marine-research-pty-ltd
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Soela marine Research Pty Ltd
+  14 Neil Street, Osborne Park 6017 / PO Box 280
+  Mt Hawthorn 6016 Australia
+primary_contact:
+phone: 09 4449000
+fax: 09 4449235
+email: 
+url: 
+url_fleet:
+record_updated:
+notes:

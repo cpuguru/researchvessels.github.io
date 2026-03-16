@@ -1,0 +1,20 @@
+﻿# _data/organizations/military-sealift-command-atlantic.yml
+
+name: Military Sealift Command Atlantic
+slug: military-sealift-command-atlantic
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Public Affairs Office,
+  Military Sealift Command, 914 Charles Morris Ct. SE
+  Washington Navy Yard, DC, 20398-5540 USA
+primary_contact:
+phone: +1(202)-685-5055
+fax: 
+email: 
+url: "http://www.msc.navy.mil/"
+url_fleet:
+record_updated:
+notes:

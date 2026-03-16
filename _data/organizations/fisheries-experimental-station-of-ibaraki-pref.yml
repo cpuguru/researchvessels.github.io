@@ -1,0 +1,20 @@
+﻿# _data/organizations/fisheries-experimental-station-of-ibaraki-pref.yml
+
+name: Fisheries Experimental Station of Ibaraki Pref.
+slug: fisheries-experimental-station-of-ibaraki-pref
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Fisheries Experimental Station of Ibaraki Pref.
+  3351-8 Mitsuzuka Hiraiso-Cho
+  Nakaminato-Shi 311-12 Japan
+primary_contact:
+phone: 0292 62-4158
+fax: 63-0414
+email: 
+url: 
+url_fleet:
+record_updated:
+notes:

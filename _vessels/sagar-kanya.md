@@ -1,0 +1,216 @@
+﻿---
+# -----------------------------------------
+# IDENTITY
+# -----------------------------------------
+name: Sagar Kanya
+slug: sagar-kanya
+imo_number: 
+nodc_code: 41SG
+call_sign: 
+year_built: 1983
+
+# -----------------------------------------
+# STATUS AND CLASSIFICATION
+# -----------------------------------------
+status: Active
+vessel_use_type: Dedicated Research
+vessel_class: 
+main_activity: "Geoscientific, Meteorological, Biological, Physical and Chemical Oceanographic Research"
+ice_class: 
+ice_breaking: 
+dp_class: 
+dp_system: 
+ism_certified: 
+vessel_classification: Lloyd's register of shipping
+vessel_construction: Germany
+charter_available: false
+
+# -----------------------------------------
+# FLAG AND HOME PORT
+# -----------------------------------------
+flag_country: India
+homeport: 
+homeport_country: 
+
+# -----------------------------------------
+# OWNERSHIP AND OPERATION
+# -----------------------------------------
+owner: goverment-of-india
+operator: national-centre-for-antarctic-ocean-research-ncaor
+managing_agency: 
+operator_contact: "Director/Chairman, Ship Committee"
+operator_phone: +91-832-2520863/64/65/66 (EPBX)
+operator_fax: +91-832-2520871/73/77
+operator_email: "sagarkanya@ncaor.org"
+
+# -----------------------------------------
+# PHYSICAL DIMENSIONS
+# -----------------------------------------
+length_m: 100.34
+beam_m: 16.39
+draft_m: 5.6
+gross_tons: 4209
+hull_material: Steel
+freeboard_deck_m: 9.8
+
+# -----------------------------------------
+# PROPULSION AND PERFORMANCE
+# -----------------------------------------
+engine_count: 5
+engine_make: Diesel El
+engine_power: 4825 at 750rpm
+power_hp: 4825
+aux_diesel_power_hp: 
+prop_diameter_m: 2.75
+prop_max_rpm: 220
+speed_cruise_kts: 12
+speed_max_kts: 14.2
+range_nm: 9999
+endurance_days: 45
+
+# -----------------------------------------
+# CAPACITY
+# -----------------------------------------
+crew: 42
+officers: 18
+scientists: 31
+air_conditioning: true
+fuel_capacity_mt: 
+capacity_dry_stores_mt: 450
+water_capacity_mt: 
+water_generation_mt_day: 40
+water_treatment: 
+
+# -----------------------------------------
+# LABORATORY AND DECK FACILITIES
+# -----------------------------------------
+lab_wet_area_m2: 80.9
+lab_dry_area_m2: 38
+free_deck_area_m2: 470
+container_lab_space: 2 x 6
+radioactive_lab: 
+diving_support: 
+
+# -----------------------------------------
+# SCIENTIFIC EQUIPMENT
+# -----------------------------------------
+multibeam: Swath Bathymetric System
+adcp: "yes"
+sidescan_sonar: "yes"
+sub_bottom_profiler: 
+echo_sounder: "12kHz 30kHz, Deep-Sea, Shallow Water, Pinger Echosounder,"
+acoustic_sonar: "Geological, Side Scan Sonar, Acoustic Release Deck Unit"
+acoustic_quiet: 
+
+ctd:
+  capable: "yes"
+  make: 
+  fluorometer: 
+  oxygen_sensor: 
+  rosette: 
+  towed: 
+  transmissometer: 
+
+coring:
+  capable: 
+  box_core: 
+  grab_sampler: 
+  gravity_core: 
+  multi_core: 
+  piston_core: 
+
+underwater_vehicles: 
+rov_support: 
+auv_support: 
+submarine_support: 
+
+# -----------------------------------------
+# DECK EQUIPMENT
+# -----------------------------------------
+winches:
+  count: 
+  steel_wire_length_m: 9999
+  steel_wire_load_mt: 2
+  conducting_cable_length_m: 6000
+  conducting_cable_load_mt: 2
+  trawl_length_m: 9999
+  trawl_load_mt: 18
+  other_length_m: 6000
+  other_load_mt: 2
+  notes: "Side Scan Sonar, Magnetometer, Under Wtr"
+
+gantry:
+  position: "Stern, Midships"
+  height_above_deck_m: 9
+  outboard_extension_m: 3
+  load_capacity_mt: 22
+
+cranes:
+  position: "Stern, Midships"
+  height_above_deck_m: 12
+  outboard_extension_m: 9
+  load_capacity_mt: 1
+
+# -----------------------------------------
+# NAVIGATION AND COMMUNICATIONS
+# -----------------------------------------
+navigation_equipment: Radar Decca SatNav Gyro EMLog DopLog
+navigation_gps: 
+communications: "Fax SatCom, weatherfax,"
+satcomm: 
+
+# -----------------------------------------
+# ELECTRICAL SYSTEMS
+# -----------------------------------------
+ac_voltage: 660/400V 0/400V
+ac_power_kva: 630/400
+ac_phases: 3/3
+ac_frequency_hz: 50/50
+ac_voltage_stabilized: 230
+ac_freq_stabilized_hz: 50
+ac_amps_stabilized: 160
+dc_voltages: 
+dc_voltage_max: 
+
+# -----------------------------------------
+# DATA SYSTEMS
+# -----------------------------------------
+computing_equipment: Pentium pc’s
+data_printing: "printers for data processing central server etc. besides a chart table for drawing, plotting etc."
+
+# -----------------------------------------
+# OPERATING PROFILE
+# -----------------------------------------
+operating_area_notes: 
+operating_grids: 
+operating_regions:         # TODO: populate from operating_area_notes
+mission_capabilities:      # TODO: populate based on equipment fields
+
+# -----------------------------------------
+# PROGRAM MEMBERSHIPS
+# -----------------------------------------
+programs:
+  unols: false
+  go_ship: false
+  samos: false
+  vos: false
+  iwgfi: false
+  euro: false
+  bonus: false
+
+# -----------------------------------------
+# LINKS
+# -----------------------------------------
+url_vessel: "http://ncaor.nic.in/orvsk.htm"
+url_operator: "http://ncaor.nic.in/welcome.htm"
+url_schedule: 
+photo_url: 
+
+# -----------------------------------------
+# ADMINISTRATIVE
+# -----------------------------------------
+record_updated: 2005-05-13
+notes: 
+vessel_other: 14 laboratories
+
+---

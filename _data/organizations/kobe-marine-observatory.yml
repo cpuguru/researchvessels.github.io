@@ -1,0 +1,20 @@
+﻿# _data/organizations/kobe-marine-observatory.yml
+
+name: Kobe Marine Observatory
+slug: kobe-marine-observatory
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Kobe Marine Observatory
+  7-14-1, Nakayamate-Tori, Chuo-Ku
+  Kobe-Shi 100 Japan
+primary_contact:
+phone: 03 32114966
+fax: 03 32112032
+email: 
+url: 
+url_fleet:
+record_updated:
+notes:

@@ -1,0 +1,20 @@
+﻿# _data/organizations/school-of-oceanography-university-of-washington.yml
+
+name: "School of Oceanography, University of Washington"
+slug: school-of-oceanography-university-of-washington
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  School of Oceanography, University of Washington
+  Box 357940
+  Seattle, WA 98195-7940
+primary_contact:
+phone: (206) 543-5062
+fax: (206) 543-6073
+email: "schwartz@ocean.washington.edu"
+url: "http://www.ocean.washington.edu/"
+url_fleet:
+record_updated:
+notes:

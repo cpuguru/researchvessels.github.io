@@ -1,0 +1,19 @@
+﻿# _data/organizations/diablo-charters.yml
+
+name: Diablo Charters
+slug: diablo-charters
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  17 Percy Gardens Whitley Bay Tyne & Wear NE 25 8 RF
+  UK
+primary_contact:
+phone: +44191 2512855 Mob07765 781577
+fax: +44191 2512855
+email: "ken.miles@blueyonder.co.uk"
+url: "http://www.diablocharters.co.uk/index.htm"
+url_fleet:
+record_updated:
+notes:

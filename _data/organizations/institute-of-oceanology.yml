@@ -1,0 +1,20 @@
+﻿# _data/organizations/institute-of-oceanology.yml
+
+name: Institute of Oceanology
+slug: institute-of-oceanology
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Institute of Oceanology Academia Sinica
+  7 Nan-Hai Road
+  Qingdao Shandong 266071 PRC
+primary_contact:
+phone: 532-279062ext304
+fax: 
+email: 
+url: 
+url_fleet:
+record_updated:
+notes:

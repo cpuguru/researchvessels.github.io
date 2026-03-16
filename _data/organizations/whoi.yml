@@ -1,0 +1,20 @@
+﻿# _data/organizations/whoi.yml
+
+name: WHOI
+slug: whoi
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Marine Resource Coordinator,
+  WHOI MS 37, Woods Hole
+  MA 02543, USA
+primary_contact:
+phone: 508-289-3770
+fax: 503-457-2185
+email: "tioga@whoi.edu"
+url: "http://www.whoi.edu/"
+url_fleet:
+record_updated:
+notes:

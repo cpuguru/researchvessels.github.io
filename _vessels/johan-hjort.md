@@ -1,0 +1,216 @@
+﻿---
+# -----------------------------------------
+# IDENTITY
+# -----------------------------------------
+name: Johan Hjort
+slug: johan-hjort
+imo_number: 
+nodc_code: 
+call_sign: LDGJ
+year_built: 1990
+
+# -----------------------------------------
+# STATUS AND CLASSIFICATION
+# -----------------------------------------
+status: Active
+vessel_use_type: Dedicated Research
+vessel_class: 
+main_activity: Fisheries and environmental research
+ice_class: 
+ice_breaking: 
+dp_class: 
+dp_system: 
+ism_certified: 
+vessel_classification: Det Norske Veritas
+vessel_construction: 
+charter_available: false
+
+# -----------------------------------------
+# FLAG AND HOME PORT
+# -----------------------------------------
+flag_country: Norway
+homeport: "Bergen, Norway"
+homeport_country: 
+
+# -----------------------------------------
+# OWNERSHIP AND OPERATION
+# -----------------------------------------
+owner: 
+operator: institute-of-marine-research-imr
+managing_agency: 
+operator_contact: Per W. Nieuwejaar
+operator_phone: + 47 55 23 68 49
+operator_fax: +47 55 23 85 32
+operator_email: "pern@imr.no"
+
+# -----------------------------------------
+# PHYSICAL DIMENSIONS
+# -----------------------------------------
+length_m: 64.4
+beam_m: 13
+draft_m: 5.4
+gross_tons: 1828
+hull_material: Steel
+freeboard_deck_m: 4
+
+# -----------------------------------------
+# PROPULSION AND PERFORMANCE
+# -----------------------------------------
+engine_count: 1
+engine_make: Wärtsila Wichmann diesel 8V283
+engine_power: 3264
+power_hp: 2700
+aux_diesel_power_hp: 1060
+prop_diameter_m: 3.9
+prop_max_rpm: 123
+speed_cruise_kts: 11
+speed_max_kts: 14
+range_nm: 1000
+endurance_days: 40
+
+# -----------------------------------------
+# CAPACITY
+# -----------------------------------------
+crew: 8
+officers: 6
+scientists: 18
+air_conditioning: ~
+fuel_capacity_mt: 380
+capacity_dry_stores_mt: 
+water_capacity_mt: 80
+water_generation_mt_day: 10
+water_treatment: 15
+
+# -----------------------------------------
+# LABORATORY AND DECK FACILITIES
+# -----------------------------------------
+lab_wet_area_m2: 50
+lab_dry_area_m2: 75
+free_deck_area_m2: 316
+container_lab_space: "yes"
+radioactive_lab: 
+diving_support: "no"
+
+# -----------------------------------------
+# SCIENTIFIC EQUIPMENT
+# -----------------------------------------
+multibeam: none
+adcp: RD-VM0150
+sidescan_sonar: none
+sub_bottom_profiler: none
+echo_sounder: "Simrad EQ100 50 kHz, Simrad EK500 200 kHz single beam, Simrad EK500  18,   38 and 120 kHz split beam"
+acoustic_sonar: Simrad SR240 omnisonar 24 kHz
+acoustic_quiet: 
+
+ctd:
+  capable: "Yes"
+  make: SBE 911plus
+  fluorometer: "no"
+  oxygen_sensor: 
+  rosette: SBE 32  12 Bottles (10 litre)
+  towed: "no"
+  transmissometer: "no"
+
+coring:
+  capable: 
+  box_core: 
+  grab_sampler: "yes"
+  gravity_core: "no"
+  multi_core: "no"
+  piston_core: "no"
+
+underwater_vehicles: "no"
+rov_support: 
+auv_support: 
+submarine_support: 
+
+# -----------------------------------------
+# DECK EQUIPMENT
+# -----------------------------------------
+winches:
+  count: 2
+  steel_wire_length_m: 3000
+  steel_wire_load_mt: 0.5
+  conducting_cable_length_m: 4500
+  conducting_cable_load_mt: 1.5
+  trawl_length_m: 
+  trawl_load_mt: 
+  other_length_m: 
+  other_load_mt: 
+  notes: 
+
+gantry:
+  position: Stern
+  height_above_deck_m: 2.5
+  outboard_extension_m: 6
+  load_capacity_mt: 10
+
+cranes:
+  position: "Stern, Midships"
+  height_above_deck_m: 6
+  outboard_extension_m: 
+  load_capacity_mt: 
+
+# -----------------------------------------
+# NAVIGATION AND COMMUNICATIONS
+# -----------------------------------------
+navigation_equipment: "RACAL-DECCA 2690 BT SERIES S-band, RACAL-DECCA BT 502 X-band"
+navigation_gps: "Trimble NT200D dGPS, Racal Mk 90 GPS"
+communications: "Skanti model TRP 8400D, Sailor Compact RT2048"
+satcomm: "Sealink 128 ?, Inmarsat Std C"
+
+# -----------------------------------------
+# ELECTRICAL SYSTEMS
+# -----------------------------------------
+ac_voltage: 440/220V
+ac_power_kva: 780/1500
+ac_phases: 
+ac_frequency_hz: 60/60
+ac_voltage_stabilized: 220
+ac_freq_stabilized_hz: 50
+ac_amps_stabilized: 90
+dc_voltages: 
+dc_voltage_max: 
+
+# -----------------------------------------
+# DATA SYSTEMS
+# -----------------------------------------
+computing_equipment: Pc’s and UNIX workstations in network
+data_printing: "A1 plotter, Laser Printers, Ink Printers"
+
+# -----------------------------------------
+# OPERATING PROFILE
+# -----------------------------------------
+operating_area_notes: "Barents sea, Norwegian sea, North sea, Eastern North Atlantic"
+operating_grids: 
+operating_regions:         # TODO: populate from operating_area_notes
+mission_capabilities:      # TODO: populate based on equipment fields
+
+# -----------------------------------------
+# PROGRAM MEMBERSHIPS
+# -----------------------------------------
+programs:
+  unols: false
+  go_ship: false
+  samos: false
+  vos: false
+  iwgfi: false
+  euro: true
+  bonus: false
+
+# -----------------------------------------
+# LINKS
+# -----------------------------------------
+url_vessel: "http://www.imr.no/english/about_imr/vessels/johan_hjort"
+url_operator: "http://www.imr.no"
+url_schedule: "http://www.imr.no/__data/page/4236/Toktprogram_2004.xls"
+photo_url: 
+
+# -----------------------------------------
+# ADMINISTRATIVE
+# -----------------------------------------
+record_updated: 2004-05-07
+notes: 
+vessel_other: Det Norske Veritas
+
+---

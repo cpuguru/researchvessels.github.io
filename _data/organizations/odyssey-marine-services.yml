@@ -1,0 +1,19 @@
+﻿# _data/organizations/odyssey-marine-services.yml
+
+name: Odyssey Marine Services
+slug: odyssey-marine-services
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  3604 Swann Avenue
+  Tampa, Florida 33609
+primary_contact:
+phone: 954-224-2918
+fax: 954-523-7545
+email: "RVOdyssey@shipwreck.net"
+url: "http://www.shipwreck.net"
+url_fleet:
+record_updated:
+notes:

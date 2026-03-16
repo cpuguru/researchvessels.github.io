@@ -1,0 +1,20 @@
+﻿# _data/organizations/wdnr.yml
+
+name: WDNR
+slug: wdnr
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Southern Lake Michigan Fisheries Team, WDNR, 600 E. Greenfield,
+  Milwaukee, Wisconsin 53204
+  USA
+primary_contact:
+phone: 414-382-7929
+fax: 414-382-1705
+email: 
+url: "http://dnr.wi.gov/"
+url_fleet:
+record_updated:
+notes:

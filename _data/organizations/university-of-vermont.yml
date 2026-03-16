@@ -1,0 +1,20 @@
+﻿# _data/organizations/university-of-vermont.yml
+
+name: University of Vermont
+slug: university-of-vermont
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Rubenstein Ecosystem Laboratory
+  University of Vermont, 3 College Street, Burlington
+  Vermont 05401,USA
+primary_contact:
+phone: 802-859-3086
+fax: 802-859-3089
+email: "rfurbush@uvm.edu"
+url: "http://www.uvm.edu/"
+url_fleet:
+record_updated:
+notes:

@@ -1,0 +1,20 @@
+﻿# _data/organizations/murmansk-shipping-co.yml
+
+name: Murmansk Shipping Co.
+slug: murmansk-shipping-co
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Murmansk Shipping Company
+  15, Kominterna str. RU-183836 Murmansk
+  Russia
+primary_contact:
+phone: + 7 8152 52 50 68
+fax: + 7 8152 454 356
+email: 
+url: "http://www.msco.ru"
+url_fleet:
+record_updated:
+notes:

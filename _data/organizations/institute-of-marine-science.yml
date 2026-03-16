@@ -1,0 +1,20 @@
+﻿# _data/organizations/institute-of-marine-science.yml
+
+name: Institute of Marine Science
+slug: institute-of-marine-science
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Institute of Marine Science, University of Alaska Fairbanks
+  234 Irving II, P.O. Box 757220, Fairbanks
+  AK 99775-7220, USA
+primary_contact:
+phone: 907-474-7229
+fax: 
+email: "terry@ims.uaf.edu"
+url: "http://www.sfos.uaf.edu/"
+url_fleet:
+record_updated:
+notes:

@@ -1,0 +1,215 @@
+﻿# _data/vessels/rafeal.yml
+
+# -----------------------------------------
+# IDENTITY
+# -----------------------------------------
+name: Rafeal
+slug: rafeal
+imo_number: 
+nodc_code: 
+call_sign: 
+year_built: 
+
+# -----------------------------------------
+# STATUS AND CLASSIFICATION
+# -----------------------------------------
+status: Active
+vessel_use_type: Dedicated Research
+vessel_class: 
+main_activity: "survey grade seismic data acquisition, sidescan sonar mapping, interferometric bathymetry"
+ice_class: 
+ice_breaking: 
+dp_class: 
+dp_system: 
+ism_certified: 
+vessel_classification: 
+vessel_construction: 
+charter_available: false
+
+# -----------------------------------------
+# FLAG AND HOME PORT
+# -----------------------------------------
+flag_country: USA
+homeport: "Falmouth, MA"
+homeport_country: 
+
+# -----------------------------------------
+# OWNERSHIP AND OPERATION
+# -----------------------------------------
+owner: us-geological-survey-usgs
+operator: usgs-coastal-and-marine-geology-program
+managing_agency: 
+operator_contact: David R. Nichols  AKA 'Twig'
+operator_phone: 508-457-2279
+operator_fax: 
+operator_email: "drnkhols@usgs.gov"
+
+# -----------------------------------------
+# PHYSICAL DIMENSIONS
+# -----------------------------------------
+length_m: 7.7
+beam_m: 2.9
+draft_m: 1.04
+gross_tons: 
+hull_material: Fiberglass
+freeboard_deck_m: 
+
+# -----------------------------------------
+# PROPULSION AND PERFORMANCE
+# -----------------------------------------
+engine_count: 2
+engine_make: Optimax Outboards
+engine_power: 400
+power_hp: 400
+aux_diesel_power_hp: 
+prop_diameter_m: 
+prop_max_rpm: 
+speed_cruise_kts: 35
+speed_max_kts: 50
+range_nm: 
+endurance_days: 
+
+# -----------------------------------------
+# CAPACITY
+# -----------------------------------------
+crew: 
+officers: 
+scientists: 
+air_conditioning: true
+fuel_capacity_mt: 0.66
+capacity_dry_stores_mt: 
+water_capacity_mt: 
+water_generation_mt_day: 
+water_treatment: 
+
+# -----------------------------------------
+# LABORATORY AND DECK FACILITIES
+# -----------------------------------------
+lab_wet_area_m2: 
+lab_dry_area_m2: 
+free_deck_area_m2: 
+container_lab_space: 
+radioactive_lab: 
+diving_support: Scuba dive operations
+
+# -----------------------------------------
+# SCIENTIFIC EQUIPMENT
+# -----------------------------------------
+multibeam: 
+adcp: 
+sidescan_sonar: "Edgetech DF1000 Side Scan Sonar, ISIS Side Scan Data Acquisition"
+sub_bottom_profiler: 
+echo_sounder: dual depth sounder 50/200 kiloHertz
+acoustic_sonar: 
+acoustic_quiet: 
+
+ctd:
+  capable: 
+  make: 
+  fluorometer: 
+  oxygen_sensor: 
+  rosette: 
+  towed: 
+  transmissometer: 
+
+coring:
+  capable: 
+  box_core: 
+  grab_sampler: 
+  gravity_core: Small gravity/piston coring   1.5 meter
+  multi_core: 
+  piston_core: 
+
+underwater_vehicles: 
+rov_support: 
+auv_support: 
+submarine_support: 
+
+# -----------------------------------------
+# DECK EQUIPMENT
+# -----------------------------------------
+winches:
+  count: 
+  steel_wire_length_m: 
+  steel_wire_load_mt: 
+  conducting_cable_length_m: 
+  conducting_cable_load_mt: 
+  trawl_length_m: 
+  trawl_load_mt: 
+  other_length_m: 
+  other_load_mt: 
+  notes: "1 whinch, 2 Davits"
+
+gantry:
+  position: 
+  height_above_deck_m: 
+  outboard_extension_m: 
+  load_capacity_mt: 
+
+cranes:
+  position: 
+  height_above_deck_m: 
+  outboard_extension_m: 
+  load_capacity_mt: 
+
+# -----------------------------------------
+# NAVIGATION AND COMMUNICATIONS
+# -----------------------------------------
+navigation_equipment: "Radar, electronic chart, DGPS, NEMA output/input, digital compass"
+navigation_gps: 
+communications: "2 VHF radio, emergency gps data broadcast, AM/FM,Radio/CD, cell phone"
+satcomm: 
+
+# -----------------------------------------
+# ELECTRICAL SYSTEMS
+# -----------------------------------------
+ac_voltage: 110/220 VAC
+ac_power_kva: 
+ac_phases: 
+ac_frequency_hz: 
+ac_voltage_stabilized: 
+ac_freq_stabilized_hz: 
+ac_amps_stabilized: 
+dc_voltages: 12 VDC
+dc_voltage_max: 
+
+# -----------------------------------------
+# DATA SYSTEMS
+# -----------------------------------------
+computing_equipment: 
+data_printing: 
+
+# -----------------------------------------
+# OPERATING PROFILE
+# -----------------------------------------
+operating_area_notes: North Carolina to Washington State
+operating_grids: NA6
+operating_regions:         # TODO: populate from operating_area_notes
+mission_capabilities:      # TODO: populate based on equipment fields
+
+# -----------------------------------------
+# PROGRAM MEMBERSHIPS
+# -----------------------------------------
+programs:
+  unols: false
+  go_ship: false
+  samos: false
+  vos: false
+  iwgfi: false
+  euro: false
+  bonus: false
+
+# -----------------------------------------
+# LINKS
+# -----------------------------------------
+url_vessel: "http://woodshole.er.usgs.gov/operations/rafael/index.html"
+url_operator: "http://www.usgs.gov/"
+url_schedule: 
+photo_url: 
+
+# -----------------------------------------
+# ADMINISTRATIVE
+# -----------------------------------------
+record_updated: 2005-06-16
+notes: 
+vessel_other: "equiped with Seismics, Bathymetry/Imaging System"

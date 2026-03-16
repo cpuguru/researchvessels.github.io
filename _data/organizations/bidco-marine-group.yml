@@ -1,0 +1,20 @@
+﻿# _data/organizations/bidco-marine-group.yml
+
+name: BIDCO Marine Group
+slug: bidco-marine-group
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  BIDCO Marine Group
+  201 Ganson St., Buffalo, NY 14203
+  USA
+primary_contact:
+phone: 716-854-1041 ext 203
+fax: 716-854-0934
+email: "efitzpatrick@bidcomarine.com"
+url: "http://www.bidcomarine.com/offshore.html"
+url_fleet:
+record_updated:
+notes:

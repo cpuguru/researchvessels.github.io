@@ -1,0 +1,20 @@
+﻿# _data/organizations/university-of-washington-friday-harbor-laboratories.yml
+
+name: "University of Washington, Friday Harbor Laboratories"
+slug: university-of-washington-friday-harbor-laboratories
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  620 University Road
+  Friday Harbor, WA
+  98250
+primary_contact:
+phone: 360-378-2165 ext 7 or 206-616-0703
+fax: 
+email: "dduggins@u.washington.edu"
+url: "http://depts.washington.edu/fhl/"
+url_fleet:
+record_updated:
+notes:

@@ -1,0 +1,20 @@
+﻿# _data/organizations/comex-sa.yml
+
+name: Comex S.A.
+slug: comex-sa
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  36, Boulevard des Océans
+  13275 Marseille cedex 09
+  France
+primary_contact:
+phone: + 33 4 91297500
+fax: + 33 4 91297507
+email: "marinedept@comex.fr"
+url: 
+url_fleet:
+record_updated:
+notes:

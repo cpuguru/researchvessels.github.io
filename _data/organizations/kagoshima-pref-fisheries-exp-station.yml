@@ -1,0 +1,20 @@
+﻿# _data/organizations/kagoshima-pref-fisheries-exp-station.yml
+
+name: Kagoshima Pref. Fisheries Exp. Station
+slug: kagoshima-pref-fisheries-exp-station
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Kagoshima Pref. Fisheries Exp. Station
+  11-40 Kinko-Cho
+  Kagoshima 892 Japan
+primary_contact:
+phone: 
+fax: 26-0113
+email: 
+url: 
+url_fleet:
+record_updated:
+notes:

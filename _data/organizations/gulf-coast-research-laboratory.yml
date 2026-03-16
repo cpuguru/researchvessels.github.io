@@ -1,0 +1,20 @@
+﻿# _data/organizations/gulf-coast-research-laboratory.yml
+
+name: Gulf Coast Research Laboratory
+slug: gulf-coast-research-laboratory
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Gulf Coast Research Laboratory
+  703 East Beach Drive / PO Box 7000, Ocean Springs, MS 39564
+  Ocean Springs, Miss. 39564 USA
+primary_contact:
+phone: (601) 872-4200
+fax: (601)-872-4204
+email: 
+url: "http://www.usm.edu/gcrl/site_map/flash.php"
+url_fleet:
+record_updated:
+notes:

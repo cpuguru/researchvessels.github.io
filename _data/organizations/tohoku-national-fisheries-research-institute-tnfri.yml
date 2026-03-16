@@ -1,0 +1,20 @@
+﻿# _data/organizations/tohoku-national-fisheries-research-institute-tnfri.yml
+
+name: Tohoku National Fisheries Research Institute (TNFRI)
+slug: tohoku-national-fisheries-research-institute-tnfri
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  3-27-5 Shinhama, Shiogama
+  Miyagi 985-0001,
+  Japan
+primary_contact:
+phone: +81-22-365-1191
+fax: +81-22-367-1250
+email: 
+url: "http://ss.myg.affrc.go.jp/"
+url_fleet:
+record_updated:
+notes:

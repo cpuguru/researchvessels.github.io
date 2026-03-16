@@ -1,0 +1,20 @@
+﻿# _data/organizations/noaa-pacific-island-science-center.yml
+
+name: "NOAA, Pacific Island Science Center"
+slug: noaa-pacific-island-science-center
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Marine Operations Center, Pacific
+  1801 Fairview Avenue East
+  Seattle, WA 98102-3767
+primary_contact:
+phone: 
+fax: 
+email: "Noaa.Ship.Oscar.Elton.Sette@noaa.gov"
+url: 
+url_fleet:
+record_updated:
+notes:

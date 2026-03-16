@@ -1,0 +1,20 @@
+﻿# _data/organizations/the-norwegian-college-of-fishery-sciencethe-university-of-troms.yml
+
+name: The Norwegian College of Fishery Science/The University of Tromsö
+slug: the-norwegian-college-of-fishery-sciencethe-university-of-troms
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Norwegian College of Fishery Science
+  University of Tromsø,
+  N-9037 Tromsø, Norway
+primary_contact:
+phone: +47 77 64 51 01
+fax: 
+email: "jone@nfh.uit.no"
+url: "http://www.nfh.uit.no"
+url_fleet:
+record_updated:
+notes:

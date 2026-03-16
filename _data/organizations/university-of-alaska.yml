@@ -1,0 +1,20 @@
+﻿# _data/organizations/university-of-alaska.yml
+
+name: University Of Alaska
+slug: university-of-alaska
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  School of Fisheries and Ocean Sciences
+  Seward Marine Center, P.O. Box 730
+  Seward, Alaska 99664, USA
+primary_contact:
+phone: 907-224-5261
+fax: 
+email: 
+url: "http://www.sfos.uaf.edu/index.html"
+url_fleet:
+record_updated:
+notes:

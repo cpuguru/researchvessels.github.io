@@ -1,0 +1,17 @@
+﻿# _data/organizations/florida-atlantic-university-department-of-ocean-engineering.yml
+
+name: "Florida Atlantic University, Department of Ocean Engineering"
+slug: florida-atlantic-university-department-of-ocean-engineering
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+primary_contact:
+phone: 954-924-7061
+fax: 954-924-7007
+email: "rfranks@oe.fau.edu"
+url: "http://www.oe.fau.edu/oegeneral/oegeneral.html"
+url_fleet:
+record_updated:
+notes:

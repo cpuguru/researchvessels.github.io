@@ -1,0 +1,20 @@
+﻿# _data/organizations/nato-saclant-undersea-research-centre.yml
+
+name: NATO SACLANT Undersea Research Centre
+slug: nato-saclant-undersea-research-centre
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Viale San Bartolomeo 400
+  19138 San Bartolomeo
+  La Spezia, Italy
+primary_contact:
+phone: +39 0187 527245
+fax: +39 0187 524 163
+email: 
+url: "http://www.saclantc.nato.int/"
+url_fleet:
+record_updated:
+notes:

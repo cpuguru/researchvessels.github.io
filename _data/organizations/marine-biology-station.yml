@@ -1,0 +1,19 @@
+﻿# _data/organizations/marine-biology-station.yml
+
+name: Marine Biology Station
+slug: marine-biology-station
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Fornace 41
+  6330 Piran, Slovenia
+primary_contact:
+phone: +386 41 624 024
+fax: +386 5 671 2902
+email: "Cermelj@mbss.org"
+url: "http://portal.mbss.org/portal.php?do=aboutus"
+url_fleet:
+record_updated:
+notes:

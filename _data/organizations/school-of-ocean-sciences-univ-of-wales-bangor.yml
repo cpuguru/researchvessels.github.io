@@ -1,0 +1,20 @@
+﻿# _data/organizations/school-of-ocean-sciences-univ-of-wales-bangor.yml
+
+name: "School of Ocean Sciences, Univ of Wales, Bangor"
+slug: school-of-ocean-sciences-univ-of-wales-bangor
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  School of Ocean Sciences
+  Menai BridgeAnglesey
+  LL59 5EY UK
+primary_contact:
+phone: 01248 351151
+fax: 01248 717367
+email: "Enquiries@sos.bangor.ac.uk"
+url: 
+url_fleet:
+record_updated:
+notes:

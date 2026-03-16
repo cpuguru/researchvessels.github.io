@@ -1,0 +1,20 @@
+﻿# _data/organizations/vosper-thornycroft-uk-ltd-vt.yml
+
+name: Vosper Thornycroft (UK) Ltd (VT)
+slug: vosper-thornycroft-uk-ltd-vt
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  VT Support Services Head Office
+  VT House, Grange Drive, Hedge End, Southampton SO30 2DQ
+  England, UK
+primary_contact:
+phone: +44 (0)23-8083-9001
+fax: +44(0)23-8083-9002
+email: 
+url: "http://www.royal-navy.mod.uk/static/pages/454.html"
+url_fleet:
+record_updated:
+notes:

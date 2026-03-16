@@ -1,0 +1,20 @@
+﻿# _data/organizations/misaki-fisheries-high-school.yml
+
+name: Misaki Fisheries High School
+slug: misaki-fisheries-high-school
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Misaki Fisheries High School
+  1-2-1 Nagasaka
+  Yokosuka, Kanagawa 240-01 Japan
+primary_contact:
+phone: 0468 56-3128
+fax: 
+email: 
+url: 
+url_fleet:
+record_updated:
+notes:

@@ -1,0 +1,219 @@
+﻿# _data/vessels/gunnar-thorson.yml
+
+# -----------------------------------------
+# IDENTITY
+# -----------------------------------------
+name: Gunnar Thorson
+slug: gunnar-thorson
+imo_number: 
+nodc_code: 26GT
+call_sign: OUDU
+year_built: 1981
+
+# -----------------------------------------
+# STATUS AND CLASSIFICATION
+# -----------------------------------------
+status: Active
+vessel_use_type: Dedicated Research
+vessel_class: 
+main_activity: Combating oil spills
+ice_class: 
+ice_breaking: "0.5 m, Lloyds 1A"
+dp_class: 
+dp_system: 
+ism_certified: 
+vessel_classification: Lloyd's Register + 100 A 1
+vessel_construction: 
+charter_available: false
+
+# -----------------------------------------
+# FLAG AND HOME PORT
+# -----------------------------------------
+flag_country: Denmark
+homeport: Copenhagen
+homeport_country: 
+
+# -----------------------------------------
+# OWNERSHIP AND OPERATION
+# -----------------------------------------
+owner: royal-danish-navy
+operator: national-environmental-research-institute
+managing_agency: 
+operator_contact: Senior Adviser Gunni Ærtebjerg
+operator_phone: +45 4630 1200
+operator_fax: +45 4630 1114
+operator_email: "gae@dmu.dk"
+
+# -----------------------------------------
+# PHYSICAL DIMENSIONS
+# -----------------------------------------
+length_m: 56
+beam_m: 12.3
+draft_m: 3.9
+gross_tons: 868
+hull_material: Steel
+freeboard_deck_m: 2
+
+# -----------------------------------------
+# PROPULSION AND PERFORMANCE
+# -----------------------------------------
+engine_count: 2
+engine_make: Diesel
+engine_power: 1180 at 825 rpm
+power_hp: 2367
+aux_diesel_power_hp: 825
+prop_diameter_m: 2.1
+prop_max_rpm: 300
+speed_cruise_kts: 10
+speed_max_kts: 13
+range_nm: 9600
+endurance_days: 40
+
+# -----------------------------------------
+# CAPACITY
+# -----------------------------------------
+crew: 12
+officers: 4
+scientists: 12
+air_conditioning: false
+fuel_capacity_mt: 290
+capacity_dry_stores_mt: 310
+water_capacity_mt: 82
+water_generation_mt_day: 
+water_treatment: De-ionised water
+
+# -----------------------------------------
+# LABORATORY AND DECK FACILITIES
+# -----------------------------------------
+lab_wet_area_m2: 4
+lab_dry_area_m2: 40
+free_deck_area_m2: 162
+container_lab_space: 8 x 20
+radioactive_lab: 10 m2 in dry lab.
+diving_support: Compressor
+
+# -----------------------------------------
+# SCIENTIFIC EQUIPMENT
+# -----------------------------------------
+multibeam: none
+adcp: RDI Instruments 600 kHz
+sidescan_sonar: "No"
+sub_bottom_profiler: "No"
+echo_sounder: Elac Laz 5000
+acoustic_sonar: "No"
+acoustic_quiet: "Yes"
+
+ctd:
+  capable: "Yes"
+  make: Sea-Bird SBE-25 Sealogger
+  fluorometer: "Hardt, 2 channels"
+  oxygen_sensor: Oxyguard
+  rosette: "Sea-Bird SBE32, 12 x 5 l bottles"
+  towed: "No"
+  transmissometer: Biospherical QSP-200PD
+
+coring:
+  capable: 
+  box_core: "Yes"
+  grab_sampler: "HAPS, van Veen"
+  gravity_core: "No"
+  multi_core: "No"
+  piston_core: "No"
+
+underwater_vehicles: "No"
+rov_support: 
+auv_support: 
+submarine_support: 
+
+# -----------------------------------------
+# DECK EQUIPMENT
+# -----------------------------------------
+winches:
+  count: 2
+  steel_wire_length_m: 1000
+  steel_wire_load_mt: 0.5
+  conducting_cable_length_m: 1000
+  conducting_cable_load_mt: 0.5
+  trawl_length_m: 
+  trawl_load_mt: 
+  other_length_m: 
+  other_load_mt: 
+  notes: 
+
+gantry:
+  position: 
+  height_above_deck_m: 
+  outboard_extension_m: 
+  load_capacity_mt: 
+
+cranes:
+  position: Midships
+  height_above_deck_m: 15
+  outboard_extension_m: 13
+  load_capacity_mt: 1
+
+# -----------------------------------------
+# NAVIGATION AND COMMUNICATIONS
+# -----------------------------------------
+navigation_equipment: "2 Furuno Radars, Furuno Marine Gyrocompass, Doppler Speed Log"
+navigation_gps: DGPS Northstar 951X
+communications: "Sailor VHF RT 2048, Fax"
+satcomm: 
+
+# -----------------------------------------
+# ELECTRICAL SYSTEMS
+# -----------------------------------------
+ac_voltage: "0/380 v, 0/380 v"
+ac_power_kva: 520/184
+ac_phases: 3/3
+ac_frequency_hz: 50/50
+ac_voltage_stabilized: "No"
+ac_freq_stabilized_hz: 50
+ac_amps_stabilized: 
+dc_voltages: 
+dc_voltage_max: 
+
+# -----------------------------------------
+# DATA SYSTEMS
+# -----------------------------------------
+computing_equipment: 1 PC
+data_printing: 1 printer
+
+# -----------------------------------------
+# OPERATING PROFILE
+# -----------------------------------------
+operating_area_notes: Baltic Sea-Belt Sea-Kattegat-Skagerrak-North Sea
+operating_grids: 
+operating_regions:         # TODO: populate from operating_area_notes
+mission_capabilities:      # TODO: populate based on equipment fields
+
+# -----------------------------------------
+# PROGRAM MEMBERSHIPS
+# -----------------------------------------
+programs:
+  unols: false
+  go_ship: false
+  samos: false
+  vos: false
+  iwgfi: false
+  euro: true
+  bonus: true
+
+# -----------------------------------------
+# LINKS
+# -----------------------------------------
+url_vessel: "http://www.navalhistory.dk/Danish/Skibene/G/GunnarThorson_miljoeskib(1996).htm"
+url_operator: 
+url_schedule: 
+photo_url: 
+
+# -----------------------------------------
+# ADMINISTRATIVE
+# -----------------------------------------
+record_updated: 2005-05-09
+notes: "Position: Aft
+Clearance above deck: 10 m
+Other crane
+Outboard extension: 13 m
+Safe working load at maximum reach: In habour 10 t; At sea 3"
+vessel_other: 

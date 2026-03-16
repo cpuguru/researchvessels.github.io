@@ -1,0 +1,19 @@
+﻿# _data/organizations/estonian-marine-institute-of-tartu-university.yml
+
+name: Estonian Marine Institute of Tartu University
+slug: estonian-marine-institute-of-tartu-university
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  MÄEALUSE 10A
+  12618 TALLINN
+primary_contact:
+phone: +372 6718902
+fax: +372 6718900
+email: "ivar.tenson@ut.ee"
+url: www.sea.ee
+url_fleet:
+record_updated:
+notes:

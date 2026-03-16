@@ -1,0 +1,20 @@
+﻿# _data/organizations/mt-mitchell-llc.yml
+
+name: "Mt. Mitchell, LLC"
+slug: mt-mitchell-llc
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Mt. Mitchell, LLC
+  2001 6th Avenue
+  Seattle, Washington 98121
+primary_contact:
+phone: +1-206-770-7801
+fax: +1-206-770-0511
+email: "info@rvmtmitchell.com"
+url: "http://www.rvmtmitchell.com"
+url_fleet:
+record_updated:
+notes:

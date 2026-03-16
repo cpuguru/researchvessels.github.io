@@ -1,0 +1,216 @@
+﻿---
+# -----------------------------------------
+# IDENTITY
+# -----------------------------------------
+name: Rig Seismic (Sold - out of service)
+slug: rig-seismic-sold-out-of-service
+imo_number: 
+nodc_code: 
+call_sign: 
+year_built: 1982
+
+# -----------------------------------------
+# STATUS AND CLASSIFICATION
+# -----------------------------------------
+status: Out of Service
+vessel_use_type: Dedicated Research
+vessel_class: 
+main_activity: Geology
+ice_class: 
+ice_breaking: 
+dp_class: 
+dp_system: 
+ism_certified: 
+vessel_classification: DNV
+vessel_construction: 
+charter_available: false
+
+# -----------------------------------------
+# FLAG AND HOME PORT
+# -----------------------------------------
+flag_country: Australia
+homeport: 
+homeport_country: 
+
+# -----------------------------------------
+# OWNERSHIP AND OPERATION
+# -----------------------------------------
+owner: 
+operator: australian-geological-survey-organization
+managing_agency: 
+operator_contact: Mr Roy Whitworth
+operator_phone: 06 2499111
+operator_fax: 2472559
+operator_email: 
+
+# -----------------------------------------
+# PHYSICAL DIMENSIONS
+# -----------------------------------------
+length_m: 72.5
+beam_m: 13.8
+draft_m: 6
+gross_tons: 1543
+hull_material: Steel
+freeboard_deck_m: 
+
+# -----------------------------------------
+# PROPULSION AND PERFORMANCE
+# -----------------------------------------
+engine_count: 1
+engine_make: Diesel
+engine_power: 2600 at 825rpm
+power_hp: 2600
+aux_diesel_power_hp: 
+prop_diameter_m: 3.9
+prop_max_rpm: 
+speed_cruise_kts: 10
+speed_max_kts: 
+range_nm: 
+endurance_days: 75
+
+# -----------------------------------------
+# CAPACITY
+# -----------------------------------------
+crew: 8
+officers: 6
+scientists: 20
+air_conditioning: true
+fuel_capacity_mt: 736
+capacity_dry_stores_mt: 
+water_capacity_mt: 
+water_generation_mt_day: 10
+water_treatment: 
+
+# -----------------------------------------
+# LABORATORY AND DECK FACILITIES
+# -----------------------------------------
+lab_wet_area_m2: 25
+lab_dry_area_m2: 10
+free_deck_area_m2: 
+container_lab_space: 
+radioactive_lab: 
+diving_support: 
+
+# -----------------------------------------
+# SCIENTIFIC EQUIPMENT
+# -----------------------------------------
+multibeam: 
+adcp: 
+sidescan_sonar: 
+sub_bottom_profiler: 
+echo_sounder: 3kHz 12kHz
+acoustic_sonar: Geological
+acoustic_quiet: 
+
+ctd:
+  capable: 
+  make: 
+  fluorometer: 
+  oxygen_sensor: 
+  rosette: 
+  towed: 
+  transmissometer: 
+
+coring:
+  capable: 
+  box_core: 
+  grab_sampler: 
+  gravity_core: 
+  multi_core: 
+  piston_core: 
+
+underwater_vehicles: 
+rov_support: 
+auv_support: 
+submarine_support: 
+
+# -----------------------------------------
+# DECK EQUIPMENT
+# -----------------------------------------
+winches:
+  count: 1
+  steel_wire_length_m: 
+  steel_wire_load_mt: 
+  conducting_cable_length_m: 
+  conducting_cable_load_mt: 
+  trawl_length_m: 5000
+  trawl_load_mt: 12
+  other_length_m: 4600
+  other_load_mt: 2
+  notes: Magnetics
+
+gantry:
+  position: Stern
+  height_above_deck_m: 4
+  outboard_extension_m: 1
+  load_capacity_mt: 20
+
+cranes:
+  position: Midships
+  height_above_deck_m: 
+  outboard_extension_m: 2
+  load_capacity_mt: 
+
+# -----------------------------------------
+# NAVIGATION AND COMMUNICATIONS
+# -----------------------------------------
+navigation_equipment: Radar SatNav Gyro EMLog
+navigation_gps: 
+communications: SatCom
+satcomm: 
+
+# -----------------------------------------
+# ELECTRICAL SYSTEMS
+# -----------------------------------------
+ac_voltage: 220/440V
+ac_power_kva: 482
+ac_phases: 3
+ac_frequency_hz: 60
+ac_voltage_stabilized: 240
+ac_freq_stabilized_hz: 50
+ac_amps_stabilized: 90
+dc_voltages: 
+dc_voltage_max: 
+
+# -----------------------------------------
+# DATA SYSTEMS
+# -----------------------------------------
+computing_equipment: "Microvax 2 and 3: hp 1000 E & F: Magnetics, navigation, trace hydrocarbon"
+data_printing: 
+
+# -----------------------------------------
+# OPERATING PROFILE
+# -----------------------------------------
+operating_area_notes: 
+operating_grids: 
+operating_regions:         # TODO: populate from operating_area_notes
+mission_capabilities:      # TODO: populate based on equipment fields
+
+# -----------------------------------------
+# PROGRAM MEMBERSHIPS
+# -----------------------------------------
+programs:
+  unols: false
+  go_ship: false
+  samos: false
+  vos: false
+  iwgfi: false
+  euro: false
+  bonus: false
+
+# -----------------------------------------
+# LINKS
+# -----------------------------------------
+url_vessel: 
+url_operator: 
+url_schedule: 
+photo_url: 
+
+# -----------------------------------------
+# ADMINISTRATIVE
+# -----------------------------------------
+record_updated: 
+notes: 
+vessel_other: 
+
+---

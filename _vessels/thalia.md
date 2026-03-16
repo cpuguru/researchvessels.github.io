@@ -1,0 +1,216 @@
+﻿---
+# -----------------------------------------
+# IDENTITY
+# -----------------------------------------
+name: Thalia
+slug: thalia
+imo_number: 
+nodc_code: 35TC
+call_sign: FPCS
+year_built: 1978
+
+# -----------------------------------------
+# STATUS AND CLASSIFICATION
+# -----------------------------------------
+status: Active
+vessel_use_type: Dedicated Research
+vessel_class: 
+main_activity: 
+ice_class: 
+ice_breaking: 
+dp_class: 
+dp_system: 
+ism_certified: 
+vessel_classification: BUREAU VERITAX
+vessel_construction: 
+charter_available: false
+
+# -----------------------------------------
+# FLAG AND HOME PORT
+# -----------------------------------------
+flag_country: France
+homeport: Brest
+homeport_country: 
+
+# -----------------------------------------
+# OWNERSHIP AND OPERATION
+# -----------------------------------------
+owner: institut-franais-de-recherche-pour-lexploitation-de-la-mer-ifremer
+operator: genavir
+managing_agency: 
+operator_contact: Jean Xavier Castrec
+operator_phone: (33) 01 46 48 21 00
+operator_fax: (33) 01 46 48 21 21
+operator_email: "jean.xavier.castrec@ifremer.fr"
+
+# -----------------------------------------
+# PHYSICAL DIMENSIONS
+# -----------------------------------------
+length_m: 24.5
+beam_m: 7.4
+draft_m: 3.6
+gross_tons: 135.4
+hull_material: Steel
+freeboard_deck_m: 1.3
+
+# -----------------------------------------
+# PROPULSION AND PERFORMANCE
+# -----------------------------------------
+engine_count: 2
+engine_make: Poyaud A 12150M
+engine_power: 265KW
+power_hp: 
+aux_diesel_power_hp: 
+prop_diameter_m: 1.72
+prop_max_rpm: 340
+speed_cruise_kts: 
+speed_max_kts: 9.5
+range_nm: 
+endurance_days: 
+
+# -----------------------------------------
+# CAPACITY
+# -----------------------------------------
+crew: 2
+officers: 4
+scientists: 6
+air_conditioning: false
+fuel_capacity_mt: 25
+capacity_dry_stores_mt: 
+water_capacity_mt: 15.5
+water_generation_mt_day: 
+water_treatment: 1x5m3/h supplying thermosalinometer and wet laboratory
+
+# -----------------------------------------
+# LABORATORY AND DECK FACILITIES
+# -----------------------------------------
+lab_wet_area_m2: 5.7
+lab_dry_area_m2: 
+free_deck_area_m2: 50
+container_lab_space: Location for one 10-ft container
+radioactive_lab: 
+diving_support: 
+
+# -----------------------------------------
+# SCIENTIFIC EQUIPMENT
+# -----------------------------------------
+multibeam: 
+adcp: 
+sidescan_sonar: 
+sub_bottom_profiler: 
+echo_sounder: Furuno FCV 582 echosounder - 50 and 200 kHz
+acoustic_sonar: 
+acoustic_quiet: 
+
+ctd:
+  capable: Only winch on board
+  make: 
+  fluorometer: 
+  oxygen_sensor: 
+  rosette: 
+  towed: 
+  transmissometer: 
+
+coring:
+  capable: 
+  box_core: 
+  grab_sampler: 
+  gravity_core: 
+  multi_core: 
+  piston_core: 
+
+underwater_vehicles: 
+rov_support: 
+auv_support: 
+submarine_support: 
+
+# -----------------------------------------
+# DECK EQUIPMENT
+# -----------------------------------------
+winches:
+  count: 3
+  steel_wire_length_m: 1000
+  steel_wire_load_mt: 82.5
+  conducting_cable_length_m: 400
+  conducting_cable_load_mt: 2.1
+  trawl_length_m: 
+  trawl_load_mt: 
+  other_length_m: 
+  other_load_mt: 
+  notes: 
+
+gantry:
+  position: Stern part of main deck. Rotating A-frame
+  height_above_deck_m: 4
+  outboard_extension_m: 1.7
+  load_capacity_mt: 3
+
+cranes:
+  position: Deck
+  height_above_deck_m: 
+  outboard_extension_m: 8.4
+  load_capacity_mt: 1.3
+
+# -----------------------------------------
+# NAVIGATION AND COMMUNICATIONS
+# -----------------------------------------
+navigation_equipment: OLEX navigation software and electric map; Brown SGB 1000 gyrocompass; NECO 728 MK2 automatic pilot; I2e ANTEA electromagnetic log; Sercel VEGA Syledis receiver; Sercel NR 103 differential receiver; Furuno FR 2115 radar; Furuno 8100 DA radar.
+navigation_gps: 2xSERCEL NR 103
+communications: SMDSM Sailor radio station
+satcomm: Inmarsat M
+
+# -----------------------------------------
+# ELECTRICAL SYSTEMS
+# -----------------------------------------
+ac_voltage: 380
+ac_power_kva: 180
+ac_phases: 3
+ac_frequency_hz: 50
+ac_voltage_stabilized: 
+ac_freq_stabilized_hz: 
+ac_amps_stabilized: 
+dc_voltages: 
+dc_voltage_max: 
+
+# -----------------------------------------
+# DATA SYSTEMS
+# -----------------------------------------
+computing_equipment: 
+data_printing: 
+
+# -----------------------------------------
+# OPERATING PROFILE
+# -----------------------------------------
+operating_area_notes: Atlantic Ocean
+operating_grids: 
+operating_regions:         # TODO: populate from operating_area_notes
+mission_capabilities:      # TODO: populate based on equipment fields
+
+# -----------------------------------------
+# PROGRAM MEMBERSHIPS
+# -----------------------------------------
+programs:
+  unols: false
+  go_ship: false
+  samos: false
+  vos: false
+  iwgfi: false
+  euro: true
+  bonus: false
+
+# -----------------------------------------
+# LINKS
+# -----------------------------------------
+url_vessel: "http://www.ifremer.fr/fleet/navires/cotiers/thalia/thalia.htm"
+url_operator: "http://www.ifremer.fr/genavir/"
+url_schedule: 
+photo_url: 
+
+# -----------------------------------------
+# ADMINISTRATIVE
+# -----------------------------------------
+record_updated: 2004-03-02
+notes: 
+vessel_other: 
+
+---

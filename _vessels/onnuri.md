@@ -1,0 +1,216 @@
+﻿---
+# -----------------------------------------
+# IDENTITY
+# -----------------------------------------
+name: Onnuri
+slug: onnuri
+imo_number: 
+nodc_code: 24NN
+call_sign: 
+year_built: 1992
+
+# -----------------------------------------
+# STATUS AND CLASSIFICATION
+# -----------------------------------------
+status: Active
+vessel_use_type: Dedicated Research
+vessel_class: 
+main_activity: Oceanography Fisheries Geology Hydrography
+ice_class: 
+ice_breaking: 
+dp_class: 
+dp_system: "Albatross ADP 700, SIMRAD"
+ism_certified: 
+vessel_classification: +KRM1 - UMA (Korean)
+vessel_construction: 
+charter_available: false
+
+# -----------------------------------------
+# FLAG AND HOME PORT
+# -----------------------------------------
+flag_country: Korea
+homeport: 
+homeport_country: 
+
+# -----------------------------------------
+# OWNERSHIP AND OPERATION
+# -----------------------------------------
+owner: 
+operator: korean-ocean-research-and-development-institute-kordi
+managing_agency: 
+operator_contact: Mr. Kyung In Lee
+operator_phone: 0553-444373
+operator_fax: 
+operator_email: 
+
+# -----------------------------------------
+# PHYSICAL DIMENSIONS
+# -----------------------------------------
+length_m: 63.8
+beam_m: 12
+draft_m: 5.15
+gross_tons: 1442
+hull_material: Steel
+freeboard_deck_m: 2.9
+
+# -----------------------------------------
+# PROPULSION AND PERFORMANCE
+# -----------------------------------------
+engine_count: 4
+engine_make: cycle diesel engine
+engine_power: 1160KW-900 rpm
+power_hp: 3100
+aux_diesel_power_hp: 
+prop_diameter_m: 3.3
+prop_max_rpm: 178
+speed_cruise_kts: 15
+speed_max_kts: 15.8
+range_nm: 10000
+endurance_days: 40
+
+# -----------------------------------------
+# CAPACITY
+# -----------------------------------------
+crew: 16
+officers: 
+scientists: 25
+air_conditioning: true
+fuel_capacity_mt: 358
+capacity_dry_stores_mt: 
+water_capacity_mt: 108
+water_generation_mt_day: 10
+water_treatment: 
+
+# -----------------------------------------
+# LABORATORY AND DECK FACILITIES
+# -----------------------------------------
+lab_wet_area_m2: 35
+lab_dry_area_m2: 70
+free_deck_area_m2: 250
+container_lab_space: 3 x 6
+radioactive_lab: 
+diving_support: 
+
+# -----------------------------------------
+# SCIENTIFIC EQUIPMENT
+# -----------------------------------------
+multibeam: Seabean 2000
+adcp: "RD-VM0150, RD"
+sidescan_sonar: 
+sub_bottom_profiler: 
+echo_sounder: 12kHz 38kHz
+acoustic_sonar: "Fisheries Sector-scan (SR-240, Simrad)"
+acoustic_quiet: 
+
+ctd:
+  capable: SBE 911
+  make: 
+  fluorometer: 
+  oxygen_sensor: 
+  rosette: 
+  towed: 
+  transmissometer: 
+
+coring:
+  capable: Coring Devit 1.0 ton
+  box_core: 
+  grab_sampler: 
+  gravity_core: 
+  multi_core: 
+  piston_core: 
+
+underwater_vehicles: 
+rov_support: 
+auv_support: 
+submarine_support: 
+
+# -----------------------------------------
+# DECK EQUIPMENT
+# -----------------------------------------
+winches:
+  count: 
+  steel_wire_length_m: 9999
+  steel_wire_load_mt: 10
+  conducting_cable_length_m: 6000
+  conducting_cable_load_mt: 2
+  trawl_length_m: 
+  trawl_load_mt: 
+  other_length_m: 6000
+  other_load_mt: 2
+  notes: "Deepsea winch, CTD winch, Hydrograpic winch, Streamer winch,"
+
+gantry:
+  position: "Stern, Midships"
+  height_above_deck_m: 7
+  outboard_extension_m: 3
+  load_capacity_mt: 8
+
+cranes:
+  position: Midships
+  height_above_deck_m: 
+  outboard_extension_m: 10
+  load_capacity_mt: 1
+
+# -----------------------------------------
+# NAVIGATION AND COMMUNICATIONS
+# -----------------------------------------
+navigation_equipment: "Integrated navigation system, Radar, Doppler Log"
+navigation_gps: "MX-4200, 4810 Magnavox, Trimble DSM"
+communications: "WeatherFax, Radio,"
+satcomm: "INMARSAT (JUE 45E, JRC),"
+
+# -----------------------------------------
+# ELECTRICAL SYSTEMS
+# -----------------------------------------
+ac_voltage: 0/440V 0/220V
+ac_power_kva: 1300/0
+ac_phases: 3/0
+ac_frequency_hz: 60/0
+ac_voltage_stabilized: 115
+ac_freq_stabilized_hz: 60
+ac_amps_stabilized: 150
+dc_voltages: 
+dc_voltage_max: 
+
+# -----------------------------------------
+# DATA SYSTEMS
+# -----------------------------------------
+computing_equipment: "Hewlett Packard HP 425S :"
+data_printing: 
+
+# -----------------------------------------
+# OPERATING PROFILE
+# -----------------------------------------
+operating_area_notes: "South China Sea, South-West Pacific"
+operating_grids: 
+operating_regions:         # TODO: populate from operating_area_notes
+mission_capabilities:      # TODO: populate based on equipment fields
+
+# -----------------------------------------
+# PROGRAM MEMBERSHIPS
+# -----------------------------------------
+programs:
+  unols: false
+  go_ship: false
+  samos: false
+  vos: false
+  iwgfi: false
+  euro: false
+  bonus: false
+
+# -----------------------------------------
+# LINKS
+# -----------------------------------------
+url_vessel: "http://www.kordi.re.kr/eng/kordi/vessels_onnuri.asp"
+url_operator: "http://www.kordi.re.kr/eng/index.asp"
+url_schedule: 
+photo_url: 
+
+# -----------------------------------------
+# ADMINISTRATIVE
+# -----------------------------------------
+record_updated: 2005-03-08
+notes: "Seismic Gun Array, Subbottom Profiler, wave meter, Graitymeter, precise Depthe Recorder, Air gun compressor, Multichannel Seismic system."
+vessel_other: 
+
+---

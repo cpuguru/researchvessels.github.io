@@ -1,0 +1,18 @@
+﻿# _data/organizations/beaufort-oceanics.yml
+
+name: Beaufort Oceanics
+slug: beaufort-oceanics
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Beaufort Oceanics  PO Box 941  Beaufort, NC28516
+primary_contact:
+phone: 252-728-3033
+fax: 252-728-2889
+email: "martow@mail.clis.com"
+url: "http://www.martow.com"
+url_fleet:
+record_updated:
+notes:

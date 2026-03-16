@@ -1,0 +1,20 @@
+﻿# _data/organizations/mod-defence-evaluation-and-research-agency-farnborough.yml
+
+name: "MoD, Defence Evaluation and Research Agency, Farnborough"
+slug: mod-defence-evaluation-and-research-agency-farnborough
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  MoD, Defence Evaluation and Research Agency, Air Systems Sector, MSDZ2 Bldg P161,
+  D.E.R.A. Farnborough, Farnborough
+  Hants GU14 6TD, UK
+primary_contact:
+phone: +44 (0)1252-393916
+fax: +44 (0)1252-376058
+email: 
+url: "http://www.marine.gov.uk/index.html"
+url_fleet:
+record_updated:
+notes:

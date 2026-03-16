@@ -1,0 +1,20 @@
+﻿# _data/organizations/ontario-ministry-of-natural-resources.yml
+
+name: Ontario Ministry of Natural Resources
+slug: ontario-ministry-of-natural-resources
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Ontario Ministry of Natural Resources - Lake Ontario Management Unit
+  R.R.#4, Picton, Ontario
+  Canada K0K 2T0
+primary_contact:
+phone: 613-476-8744
+fax: 613- 476-7131
+email: 
+url: "http://www.mnr.gov.on.ca/MNR/"
+url_fleet:
+record_updated:
+notes:

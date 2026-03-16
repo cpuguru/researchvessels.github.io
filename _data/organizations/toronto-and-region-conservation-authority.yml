@@ -1,0 +1,20 @@
+﻿# _data/organizations/toronto-and-region-conservation-authority.yml
+
+name: Toronto and Region Conservation Authority
+slug: toronto-and-region-conservation-authority
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  5 Shoreham Drive
+  Downsview, Ontario
+  Canada, M3N 1S4
+primary_contact:
+phone: "416-661-6600, ext 302"
+fax: 416-661-6898
+email: "rick_portiss@trca.on.ca"
+url: "http://www.trca.on.ca/"
+url_fleet:
+record_updated:
+notes:

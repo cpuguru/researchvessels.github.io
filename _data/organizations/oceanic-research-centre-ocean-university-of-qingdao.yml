@@ -1,0 +1,19 @@
+﻿# _data/organizations/oceanic-research-centre-ocean-university-of-qingdao.yml
+
+name: "Oceanic Research Centre, Ocean University of QingDao"
+slug: oceanic-research-centre-ocean-university-of-qingdao
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  5 Yushan Road
+  QingDao, China  266003
+primary_contact:
+phone: 86-532-2032793/2032812
+fax: 86-532-2032803
+email: "shpcentre@public.qd.sd.cn"
+url: 
+url_fleet:
+record_updated:
+notes:

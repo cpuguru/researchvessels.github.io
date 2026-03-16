@@ -1,0 +1,20 @@
+﻿# _data/organizations/faculty-of-mathematics-and-natural-sciences.yml
+
+name: Faculty of Mathematics and Natural Sciences
+slug: faculty-of-mathematics-and-natural-sciences
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Faculty of Mathematics and Natural Sciences
+  Biological Institute, University of Oslo
+  Pb. 1065, BlindernN-0316, Norway
+primary_contact:
+phone: +47 22 85 47 74
+fax: +47 22 85 44 38
+email: "a.t.andersen@bio.uio.no"
+url: "http://www.uio.no/"
+url_fleet:
+record_updated:
+notes:

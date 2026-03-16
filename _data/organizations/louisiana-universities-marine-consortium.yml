@@ -1,0 +1,20 @@
+﻿# _data/organizations/louisiana-universities-marine-consortium.yml
+
+name: Louisiana Universities Marine Consortium
+slug: louisiana-universities-marine-consortium
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Louisiana Univeristies Marine Consortium
+  8124 Hwy 56
+  Chauvin, LA 70344 USA
+primary_contact:
+phone: (985) 851-2808
+fax: (985) 851-2863
+email: "jmalbrough@lumcon.edu"
+url: "http://www.lumcon.edu"
+url_fleet:
+record_updated:
+notes:

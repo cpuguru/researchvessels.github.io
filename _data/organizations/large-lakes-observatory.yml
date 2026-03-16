@@ -1,0 +1,20 @@
+﻿# _data/organizations/large-lakes-observatory.yml
+
+name: Large Lakes Observatory
+slug: large-lakes-observatory
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  University of Minnesota, Duluth (LLO)
+  10 University Drive
+  Duluth, MN 55812
+primary_contact:
+phone: (218) 726-7826
+fax: (218) 726-6979
+email: "ricketts@d.umn.edu"
+url: "http://www.d.umn.edu"
+url_fleet:
+record_updated:
+notes:

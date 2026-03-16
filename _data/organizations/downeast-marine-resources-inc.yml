@@ -1,0 +1,20 @@
+﻿# _data/organizations/downeast-marine-resources-inc.yml
+
+name: "Downeast Marine Resources, Inc."
+slug: downeast-marine-resources-inc
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  P. O. Box 1433
+  Blue Hill, Maine
+  04614
+primary_contact:
+phone: (207) 266-2841
+fax: (207) 374-5261
+email: "info@rvargo.com"
+url: "http://www.dmrinc.us/"
+url_fleet:
+record_updated:
+notes:

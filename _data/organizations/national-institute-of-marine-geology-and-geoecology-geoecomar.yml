@@ -1,0 +1,20 @@
+﻿# _data/organizations/national-institute-of-marine-geology-and-geoecology-geoecomar.yml
+
+name: National Institute of Marine Geology and Geoecology - GeoEcoMar
+slug: national-institute-of-marine-geology-and-geoecology-geoecomar
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  National Institute of Marine Geology and Geoecology - GeoEcoMar
+  D. Onciul 23-25, RO-70318
+  Bucharest, Romania
+primary_contact:
+phone: 40-1-2525512
+fax: 40-1-2522594
+email: "radan@geoecomar.ro"
+url: "http://www.geoecomar.ro/"
+url_fleet:
+record_updated:
+notes:

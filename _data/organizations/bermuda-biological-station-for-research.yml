@@ -1,0 +1,20 @@
+﻿# _data/organizations/bermuda-biological-station-for-research.yml
+
+name: Bermuda Biological Station for Research
+slug: bermuda-biological-station-for-research
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Dive Safety Officer / Small Boats
+  17 Biological Lane, Ferry Reach
+  St. George's GE01, Bermuda
+primary_contact:
+phone: 441-297-1880
+fax: 441-297-8143
+email: "nstevens@bbsr.edu"
+url: "http://www.bbsr.edu/"
+url_fleet:
+record_updated:
+notes:

@@ -1,0 +1,20 @@
+﻿# _data/organizations/school-of-biological-sciences.yml
+
+name: School of Biological Sciences
+slug: school-of-biological-sciences
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Keith Naylor or Kevin Flynn
+  School of Biological Sciences
+  Singleton Park, Swansea ,SA2 8PP
+primary_contact:
+phone: 0770 280 2214
+fax: 
+email: "k.j.flynn@swan.ac.uk  or k.naylor@swansea.ac.uk"
+url: "http://www.swan.ac.uk/bs/"
+url_fleet:
+record_updated:
+notes:

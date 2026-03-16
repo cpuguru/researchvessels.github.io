@@ -1,0 +1,315 @@
+backend:
+  name: github
+  repo: researchvessels/researchvessels.github.io
+  branch: main
+  auth_type: pkce
+
+media_folder: images/vessels
+public_folder: /images/vessels
+
+collections:
+
+  # ── Vessels ────────────────────────────────────────────────────────────────
+  - name: vessels
+    label: Vessels
+    label_singular: Vessel
+    folder: _vessels
+    create: true
+    slug: "{{slug}}"
+    identifier_field: name
+    summary: "{{name}} ({{flag_country}}) — {{status}}"
+    sortable_fields: [name, flag_country, status, vessel_class, year_built]
+    view_filters:
+      - label: Active
+        field: status
+        pattern: Active
+      - label: Out of Service
+        field: status
+        pattern: Out of Service
+      - label: Charter Available
+        field: charter_available
+        pattern: true
+      - label: UNOLS
+        field: programs.unols
+        pattern: true
+    fields:
+
+      # IDENTITY
+      - {label: Vessel Name, name: name, widget: string}
+      - {label: Slug, name: slug, widget: string, hint: "Lowercase, hyphens only. Used in the page URL."}
+      - {label: IMO Number, name: imo_number, widget: string, required: false}
+      - {label: NODC Code, name: nodc_code, widget: string, required: false}
+      - {label: Call Sign, name: call_sign, widget: string, required: false}
+      - {label: Year Built, name: year_built, widget: number, required: false, value_type: int}
+
+      # STATUS & CLASSIFICATION
+      - label: Status
+        name: status
+        widget: select
+        default: Active
+        options: [Active, Out of Service, Decommissioned, Under Construction, Planned]
+      - label: Vessel Use Type
+        name: vessel_use_type
+        widget: select
+        default: Dedicated Research
+        options: [Dedicated Research, Charter, Opportunistic, Survey, Fisheries Research, Rapid Response]
+      - label: Vessel Class
+        name: vessel_class
+        widget: select
+        required: false
+        options: ["", Global, Ocean, Regional, Coastal, Local]
+      - {label: Main Activity, name: main_activity, widget: string, required: false}
+      - {label: Ice Class, name: ice_class, widget: string, required: false, hint: "e.g. DNV ICE-1A, Polar Class 6"}
+      - {label: Ice Breaking, name: ice_breaking, widget: string, required: false}
+      - label: DP Class
+        name: dp_class
+        widget: select
+        required: false
+        options: ["", DP1, DP2, DP3]
+      - {label: DP System, name: dp_system, widget: string, required: false}
+      - {label: ISM Certified, name: ism_certified, widget: string, required: false}
+      - {label: Vessel Classification (Registry), name: vessel_classification, widget: string, required: false}
+      - {label: Vessel Construction Notes, name: vessel_construction, widget: string, required: false}
+      - {label: Charter Available, name: charter_available, widget: boolean, default: false}
+
+      # CHARTER INFORMATION
+      - {label: Charter Contact, name: charter_contact, widget: string, required: false}
+      - {label: Charter Email, name: charter_email, widget: string, required: false}
+      - {label: Charter URL, name: charter_url, widget: string, required: false}
+      - {label: Min Charter Days, name: charter_min_days, widget: number, required: false, value_type: int}
+      - {label: Charter Day Rate, name: charter_day_rate, widget: string, required: false}
+      - {label: Charter Notes, name: charter_notes, widget: text, required: false}
+
+      # FLAG & HOME PORT
+      - {label: Flag Country, name: flag_country, widget: string, required: false}
+      - {label: Home Port, name: homeport, widget: string, required: false}
+      - {label: Home Port Country, name: homeport_country, widget: string, required: false}
+
+      # OWNERSHIP & OPERATION
+      - {label: Owner (org slug), name: owner, widget: string, required: false, hint: "Slug of the organization record, e.g. us-navy"}
+      - {label: Operator (org slug), name: operator, widget: string, required: false, hint: "Slug of the organization record"}
+      - {label: Managing Agency, name: managing_agency, widget: string, required: false}
+      - {label: Operator Contact Name, name: operator_contact, widget: string, required: false}
+      - {label: Operator Phone, name: operator_phone, widget: string, required: false}
+      - {label: Operator Fax, name: operator_fax, widget: string, required: false}
+      - {label: Operator Email, name: operator_email, widget: string, required: false}
+
+      # PHYSICAL DIMENSIONS
+      - {label: Length (m), name: length_m, widget: number, required: false, value_type: float}
+      - {label: Beam (m), name: beam_m, widget: number, required: false, value_type: float}
+      - {label: Draft (m), name: draft_m, widget: number, required: false, value_type: float}
+      - {label: Gross Tonnage, name: gross_tons, widget: number, required: false, value_type: int}
+      - {label: Hull Material, name: hull_material, widget: string, required: false}
+      - {label: Freeboard Deck (m), name: freeboard_deck_m, widget: number, required: false, value_type: float}
+
+      # PROPULSION & PERFORMANCE
+      - {label: Engine Count, name: engine_count, widget: number, required: false, value_type: int}
+      - {label: Engine Make, name: engine_make, widget: string, required: false}
+      - {label: Engine Power (description), name: engine_power, widget: string, required: false}
+      - {label: Power (HP), name: power_hp, widget: number, required: false, value_type: int}
+      - {label: Auxiliary Diesel Power (HP), name: aux_diesel_power_hp, widget: number, required: false, value_type: int}
+      - {label: Propeller Diameter (m), name: prop_diameter_m, widget: number, required: false, value_type: float}
+      - {label: Propeller Max RPM, name: prop_max_rpm, widget: number, required: false, value_type: int}
+      - {label: Cruise Speed (kts), name: speed_cruise_kts, widget: number, required: false, value_type: float}
+      - {label: Max Speed (kts), name: speed_max_kts, widget: number, required: false, value_type: float}
+      - {label: Range (nm), name: range_nm, widget: number, required: false, value_type: int}
+      - {label: Endurance (days), name: endurance_days, widget: number, required: false, value_type: int}
+
+      # CAPACITY
+      - {label: Crew, name: crew, widget: number, required: false, value_type: int}
+      - {label: Officers, name: officers, widget: number, required: false, value_type: int}
+      - {label: Scientists, name: scientists, widget: number, required: false, value_type: int}
+      - {label: Scientists (day only), name: scientists_day_only, widget: number, required: false, value_type: int}
+      - {label: Berths, name: berths, widget: number, required: false, value_type: int}
+      - label: Air Conditioning
+        name: air_conditioning
+        widget: select
+        required: false
+        options: [{label: "Yes", value: true}, {label: "No", value: false}, {label: "Unknown", value: "~"}]
+      - {label: Fuel Capacity (mt), name: fuel_capacity_mt, widget: number, required: false, value_type: float}
+      - {label: Dry Stores Capacity (mt), name: capacity_dry_stores_mt, widget: number, required: false, value_type: float}
+      - {label: Fresh Water Capacity (mt), name: water_capacity_mt, widget: number, required: false, value_type: float}
+      - {label: Water Generation (mt/day), name: water_generation_mt_day, widget: number, required: false, value_type: float}
+      - {label: Water Treatment, name: water_treatment, widget: text, required: false}
+
+      # LABORATORY & DECK FACILITIES
+      - {label: Wet Lab Area (m²), name: lab_wet_area_m2, widget: number, required: false, value_type: float}
+      - {label: Dry Lab Area (m²), name: lab_dry_area_m2, widget: number, required: false, value_type: float}
+      - {label: Free Deck Area (m²), name: free_deck_area_m2, widget: number, required: false, value_type: float}
+      - {label: Container Lab Space, name: container_lab_space, widget: string, required: false}
+      - {label: Radioactive Lab, name: radioactive_lab, widget: string, required: false}
+      - {label: Diving Support, name: diving_support, widget: string, required: false}
+
+      # SCIENTIFIC EQUIPMENT
+      - {label: Multibeam Sonar, name: multibeam, widget: text, required: false}
+      - {label: ADCP, name: adcp, widget: text, required: false}
+      - {label: Sidescan Sonar, name: sidescan_sonar, widget: text, required: false}
+      - {label: Sub-Bottom Profiler, name: sub_bottom_profiler, widget: text, required: false}
+      - {label: Echo Sounder, name: echo_sounder, widget: text, required: false}
+      - {label: Acoustic Sonar, name: acoustic_sonar, widget: text, required: false}
+      - {label: Acoustic Quiet Capability, name: acoustic_quiet, widget: string, required: false}
+
+      - label: CTD
+        name: ctd
+        widget: object
+        required: false
+        collapsed: true
+        fields:
+          - {label: CTD Capable, name: capable, widget: string, required: false}
+          - {label: Make/Model, name: make, widget: string, required: false}
+          - {label: Rosette, name: rosette, widget: string, required: false}
+          - {label: Fluorometer, name: fluorometer, widget: string, required: false}
+          - {label: Oxygen Sensor, name: oxygen_sensor, widget: string, required: false}
+          - {label: Transmissometer, name: transmissometer, widget: string, required: false}
+          - {label: Towed CTD, name: towed, widget: string, required: false}
+
+      - label: Coring
+        name: coring
+        widget: object
+        required: false
+        collapsed: true
+        fields:
+          - {label: Coring Capable, name: capable, widget: string, required: false}
+          - {label: Gravity Core, name: gravity_core, widget: string, required: false}
+          - {label: Piston Core, name: piston_core, widget: string, required: false}
+          - {label: Box Core, name: box_core, widget: string, required: false}
+          - {label: Multi Core, name: multi_core, widget: string, required: false}
+          - {label: Grab Sampler, name: grab_sampler, widget: string, required: false}
+
+      - {label: Underwater Vehicles (general), name: underwater_vehicles, widget: text, required: false}
+      - {label: ROV Support, name: rov_support, widget: string, required: false}
+      - {label: AUV Support, name: auv_support, widget: string, required: false}
+      - {label: Submarine Support, name: submarine_support, widget: string, required: false}
+
+      # DECK EQUIPMENT
+      - label: Winches
+        name: winches
+        widget: object
+        required: false
+        collapsed: true
+        fields:
+          - {label: Number of Winches, name: count, widget: number, required: false, value_type: int}
+          - {label: Steel Wire Length (m), name: steel_wire_length_m, widget: number, required: false, value_type: int}
+          - {label: Steel Wire Load (mt), name: steel_wire_load_mt, widget: number, required: false, value_type: float}
+          - {label: Conducting Cable Length (m), name: conducting_cable_length_m, widget: number, required: false, value_type: int}
+          - {label: Conducting Cable Load (mt), name: conducting_cable_load_mt, widget: number, required: false, value_type: float}
+          - {label: Trawl Wire Length (m), name: trawl_length_m, widget: number, required: false, value_type: int}
+          - {label: Trawl Wire Load (mt), name: trawl_load_mt, widget: number, required: false, value_type: float}
+          - {label: Other Wire Length (m), name: other_length_m, widget: number, required: false, value_type: int}
+          - {label: Other Wire Load (mt), name: other_load_mt, widget: number, required: false, value_type: float}
+          - {label: Notes, name: notes, widget: text, required: false}
+
+      - label: Gantry
+        name: gantry
+        widget: object
+        required: false
+        collapsed: true
+        fields:
+          - {label: Position, name: position, widget: string, required: false}
+          - {label: Height Above Deck (m), name: height_above_deck_m, widget: number, required: false, value_type: float}
+          - {label: Outboard Extension (m), name: outboard_extension_m, widget: number, required: false, value_type: float}
+          - {label: Load Capacity (mt), name: load_capacity_mt, widget: number, required: false, value_type: float}
+
+      - label: Cranes
+        name: cranes
+        widget: object
+        required: false
+        collapsed: true
+        fields:
+          - {label: Position, name: position, widget: string, required: false}
+          - {label: Height Above Deck (m), name: height_above_deck_m, widget: number, required: false, value_type: float}
+          - {label: Outboard Extension (m), name: outboard_extension_m, widget: number, required: false, value_type: float}
+          - {label: Load Capacity (mt), name: load_capacity_mt, widget: number, required: false, value_type: float}
+
+      # NAVIGATION & COMMUNICATIONS
+      - {label: Navigation Equipment, name: navigation_equipment, widget: text, required: false}
+      - {label: GPS Systems, name: navigation_gps, widget: text, required: false}
+      - {label: Communications, name: communications, widget: text, required: false}
+      - {label: Satellite Communications, name: satcomm, widget: text, required: false}
+
+      # ELECTRICAL SYSTEMS
+      - {label: AC Voltage, name: ac_voltage, widget: string, required: false}
+      - {label: AC Power (kVA), name: ac_power_kva, widget: string, required: false}
+      - {label: AC Phases, name: ac_phases, widget: string, required: false}
+      - {label: AC Frequency (Hz), name: ac_frequency_hz, widget: string, required: false}
+      - {label: AC Stabilized Voltage, name: ac_voltage_stabilized, widget: string, required: false}
+      - {label: AC Stabilized Frequency (Hz), name: ac_freq_stabilized_hz, widget: string, required: false}
+      - {label: AC Stabilized Amps, name: ac_amps_stabilized, widget: string, required: false}
+      - {label: DC Voltages, name: dc_voltages, widget: string, required: false}
+      - {label: DC Max Voltage, name: dc_voltage_max, widget: string, required: false}
+
+      # DATA SYSTEMS
+      - {label: Computing Equipment, name: computing_equipment, widget: text, required: false}
+      - {label: Printing, name: data_printing, widget: string, required: false}
+
+      # OPERATING PROFILE
+      - {label: Operating Area Notes, name: operating_area_notes, widget: text, required: false}
+      - {label: Operating Grids, name: operating_grids, widget: string, required: false}
+      - label: Operating Regions
+        name: operating_regions
+        widget: list
+        required: false
+        field: {label: Region, name: region, widget: string}
+      - label: Mission Capabilities
+        name: mission_capabilities
+        widget: list
+        required: false
+        field: {label: Capability, name: capability, widget: string}
+
+      # PROGRAM MEMBERSHIPS
+      - label: Programs
+        name: programs
+        widget: object
+        collapsed: true
+        fields:
+          - {label: UNOLS, name: unols, widget: boolean, default: false}
+          - {label: GO-SHIP, name: go_ship, widget: boolean, default: false}
+          - {label: SAMOS, name: samos, widget: boolean, default: false}
+          - {label: VOS, name: vos, widget: boolean, default: false}
+          - {label: IWGFI, name: iwgfi, widget: boolean, default: false}
+          - {label: Euro, name: euro, widget: boolean, default: false}
+          - {label: BONUS (Baltic Sea), name: bonus, widget: boolean, default: false}
+
+      # LINKS
+      - {label: Vessel Website URL, name: url_vessel, widget: string, required: false}
+      - {label: Operator Website URL, name: url_operator, widget: string, required: false}
+      - {label: Schedule URL, name: url_schedule, widget: string, required: false}
+      - {label: Photo URL, name: photo_url, widget: image, required: false}
+
+      # ADMINISTRATIVE
+      - {label: Record Last Updated, name: record_updated, widget: date, required: false}
+      - {label: Notes, name: notes, widget: text, required: false}
+      - {label: Other Vessel Notes, name: vessel_other, widget: text, required: false}
+
+  # ── Organizations ──────────────────────────────────────────────────────────
+  - name: organizations
+    label: Organizations
+    label_singular: Organization
+    folder: _data/organizations
+    create: true
+    slug: "{{slug}}"
+    identifier_field: name
+    extension: yml
+    format: yaml
+    summary: "{{name}} ({{organization_type}}, {{country}})"
+    sortable_fields: [name, organization_type, country]
+    fields:
+      - {label: Organization Name, name: name, widget: string}
+      - {label: Slug, name: slug, widget: string, hint: "Lowercase, hyphens only. Must match the filename."}
+      - {label: Abbreviation, name: abbreviation, widget: string, required: false}
+      - label: Organization Type
+        name: organization_type
+        widget: select
+        required: false
+        options: ["", Academic, Government, Military, NGO, Foundation, Commercial]
+      - {label: Parent Organization (slug), name: parent_organization, widget: string, required: false}
+      - {label: Country, name: country, widget: string, required: false}
+      - {label: Address, name: address, widget: text, required: false}
+      - {label: Primary Contact, name: primary_contact, widget: string, required: false}
+      - {label: Phone, name: phone, widget: string, required: false}
+      - {label: Fax, name: fax, widget: string, required: false}
+      - {label: Email, name: email, widget: string, required: false}
+      - {label: Website URL, name: url, widget: string, required: false}
+      - {label: Fleet Page URL, name: url_fleet, widget: string, required: false}
+      - {label: Record Last Updated, name: record_updated, widget: date, required: false}
+      - {label: Notes, name: notes, widget: text, required: false}

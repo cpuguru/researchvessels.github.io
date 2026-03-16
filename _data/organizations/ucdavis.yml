@@ -1,0 +1,20 @@
+﻿# _data/organizations/ucdavis.yml
+
+name: UCDAVIS
+slug: ucdavis
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  UCDAVIS-BML
+  Box 247, Bodega Bay
+  CA 94923, USA
+primary_contact:
+phone: 707-875-1922
+fax: 707-875-2089
+email: "smcafee@ucdavis.edu"
+url: "http://www.bml.ucdavis.edu/"
+url_fleet:
+record_updated:
+notes:

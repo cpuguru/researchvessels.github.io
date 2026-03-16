@@ -1,0 +1,20 @@
+﻿# _data/organizations/noaas-office-of-marine-and-aviation-operations-omao.yml
+
+name: NOAA's Office of Marine and Aviation Operations (OMAO)
+slug: noaas-office-of-marine-and-aviation-operations-omao
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  NOAA - OAR
+  1315 East-West Highway Rm 11458
+  Silver Spring, MD 20910
+primary_contact:
+phone: 301-713-2465 ext 184
+fax: 301-713-0158
+email: "Frederick.W.Rossmann@noaa.gov"
+url: "http://www.moc.noaa.gov/"
+url_fleet:
+record_updated:
+notes:

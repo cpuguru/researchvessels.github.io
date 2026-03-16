@@ -1,0 +1,20 @@
+﻿# _data/organizations/national-research-institute-of-far-seas-fisheries-nrifsf.yml
+
+name: National Research Institute of Far Seas Fisheries (NRIFSF)
+slug: national-research-institute-of-far-seas-fisheries-nrifsf
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  7-1, Orido 5 Chome
+  Shimizu-Shi, Shizuoka, 424-8633
+  Japan
+primary_contact:
+phone: +81-543-36-6000
+fax: +81-543-35-9642
+email: "kiren@enyo.affrc.go.jp"
+url: "http://www.enyo.affrc.go.jp/indexe.html"
+url_fleet:
+record_updated:
+notes:

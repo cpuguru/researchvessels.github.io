@@ -1,0 +1,215 @@
+﻿# _data/vessels/orion-ecuador.yml
+
+# -----------------------------------------
+# IDENTITY
+# -----------------------------------------
+name: Orion (Ecuador)
+slug: orion-ecuador
+imo_number: 
+nodc_code: 
+call_sign: HCOR
+year_built: 1981
+
+# -----------------------------------------
+# STATUS AND CLASSIFICATION
+# -----------------------------------------
+status: Active
+vessel_use_type: Dedicated Research
+vessel_class: 
+main_activity: Oceanography Geology Hydrography
+ice_class: 
+ice_breaking: 
+dp_class: 
+dp_system: 
+ism_certified: 
+vessel_classification: ABS
+vessel_construction: 
+charter_available: false
+
+# -----------------------------------------
+# FLAG AND HOME PORT
+# -----------------------------------------
+flag_country: Ecuador
+homeport: 
+homeport_country: 
+
+# -----------------------------------------
+# OWNERSHIP AND OPERATION
+# -----------------------------------------
+owner: 
+operator: inocar
+managing_agency: 
+operator_contact: Sr. Director
+operator_phone: 593 - 4-2431816
+operator_fax: 593 -4-2488077
+operator_email: "orion-cmd@inocar.mil.ec"
+
+# -----------------------------------------
+# PHYSICAL DIMENSIONS
+# -----------------------------------------
+length_m: 70.21
+beam_m: 10.6
+draft_m: 3.6
+gross_tons: 1418
+hull_material: 
+freeboard_deck_m: 1.8
+
+# -----------------------------------------
+# PROPULSION AND PERFORMANCE
+# -----------------------------------------
+engine_count: 3
+engine_make: Diesel El
+engine_power: 2700 at 1800rpm
+power_hp: 
+aux_diesel_power_hp: 370
+prop_diameter_m: 
+prop_max_rpm: 310
+speed_cruise_kts: 12
+speed_max_kts: 12.6
+range_nm: 6000
+endurance_days: 30
+
+# -----------------------------------------
+# CAPACITY
+# -----------------------------------------
+crew: 36
+officers: 6
+scientists: 28
+air_conditioning: true
+fuel_capacity_mt: 237
+capacity_dry_stores_mt: 0
+water_capacity_mt: 155
+water_generation_mt_day: 0
+water_treatment: 
+
+# -----------------------------------------
+# LABORATORY AND DECK FACILITIES
+# -----------------------------------------
+lab_wet_area_m2: 74
+lab_dry_area_m2: 105
+free_deck_area_m2: 80
+container_lab_space: 
+radioactive_lab: 
+diving_support: 
+
+# -----------------------------------------
+# SCIENTIFIC EQUIPMENT
+# -----------------------------------------
+multibeam: 
+adcp: 
+sidescan_sonar: 
+sub_bottom_profiler: 
+echo_sounder: 200kHz 400kHz
+acoustic_sonar: SIMRAD EA-400
+acoustic_quiet: 
+
+ctd:
+  capable: 
+  make: 
+  fluorometer: 
+  oxygen_sensor: 
+  rosette: 
+  towed: 
+  transmissometer: 
+
+coring:
+  capable: 
+  box_core: 
+  grab_sampler: 
+  gravity_core: 
+  multi_core: 
+  piston_core: 
+
+underwater_vehicles: 
+rov_support: 
+auv_support: 
+submarine_support: 
+
+# -----------------------------------------
+# DECK EQUIPMENT
+# -----------------------------------------
+winches:
+  count: 3
+  steel_wire_length_m: 6000
+  steel_wire_load_mt: 
+  conducting_cable_length_m: 1500
+  conducting_cable_load_mt: 
+  trawl_length_m: 
+  trawl_load_mt: 
+  other_length_m: 
+  other_load_mt: 
+  notes: 
+
+gantry:
+  position: Stern
+  height_above_deck_m: 
+  outboard_extension_m: 
+  load_capacity_mt: 
+
+cranes:
+  position: Stern
+  height_above_deck_m: 
+  outboard_extension_m: 
+  load_capacity_mt: 5
+
+# -----------------------------------------
+# NAVIGATION AND COMMUNICATIONS
+# -----------------------------------------
+navigation_equipment: Radar Decca ARPA CK342-6/ Racal Decca CD252-4 SatNav Gyro EMLog
+navigation_gps: "TRIMBLE, MAGELLAN"
+communications: Fax SatCom
+satcomm: INMARSAT FLEET 77 / IRIDIUM
+
+# -----------------------------------------
+# ELECTRICAL SYSTEMS
+# -----------------------------------------
+ac_voltage: 0/440V /115V
+ac_power_kva: 600/20
+ac_phases: 3/3
+ac_frequency_hz: 60/60
+ac_voltage_stabilized: 115
+ac_freq_stabilized_hz: 60
+ac_amps_stabilized: 435
+dc_voltages: 24V
+dc_voltage_max: 3
+
+# -----------------------------------------
+# DATA SYSTEMS
+# -----------------------------------------
+computing_equipment: LAN(25)
+data_printing: 
+
+# -----------------------------------------
+# OPERATING PROFILE
+# -----------------------------------------
+operating_area_notes: "Pacific, Antarctic, Atlantic"
+operating_grids: 
+operating_regions:         # TODO: populate from operating_area_notes
+mission_capabilities:      # TODO: populate based on equipment fields
+
+# -----------------------------------------
+# PROGRAM MEMBERSHIPS
+# -----------------------------------------
+programs:
+  unols: false
+  go_ship: false
+  samos: false
+  vos: false
+  iwgfi: false
+  euro: false
+  bonus: false
+
+# -----------------------------------------
+# LINKS
+# -----------------------------------------
+url_vessel: 
+url_operator: 
+url_schedule: 
+photo_url: 
+
+# -----------------------------------------
+# ADMINISTRATIVE
+# -----------------------------------------
+record_updated: 
+notes: 
+vessel_other: "AIE, AMS, ACCU"

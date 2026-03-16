@@ -1,0 +1,20 @@
+﻿# _data/organizations/great-lakes-center-buffalo-state-college.yml
+
+name: Great Lakes Center Buffalo State College
+slug: great-lakes-center-buffalo-state-college
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Great Lakes Center Buffalo State College, 1300 Elmwood Ave
+  Buffalo, New York 14222
+  USA
+primary_contact:
+phone: 716-878-5625
+fax: 716-878-6644
+email: "freidhjj@buffalostate.edu"
+url: "http://www.buffalostate.edu/orgs/glc/index.html"
+url_fleet:
+record_updated:
+notes:

@@ -1,0 +1,216 @@
+﻿---
+# -----------------------------------------
+# IDENTITY
+# -----------------------------------------
+name: Alpha Helix
+slug: alpha-helix
+imo_number: 
+nodc_code: 31HX
+call_sign: 
+year_built: 1966
+
+# -----------------------------------------
+# STATUS AND CLASSIFICATION
+# -----------------------------------------
+status: Active
+vessel_use_type: Dedicated Research
+vessel_class: 
+main_activity: Oceanography
+ice_class: 
+ice_breaking: 
+dp_class: 
+dp_system: 
+ism_certified: 
+vessel_classification: ABS
+vessel_construction: 
+charter_available: false
+
+# -----------------------------------------
+# FLAG AND HOME PORT
+# -----------------------------------------
+flag_country: USA
+homeport: "Seward, Alaska"
+homeport_country: 
+
+# -----------------------------------------
+# OWNERSHIP AND OPERATION
+# -----------------------------------------
+owner: national-science-foundation
+operator: university-of-alaska-fairbanks
+managing_agency: NSF
+operator_contact: Mr. Tom Smith
+operator_phone: (907) 224-5261
+operator_fax: (907) 224-3392
+operator_email: "fnts@uaf.edu"
+
+# -----------------------------------------
+# PHYSICAL DIMENSIONS
+# -----------------------------------------
+length_m: 41
+beam_m: 9.44
+draft_m: 4.2
+gross_tons: 289
+hull_material: Steel
+freeboard_deck_m: 
+
+# -----------------------------------------
+# PROPULSION AND PERFORMANCE
+# -----------------------------------------
+engine_count: 1
+engine_make: Diesel
+engine_power: 825 at 780rpm
+power_hp: 
+aux_diesel_power_hp: 480
+prop_diameter_m: 2.71
+prop_max_rpm: 320
+speed_cruise_kts: 9.5
+speed_max_kts: 10.5
+range_nm: 6500
+endurance_days: 30
+
+# -----------------------------------------
+# CAPACITY
+# -----------------------------------------
+crew: 9
+officers: 2
+scientists: 15
+air_conditioning: ~
+fuel_capacity_mt: 104
+capacity_dry_stores_mt: 184
+water_capacity_mt: 
+water_generation_mt_day: 1
+water_treatment: 
+
+# -----------------------------------------
+# LABORATORY AND DECK FACILITIES
+# -----------------------------------------
+lab_wet_area_m2: 7
+lab_dry_area_m2: 42
+free_deck_area_m2: 119
+container_lab_space: 3 x 6
+radioactive_lab: 
+diving_support: 
+
+# -----------------------------------------
+# SCIENTIFIC EQUIPMENT
+# -----------------------------------------
+multibeam: 
+adcp: 
+sidescan_sonar: 
+sub_bottom_profiler: 
+echo_sounder: 12kHz
+acoustic_sonar: 
+acoustic_quiet: 
+
+ctd:
+  capable: 
+  make: 
+  fluorometer: 
+  oxygen_sensor: 
+  rosette: 
+  towed: 
+  transmissometer: 
+
+coring:
+  capable: 
+  box_core: 
+  grab_sampler: 
+  gravity_core: 
+  multi_core: 
+  piston_core: 
+
+underwater_vehicles: 
+rov_support: 
+auv_support: 
+submarine_support: 
+
+# -----------------------------------------
+# DECK EQUIPMENT
+# -----------------------------------------
+winches:
+  count: 2
+  steel_wire_length_m: 
+  steel_wire_load_mt: 
+  conducting_cable_length_m: 8000
+  conducting_cable_load_mt: 1
+  trawl_length_m: 
+  trawl_load_mt: 
+  other_length_m: 2000
+  other_load_mt: 
+  notes: 
+
+gantry:
+  position: Stern
+  height_above_deck_m: 5
+  outboard_extension_m: 2
+  load_capacity_mt: 1
+
+cranes:
+  position: Midships
+  height_above_deck_m: 9
+  outboard_extension_m: 6
+  load_capacity_mt: 1
+
+# -----------------------------------------
+# NAVIGATION AND COMMUNICATIONS
+# -----------------------------------------
+navigation_equipment: Radar Loran SatNav Gyro DopLog
+navigation_gps: 
+communications: SatCom
+satcomm: 
+
+# -----------------------------------------
+# ELECTRICAL SYSTEMS
+# -----------------------------------------
+ac_voltage: 0/440V 440V
+ac_power_kva: 100
+ac_phases: 3
+ac_frequency_hz: 60
+ac_voltage_stabilized: 
+ac_freq_stabilized_hz: 
+ac_amps_stabilized: 
+dc_voltages: 
+dc_voltage_max: 
+
+# -----------------------------------------
+# DATA SYSTEMS
+# -----------------------------------------
+computing_equipment: Varoius IBM PC-386 Computer
+data_printing: 
+
+# -----------------------------------------
+# OPERATING PROFILE
+# -----------------------------------------
+operating_area_notes: 
+operating_grids: 
+operating_regions:         # TODO: populate from operating_area_notes
+mission_capabilities:      # TODO: populate based on equipment fields
+
+# -----------------------------------------
+# PROGRAM MEMBERSHIPS
+# -----------------------------------------
+programs:
+  unols: true
+  go_ship: false
+  samos: false
+  vos: false
+  iwgfi: false
+  euro: false
+  bonus: false
+
+# -----------------------------------------
+# LINKS
+# -----------------------------------------
+url_vessel: "http://www.ims.uaf.edu/helix/"
+url_operator: "http://www.uaf.edu/"
+url_schedule: "http://www.gso.uri.edu/unols/schedules/Alpha_Helix/Alpha_Helix_05.html"
+photo_url: 
+
+# -----------------------------------------
+# ADMINISTRATIVE
+# -----------------------------------------
+record_updated: 2005-01-25
+notes: 
+vessel_other: 
+
+---

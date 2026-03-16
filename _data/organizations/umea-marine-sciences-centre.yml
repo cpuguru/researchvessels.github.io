@@ -1,0 +1,19 @@
+﻿# _data/organizations/umea-marine-sciences-centre.yml
+
+name: Umea Marine Sciences Centre
+slug: umea-marine-sciences-centre
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Umea Marine Sciences Centre
+  Norrbyn, S-910 20 Hornefors, Sweden
+primary_contact:
+phone: +004690-7867983
+fax: +004690-7867995
+email: "mikael.molin@umf.umu.se"
+url: 
+url_fleet:
+record_updated:
+notes:

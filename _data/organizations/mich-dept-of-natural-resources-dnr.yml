@@ -1,0 +1,20 @@
+﻿# _data/organizations/mich-dept-of-natural-resources-dnr.yml
+
+name: Mich Dept. of Natural Resources (DNR)
+slug: mich-dept-of-natural-resources-dnr
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Marquette Fisheries Station DNR
+  484 Cherry Creek Rd., Marquette,
+  Michigan, USA 49855
+primary_contact:
+phone: 906 249-1611
+fax: 906 249-3190
+email: "knapeJ@michigan.gov or schneebp@michigan"
+url: "http://www.michigan.gov/dnr/0,1607,7-153-10364_10951_11303---,00.html"
+url_fleet:
+record_updated:
+notes:

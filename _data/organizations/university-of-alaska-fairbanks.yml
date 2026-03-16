@@ -1,0 +1,20 @@
+﻿# _data/organizations/university-of-alaska-fairbanks.yml
+
+name: "University of Alaska, Fairbanks"
+slug: university-of-alaska-fairbanks
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  University of Alaska, Fairbanks
+  Seward Marine Center PO Box 730
+  Seward, AK 99664 USA
+primary_contact:
+phone: (907) 224-5261
+fax: (907) 224-3392
+email: "fnts@uaf.edu"
+url: "http://www.uaf.edu/"
+url_fleet:
+record_updated:
+notes:

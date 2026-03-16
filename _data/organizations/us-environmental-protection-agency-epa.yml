@@ -1,0 +1,20 @@
+﻿# _data/organizations/us-environmental-protection-agency-epa.yml
+
+name: US Environmental Protection Agency (EPA)
+slug: us-environmental-protection-agency-epa
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Ariel Rios Building
+  1200 Pennsylvania Avenue, N.W.
+  Washington, DC 20004
+primary_contact:
+phone: 202-260-2090
+fax: 202-260-0279
+email: 
+url: 
+url_fleet:
+record_updated:
+notes:

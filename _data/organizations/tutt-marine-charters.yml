@@ -1,0 +1,20 @@
+﻿# _data/organizations/tutt-marine-charters.yml
+
+name: Tutt Marine Charters
+slug: tutt-marine-charters
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Tutt Marine Charters
+  63 Griffith St., Welland,
+  Ontario L3B 4G6, Canada
+primary_contact:
+phone: 
+fax: 905-734-7611
+email: "tuttmarine@sympatico.ca"
+url: 
+url_fleet:
+record_updated:
+notes:

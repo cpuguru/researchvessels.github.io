@@ -1,0 +1,20 @@
+﻿# _data/organizations/noaa.yml
+
+name: NOAA
+slug: noaa
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Chief, Operations Division
+  Marine Operations Center, Atlantic,
+  439 West York Street, Norfolk, VA 23510-1145
+primary_contact:
+phone: 757-441-6842
+fax: 
+email: "Jon.E.Rix@noaa.gov"
+url: 
+url_fleet:
+record_updated:
+notes:

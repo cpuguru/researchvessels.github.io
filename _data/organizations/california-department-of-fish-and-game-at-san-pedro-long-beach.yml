@@ -1,0 +1,20 @@
+﻿# _data/organizations/california-department-of-fish-and-game-at-san-pedro-long-beach.yml
+
+name: California Department of Fish and Game
+At San Pedro/ Long Beach
+slug: california-department-of-fish-and-game-at-san-pedro-long-beach
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  1416 9th Street
+  Sacramento, CA 95814 USA
+primary_contact:
+phone: (562) 590-5117
+fax: 
+email: 
+url: "http://www-bcf.usc.edu/~scmi/"
+url_fleet:
+record_updated:
+notes:

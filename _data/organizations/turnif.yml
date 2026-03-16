@@ -1,0 +1,20 @@
+﻿# _data/organizations/turnif.yml
+
+name: Turnif
+slug: turnif
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Turnif
+  1 May St., 2
+  Vladivostok 690600 Russia
+primary_contact:
+phone: 224486
+fax: 269621
+email: 
+url: 
+url_fleet:
+record_updated:
+notes:

@@ -1,0 +1,20 @@
+﻿# _data/organizations/us-naval-oceanogra-office.yml
+
+name: US Naval Oceanogra Office
+slug: us-naval-oceanogra-office
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  US Naval Oceanogra Office
+  Stennis Space Center
+  Mississippi 39522-5001 USA
+primary_contact:
+phone: (601) 688-5293
+fax: 
+email: 
+url: 
+url_fleet:
+record_updated:
+notes:

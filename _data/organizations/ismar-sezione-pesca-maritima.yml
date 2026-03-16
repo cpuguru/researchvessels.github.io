@@ -1,0 +1,20 @@
+﻿# _data/organizations/ismar-sezione-pesca-maritima.yml
+
+name: ISMAR- Sezione Pesca Maritima
+slug: ismar-sezione-pesca-maritima
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  ISMAR- Sezione Pesca Maritima
+  Largo Fiera della Pesca
+  60125 ANCONA, Italy
+primary_contact:
+phone: +39 071 207881
+fax: +39 071 55313
+email: "selenav@libero.it"
+url: 
+url_fleet:
+record_updated:
+notes:

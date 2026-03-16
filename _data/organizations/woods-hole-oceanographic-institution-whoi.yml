@@ -1,0 +1,20 @@
+﻿# _data/organizations/woods-hole-oceanographic-institution-whoi.yml
+
+name: Woods Hole Oceanographic Institution (WHOI)
+slug: woods-hole-oceanographic-institution-whoi
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Woods Hole Oceangraphic Institution (WHOI)
+  38 Water Street, MS #37
+  Woods Hole, MA 02543 USA
+primary_contact:
+phone: (508) 289-2277
+fax: (508) 457-2185
+email: "ecaporelli@whoi.edu"
+url: "http://www.whoi.edu/"
+url_fleet:
+record_updated:
+notes:

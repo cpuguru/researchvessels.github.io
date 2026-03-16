@@ -1,0 +1,20 @@
+﻿# _data/organizations/great-lakes-maritime-academy.yml
+
+name: Great Lakes Maritime Academy
+slug: great-lakes-maritime-academy
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Great Lakes Maritime Academy
+  NMC 1701 E. Front Street, Traverse City, Michigan
+  USA, 49686
+primary_contact:
+phone: 231-995-1200
+fax: 
+email: 
+url: "http://www.nmc.edu/maritime/"
+url_fleet:
+record_updated:
+notes:

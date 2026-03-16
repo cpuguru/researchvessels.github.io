@@ -1,0 +1,20 @@
+﻿# _data/organizations/east-china-sea-branch-soa.yml
+
+name: East China Sea Branch S.O.A.
+slug: east-china-sea-branch-soa
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  East China Sea Branch S.O.A.
+  630 Dongiang Road / PO Box 8810
+  Shanghai 200120 China
+primary_contact:
+phone: 
+fax: 
+email: 
+url: 
+url_fleet:
+record_updated:
+notes:

@@ -1,0 +1,20 @@
+﻿# _data/organizations/nerc-research-ship-unit.yml
+
+name: NERC Research Ship Unit
+slug: nerc-research-ship-unit
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  RSU Operations
+  Southampton Oceanography Centre, Empress Dock, Southampton
+  SO14 3ZH, UK
+primary_contact:
+phone: +44 2380 596800
+fax: +44 2380 635130
+email: "arlo@soc.soton.ac.uk"
+url: "http://www.soc.soton.ac.uk/RVS/rvsmarine/home.html"
+url_fleet:
+record_updated:
+notes:

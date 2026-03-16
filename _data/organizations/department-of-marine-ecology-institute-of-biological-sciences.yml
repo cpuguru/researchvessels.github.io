@@ -1,0 +1,20 @@
+﻿# _data/organizations/department-of-marine-ecology-institute-of-biological-sciences.yml
+
+name: "Department of Marine Ecology, Institute of Biological Sciences"
+slug: department-of-marine-ecology-institute-of-biological-sciences
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Department of Marine Ecology,
+  Institute of Biological Sciences, Aarhus University
+  Finlandsgade 14, DK-8200 Aarhus N, DENMARK
+primary_contact:
+phone: 
+fax: 
+email: "Verner.Damm@biology.au.dk"
+url: 
+url_fleet:
+record_updated:
+notes:

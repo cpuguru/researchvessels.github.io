@@ -1,0 +1,18 @@
+﻿# _data/organizations/institute-of-aquatic-ecology-university-of-latvia.yml
+
+name: "Institute of Aquatic Ecology, University of Latvia"
+slug: institute-of-aquatic-ecology-university-of-latvia
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Daugavgrivas str. 8, LV-1007, Riga
+primary_contact:
+phone: +371-7610851
+fax: +371-7601995
+email: "andris@hydro.edu.lv"
+url: "http://www.hydroecology.lv/en_index.htm"
+url_fleet:
+record_updated:
+notes:

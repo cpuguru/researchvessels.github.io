@@ -1,0 +1,216 @@
+﻿---
+# -----------------------------------------
+# IDENTITY
+# -----------------------------------------
+name: Charles Darwin
+slug: charles-darwin
+imo_number: 
+nodc_code: 74AB
+call_sign: GDLS
+year_built: 1984
+
+# -----------------------------------------
+# STATUS AND CLASSIFICATION
+# -----------------------------------------
+status: Out of Service
+vessel_use_type: Dedicated Research
+vessel_class: 
+main_activity: Oceanography
+ice_class: 
+ice_breaking: "No"
+dp_class: 
+dp_system: 
+ism_certified: 
+vessel_classification: "Lloyds, 100A1, 12 hours UMC"
+vessel_construction: UK MCA
+charter_available: false
+
+# -----------------------------------------
+# FLAG AND HOME PORT
+# -----------------------------------------
+flag_country: UK
+homeport: Southampton
+homeport_country: 
+
+# -----------------------------------------
+# OWNERSHIP AND OPERATION
+# -----------------------------------------
+owner: natural-envoronment-research-council
+operator: nerc-research-ship-unit
+managing_agency: 
+operator_contact: "Andy Louch, Operations Manager"
+operator_phone: +44 2380 596800
+operator_fax: +44 2380 635130
+operator_email: "arlo@soc.soton.ac.uk"
+
+# -----------------------------------------
+# PHYSICAL DIMENSIONS
+# -----------------------------------------
+length_m: 69.4
+beam_m: 14.4
+draft_m: 4.85
+gross_tons: 1936
+hull_material: Steel
+freeboard_deck_m: 2.7
+
+# -----------------------------------------
+# PROPULSION AND PERFORMANCE
+# -----------------------------------------
+engine_count: 3
+engine_make: "3 off, Mirlees Blackstone"
+engine_power: 7950 at 875RPM
+power_hp: 
+aux_diesel_power_hp: 
+prop_diameter_m: 
+prop_max_rpm: 195
+speed_cruise_kts: 11
+speed_max_kts: 13
+range_nm: 9240
+endurance_days: 42
+
+# -----------------------------------------
+# CAPACITY
+# -----------------------------------------
+crew: 12
+officers: 9
+scientists: 18
+air_conditioning: true
+fuel_capacity_mt: 453
+capacity_dry_stores_mt: 256
+water_capacity_mt: 70
+water_generation_mt_day: 5
+water_treatment: Milli Pore
+
+# -----------------------------------------
+# LABORATORY AND DECK FACILITIES
+# -----------------------------------------
+lab_wet_area_m2: 16
+lab_dry_area_m2: 130
+free_deck_area_m2: 336
+container_lab_space: 4 x 20 ISO
+radioactive_lab: Container available
+diving_support: 
+
+# -----------------------------------------
+# SCIENTIFIC EQUIPMENT
+# -----------------------------------------
+multibeam: Simrad EM12
+adcp: "RDI 150Khz, Narrow Band"
+sidescan_sonar: 
+sub_bottom_profiler: 
+echo_sounder: "10Khz, 38Khz"
+acoustic_sonar: Simrad
+acoustic_quiet: 
+
+ctd:
+  capable: CTD system held within UK Marine Equip. Pool
+  make: Seabird and Neil Brown
+  fluorometer: 
+  oxygen_sensor: 
+  rosette: 
+  towed: CTD on towed Seasor Instrument
+  transmissometer: 
+
+coring:
+  capable: As part of UK Marine Equipment Pool
+  box_core: USNEL and NIOZ
+  grab_sampler: "Yes"
+  gravity_core: "Yes"
+  multi_core: 
+  piston_core: Yes and Giant Piston Corer
+
+underwater_vehicles: Possible
+rov_support: 
+auv_support: 
+submarine_support: 
+
+# -----------------------------------------
+# DECK EQUIPMENT
+# -----------------------------------------
+winches:
+  count: 2
+  steel_wire_length_m: 8800
+  steel_wire_load_mt: 2.5
+  conducting_cable_length_m: 10000
+  conducting_cable_load_mt: 10
+  trawl_length_m: 
+  trawl_load_mt: 
+  other_length_m: 7000
+  other_load_mt: 10
+  notes: 
+
+gantry:
+  position: Aft and amidships
+  height_above_deck_m: 7.6
+  outboard_extension_m: 4.4
+  load_capacity_mt: 12.5
+
+cranes:
+  position: 4
+  height_above_deck_m: 
+  outboard_extension_m: 
+  load_capacity_mt: 2.7
+
+# -----------------------------------------
+# NAVIGATION AND COMMUNICATIONS
+# -----------------------------------------
+navigation_equipment: Full navigation suite
+navigation_gps: DGPS available
+communications: Inmarsat A and Inmarsat B
+satcomm: 
+
+# -----------------------------------------
+# ELECTRICAL SYSTEMS
+# -----------------------------------------
+ac_voltage: "415/110V, 240V"
+ac_power_kva: 200/12
+ac_phases: 3/1
+ac_frequency_hz: 50/50
+ac_voltage_stabilized: 
+ac_freq_stabilized_hz: 
+ac_amps_stabilized: 
+dc_voltages: 
+dc_voltage_max: 
+
+# -----------------------------------------
+# DATA SYSTEMS
+# -----------------------------------------
+computing_equipment: "SUN Microsystems (3) 3/60, DOS, 40-80MB. WINCHESTER"
+data_printing: 
+
+# -----------------------------------------
+# OPERATING PROFILE
+# -----------------------------------------
+operating_area_notes: Worldwide
+operating_grids: 
+operating_regions:         # TODO: populate from operating_area_notes
+mission_capabilities:      # TODO: populate based on equipment fields
+
+# -----------------------------------------
+# PROGRAM MEMBERSHIPS
+# -----------------------------------------
+programs:
+  unols: false
+  go_ship: true
+  samos: false
+  vos: false
+  iwgfi: false
+  euro: true
+  bonus: false
+
+# -----------------------------------------
+# LINKS
+# -----------------------------------------
+url_vessel: "http://www.marine.gov.uk/charles_darwin.htm"
+url_operator: "http://www.soc.soton.ac.uk/RVS/rvsmarine/home.html"
+url_schedule: 
+photo_url: 
+
+# -----------------------------------------
+# ADMINISTRATIVE
+# -----------------------------------------
+record_updated: 2003-03-05
+notes: 
+vessel_other: 
+
+---

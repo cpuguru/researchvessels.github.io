@@ -1,0 +1,20 @@
+﻿# _data/organizations/usgs-great-lakes-science-center.yml
+
+name: USGS Great Lakes Science Center
+slug: usgs-great-lakes-science-center
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  USGS Great Lakes Science Center
+  1451 Green Road, Ann Arbor
+  Michigan 48105, USA
+primary_contact:
+phone: 734-994-3331
+fax: 734-994-8780
+email: 
+url: "http://www.glsc.usgs.gov/default.php"
+url_fleet:
+record_updated:
+notes:

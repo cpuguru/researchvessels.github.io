@@ -1,0 +1,216 @@
+﻿---
+# -----------------------------------------
+# IDENTITY
+# -----------------------------------------
+name: Wecoma
+slug: wecoma
+imo_number: 
+nodc_code: 32WC
+call_sign: WSD7079
+year_built: 1976
+
+# -----------------------------------------
+# STATUS AND CLASSIFICATION
+# -----------------------------------------
+status: Active
+vessel_use_type: Dedicated Research
+vessel_class: 
+main_activity: Oceanographic Research
+ice_class: 
+ice_breaking: "no"
+dp_class: 
+dp_system: 
+ism_certified: 
+vessel_classification: Unclassed/ABS Loadline
+vessel_construction: National Science Foundation
+charter_available: false
+
+# -----------------------------------------
+# FLAG AND HOME PORT
+# -----------------------------------------
+flag_country: USA
+homeport: "Newport, OR"
+homeport_country: 
+
+# -----------------------------------------
+# OWNERSHIP AND OPERATION
+# -----------------------------------------
+owner: national-science-foundation
+operator: oregon-state-university
+managing_agency: NSF
+operator_contact: Peter Zerr
+operator_phone: 541-867-0225
+operator_fax: 541-867-0294
+operator_email: "zerrp@onid.orst.edu"
+
+# -----------------------------------------
+# PHYSICAL DIMENSIONS
+# -----------------------------------------
+length_m: 56.39
+beam_m: 10.06
+draft_m: 5.64
+gross_tons: 287
+hull_material: Steel
+freeboard_deck_m: 2
+
+# -----------------------------------------
+# PROPULSION AND PERFORMANCE
+# -----------------------------------------
+engine_count: 1
+engine_make: EMD 16 645 E7 Diesel
+engine_power: 2800 at 900rpm
+power_hp: 
+aux_diesel_power_hp: 350
+prop_diameter_m: 3
+prop_max_rpm: 240
+speed_cruise_kts: 12
+speed_max_kts: 14
+range_nm: 7200
+endurance_days: 30
+
+# -----------------------------------------
+# CAPACITY
+# -----------------------------------------
+crew: 13
+officers: 6
+scientists: 18
+air_conditioning: ~
+fuel_capacity_mt: 237
+capacity_dry_stores_mt: 
+water_capacity_mt: 25
+water_generation_mt_day: 9
+water_treatment: "Yes"
+
+# -----------------------------------------
+# LABORATORY AND DECK FACILITIES
+# -----------------------------------------
+lab_wet_area_m2: 35.5
+lab_dry_area_m2: 65
+free_deck_area_m2: 92
+container_lab_space: 7 x 15
+radioactive_lab: Lab Van available
+diving_support: Through OSU Dive Office.
+
+# -----------------------------------------
+# SCIENTIFIC EQUIPMENT
+# -----------------------------------------
+multibeam: none
+adcp: "Yes"
+sidescan_sonar: None
+sub_bottom_profiler: None
+echo_sounder: "3 kHz, 12 kHz Chirp"
+acoustic_sonar: None
+acoustic_quiet: 177
+
+ctd:
+  capable: "Yes"
+  make: Seabird
+  fluorometer: "Yes"
+  oxygen_sensor: "Yes"
+  rosette: "Yes"
+  towed: "No, but SeaSoar is available."
+  transmissometer: "Yes"
+
+coring:
+  capable: Available through OSU Coring Group.
+  box_core: Available through OSU Coring Group.
+  grab_sampler: Available through OSU Coring Group.
+  gravity_core: Available through OSU Coring Group.
+  multi_core: Available through OSU Coring Group.
+  piston_core: Available through OSU Coring Group.
+
+underwater_vehicles: "Can support user supplied ROV's & AUV's."
+rov_support: 
+auv_support: 
+submarine_support: 
+
+# -----------------------------------------
+# DECK EQUIPMENT
+# -----------------------------------------
+winches:
+  count: 3
+  steel_wire_length_m: 9000
+  steel_wire_load_mt: 6
+  conducting_cable_length_m: 9999
+  conducting_cable_load_mt: 1.5
+  trawl_length_m: 9000
+  trawl_load_mt: 6
+  other_length_m: 
+  other_load_mt: 
+  notes: Portable CTD Winch
+
+gantry:
+  position: 1 hydrg   1 strn
+  height_above_deck_m: 5
+  outboard_extension_m: 3
+  load_capacity_mt: 6
+
+cranes:
+  position: Midships
+  height_above_deck_m: 20
+  outboard_extension_m: 8
+  load_capacity_mt: 2
+
+# -----------------------------------------
+# NAVIGATION AND COMMUNICATIONS
+# -----------------------------------------
+navigation_equipment: Radar GPS Gyro 2 Axis Doplog ADCP
+navigation_gps: "DGPS, WAAS, P-Code"
+communications: "Fax, SatCom, GMDSS, HF/MF, VHF"
+satcomm: "B, M & C"
+
+# -----------------------------------------
+# ELECTRICAL SYSTEMS
+# -----------------------------------------
+ac_voltage: 480/0V /0V
+ac_power_kva: 300
+ac_phases: 3
+ac_frequency_hz: 60
+ac_voltage_stabilized: None
+ac_freq_stabilized_hz: 60
+ac_amps_stabilized: 500
+dc_voltages: None
+dc_voltage_max: 
+
+# -----------------------------------------
+# DATA SYSTEMS
+# -----------------------------------------
+computing_equipment: Various
+data_printing: Various
+
+# -----------------------------------------
+# OPERATING PROFILE
+# -----------------------------------------
+operating_area_notes: Pacific Ocean
+operating_grids: "NP-5,6,8,9,11,12,13"
+operating_regions:         # TODO: populate from operating_area_notes
+mission_capabilities:      # TODO: populate based on equipment fields
+
+# -----------------------------------------
+# PROGRAM MEMBERSHIPS
+# -----------------------------------------
+programs:
+  unols: true
+  go_ship: false
+  samos: false
+  vos: true
+  iwgfi: true
+  euro: false
+  bonus: false
+
+# -----------------------------------------
+# LINKS
+# -----------------------------------------
+url_vessel: "http://www.shipops.oregonstate.edu/ops/wecoma/"
+url_operator: "http://www.coas.oregonstate.edu/"
+url_schedule: "http://www.gso.uri.edu/unols/schedules/Wecoma/Wecoma_05.html"
+photo_url: 
+
+# -----------------------------------------
+# ADMINISTRATIVE
+# -----------------------------------------
+record_updated: 2005-01-28
+notes: "mid-life: 1994"
+vessel_other: 
+
+---

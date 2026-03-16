@@ -1,0 +1,20 @@
+﻿# _data/organizations/annis-water-resources-institute-gvsu.yml
+
+name: Annis Water Resources Institute (GVSU)
+slug: annis-water-resources-institute-gvsu
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Annis Water Resources Institute (GVSU)
+  740 W. Shoreline Dr., Muskegeon
+  USA 49441
+primary_contact:
+phone: +1-616-331-3048 (Janet Vail)
+fax: +1-616-331-3864
+email: "vailj@gvsu.edu and FioreA@GVSU.edu"
+url: "http://www.gvsu.edu/wri/index.htm"
+url_fleet:
+record_updated:
+notes:

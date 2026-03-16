@@ -1,0 +1,20 @@
+﻿# _data/organizations/global-ocean-development-inc-godi.yml
+
+name: Global Ocean Development Inc (GODI)
+slug: global-ocean-development-inc-godi
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  13-8 Kamiookanishi 1-chome,
+  Konan-ku
+  Yokohama, 233-0002, Japan
+primary_contact:
+phone: +81-45-849-6630
+fax: +81-45-849-6660
+email: "info@god.co.jp"
+url: "http://www.godi.co.jp/home/index_e.htm"
+url_fleet:
+record_updated:
+notes:

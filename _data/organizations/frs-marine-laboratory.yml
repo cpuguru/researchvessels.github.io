@@ -1,0 +1,20 @@
+﻿# _data/organizations/frs-marine-laboratory.yml
+
+name: FRS Marine Laboratory
+slug: frs-marine-laboratory
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  FRS Marine Laboratory
+  PO Box 101, 375 Victoria Road
+  Aberdeen, AB11 9DB  UK
+primary_contact:
+phone: 01224 876544
+fax: 01224 295511
+email: "j.morrison@marlab.ac.uk"
+url: 
+url_fleet:
+record_updated:
+notes:

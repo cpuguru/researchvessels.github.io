@@ -1,0 +1,216 @@
+﻿---
+# -----------------------------------------
+# IDENTITY
+# -----------------------------------------
+name: Pelican
+slug: pelican
+imo_number: 
+nodc_code: 32PE
+call_sign: WSK3051
+year_built: 1985
+
+# -----------------------------------------
+# STATUS AND CLASSIFICATION
+# -----------------------------------------
+status: Active
+vessel_use_type: Dedicated Research
+vessel_class: 
+main_activity: General Purpose Oceanographic Research
+ice_class: 
+ice_breaking: 
+dp_class: 
+dp_system: 
+ism_certified: 
+vessel_classification: ABS
+vessel_construction: "Allied Shipyard, LaRosa, Louisiana"
+charter_available: false
+
+# -----------------------------------------
+# FLAG AND HOME PORT
+# -----------------------------------------
+flag_country: USA
+homeport: "Cocodrie, LA"
+homeport_country: 
+
+# -----------------------------------------
+# OWNERSHIP AND OPERATION
+# -----------------------------------------
+owner: louisiana-universities-marine-consortium
+operator: louisiana-universities-marine-consortium
+managing_agency: LUMCON
+operator_contact: Joseph D. Malbrough
+operator_phone: (985) 851-2808
+operator_fax: (985) 851-2863
+operator_email: "jmalbrough@lumcon.edu"
+
+# -----------------------------------------
+# PHYSICAL DIMENSIONS
+# -----------------------------------------
+length_m: 35
+beam_m: 8.07
+draft_m: 3
+gross_tons: 288
+hull_material: Steel
+freeboard_deck_m: 64
+
+# -----------------------------------------
+# PROPULSION AND PERFORMANCE
+# -----------------------------------------
+engine_count: 2
+engine_make: Diesel
+engine_power: 1000 at 1200rpm
+power_hp: 
+aux_diesel_power_hp: 
+prop_diameter_m: 1.6
+prop_max_rpm: 400
+speed_cruise_kts: 9
+speed_max_kts: 9.2
+range_nm: 3490
+endurance_days: 18
+
+# -----------------------------------------
+# CAPACITY
+# -----------------------------------------
+crew: 5
+officers: 2
+scientists: 16
+air_conditioning: true
+fuel_capacity_mt: 68
+capacity_dry_stores_mt: 60
+water_capacity_mt: 
+water_generation_mt_day: 
+water_treatment: 
+
+# -----------------------------------------
+# LABORATORY AND DECK FACILITIES
+# -----------------------------------------
+lab_wet_area_m2: 12
+lab_dry_area_m2: 
+free_deck_area_m2: 2.5
+container_lab_space: 3 x 5
+radioactive_lab: "yes, Radioisotope Van"
+diving_support: "yes, High pressure Air Compressor"
+
+# -----------------------------------------
+# SCIENTIFIC EQUIPMENT
+# -----------------------------------------
+multibeam: 
+adcp: 75kHz acoustic Doppler
+sidescan_sonar: 
+sub_bottom_profiler: 
+echo_sounder: 200kHz 12kHz
+acoustic_sonar: Fisheries Geological
+acoustic_quiet: 
+
+ctd:
+  capable: "yes"
+  make: "Sea-Bird Electronics SBE 911 plus Sea-Bird Electronics, SBE-11 plus deck unit"
+  fluorometer: "Fluorometer (Chelsea Instruments Aquatraka II, 6,000 meter depth),  Fluorometers (WETLabs WETSTAR Mini-Fluorometers, 500 meter depth)."
+  oxygen_sensor: "Dissolved Oxygen Sensor (SBE 13-01 Sensor medics, 3,400 meter depth)."
+  rosette: "yes"
+  towed: 
+  transmissometer: "Transmissometers (WetLabs, 10.0 centimeter path length, 2,000 meter depth),Transmissometer (WetLabs, 25.0 centimeter path length, 2,000 meter depth)."
+
+coring:
+  capable: "yes"
+  box_core: "0.1 m2 Gomex type Stainless Steel Box Corers,  Bauma 0.25 m2 spade foot box corer with 5 boxes (corer and boxes are all stainless steel construction)"
+  grab_sampler: "Peterson grabs,  Widco 9\" x 9\", 8.2 L Ponar Grabs (Stainless Steal)"
+  gravity_core: 
+  multi_core: Ocean Instruments MC-800 Series Multi-Coring System (Deep Ocean Sediment Sampler)
+  piston_core: Benthos Piston Corer (3 meter core capability with launch stand)
+
+underwater_vehicles: 
+rov_support: 
+auv_support: 
+submarine_support: 
+
+# -----------------------------------------
+# DECK EQUIPMENT
+# -----------------------------------------
+winches:
+  count: 3
+  steel_wire_length_m: 5000
+  steel_wire_load_mt: 13
+  conducting_cable_length_m: 6000
+  conducting_cable_load_mt: 1
+  trawl_length_m: 5000
+  trawl_load_mt: 13
+  other_length_m: 2000
+  other_load_mt: 1
+  notes: 
+
+gantry:
+  position: "Stern, Midships"
+  height_above_deck_m: 5
+  outboard_extension_m: 2
+  load_capacity_mt: 12
+
+cranes:
+  position: 
+  height_above_deck_m: 9
+  outboard_extension_m: 
+  load_capacity_mt: 3
+
+# -----------------------------------------
+# NAVIGATION AND COMMUNICATIONS
+# -----------------------------------------
+navigation_equipment: "Radar, Loran, SatNav, Gyro, Northstar 941X DGPS,  Garmin 128 DGPS"
+navigation_gps: StarLink Invicta 210S Differential
+communications: "VHF, Fax, SSB, cellular phone,"
+satcomm: "Inmarsat A satellite, KVH Tracphone SeaNet,  Satellite Phone"
+
+# -----------------------------------------
+# ELECTRICAL SYSTEMS
+# -----------------------------------------
+ac_voltage: 460/208/120
+ac_power_kva: 100
+ac_phases: 3
+ac_frequency_hz: 60
+ac_voltage_stabilized: 440
+ac_freq_stabilized_hz: 60
+ac_amps_stabilized: 200
+dc_voltages: 12
+dc_voltage_max: 
+
+# -----------------------------------------
+# DATA SYSTEMS
+# -----------------------------------------
+computing_equipment: Zenith computer
+data_printing: 
+
+# -----------------------------------------
+# OPERATING PROFILE
+# -----------------------------------------
+operating_area_notes: 
+operating_grids: 
+operating_regions:         # TODO: populate from operating_area_notes
+mission_capabilities:      # TODO: populate based on equipment fields
+
+# -----------------------------------------
+# PROGRAM MEMBERSHIPS
+# -----------------------------------------
+programs:
+  unols: true
+  go_ship: false
+  samos: false
+  vos: false
+  iwgfi: true
+  euro: false
+  bonus: false
+
+# -----------------------------------------
+# LINKS
+# -----------------------------------------
+url_vessel: "http://www.lumcon.edu/pelican/"
+url_operator: "http://www.lumcon.edu"
+url_schedule: "http://www.gso.uri.edu/unols/schedules/Pelican/Pelican_05.html"
+photo_url: 
+
+# -----------------------------------------
+# ADMINISTRATIVE
+# -----------------------------------------
+record_updated: 2005-01-26
+notes: refit 2003
+vessel_other: OWNER/OPERATOR
+
+---

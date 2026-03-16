@@ -1,0 +1,20 @@
+﻿# _data/organizations/ecometria.yml
+
+name: Ecometria
+slug: ecometria
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Ecometria
+  C/ Vilalba Hervás, 9    11-3
+  38002 Santa Cruz de Tenerife, Spain
+primary_contact:
+phone: +34-922-531-275
+fax: +34-922-531-334
+email: "pablocuesta@ecometria.net"
+url: "http://www.ecometria.net/empresa.htm"
+url_fleet:
+record_updated:
+notes:

@@ -1,0 +1,20 @@
+﻿# _data/organizations/comunidad-cientifico-nacional-colombiana.yml
+
+name: Comunidad Cientifico Nacional Colombiana
+slug: comunidad-cientifico-nacional-colombiana
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Comunidad Cientifico Nacional Colombiana
+  Base Naval Apartado aereo 1744
+  Cartagena 982 Columbia
+primary_contact:
+phone: 653117
+fax: 953680706
+email: 
+url: 
+url_fleet:
+record_updated:
+notes:

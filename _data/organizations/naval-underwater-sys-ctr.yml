@@ -1,0 +1,19 @@
+﻿# _data/organizations/naval-underwater-sys-ctr.yml
+
+name: Naval Underwater Sys. Ctr
+slug: naval-underwater-sys-ctr
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Naval Underwater Sys. Ctr
+  Newport RI 02841-5047 USA
+primary_contact:
+phone: (401) 841-2311
+fax: 
+email: 
+url: 
+url_fleet:
+record_updated:
+notes:

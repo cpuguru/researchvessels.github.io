@@ -1,0 +1,20 @@
+﻿# _data/organizations/jim-christmann.yml
+
+name: Jim Christmann
+slug: jim-christmann
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  114 Mason Street
+  Santa Cruz, California
+  95060
+primary_contact:
+phone: (831) 423-4864
+fax: (831) 423-1719
+email: "jaxmann@shanarae.com"
+url: "http://www.shanarae.com"
+url_fleet:
+record_updated:
+notes:

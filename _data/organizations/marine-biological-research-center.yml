@@ -1,0 +1,20 @@
+﻿# _data/organizations/marine-biological-research-center.yml
+
+name: Marine Biological Research Center
+slug: marine-biological-research-center
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Marine Biological Research Center
+  P.O. Box 30830
+  Tajura/Tripoli Libya
+primary_contact:
+phone: 21 690001
+fax: 21 690002
+email: 
+url: 
+url_fleet:
+record_updated:
+notes:

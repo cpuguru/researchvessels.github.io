@@ -1,0 +1,216 @@
+﻿---
+# -----------------------------------------
+# IDENTITY
+# -----------------------------------------
+name: Polarex
+slug: polarex
+imo_number: 
+nodc_code: 
+call_sign: 
+year_built: 1992
+
+# -----------------------------------------
+# STATUS AND CLASSIFICATION
+# -----------------------------------------
+status: Out of Service
+vessel_use_type: Dedicated Research
+vessel_class: 
+main_activity: Oceanography Geology Hydrography Geophysics
+ice_class: 
+ice_breaking: 
+dp_class: 
+dp_system: 
+ism_certified: 
+vessel_classification: Polish Register of Shipp.
+vessel_construction: 
+charter_available: false
+
+# -----------------------------------------
+# FLAG AND HOME PORT
+# -----------------------------------------
+flag_country: Poland
+homeport: 
+homeport_country: 
+
+# -----------------------------------------
+# OWNERSHIP AND OPERATION
+# -----------------------------------------
+owner: 
+operator: polareks-ltd
+managing_agency: 
+operator_contact: Mr. Slawomir Swerpel
+operator_phone: 58 316634
+operator_fax: 374569
+operator_email: 
+
+# -----------------------------------------
+# PHYSICAL DIMENSIONS
+# -----------------------------------------
+length_m: 46.8
+beam_m: 11.4
+draft_m: 4.8
+gross_tons: 624
+hull_material: Steel
+freeboard_deck_m: 2.7
+
+# -----------------------------------------
+# PROPULSION AND PERFORMANCE
+# -----------------------------------------
+engine_count: 1
+engine_make: Diesel
+engine_power: 1224 at 720rpm
+power_hp: 
+aux_diesel_power_hp: 400
+prop_diameter_m: 1.8
+prop_max_rpm: 720
+speed_cruise_kts: 10.8
+speed_max_kts: 12
+range_nm: 7800
+endurance_days: 30
+
+# -----------------------------------------
+# CAPACITY
+# -----------------------------------------
+crew: 6
+officers: 4
+scientists: 36
+air_conditioning: true
+fuel_capacity_mt: 196
+capacity_dry_stores_mt: 91
+water_capacity_mt: 
+water_generation_mt_day: 6
+water_treatment: 
+
+# -----------------------------------------
+# LABORATORY AND DECK FACILITIES
+# -----------------------------------------
+lab_wet_area_m2: 
+lab_dry_area_m2: 25
+free_deck_area_m2: 122
+container_lab_space: 5 x 7
+radioactive_lab: 
+diving_support: 
+
+# -----------------------------------------
+# SCIENTIFIC EQUIPMENT
+# -----------------------------------------
+multibeam: 
+adcp: 
+sidescan_sonar: 
+sub_bottom_profiler: 
+echo_sounder: 30kHz 200kHz
+acoustic_sonar: Sector-scan
+acoustic_quiet: 
+
+ctd:
+  capable: 
+  make: 
+  fluorometer: 
+  oxygen_sensor: 
+  rosette: 
+  towed: 
+  transmissometer: 
+
+coring:
+  capable: 
+  box_core: 
+  grab_sampler: 
+  gravity_core: 
+  multi_core: 
+  piston_core: 
+
+underwater_vehicles: 
+rov_support: 
+auv_support: 
+submarine_support: 
+
+# -----------------------------------------
+# DECK EQUIPMENT
+# -----------------------------------------
+winches:
+  count: 2
+  steel_wire_length_m: 6000
+  steel_wire_load_mt: 1
+  conducting_cable_length_m: 2000
+  conducting_cable_load_mt: 1
+  trawl_length_m: 
+  trawl_load_mt: 
+  other_length_m: 
+  other_load_mt: 
+  notes: 
+
+gantry:
+  position: Stern
+  height_above_deck_m: 3
+  outboard_extension_m: 6
+  load_capacity_mt: 20
+
+cranes:
+  position: Stern
+  height_above_deck_m: 5
+  outboard_extension_m: 6
+  load_capacity_mt: 
+
+# -----------------------------------------
+# NAVIGATION AND COMMUNICATIONS
+# -----------------------------------------
+navigation_equipment: Radar Satnav Gyro DopLog
+navigation_gps: 
+communications: Fax SatCom
+satcomm: 
+
+# -----------------------------------------
+# ELECTRICAL SYSTEMS
+# -----------------------------------------
+ac_voltage: 0/380V
+ac_power_kva: 140
+ac_phases: 3
+ac_frequency_hz: 50
+ac_voltage_stabilized: 
+ac_freq_stabilized_hz: 
+ac_amps_stabilized: 
+dc_voltages: 24V
+dc_voltage_max: 
+
+# -----------------------------------------
+# DATA SYSTEMS
+# -----------------------------------------
+computing_equipment: "HP:IBM PC:"
+data_printing: 
+
+# -----------------------------------------
+# OPERATING PROFILE
+# -----------------------------------------
+operating_area_notes: 
+operating_grids: 
+operating_regions:         # TODO: populate from operating_area_notes
+mission_capabilities:      # TODO: populate based on equipment fields
+
+# -----------------------------------------
+# PROGRAM MEMBERSHIPS
+# -----------------------------------------
+programs:
+  unols: false
+  go_ship: false
+  samos: false
+  vos: false
+  iwgfi: false
+  euro: true
+  bonus: false
+
+# -----------------------------------------
+# LINKS
+# -----------------------------------------
+url_vessel: 
+url_operator: 
+url_schedule: 
+photo_url: 
+
+# -----------------------------------------
+# ADMINISTRATIVE
+# -----------------------------------------
+record_updated: 
+notes: 
+vessel_other: 
+
+---

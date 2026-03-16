@@ -1,0 +1,20 @@
+﻿# _data/organizations/center-of-great-lakes-studies.yml
+
+name: Center of Great Lakes Studies
+slug: center-of-great-lakes-studies
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  Center of Great Lakes Studies
+  University of Wisconsin-Milwaukee
+  600 E Greenfield, Milwaukee, WT 53204 USA
+primary_contact:
+phone: 414-382-1703
+fax: 414-382-1705
+email: "jorchard@uwm.edu"
+url: "http://www.uwm.edu/Dept/GLWI/"
+url_fleet:
+record_updated:
+notes:

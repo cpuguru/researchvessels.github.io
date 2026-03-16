@@ -1,0 +1,20 @@
+﻿# _data/organizations/fisheries-and-oceans-canada-dfo.yml
+
+name: Fisheries and Oceans Canada (DFO)
+slug: fisheries-and-oceans-canada-dfo
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  200 Kent Street 13th Floor, Station 13228
+  Ottawa, OntarioK1A 0E6
+  Canada
+primary_contact:
+phone: 613-993-0999
+fax: 613-990-1866
+email: "info@dfo-mpo.gc.ca"
+url: 
+url_fleet:
+record_updated:
+notes:

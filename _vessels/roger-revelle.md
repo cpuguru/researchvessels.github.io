@@ -1,0 +1,216 @@
+﻿---
+# -----------------------------------------
+# IDENTITY
+# -----------------------------------------
+name: Roger Revelle
+slug: roger-revelle
+imo_number: 
+nodc_code: 33RR
+call_sign: KAOU
+year_built: 1996
+
+# -----------------------------------------
+# STATUS AND CLASSIFICATION
+# -----------------------------------------
+status: Active
+vessel_use_type: Dedicated Research
+vessel_class: 
+main_activity: Oceanography
+ice_class: 
+ice_breaking: 
+dp_class: 
+dp_system: ROBERTSON
+ism_certified: 
+vessel_classification: 
+vessel_construction: 
+charter_available: false
+
+# -----------------------------------------
+# FLAG AND HOME PORT
+# -----------------------------------------
+flag_country: USA
+homeport: "San Diego, CA, USA"
+homeport_country: 
+
+# -----------------------------------------
+# OWNERSHIP AND OPERATION
+# -----------------------------------------
+owner: us-navy
+operator: scripps-institution-of-oceanography-sio
+managing_agency: US Navy
+operator_contact: Rose Dufour/Elizabeth Brenner
+operator_phone: (858) 534-2841
+operator_fax: (858) 822-5811
+operator_email: "shipsked@uscd.edu"
+
+# -----------------------------------------
+# PHYSICAL DIMENSIONS
+# -----------------------------------------
+length_m: 84
+beam_m: 16
+draft_m: 5.18
+gross_tons: 3350
+hull_material: 
+freeboard_deck_m: 
+
+# -----------------------------------------
+# PROPULSION AND PERFORMANCE
+# -----------------------------------------
+engine_count: 
+engine_make: 
+engine_power: 
+power_hp: 3000
+aux_diesel_power_hp: 
+prop_diameter_m: 
+prop_max_rpm: 
+speed_cruise_kts: 12
+speed_max_kts: 15
+range_nm: 15000
+endurance_days: 52
+
+# -----------------------------------------
+# CAPACITY
+# -----------------------------------------
+crew: 22
+officers: 
+scientists: 37
+air_conditioning: ~
+fuel_capacity_mt: 861
+capacity_dry_stores_mt: 
+water_capacity_mt: 45.4
+water_generation_mt_day: 11.36
+water_treatment: A nanopure ion exchange filter is installed in the analytical lab to provide pure water for lab use.
+
+# -----------------------------------------
+# LABORATORY AND DECK FACILITIES
+# -----------------------------------------
+lab_wet_area_m2: 21.367
+lab_dry_area_m2: 59
+free_deck_area_m2: 325.15
+container_lab_space: Numerous vans can be carried
+radioactive_lab: Isotope isolation vans are available by request
+diving_support: 
+
+# -----------------------------------------
+# SCIENTIFIC EQUIPMENT
+# -----------------------------------------
+multibeam: "Kongsberg EM122 @ 12kHz w/ 120° swath-width to 4500 m depth, reducing to 90° at depths of 11 km, providing bathymetry and sidescan imagery"
+adcp: RDI Narrowband 150 kHz
+sidescan_sonar: 
+sub_bottom_profiler: ODEC Bathy 2000 and Knudsen Engineering 320B 3.5/12 kHz digital sub-bottom profiler
+echo_sounder: 
+acoustic_sonar: Hydrographic Doppler Sonar 50/140kHz
+acoustic_quiet: 
+
+ctd:
+  capable: 
+  make: 
+  fluorometer: 
+  oxygen_sensor: 
+  rosette: 
+  towed: 
+  transmissometer: 
+
+coring:
+  capable: 
+  box_core: 
+  grab_sampler: 
+  gravity_core: 
+  multi_core: 
+  piston_core: 
+
+underwater_vehicles: for Jason II
+rov_support: 
+auv_support: 
+submarine_support: 
+
+# -----------------------------------------
+# DECK EQUIPMENT
+# -----------------------------------------
+winches:
+  count: 3
+  steel_wire_length_m: 15000
+  steel_wire_load_mt: 
+  conducting_cable_length_m: 10000
+  conducting_cable_load_mt: 
+  trawl_length_m: 
+  trawl_load_mt: 
+  other_length_m: 
+  other_load_mt: 
+  notes: 
+
+gantry:
+  position: 
+  height_above_deck_m: 
+  outboard_extension_m: 
+  load_capacity_mt: 
+
+cranes:
+  position: "Starboard quarter, main deck and on port side, 02 level"
+  height_above_deck_m: 
+  outboard_extension_m: 19.8
+  load_capacity_mt: 21
+
+# -----------------------------------------
+# NAVIGATION AND COMMUNICATIONS
+# -----------------------------------------
+navigation_equipment: "Radar, GPS, Fathometer, Doppler Seepd log, ADF: SIMRAD Taiyo, Gyro"
+navigation_gps: "Nautronix 916 SBL/LBL, Trimble Tansmon P-code GPS and Trimble NT 200 DGPS"
+communications: 
+satcomm: "Inmarsat satellite voice and data, VHF, HF radio, SSB voice, teletype, GMDSS"
+
+# -----------------------------------------
+# ELECTRICAL SYSTEMS
+# -----------------------------------------
+ac_voltage: 120/240/480V
+ac_power_kva: 90/10
+ac_phases: 
+ac_frequency_hz: 
+ac_voltage_stabilized: 120/240
+ac_freq_stabilized_hz: 60
+ac_amps_stabilized: 
+dc_voltages: 
+dc_voltage_max: 
+
+# -----------------------------------------
+# DATA SYSTEMS
+# -----------------------------------------
+computing_equipment: "(2) SUN Ultra-2 servers (Solaris UNIX) numerous SPARCstation-5's, PC's and Macs for users"
+data_printing: Laserjet/Color Inkjet
+
+# -----------------------------------------
+# OPERATING PROFILE
+# -----------------------------------------
+operating_area_notes: "Gulf of California, Norht Pacific, Honolulu,Kao-hsiung, Papeete, Wellongton Auckland"
+operating_grids: "NP13, NP9, NP10, NP12, SP5/SP8, AN7, SP2"
+operating_regions:         # TODO: populate from operating_area_notes
+mission_capabilities:      # TODO: populate based on equipment fields
+
+# -----------------------------------------
+# PROGRAM MEMBERSHIPS
+# -----------------------------------------
+programs:
+  unols: true
+  go_ship: true
+  samos: false
+  vos: true
+  iwgfi: true
+  euro: false
+  bonus: false
+
+# -----------------------------------------
+# LINKS
+# -----------------------------------------
+url_vessel: "http://shipsked.ucsd.edu/ships/revelle/index.html"
+url_operator: "http://www.sio.ucsd.edu/"
+url_schedule: "http://www.gso.uri.edu/unols/schedules/Revelle/Revelle_05.html"
+photo_url: 
+
+# -----------------------------------------
+# ADMINISTRATIVE
+# -----------------------------------------
+record_updated: 2005-02-21
+notes: "Seismic Air Compressors, Underway Data System, XBT, Magnetometer, Sub-Bottom Profilers"
+vessel_other: 
+
+---

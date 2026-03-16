@@ -1,0 +1,20 @@
+﻿# _data/organizations/sealife-conservation.yml
+
+name: SeaLife Conservation
+slug: sealife-conservation
+abbreviation:
+organization_type:   # Academic | Government | Military | NGO | Foundation | Commercial
+parent_organization:
+country:
+address: |
+  David Robinson
+  114 Crespi Ct
+  Santa Cruz CA 95060
+primary_contact:
+phone: (831) 818-6112
+fax: 
+email: "dave@sealifeconservation.org"
+url: "http://www.sealifeconservation.org"
+url_fleet:
+record_updated:
+notes:
