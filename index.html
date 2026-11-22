@@ -1,207 +1,79 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Explore schedules, specifications, and information for research vessels worldwide at ResearchVessels.org.">
-    <meta name="keywords" content="research vessels, ship schedules, oceanic, marine research">
-    <meta property="og:title" content="Global Research Vessel Schedules | ResearchVessels.org">
-    <meta property="og:description" content="Explore schedules, specifications, and information for research vessels worldwide.">
-    <meta property="og:image" content="https://researchvessels.org/images/logo.webp">
-    <title>Global Research Vessel Schedules | ResearchVessels.org</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            line-height: 1.6;
-        }
-        .header-bg {
-            background: linear-gradient(135deg, #007bff 0%, #00c4cc 100%);
-            padding: 0; /* Remove padding to allow image to take full space */
-        }
-        .header-bg img {
-            width: 100%; /* Make image span full width of container */
-            height: auto; /* Maintain aspect ratio */
-            display: block; /* Remove any inline spacing */
-        }
-        .embed-container {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
-            height: 0;
-            max-width: 100%;
-        }
-        .embed-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-        .card {
-            transition: transform 0.2s;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-        }
-        footer a {
-            color: #ffffff;
-            text-decoration: underline;
-        }
-        footer a:hover {
-            color: #cccccc;
-        }
-    </style>
-</head>
-<body>
-    <!-- Header -->
-    <header class="header-bg">
-        <div class="container">
-            <a href="/">
-                <img src="images/IRVSI-oceanic-header.jpg" alt="International Research Vessel Schedules Logo" class="img-fluid" loading="lazy">
-            </a>
-        </div>
-    </header>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' blob: https://unpkg.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdn.jsdelivr.net; img-src 'self' data: blob: https://tiles.openfreemap.org https://wms.gebco.net; worker-src blob:; child-src blob:; connect-src 'self' https://tiles.openfreemap.org https://wms.gebco.net https://unpkg.com; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'">
+<title>ResearchVessels.org: research ships, where they went, and their data</title>
+<meta name="description" content="Open registry of the world's research vessels, their cruises and tracks, and where to find the data they collected."><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32"><link rel="apple-touch-icon" href="assets/apple-touch-icon.png" sizes="180x180">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/css/bootstrap.min.css" integrity="sha384-yEPZ7jP9S0QKiUQ0m3jjsO4ProIW7wvR9gXkI7JOGa2XVsw53Yke2bsdkBbjmmiX" crossorigin="anonymous">
+<link rel="stylesheet" href="assets/style.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/js/bootstrap.bundle.min.js" integrity="sha384-WyOxWvTyr1QaMPfiPJSv76iReVthorl5uWlFtZPyK0IEB0hGzo9y5Bp9mYanr8Bu" crossorigin="anonymous" defer></script>
+<link href="https://unpkg.com/maplibre-gl@5.24.1/dist/maplibre-gl.css" rel="stylesheet" integrity="sha384-uTttxo/aOKbdE5RlD/SPzSDoDmNvGlUYPjONi2MN/b7c9HPSvW07OIuyP7uL6jxK" crossorigin="anonymous">
+<script src="assets/app.js"></script><script src="assets/external-links.js"></script><script src="data/vessels.js"></script><script src="data/cruises.js"></script><script src="data/events.js"></script><script src="assets/resources.js"></script>
+<!-- Home-page globe only: MapLibre 5.x (globe projection). The other map pages stay on 4.7.1. -->
+<script src="https://unpkg.com/maplibre-gl@5.24.1/dist/maplibre-gl.js" integrity="sha384-nXMl9YiLoSG5KBPTFgvxVuIqQQcqIvo0bFrvoEaGJC6r7IibIzF1S36Zbf/sKBtL" crossorigin="anonymous" defer></script>
+<script src="data/globe_tracks.js" defer></script><script src="assets/globe.js?v=20261119b" defer></script></head>
+<body class="d-flex flex-column min-vh-100 bg-body-tertiary">
+<main id="content" class="flex-grow-1">
+<section id="globe-hero" class="rv-globe-hero text-white" aria-labelledby="hero-h">
+ <div class="container py-4 py-lg-5"><div class="row align-items-center g-4">
+  <div class="col-12 col-lg-5">
+   <h1 id="hero-h" class="display-6 fw-bold">Which research ships were there, and what data did they collect?</h1>
+   <p class="lead mb-4">An open, global registry of research platforms: who owns and operates them, where they've sailed, and where to find their cruise data. Free to use, no login, built on FAIR principles.</p>
+   <a class="btn btn-light btn-lg me-2 mb-2" href="map.html">Draw an area on the map</a>
+   <a class="btn btn-outline-light btn-lg mb-2" href="vessels.html">Browse vessels</a>
+  </div>
+  <div class="col-12 col-lg-7">
+   <figure class="mb-0">
+    <div class="rv-globe-wrap">
+     <div id="globe" class="rv-globe" role="region" aria-label="Interactive 3D globe of the latest available research vessel cruise tracks. Drag to spin, use two fingers or Ctrl and scroll to zoom, select a track for details."></div>
+     <div id="globe-fallback" class="rv-globe-fallback" hidden>
+      <img src="assets/globe-fallback.jpg" width="480" height="480" alt="Still image of a light globe with ocean depth shading, centred on North America, with recent research vessel cruise tracks drawn in colour" loading="lazy">
+      <p class="small mb-0" data-globe-msg>The interactive globe cannot be shown in this browser.</p>
+     </div>
+     <button id="globe-pause" type="button" class="btn btn-sm btn-dark rv-globe-btn" aria-pressed="false" aria-controls="globe">Pause rotation</button>
+     <noscript><p class="rv-globe-noscript small">The interactive globe needs JavaScript. Each ship page lists its cruises and tracks.</p></noscript>
+    </div>
+    <figcaption class="small mt-2">
+     <span id="globe-caption">Latest available cruise tracks.</span>
+     <span class="d-block text-white-50" id="globe-sources"></span>
+    </figcaption>
+    <div id="globe-legend" class="small mt-1"></div>
+   </figure>
+  </div>
+ </div></div>
+</section>
+<div class="container py-5">
+<h2 class="h3 mb-3">Start with what you need</h2>
+<div class="row g-4">
+ <div class="col-12 col-md-6 col-lg-3"><div class="card h-100 card-lift"><div class="card-body d-flex flex-column"><div class="rv-kicker">Scientists &amp; students</div><h3 class="h5 card-title mt-1">Find tracks, cruises, and data</h3><p class="card-text text-body-secondary">Draw a box on the map, pick years, and see which ships were there, their cruises, and links to their data.</p><a class="btn btn-outline-primary mt-auto stretched-link" href="map.html">Open the map</a></div></div></div>
+ <div class="col-12 col-md-6 col-lg-3"><div class="card h-100 card-lift"><div class="card-body d-flex flex-column"><div class="rv-kicker">Program managers</div><h3 class="h5 card-title mt-1">See your fleet</h3><p class="card-text text-body-secondary">A dashboard by owner or funding agency: fleet status, age, cruise activity by agency, and data completeness.</p><a class="btn btn-outline-primary mt-auto stretched-link" href="fleet.html">Fleet dashboards</a></div></div></div>
+ <div class="col-12 col-md-6 col-lg-3"><div class="card h-100 card-lift"><div class="card-body d-flex flex-column"><div class="rv-kicker">Ship operators</div><h3 class="h5 card-title mt-1">Update once, use everywhere</h3><p class="card-text text-body-secondary">One place to keep your ship's specs and schedule current. Get it back as an API, a JSON feed, and widgets for your own site.</p><a class="btn btn-outline-primary mt-auto stretched-link" href="operators.html">Operator tools</a></div></div></div>
+ <div class="col-12 col-md-6 col-lg-3"><div class="card h-100 card-lift"><div class="card-body d-flex flex-column"><div class="rv-kicker">Educators &amp; the public</div><h3 class="h5 card-title mt-1">Meet the fleet</h3><p class="card-text text-body-secondary">Explore the world's research ships by country, size, and mission, and follow where science happens at sea.</p><a class="btn btn-outline-primary mt-auto stretched-link" href="vessels.html">Browse vessels</a></div></div></div>
+</div>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-        <div class="container">
-            <a class="navbar-brand" href="https://www.oceandata.org">OCEANIC</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="https://researchvessels.org">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="ship_info.html">Ship Info</a></li>
-                    <li class="nav-item"><a class="nav-link" href="data_entry_forms.htm">Update Ship Data</a></li>
-                    <li class="nav-item"><a class="nav-link" href="techlinks.htm">Tech Links</a></li>
-                    <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about_ships.html">About Ships</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+<section class="mt-5" aria-labelledby="home-events-h"><div class="card"><div class="card-body">
+ <div class="d-flex flex-wrap justify-content-between align-items-baseline gap-2"><h2 id="home-events-h" class="h4 mb-0">Upcoming events</h2><a href="resources.html#events">All events and resources</a></div>
+ <div id="home-events" class="mt-2"></div>
+</div></div></section>
 
-    <!-- Main Content -->
-    <main class="container my-5">
-        <!-- Map Section -->
-        <section class="mb-5">
-            <h2 class="visually-hidden">Global Research Vessel Map</h2>
-            <div class="embed-container">
-                <iframe width="1080" height="720" frameborder="0" scrolling="no" allowfullscreen src="https://arcg.is/1zKv18" title="Interactive Map of Research Vessels" loading="lazy"></iframe>
-            </div>
-        </section>
+<h2 class="h3 mt-5 mb-3">What's in the registry today</h2>
+<div class="row g-3" id="stats"></div>
+<p class="small text-body-secondary mt-3">Counts are computed live from the prototype's data files: the 2026 master vessel list (merged from GMSO, VesselConnect, and the legacy researchvessels.org database), the legacy cruise schedule database (1990-2015), and historical Sailwx.info positions (2008-2014).</p>
 
-        <!-- GMSO Research Vessels Feature -->
-        <section class="mb-5">
-            <a href="https://gmsoresearchvessels.com/fleet/" target="_blank" rel="noopener" class="text-decoration-none">
-                <div class="card shadow-sm p-4 text-white" style="background: linear-gradient(135deg, #007bff 0%, #00c4cc 100%);">
-                    <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between">
-                        <div>
-                            <h2 class="fs-3 mb-2">GMSO Research Vessels Fleet</h2>
-                            <p class="mb-0">Explore the GMSO research vessel fleet &mdash; schedules, specifications, and more.</p>
-                        </div>
-                        <span class="btn btn-light btn-lg mt-3 mt-md-0">Visit Site &rarr;</span>
-                    </div>
-                </div>
-            </a>
-        </section>
-        
-        <!-- Welcome and Events -->
-        <div class="row">
-            <div class="col-lg-8 mb-4">
-                <div class="card shadow-sm p-4">
-                    <h1 class="fs-2 mb-3">Welcome!</h1>
-                    <p><a href="https://www.oceandata.org/" target="_blank" class="text-primary">OCEANIC</a> - <strong>The Ocean Information Center</strong> - maintains a searchable database of cruise schedules, ship specifications, and contact information for <strong>research vessels</strong> around the world.</p>
-                    <p>We are always looking for ship specifications, cruise schedules, home pages, and contact information for research vessels worldwide. Please email us at <a href="mailto:info@oceandata.org" class="text-primary">info@oceandata.org</a> if you have pertinent ship information to share with the scientific community.</p>
-                    <hr class="my-4">
-                    <ul class="list-unstyled">
-                        <li><strong>UNOLS Meeting Calendars:</strong> <a href="http://www.unols.org/events" target="_blank" class="text-primary">UNOLS Events</a></li>
-                        <li><strong>AGU GeoPhysical Year Calendar:</strong> <a href="https://www.agu.org/plan-for-a-meeting/agumeetings" target="_blank" class="text-primary">Geophysical Year Calendar</a></li>
-                        <li><strong>ASLO Meetings:</strong> <a href="https://www.aslo.org/meetings/" target="_blank" class="text-primary">ASLO Meetings</a></li>
-                    </ul>
-                    <hr class="my-4">
-                    <h2 class="fs-3 mb-3">Current and Upcoming Events</h2>
-                    <ul class="list-unstyled">
-                        <li><strong><a href="https://www.agu.org/Ocean-Sciences-Meeting" target="_blank" class="text-primary">Ocean Sciences Meeting</a></strong> - Glasgow, Scotland 2-27 February 2026</li>
-                        <li><strong><a href="https://scor-int.org/events/scor-2025-annual-meeting/" target="_blank" class="text-primary">SCOR 2025 Annual Meeting</a></strong> - Santa Marta, Columbia 29-31 October 2025</li>
-                        <li><strong><a href="https://irso.info/irso-2025/" target="_blank" class="text-primary">International Research Ship Operators (IRSO) Meeting 2025</a></strong> - Bergen, Norway 22-25 September 2025</li>
-                        <li><strong><a href="https://www.oceanexpert.net/event/4664" target="_blank" class="text-primary">Ocean Data Management 2025</a></strong> - Self-Paced Course 01 February - 31 May 2025</li>
-                        <li><strong><a href="https://www.unols.org/event/meeting/unols-2025-rvoc-meeting" target="_blank" class="text-primary">UNOLS 2025 RVOC Meeting</a></strong> - University of Delaware, Lewes, Delaware on April 30 and May 1, 2025</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-4 mb-4">
-                <div class="card shadow-sm p-4">
-                    <h2 class="fs-4 mb-3">Latest Updates</h2>
-                    <a class="twitter-timeline" data-lang="en" href="https://twitter.com/ResearchVessels?ref_src=twsrc%5Etfw" aria-label="Tweets by ResearchVessels">Tweets by ResearchVessels</a>
-                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                </div>
-            </div>
-        </div>
-
-        <!-- Research Links -->
-        <section class="card shadow-sm p-4 mb-5">
-            <h2 class="fs-3 mb-4">Research Links</h2>
-            <div class="row">
-                <div class="col-md-6">
-                    <ul class="list-unstyled">
-                        <li><a href="us_research_partners.htm" class="text-primary">US Research Site Links</a></li>
-                        <li><a href="international_sites.htm" class="text-primary">International Research Site Links</a></li>
-                        <li><a href="non_research_ships.html" class="text-primary">Non-Research Related Links</a></li>
-                        <li><a href="http://www.irso.info" class="text-primary">International Research Ship Operators' Meeting (IRSO)</a></li>
-                        <li><a href="http://www.bom.gov.au/jcomm/vos/" class="text-primary">JCOMM Voluntary Observing Ship Scheme</a></li>
-                        <li><a href="http://www.vos.noaa.gov/" class="text-primary">United States Voluntary Observing Ship Project</a></li>
-                        <li><a href="http://www.ifremer.fr/ird/soopip/" class="text-primary">Ship of Opportunity Programme (SOOP)</a></li>
-                        <li><a href="http://ioc.unesco.org/igossweb/callsign.htm" class="text-primary">IGOSS Database of Callsigns</a></li>
-                        <li><a href="http://marine.usgs.gov/~mmartini/lostlist/" class="text-primary">Lost Instrument Network</a></li>
-                        <li><a href="images/navchart.gif" class="text-primary">Standard US Navy Ocean Area and Region Index Limits Map</a></li>
-                        <li><a href="http://www.nodc.noaa.gov/cgi-bin/search/prod/platforms.pl" class="text-primary">NODC Search Form for Platform Information</a> (NODC Codes)</li>
-                        <li><a href="http://www.nodc.noaa.gov/OC5/shipname.txt" class="text-primary">US NODC Codes for worldwide ships sorted by NODC code</a></li>
-                        <li><a href="nodc_by_name.txt" class="text-primary">US NODC Codes for worldwide ships sorted by ship name</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-6">
-                    <h3 class="fs-5 mb-3">Other Sites with Research Vessels</h3>
-                    <ul class="list-unstyled">
-                        <li><a href="http://www.arcus.org/alias/" target="_blank" class="text-primary">ALIAS Polar Site</a> (ARCUS)</li>
-                        <li><a href="http://www.asci-ipy.de/" class="text-primary">Arctic Ship Coordination during IPY</a> (ASCI)</li>
-                        <li><a href="http://www.bonusportal.org/" class="text-primary">Baltic Sea Portal</a> (BONUS)</li>
-                        <li><a href="http://www.rvinfobase.eurocean.org/" target="_blank" class="text-primary">European RV Infobase</a></li>
-                        <li><a href="https://www.eurofleets.eu/" class="text-primary">Eurofleets+</a></li>
-                        <li><a href="http://www.ofeg.org" class="text-primary">European Ocean Facilities Exchange Group</a> (OFEG)</li>
-                        <li><a href="https://www.ervo-group.eu/" class="text-primary">European Research Vessel Operators</a> (ERVO)</li>
-                        <li><a href="https://www.eurofleets.eu/" class="text-primary">Eurofleets+</a></li>
-                        <li><a href="https://www.flotteoceanographique.fr/en/Facilities/Vessels-Deep-water-submersible-vehicles-and-Mobile-equipments" class="text-primary">French Oceanographic Fleet</a></li>
-                        <li><a href="http://www.go-ship.org" class="text-primary">Global Ocean Ship-Based Hydrographic Investigations Program</a> (GO-SHIP)</li>
-                        <li><a href="https://gmsoresearchvessels.com/fleet/" target="_blank" class="text-primary">GMSO Research Vessels Fleet</a></li>
-                        <li><a href="http://www.canamglass.org/online/" class="text-primary">Great Lakes Association of Science Ships</a> (CanAmGlass)</li>
-                        <li><a href="http://www.icefloe.net/" class="text-primary">USCG Science Support</a> (IceFloe)</li>
-                        <li><a href="https://catalogue.odis.org/" class="text-primary">IOC Ocean Data and Information System</a></li>
-                        <li><a href="https://noc.ac.uk/facilities/national-marine-equipment-pool" class="text-primary">National Marine Equipment Pool (NMEP)</a></li>
-                        <li><a href="http://www.st.nmfs.gov/st1/commercial/landings/cg_vessel2.html" target="_blank" class="text-primary">NOAA Fisheries</a></li>
-                        <li><a href="http://www.nmao.noaa.gov/fleet.html" target="_blank" class="text-primary">NOAA NMAO</a></li>
-                        <li><a href="https://www.unols.org/ships-facilities/unols-vessels/unols-designated-vessels/unols-designated-vessels" target="_blank" class="text-primary">UNOLS Designated Vessels</a></li>
-                        <li><a href="https://www.mfp.us/" target="_blank" class="text-primary">UNOLS Marine Facilities Planning (MFP)</a></li>
-                        <li><a href="http://cgmix.uscg.mil/PSIX/PSIXSearch.aspx" target="_blank" class="text-primary">USCG PSIX</a></li>
-                        <li><a href="http://www.sailwx.info/shiptrack/researchships.phtml" target="_blank" class="text-primary">SailWX</a> (mapping RV locations)</li>
-                        <li><a href="https://schmidtocean.org/" class="text-primary">Schmidt Ocean Institute</a></li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-dark text-white py-4">
-        <div class="container text-center">
-            <p>© 2026 <a href="https://oceandata.org/">OCEANIC</a> - <a href="https://researchvessels.org/">Ships Schedules & Information Pages</a> | <a href="mailto:info@oceandata.org">info@oceandata.org</a></p>
-            <a href="#top" class="btn btn-outline-light btn-sm mt-2">Back to Top</a>
-        </div>
-    </footer>
-
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="scripts/oceanic_scripts.js"></script>
-</body>
-</html>
+<h2 class="h3 mt-5 mb-3">How it fits together</h2>
+<div class="row g-4">
+ <div class="col-12 col-md-4"><div class="card h-100"><div class="card-body"><h3 class="h5 card-title">Registry</h3><p class="card-text text-body-secondary">Vessels, owners, operators, homeports, and flag state, each with dates and a source, so history isn't overwritten.</p></div></div></div>
+ <div class="col-12 col-md-4"><div class="card h-100"><div class="card-body"><h3 class="h5 card-title">Cruises &amp; tracks</h3><p class="card-text text-body-secondary">Cruises and legs linked to track points and precomputed track lines, with the position precision labeled.</p></div></div></div>
+ <div class="col-12 col-md-4"><div class="card h-100"><div class="card-body"><h3 class="h5 card-title">Data discovery</h3><p class="card-text text-body-secondary">Links from each cruise to its datasets at NCEI, R2R, BCO-DMO, and ERDDAP, using DOIs where they exist.</p></div></div></div>
+</div>
+</div>
+</main>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+ const V=RV.vessels();const C=window.RV_CRUISES?Object.values(RV_CRUISES.cruises).reduce((a,b)=>a+b.length,0):0;
+ const countries=new Set(V.map(v=>v.country).filter(Boolean)).size;const ais=V.filter(v=>v.ais).length;
+ const s=[[V.length,'vessels &amp; platforms'],[countries,'flag countries'],[C,'legacy cruise records'],[ais,'with an IMO or MMSI for AIS']];
+ if(window.RV_RES)RV_RES.renderEvents(document.getElementById('home-events'),{limit:3,compact:true});
+ document.getElementById('stats').innerHTML=s.map(([n,l])=>`<div class="col-6 col-lg-3"><div class="card h-100"><div class="card-body"><div class="rv-stat">${RV.fmt(n)}</div><div class="small text-body-secondary">${l}</div></div></div></div>`).join('');
+});
+</script></body></html>

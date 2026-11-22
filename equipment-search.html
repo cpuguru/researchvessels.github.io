@@ -1,0 +1,43 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' blob: https://unpkg.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdn.jsdelivr.net; img-src 'self' data: blob: https://tiles.openfreemap.org; worker-src blob:; child-src blob:; connect-src 'self' https://tiles.openfreemap.org https://unpkg.com; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'">
+<title>Equipment search · ResearchVessels.org</title>
+<meta name="description" content="Search on-board equipment across the research vessel fleet by category, make, model, or free text.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32"><link rel="apple-touch-icon" href="assets/apple-touch-icon.png" sizes="180x180">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/css/bootstrap.min.css" integrity="sha384-yEPZ7jP9S0QKiUQ0m3jjsO4ProIW7wvR9gXkI7JOGa2XVsw53Yke2bsdkBbjmmiX" crossorigin="anonymous">
+<link rel="stylesheet" href="assets/style.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/js/bootstrap.bundle.min.js" integrity="sha384-WyOxWvTyr1QaMPfiPJSv76iReVthorl5uWlFtZPyK0IEB0hGzo9y5Bp9mYanr8Bu" crossorigin="anonymous" defer></script>
+<script src="assets/app.js"></script><script src="assets/external-links.js"></script>
+<script src="data/vessels.js"></script>
+<script src="assets/equipment_vocab.js"></script>
+<script src="data/equipment.js"></script>
+<script src="assets/equipment-search.js" defer></script>
+</head>
+<body class="d-flex flex-column min-vh-100 bg-body-tertiary">
+<main id="content" class="container py-4 flex-grow-1">
+<h1 class="mb-2">Search equipment across the fleet</h1>
+<p class="lead text-body-secondary">Find ships that carry a given instrument or system. This prototype searches the operator-maintained equipment list, which so far covers only a handful of vessels.</p>
+<div class="alert alert-warning" role="note">Prototype. Results come from the compiled equipment records only (currently four ships). A query such as “EM124” should find Atlantis. Wire examples such as “0.680 fiber-optic” will match when that text is in a record; it is not in the current seed set. Personal contact details are never shown.</div>
+<form id="eq-search" class="card mb-4" role="search" onsubmit="return false"><div class="card-body">
+<div class="row g-3 align-items-end">
+ <div class="col-12 col-md-6 col-lg-4"><label class="form-label fw-semibold small mb-1" for="eq-q">Free text</label>
+  <input id="eq-q" class="form-control" type="search" placeholder="e.g. EM124 or 0.680 fiber-optic" autocomplete="off"></div>
+ <div class="col-12 col-md-6 col-lg-3"><label class="form-label fw-semibold small mb-1" for="eq-cat">Category</label>
+  <select id="eq-cat" class="form-select"><option value="">Any category</option></select></div>
+ <div class="col-12 col-md-6 col-lg-3"><label class="form-label fw-semibold small mb-1" for="eq-make">Make</label>
+  <select id="eq-make" class="form-select"><option value="">Any make</option></select></div>
+ <div class="col-12 col-md-6 col-lg-2"><label class="form-label fw-semibold small mb-1" for="eq-model">Model</label>
+  <input id="eq-model" class="form-control" type="search" placeholder="e.g. EM124" list="eq-model-list" autocomplete="off">
+  <datalist id="eq-model-list"></datalist></div>
+</div>
+<div class="form-check mt-3">
+ <input class="form-check-input" type="checkbox" id="eq-removed">
+ <label class="form-check-label small" for="eq-removed">Include removed equipment</label>
+</div>
+</div></form>
+<p id="eq-count" class="small text-body-secondary" aria-live="polite"></p>
+<div id="eq-results"></div>
+<p class="small text-body-secondary mt-4 mb-0">Operators can add or correct equipment on the <a href="operators.html">For operators</a> page. Every change is reviewed before it is published.</p>
+</main>
+</body></html>

@@ -1,0 +1,441 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' blob: https://unpkg.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdn.jsdelivr.net; img-src 'self' data: blob: https://tiles.openfreemap.org; worker-src blob:; child-src blob:; connect-src 'self' https://tiles.openfreemap.org https://unpkg.com; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'">
+<title>Vessel · ResearchVessels.org</title><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32"><link rel="apple-touch-icon" href="assets/apple-touch-icon.png" sizes="180x180">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/css/bootstrap.min.css" integrity="sha384-yEPZ7jP9S0QKiUQ0m3jjsO4ProIW7wvR9gXkI7JOGa2XVsw53Yke2bsdkBbjmmiX" crossorigin="anonymous">
+<link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet" integrity="sha384-MinO0mNliZ3vwppuPOUnGa+iq619pfMhLVUXfC4LHwSCvF9H+6P/KO4Q7qBOYV5V" crossorigin="anonymous">
+<link rel="stylesheet" href="assets/style.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/js/bootstrap.bundle.min.js" integrity="sha384-WyOxWvTyr1QaMPfiPJSv76iReVthorl5uWlFtZPyK0IEB0hGzo9y5Bp9mYanr8Bu" crossorigin="anonymous" defer></script>
+<script src="assets/app.js"></script><script src="assets/external-links.js"></script><script src="data/vessels.js"></script><script src="data/cruises.js"></script><script src="data/positions.js"></script><script src="data/r2r.js"></script><script src="data/berths.js"></script><script src="data/ports.js"></script><script src="data/rebuilds.js"></script><script src="data/vessel_links.js"></script><script src="data/vessel_extra.js"></script><script src="assets/i18n/strings.en.js"></script><script src="assets/equipment_vocab.js"></script><script src="data/equipment.js"></script><script src="assets/equipment.js"></script></head>
+<body class="d-flex flex-column min-vh-100 bg-body-tertiary">
+<main id="content" class="container py-4 flex-grow-1"><div id="v"><p>Loading…</p></div></main>
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js" integrity="sha384-SYKAG6cglRMN0RVvhNeBY0r3FYKNOJtznwA0v7B5Vp9tr31xAHsZC0DqkQ/pZDmj" crossorigin="anonymous"></script>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+ const reqId=RV.qs('id')||'MV-0423',id=RV.resolveAlias(reqId),v=RV.byId()[id],el=document.getElementById('v'),e=RV.esc;
+ /* Merged record: old links (e.g. ?id=MV-0192) land on the canonical id; the address bar is updated without a reload. */
+ const aliased=id!==reqId&&!!v;if(aliased&&history.replaceState){try{history.replaceState(null,'',RV.vesselHref(id))}catch(err){}}
+ const X=RV.extraFor(id);
+ if(!v){el.replaceChildren();const h=document.createElement('h1');h.textContent='Vessel not found';const p=document.createElement('p');const a=document.createElement('a');a.href='vessels.html';a.textContent='Back to the directory';p.append('No vessel with ID ',id,'. ',a,'.');el.append(h,p);return}
+ document.title=v.name+' · ResearchVessels.org';
+ const cr=RV.cruisesFor(id),P=(window.RV_POSITIONS?RV_POSITIONS.points:[]).filter(p=>p[0]===id);
+ const comp=RV.completeness(v),h=RV.h;
+ const R2=RV.r2rFor(id),R2P=(window.RV_R2R&&RV_R2R.ports)||{};
+ /* R2R port calls: placed by RV.resolvePort (existing berth, else WPI via the accepted crosswalk, else R2R/project supplement). */
+ const calls={};if(R2)R2.cr.forEach(c=>[c.dport,c.aport].forEach(pid=>{
+  if(pid==null||!Object.prototype.hasOwnProperty.call(R2P,pid))return;
+  const r=RV.resolvePort(id,pid,R2P);if(!r)return;
+  const y=String(c.dep||'').slice(0,4),typ=String(c.type||'');
+  const o=calls[pid]||(calls[pid]={port:String(R2P[pid][0]),name:r.name,lat:r.lat,lon:r.lon,approx:r.approx,kind:r.kind,verified:r.verified,supplement:!!r.supplement,berth:!!r.berth,wpi_number:r.wpi_number,unlocode:r.unlocode||'',country:r.country||'',wpi_name:r.wpi_name||'',n:0,y0:y,y1:y,yt:[]});
+  o.n++;o.yt.push({y,t:typ});if(y&&/^\d{4}$/.test(y)){if(!o.y0||y<o.y0)o.y0=y;if(y>o.y1)o.y1=y}
+ }));
+ const HOME=RV.resolveHome(v,R2P);
+ /* Cruise tracks: per-ship file, loaded only on that ship's page (file:// cannot fetch(), so a script tag sets window.RV_TRACKS).
+    R2R track files need the ship's R2R record; NCEI track files (NOAA ships) come with their own expedition list. */
+ const TRACK_FILES={'MV-0423':{file:'data/tracks_MV-0423.js',src:'r2r'},'MV-0112':{file:'data/tracks_MV-0112.js',src:'r2r'},
+  'MV-0751':{file:'data/tracks_MV-0751.js',src:'ncei',list:'data/expeditions_MV-0751.js'}};
+ const TMETA=Object.prototype.hasOwnProperty.call(TRACK_FILES,id)?TRACK_FILES[id]:null;
+ const trackSrc=TMETA?TMETA.src:'',trackFile=TMETA&&(trackSrc!=='r2r'||R2)?TMETA.file:null;
+ const loadScript=(src,done)=>new Promise(res=>{if(!src)return res(null);const s=document.createElement('script');s.src=src;s.addEventListener('load',()=>res(done()));s.addEventListener('error',()=>res(null));document.head.append(s)});
+ const tracksReady=loadScript(trackFile,()=>RV.tracksFor(id));
+ const expReady=loadScript(trackFile&&TMETA.list,()=>RV.expeditionsFor(id));
+ /* Shared between the R2R cruise table and the map: current filter, selected cruise, and hooks the map fills in. */
+ const TK={y:'',t:'',sel:null,ids:new Set(),byId:new Map(),redraw:()=>{},apply:()=>{},select:()=>{}};
+ const num=x=>typeof x==='number'&&isFinite(x);
+ /* Extra port markers from data/vessel_extra.js (e.g. a former homeport), placed only through the WPI by number. */
+ const XP=(X&&Array.isArray(X.ports)?X.ports:[]).map(p=>{const w=p&&RV.wpiByNumber(p.wpi_number,p.wpi_name);return w&&num(w.lat)&&num(w.lon)?{role:String(p.role==null?'':p.role),name:String(w.name||''),country:String(w.country||''),lat:w.lat,lon:w.lon,wpi_number:w.wpi_number,unlocode:w.unlocode||''}:null}).filter(Boolean);
+ const PC=Object.values(calls),hasMap=P.length>0||PC.length>0||!!HOME||XP.length>0||!!trackFile;
+ const row=(k,val)=>val?`<dt class="col-5 col-sm-4 fw-normal text-body-secondary">${e(k)}</dt><dd class="col-7 col-sm-8 mb-1">${e(val)}</dd>`:'';
+ const rowHtml=(k,html)=>html?`<dt class="col-5 col-sm-4 fw-normal text-body-secondary">${e(k)}</dt><dd class="col-7 col-sm-8 mb-1 text-break">${html}</dd>`:'';
+ const web=RV.safeUrl(v.url),wiki=RV.safeUrl(v.wiki),inst=RV.safeUrl(v.institution_url),shortUrl=u=>{try{const x=new URL(u);return x.hostname.replace(/^www\./,'')+(x.pathname==='/'?'':x.pathname)}catch(err){return String(u)}};
+ const isVC=/^https:\/\/vesselconnect\.org\//i.test(web),isLegacy=/^https:\/\/researchvessels\.org\//i.test(web);
+ /* Website: the operating institution's own page when verified (data/vessel_links.js); the old link is kept as a secondary link. */
+ const webHtml=inst?`<a href="${e(inst)}"${RV.extAttrs(inst)}>${e(shortUrl(inst).slice(0,60))}</a>${web?`<br><span class="small">${isVC?'Also on ':''}<a href="${e(web)}"${RV.extAttrs(web)}>${isVC?'VesselConnect':isLegacy?'Legacy researchvessels.org page':e(String(v.url).replace(/^https?:\/\//,'').slice(0,50))}</a></span>`:''}`
+   :(web?`<a href="${e(web)}"${RV.extAttrs(web)}>${e(String(v.url).replace(/^https?:\/\//,'').slice(0,50))}</a>`:'');
+ const rbSrc=RV.safeUrl(v.rebuilt_source_url);
+ const rebuiltHtml=v.rebuilt_year?`${e(RV.rebuiltText(v))}${rbSrc?` <a class="small" href="${e(rbSrc)}"${RV.extAttrs(rbSrc)} title="${e(v.rebuilt_source)}">source</a>`:''}`:'<span class="text-body-secondary">not recorded</span>';
+ const homeCap=HOME?RV.wpiCaption(HOME):RV.wpiCaption(RV.wpiForHome(id));
+ const homeWpiName=HOME&&HOME.wpi_name?HOME.wpi_name:((RV.wpiForHome(id)||{}).name||'');
+ const homeExtra=homeCap?(homeWpiName&&v.homeport&&!String(v.homeport).toLowerCase().includes(String(homeWpiName).toLowerCase())?e(homeWpiName)+' · ':'')+e(homeCap):(HOME&&HOME.supplement?'Project supplement (not in the World Port Index)':'');
+ const homeHtml=v.homeport?(e(v.homeport)+(homeExtra?`<br><span class="small text-body-secondary">${homeExtra}</span>`:'')):'';
+ el.innerHTML=`<nav aria-label="breadcrumb"><ol class="breadcrumb small mb-2"><li class="breadcrumb-item"><a href="vessels.html">Vessel directory</a></li><li class="breadcrumb-item active" aria-current="page">${e(v.name)}</li></ol></nav>
+ <h1 class="mb-2">${e(v.name)}</h1><div id="vx-head"></div><p class="d-flex flex-wrap gap-1">${RV.statusPill(v)} <span class="badge bg-primary-subtle text-primary-emphasis">${e(v.type||'Vessel')}</span> ${v.country?`<span class="badge bg-primary-subtle text-primary-emphasis">${e(v.country)}</span>`:''} ${v.ais?'<span class="badge text-bg-success">AIS-queryable</span>':'<span class="badge text-bg-warning">No IMO/MMSI yet</span>'}</p>
+ <div class="row g-4">
+  <div class="col-12 col-lg-6"><section class="card h-100"><div class="card-body"><h2 class="h5 card-title">Who and where</h2><dl class="row mb-2">${row('Owner',v.owner)}${row('Operator',v.operator)}${rowHtml('Homeport',homeHtml)}${row('Flag / country',v.country)}</dl>
+   <p class="small text-body-secondary mb-0">The new schema keeps owner, operator, homeport, and flag as separate dated relationships, each with a source.</p></div></section></div>
+  <div class="col-12 col-lg-6"><section class="card h-100"><div class="card-body"><h2 class="h5 card-title">Identity &amp; specs</h2><dl class="row mb-2">${row('IMO',v.imo)}${row('MMSI',v.mmsi)}${row('Call sign',v.cs)}${row('Length',v.len?v.len+' m':'')}${row('Year built',v.built)}${rowHtml('Rebuilt',rebuiltHtml)}${row('Gross tonnage',v.gt)}${row('Science berths',v.berths)}${rowHtml('Website',webHtml)}${rowHtml('Wikipedia',wiki?`<a href="${e(wiki)}"${RV.extAttrs(wiki)}>article</a>`:'')}${row('Legacy ID',v.rvorg?'researchvessels.org shipID '+v.rvorg:'')}${row('Registry ID',v.id)}</dl>
+   <p class="small text-body-secondary mb-0">Record completeness: <strong>${comp}%</strong> of key fields. Sources: ${e(v.src)}.</p></div></section></div>
+ </div>
+ <div id="vx-photos"></div><div id="vx-more"></div>
+ <div id="r2r-eq"></div>
+ <h2 class="h4 mt-5 mb-3">Where it's been</h2>
+ ${hasMap?`<div id="map" class="rv-map-sm" role="img" aria-label="Map of historical positions and port calls"></div><div id="maptools" class="d-flex flex-wrap align-items-center gap-3 mt-2 small"></div>`:''}
+ ${P.length?`<div class="alert alert-warning small mt-2 mb-0" role="note">${P.length.toLocaleString()} daily positions, ${e(P[0][3])} to ${e(P[P.length-1][3])}, from Sailwx.info (historical coarse positions; weather-report fixes are only 0.1° precise, about 6 nm). Off the map until you turn on <strong>Sailwx daily positions</strong>.</div>`:`<div class="alert alert-secondary${hasMap?' small mt-2 mb-0':''}" role="note">No daily position tracks loaded for this vessel yet. ${v.ais?'It has an IMO/MMSI, so historical AIS tracks can be pulled from NOAA Marine Cadastre.':'It needs an IMO or MMSI before AIS tracks can be matched.'}</div>`}
+ ${(HOME||PC.length)?`<p class="small text-body-secondary mt-2 mb-0">Port locations from the World Port Index (Pub. 150), National Geospatial-Intelligence Agency. U.S. government work, public domain. Ports not in the WPI, including Lewes, Delaware, keep a project or R2R coordinate and are labelled as a project supplement; no WPI number is invented.</p>`:''}
+ <div id="r2r-cr"></div>
+ <h2 class="h4 mt-5 mb-3" id="legacy-cruises">Cruises: legacy schedule database <span class="text-body-secondary small fw-normal">(${cr.length.toLocaleString()})</span></h2>
+ ${cr.length?`<div class="row g-2 mb-3"><div class="col-auto"><label class="form-label fw-semibold small mb-1" for="yr">Year</label><select class="form-select" id="yr"><option value="">All years</option>${[...new Set(cr.map(c=>String(c.start).slice(0,4)))].reverse().map(y=>`<option value="${e(y)}">${e(y)}</option>`).join('')}</select></div></div>
+ <div class="table-responsive rv-scroll border rounded bg-white" style="max-height:50vh"><table class="table table-striped table-hover table-sm align-top mb-0"><thead class="table-light"><tr><th>Start</th><th>End</th><th>From → To</th><th>Area</th><th>Discipline</th><th>Agency</th><th>Project</th><th>Data</th></tr></thead><tbody id="crows"></tbody></table></div>
+ <div class="alert alert-info small mt-2" role="note">Source: legacy researchvessels.org schedule database (1990-2015). Principal investigator names are held back in this prototype. "Data" links search public archives by ship and date; future versions link dataset DOIs.${R2?' R2R cruise records are listed separately above and are not merged with these.':''}</div>`:'<div class="alert alert-secondary" role="note">No cruises on record yet. Operators will be able to add schedules through the operator portal.</div>'}
+ <h2 class="h4 mt-5 mb-3">Use this record</h2><div class="row g-4"><div class="col-12 col-lg-6"><div class="card h-100"><div class="card-body"><h3 class="h5 card-title">JSON (proposed API)</h3><pre class="rv-code">GET /api/v1/vessels/${e(id)}</pre><pre class="rv-code mb-0">${e(JSON.stringify(v,['id','name','former_names','imo','mmsi','mmsi_former','cs','cs_former','ices','vc','merged_ids','country','status','type','owner','operator','homeport','len','built','rebuilt_year','rebuilt_note','rebuilt_source','rebuilt_source_url','gt','berths','institution_url','url','wiki','src'],1))}</pre></div></div></div>
+ <div class="col-12 col-lg-6"><div class="card h-100"><div class="card-body"><h3 class="h5 card-title">Update this vessel</h3><p>Operators can submit corrections through the operator portal.</p><a class="btn btn-outline-primary" href="${e(RV.operatorsHref(id))}">Update this vessel (operator portal)</a></div></div></div></div>`;
+ /* embed.js is not in this build. To re-enable the sample, restore this card body (and keep the Update button):
+    <h3>Embed on your site</h3>
+    <p>Operators can paste this snippet to show a live, auto-updating ship card:</p>
+    <pre class="rv-code">&lt;div data-rv-vessel="{id}"&gt;&lt;/div&gt;
+    &lt;script src="https://researchvessels.org/embed.js" async&gt;&lt;/script&gt;</pre>
+ */
+ if(cr.length){const draw=()=>{const y=document.getElementById('yr').value;document.getElementById('crows').innerHTML=cr.filter(c=>!y||String(c.start).startsWith(y)).slice().reverse().map(c=>{const ncei=RV.nceiHref(v.name,c.start,c.end||c.start);return`<tr><td class="text-nowrap">${e(c.start)}</td><td class="text-nowrap">${e(c.end||'')}</td><td>${e(c.from)}${c.to?' → '+e(c.to):''}</td><td>${e(c.area)}${c.detail?'<br><span class="small text-body-secondary">'+e(c.detail)+'</span>':''}</td><td>${e(c.discipline)}</td><td>${e(c.agency)}</td><td>${e(c.project)}</td><td>${ncei?`<a href="${e(ncei)}"${RV.extAttrs(ncei)}>NCEI</a>`:''}</td></tr>`}).join('')};document.getElementById('yr').addEventListener('input',draw);draw()}
+ renderExtra();
+ /* Operator-maintained equipment + spec provenance (assets/equipment.js; DOM builder only). */
+ if(window.RV_EQ){try{RV_EQ.renderPublic(id,v,document.getElementById('r2r-eq'))}catch(err){console.error(err)}}
+ if(R2)renderR2R(R2,cr);
+ expReady.then(EX=>{try{if(EX&&EX.rows.length&&!R2)renderExpeditions(EX)}catch(err){console.error('expeditions',err)}});
+ if(hasMap&&window.maplibregl)drawMap();
+ /* ---------- Expedition list for NOAA ships (NCEI / NOAA Ocean Exploration; untrusted: DOM builder + textContent + safeUrl only) ---------- */
+ function renderExpeditions(EX){
+  const host=document.getElementById('r2r-cr'),C=EX.rows.slice().reverse();if(!host||!C.length)return;
+  const yrs=C.map(c=>c.year).filter(Boolean),byYear={};yrs.forEach(y=>byYear[y]=(byYear[y]||0)+1);
+  const y0=yrs.reduce((a,b)=>b<a?b:a,yrs[0]||''),y1=yrs.reduce((a,b)=>b>a?b:a,yrs[0]||'');
+  const ysel=h('select',{class:'form-select',id:'r2ryr'},h('option',{value:''},'All years'),Object.keys(byYear).sort().reverse().map(y=>h('option',{value:y},y,' (',String(byYear[y]),')')));
+  const types=[...new Set(C.map(c=>c.type).filter(Boolean))].sort();
+  const tsel=h('select',{class:'form-select',id:'r2rtype'},h('option',{value:''},'All types'),types.map(t=>h('option',{value:t},t)));
+  const tbody=h('tbody'),count=h('span',{class:'small text-body-secondary','aria-live':'polite'});
+  const draw=()=>{
+   const y=ysel.value,t=tsel.value,rows=C.filter(c=>(!y||c.year===y)&&(!t||c.type===t));
+   tbody.replaceChildren(...rows.map(c=>{
+    const hasT=!!c.track&&TK.ids.has(c.track);
+    return h('tr',{'data-cid':hasT?c.track:null,class:(hasT?'rv-trk-row':'')+(hasT&&TK.sel===c.track?' table-primary':''),title:hasT?'Click to show this cruise track on the map':null},
+     h('td',{class:'text-nowrap'},c.url?h('a',{href:c.url,rel:'noopener',class:'fw-semibold'},c.id):h('span',{class:'fw-semibold'},c.id),
+      hasT?h('div',{},h('button',{type:'button',class:'btn btn-link btn-sm p-0 small','aria-label':'Show track '+c.track+' on the map'},c.track===c.id?'show track':'show track ('+c.track+')')):null,
+      c.r2r?h('div',{},h('a',{href:RV.safeUrl('https://www.rvdata.us/search/cruise/'+encodeURIComponent(c.r2r)),rel:'noopener',class:'small'},'R2R')):null),
+     h('td',{class:'small'},c.title),
+     h('td',{class:'text-nowrap small'},c.start||'?',h('br'),c.end||'',c.approx?h('div',{class:'text-body-secondary'},'month only'):null),
+     h('td',{class:'small'},c.route||h('span',{class:'text-body-secondary'},'not listed')),
+     h('td',{class:'small'},c.type));
+   }));
+   count.textContent=rows.length.toLocaleString()+' of '+C.length.toLocaleString()+' expeditions shown';
+   if(TK.y!==y||TK.t!==t){TK.y=y;TK.t=t;TK.apply()}
+  };
+  ysel.addEventListener('input',draw);tsel.addEventListener('input',draw);TK.redraw=draw;
+  tbody.addEventListener('click',ev=>{if(ev.target.closest('a'))return;const tr=ev.target.closest('tr[data-cid]');if(!tr)return;const cid=tr.getAttribute('data-cid');if(TK.ids.has(cid))TK.select(TK.sel===cid&&!ev.target.closest('button')?null:cid,true)});
+  const nT=C.filter(c=>c.track).length;
+  host.append(h('section',{class:'mt-5','aria-labelledby':'excr-h'},
+   h('h2',{class:'h4 mb-1',id:'excr-h'},'Expeditions (NOAA Ocean Exploration) ',h('span',{class:'text-body-secondary small fw-normal'},'(',C.length.toLocaleString(),', ',y0,'–',y1,')')),
+   h('p',{class:'small text-body-secondary'},'Expedition IDs link to the NOAA Ocean Exploration or NCEI expedition page. ',String(nT),' expeditions have a track on the map, drawn from the NCEI multibeam survey index (2008–2023) and, for 2024–2025, from ship GPS logs in the NCEI/OER navigation archives. Some surveys cover several legs. 2026 navigation has not been published yet. Types are grouped from the expedition titles.'),
+   h('div',{class:'card'},h('div',{class:'card-body'},
+    h('div',{class:'row g-2 align-items-end mb-2'},
+     h('div',{class:'col-6 col-sm-auto'},h('label',{class:'form-label fw-semibold small mb-1',for:'r2ryr'},'Year'),ysel),
+     h('div',{class:'col-6 col-sm-auto'},h('label',{class:'form-label fw-semibold small mb-1',for:'r2rtype'},'Type'),tsel),
+     h('div',{class:'col-12 col-sm'},count)),
+    h('div',{class:'table-responsive rv-scroll border rounded bg-white',style:'max-height:60vh'},h('table',{class:'table table-striped table-hover table-sm align-top mb-0'},
+     h('thead',{class:'table-light'},h('tr',{},['Expedition','Title','Dates','Route','Type'].map(x=>h('th',{scope:'col'},x)))),tbody)),
+    h('p',{class:'small text-body-secondary mt-2 mb-0'},'Sources: ',EX.source,'. NOAA data are U.S. Government works (public domain). List generated ',EX.generated,'.')))));
+  draw();
+ }
+ /* ---------- R2R sections (external, untrusted data: DOM builder + textContent + safeUrl only) ---------- */
+ /* ---------- Curated extended details (data/vessel_extra.js): DOM builder + textContent + safeUrl only ---------- */
+ function renderExtra(){
+  const str=x=>x==null?'':String(x),arr=x=>Array.isArray(x)?x:[];
+  const head=document.getElementById('vx-head');
+  if(aliased)head.append(h('div',{class:'alert alert-info small py-2','role':'note'},'Record ',reqId,' was merged into ',id,'. Old links now open this page.'));
+  const formerly=arr(X&&X.formerly).length?arr(X.formerly):arr(v.former_names);
+  if(formerly.length)head.append(h('p',{class:'lead mb-1'},'Formerly ',formerly.map(str).join(', ')));
+  const NH=arr(X&&X.name_history);
+  if(NH.length){const parts=[];NH.forEach((n,i)=>{if(i)parts.push(' → ');parts.push(h('span',{},h('strong',{},str(n.name)),' (',[str(n.years),str(n.flag),str(n.operator)].filter(Boolean).join(', '),')'))});
+   const src=RV.safeUrl(X.name_history_source);
+   head.append(h('p',{class:'small text-body-secondary mb-2'},'Name history: ',parts,src?[' · ',h('a',{href:src,rel:'noopener'},'source')]:null))}
+  /* Predecessor / successor: links when the other ship is in the registry, plain text otherwise. */
+  const B=RV.byId(),rels=arr(X&&X.relations).filter(r=>r&&(r.rel==='predecessor'||r.rel==='successor'));
+  if(rels.length){const ul=h('ul',{class:'list-unstyled small mb-2'});
+   rels.forEach(r=>{const tid=r.id==null?'':RV.resolveAlias(r.id),t=tid&&B[tid];
+    const label=r.rel==='successor'?'Successor':'Predecessor';
+    ul.append(h('li',{},h('span',{class:'badge text-bg-light border me-1'},label),str(r.text)||label,' ',t?h('a',{href:RV.vesselHref(tid)},t.name):h('span',{},str(r.name)),r.note?h('span',{class:'text-body-secondary'},' (',str(r.note),')'):null))});
+   head.append(ul)}
+  /* Photos with visible attribution (author, licence link, source link) as CC BY / BY-SA require. */
+  const PH=arr(X&&X.photos).filter(p=>p&&RV.safeUrl(p.src)&&p.author&&p.license);
+  if(PH.length){const host=document.getElementById('vx-photos');
+   const row=h('div',{class:'row g-3'});
+   PH.forEach((p,i)=>{const big=RV.safeUrl(p.src),small=RV.safeUrl(p.src_small),lic=RV.safeUrl(p.license_url),srcU=RV.safeUrl(p.source_url);
+    const img=h('img',{src:small&&i>0?small:big,class:'img-fluid rounded border',alt:str(p.alt),loading:i?'lazy':'eager',decoding:'async',width:Number.isInteger(p.width)?String(p.width):null,height:Number.isInteger(p.height)?String(p.height):null});
+    if(small&&big&&small!==big){img.setAttribute('srcset',small+' 640w, '+big+' 1200w');img.setAttribute('sizes',i?'(min-width: 992px) 33vw, 100vw':'(min-width: 992px) 66vw, 100vw')}
+    row.append(h('div',{class:i?'col-12 col-lg-4':'col-12 col-lg-8'},h('figure',{class:'figure mb-0 w-100'},img,
+     h('figcaption',{class:'figure-caption small'},str(p.caption),p.caption?h('br'):null,'Photo: ',str(p.author),' · ',lic?h('a',{href:lic,rel:'license noopener'},str(p.license)):str(p.license),srcU?[' · ',h('a',{href:srcU,rel:'noopener'},'source ('+(str(p.source_label)||'Wikimedia Commons')+')')]:null,p.changes?[' · ',str(p.changes)]:null))))});
+   host.append(h('h2',{class:'h4 mt-5 mb-3'},'Photos'),row);
+   if(X.photo_note)host.append(h('p',{class:'small text-body-secondary mt-2 mb-0'},str(X.photo_note)))}
+  /* More details: status note, identifiers, specs, equipment, history, sources. */
+  if(!X)return;
+  const more=document.getElementById('vx-more'),kids=[];
+  const link=(u,t)=>{const s=RV.safeUrl(u);return s?h('a',{href:s,rel:'noopener'},t):null};
+  const SN=X.status_note;
+  if(SN&&SN.text)kids.push(h('div',{class:'alert alert-secondary small','role':'note'},h('strong',{},'Status and recent history: '),str(SN.text),arr(SN.sources).length?[' Sources: ',arr(SN.sources).map((s,i)=>[i?'; ':'',link(s.url,str(s.title))||str(s.title)])]:null));
+  const dl=list=>{const d=h('dl',{class:'row mb-0 small'});arr(list).forEach(x=>{if(!x||!x.label)return;const src=link(x.source_url,'source');d.append(h('dt',{class:'col-5 fw-normal text-body-secondary'},str(x.label)),h('dd',{class:'col-7 mb-1'},str(x.value),x.note?h('span',{class:'text-body-secondary'},' (',str(x.note),')'):null,src?[' ',h('span',{class:'small'},src)]:null))});return d};
+  const cards=[];
+  if(arr(X.identifiers).length||arr(X.specs).length)cards.push(h('div',{class:'col-12 col-lg-6'},h('section',{class:'card h-100'},h('div',{class:'card-body'},h('h3',{class:'h5 card-title'},'More specifications'),arr(X.identifiers).length?dl(X.identifiers):null,arr(X.specs).length?dl(X.specs):null))));
+  if(arr(X.equipment).length){const body=h('div',{class:'card-body'},h('h3',{class:'h5 card-title'},'Labs and equipment'));
+   arr(X.equipment).forEach(g=>{if(!g)return;const src=link(g.source_url,'source');body.append(h('h4',{class:'h6 mt-2 mb-1'},str(g.group),src?[' ',h('span',{class:'small fw-normal'},src)]:null),h('ul',{class:'small mb-1'},arr(g.items).map(it=>h('li',{},str(it)))))});
+   cards.push(h('div',{class:'col-12 col-lg-6'},h('section',{class:'card h-100'},body)))}
+  if(cards.length)kids.push(h('div',{class:'row g-4'},cards));
+  if(arr(X.timeline).length){const tb=h('tbody');arr(X.timeline).forEach(t=>{if(!t)return;tb.append(h('tr',{},h('td',{class:'text-nowrap'},str(t.date)),h('td',{},str(t.event)),h('td',{},link(t.source_url,'source'))))});
+   kids.push(h('h3',{class:'h5 mt-4'},'History'),h('div',{class:'table-responsive'},h('table',{class:'table table-sm small bg-white border mb-0'},h('thead',{class:'table-light'},h('tr',{},h('th',{},'Date'),h('th',{},'Event'),h('th',{},'Source'))),tb)))}
+  if(arr(X.sources).length)kids.push(h('p',{class:'small text-body-secondary mt-2 mb-0'},'Sources: ',arr(X.sources).map((s,i)=>[i?' · ':'',link(s.url,str(s.title))||str(s.title)])));
+  if(kids.length)more.append(h('h2',{class:'h4 mt-5 mb-3'},'Vessel details'),...kids);
+ }
+ function r2rSource(){
+  const R=window.RV_R2R||{},f=R.fetched?new Date(String(R.fetched)):null,fd=f&&!isNaN(f)?f.toLocaleDateString(undefined,{year:'numeric',month:'short',day:'numeric'}):'unknown date';
+  return h('p',{class:'small text-body-secondary mb-0 mt-2'},'Data: ',h('a',{href:R.home||'https://www.rvdata.us/',rel:'noopener'},'Rolling Deck to Repository (R2R)'),', CC0. Fetched ',fd,'. R2R covers only the US academic research fleet (plus a few partner ships), so most vessels in this registry have no R2R record.');
+ }
+ function renderR2R(R2,legacy){
+  const TYPE={adcp:'ADCP (current profiler)',ctd:'CTD',gnss:'GNSS receiver',ins:'Inertial navigation (INS)',tsg:'Thermosalinograph (TSG)',multibeam:'Multibeam sonar',singlebeam:'Single-beam echosounder',splitbeam:'Split-beam echosounder',usbl:'USBL positioning',metstation:'Met station',timeserver:'Time server',expendableprobe:'Expendable probe (XBT)',tempprobe_water:'Water temperature probe',speedlog:'Speed log',acqsys:'Data acquisition system',oxygen:'Oxygen sensor',fluorometer:'Fluorometer',radiometer:'Radiometer',anemometer:'Anemometer',barometer:'Barometer',hygrometer:'Hygrometer',gravimeter:'Gravimeter',magnetometer:'Magnetometer',transmissometer:'Transmissometer',flowmeter:'Flow meter',winch:'Winch'};
+  const tlabel=t=>TYPE[String(t).toLowerCase()]||String(t||'Other');
+  /* a) Onboard equipment, grouped by device type */
+  const eqHost=document.getElementById('r2r-eq');
+  if(R2.eq.length){
+   const groups={};R2.eq.forEach(x=>{const k=tlabel(x.type);(groups[k]=groups[k]||[]).push(x)});
+   const hasSer=R2.eq.some(x=>x.serial),hasLoc=R2.eq.some(x=>x.location),ncol=2+(hasSer?1:0)+(hasLoc?1:0);
+   const body=h('tbody');
+   Object.keys(groups).sort((a,b)=>a.localeCompare(b)).forEach(k=>{
+    body.append(h('tr',{class:'table-light'},h('th',{colspan:ncol,scope:'rowgroup',class:'small'},k,' ',h('span',{class:'fw-normal text-body-secondary'},'(',String(groups[k].length),')'))));
+    groups[k].forEach(x=>body.append(h('tr',{},h('td',{},x.make),h('td',{},x.model),hasSer?h('td',{class:'small text-body-secondary'},x.serial):null,hasLoc?h('td',{class:'small'},x.location):null)));
+   });
+   eqHost.append(h('section',{class:'card mt-4','aria-labelledby':'eq-h'},h('div',{class:'card-body'},
+    h('h2',{class:'h5 card-title',id:'eq-h'},'Onboard equipment (R2R) ',h('span',{class:'badge bg-info-subtle text-info-emphasis align-middle'},String(R2.eq.length),' instruments')),
+    h('p',{class:'small text-body-secondary'},'Underway science instruments R2R records for this ship, by device type. Labs, winches, endurance, and safety equipment are mostly not covered.'),
+    h('div',{class:'table-responsive rv-scroll border rounded bg-white',style:'max-height:50vh'},h('table',{class:'table table-sm align-top mb-0'},
+     h('thead',{class:'table-light'},h('tr',{},h('th',{scope:'col'},'Make'),h('th',{scope:'col'},'Model'),hasSer?h('th',{scope:'col'},'Serial'):null,hasLoc?h('th',{scope:'col'},'Location'):null)),body)),
+    r2rSource())));
+  }
+  /* b) Cruise history */
+  const host=document.getElementById('r2r-cr'),C=R2.cr.slice().reverse();
+  if(!C.length)return;
+  const T=(window.RV_R2R&&RV_R2R.cruiseTypes)||{},ttxt=t=>String(T[t]||t||'').replace(/^Operational:\s*/,'');
+  const legacyStarts=new Set(legacy.map(c=>String(c.start)));
+  const yrs=C.map(c=>String(c.dep||'').slice(0,4)).filter(y=>/^\d{4}$/.test(y)),y0=yrs.reduce((a,b)=>b<a?b:a,yrs[0]||''),y1=yrs.reduce((a,b)=>b>a?b:a,yrs[0]||'');
+  const byYear={};yrs.forEach(y=>byYear[y]=(byYear[y]||0)+1);
+  const allYears=[];for(let y=+y0;y1&&y<=+y1;y++)allYears.push(String(y));
+  const maxN=Math.max(1,...Object.values(byYear));
+  const ysel=h('select',{class:'form-select',id:'r2ryr'},h('option',{value:''},'All years'),allYears.slice().reverse().filter(y=>byYear[y]).map(y=>h('option',{value:y},y,' (',String(byYear[y]),')')));
+  const types=[...new Set(C.map(c=>c.type).filter(Boolean))].sort((a,b)=>ttxt(a).localeCompare(ttxt(b)));
+  const tsel=h('select',{class:'form-select',id:'r2rtype'},h('option',{value:''},'All types'),types.map(t=>h('option',{value:t},ttxt(t))));
+  const bars=h('div',{class:'rv-ybars',role:'group','aria-label':'R2R cruises per year; select a year to filter'});
+  allYears.forEach(y=>{const n=byYear[y]||0;const b=h('button',{type:'button',class:'rv-ybar','data-y':y,title:y+': '+n+' cruise'+(n===1?'':'s'),'aria-label':y+': '+n+' cruises'},h('span',{class:'rv-ybar-n'},n?String(n):''),h('span',{class:'rv-ybar-b'}),h('span',{class:'rv-ybar-y'},"'"+y.slice(2)));b.querySelector('.rv-ybar-b').style.height=Math.round(4+56*n/maxN)+'px';if(!n)b.disabled=true;bars.append(b)});
+  const tbody=h('tbody'),count=h('span',{class:'small text-body-secondary','aria-live':'polite'});
+  const linkOrText=(href,txt,cls)=>href?h('a',{href,rel:'noopener',class:cls||null},txt):h('span',{class:cls||null},txt);
+  const P2=(window.RV_R2R&&RV_R2R.ports)||{},pn=pid=>P2[pid]?String(P2[pid][0]):'';
+  const draw=()=>{
+   const y=ysel.value,t=tsel.value;const rows=C.filter(c=>(!y||String(c.dep||'').startsWith(y))&&(!t||c.type===t));
+   tbody.replaceChildren(...rows.map(c=>{
+    const proj=RV.safeUrl(c.project_url),doi=RV.doiHref(c.doi);
+    const cid=String(c.id),hasT=TK.ids.has(cid);
+    return h('tr',{'data-cid':cid,class:(hasT?'rv-trk-row':'')+(TK.sel===cid?' table-primary':''),title:hasT?'Click to show this cruise track on the map':null},
+     h('td',{class:'text-nowrap'},linkOrText(RV.r2rCruiseHref(c.id),c.id,'fw-semibold'),hasT?h('div',{},h('button',{type:'button',class:'btn btn-link btn-sm p-0 small','aria-label':'Show track '+cid+' on the map'},'show track')):null,legacyStarts.has(String(c.dep))?h('div',{},h('span',{class:'badge text-bg-light border fw-normal',title:'A legacy schedule entry starts the same day. Not merged.'},'also in legacy list')):null),
+     h('td',{},h('div',{class:'small'},c.name),proj?h('a',{href:proj,rel:'noopener nofollow',class:'small'},'project site'):null),
+     h('td',{class:'text-nowrap small'},c.dep,h('br'),c.arr),
+     h('td',{class:'small'},pn(c.dport)||'?',' → ',pn(c.aport)||'?'),
+     h('td',{class:'small'},c.chief||h('span',{class:'text-body-secondary'},'not listed'),c.inst?h('div',{class:'text-body-secondary'},c.inst):null),
+     h('td',{class:'small'},ttxt(c.type)),
+     h('td',{class:'small text-nowrap'},doi?h('a',{href:doi,rel:'noopener'},'DOI'):''),
+     h('td',{class:'small'},(c.awards||[]).map((a,i)=>[i?h('br'):null,linkOrText(RV.safeUrl(a&&a[1]),a&&a[0])])));
+   }));
+   count.textContent=rows.length.toLocaleString()+' of '+C.length.toLocaleString()+' R2R cruises shown';
+   if(TK.y!==y||TK.t!==t){TK.y=y;TK.t=t;TK.apply()}
+   bars.querySelectorAll('.rv-ybar').forEach(b=>b.classList.toggle('active',b.getAttribute('data-y')===y));
+  };
+  ysel.addEventListener('input',draw);tsel.addEventListener('input',draw);TK.redraw=draw;
+  tbody.addEventListener('click',ev=>{if(ev.target.closest('a'))return;const tr=ev.target.closest('tr[data-cid]');if(!tr)return;const cid=tr.getAttribute('data-cid');if(TK.ids.has(cid))TK.select(TK.sel===cid&&!ev.target.closest('button')?null:cid,true)});
+  bars.addEventListener('click',ev=>{const b=ev.target.closest('.rv-ybar');if(!b||b.disabled)return;const y=b.getAttribute('data-y');ysel.value=ysel.value===y?'':y;draw()});
+  const overlap=legacy.length?C.filter(c=>legacyStarts.has(String(c.dep))).length:0;
+  host.append(h('section',{class:'mt-5','aria-labelledby':'r2rcr-h'},
+   h('h2',{class:'h4 mb-1',id:'r2rcr-h'},'Cruise history (R2R) ',h('span',{class:'text-body-secondary small fw-normal'},'(',C.length.toLocaleString(),', ',y0,'–',y1,')')),
+   h('p',{class:'small text-body-secondary'},'Separate source from the legacy list below. ',legacy.length?`${overlap.toLocaleString()} R2R cruises start on the same day as a legacy entry (marked "also in legacy list"); the two lists are shown side by side, not merged. `:'','Cruise IDs link to the R2R cruise page; DOIs are R2R cruise citations.'),
+   h('div',{class:'card'},h('div',{class:'card-body'},
+    h('div',{class:'small fw-semibold mb-1'},'Cruises per year'),
+    h('div',{class:'overflow-x-auto mb-3'},bars),
+    h('div',{class:'row g-2 align-items-end mb-2'},
+     h('div',{class:'col-6 col-sm-auto'},h('label',{class:'form-label fw-semibold small mb-1',for:'r2ryr'},'Year'),ysel),
+     h('div',{class:'col-6 col-sm-auto'},h('label',{class:'form-label fw-semibold small mb-1',for:'r2rtype'},'Cruise type'),tsel),
+     h('div',{class:'col-12 col-sm'},count)),
+    h('div',{class:'table-responsive rv-scroll border rounded bg-white',style:'max-height:60vh'},h('table',{class:'table table-striped table-hover table-sm align-top mb-0'},
+     h('thead',{class:'table-light'},h('tr',{},['Cruise','Name','Dates','Route','Chief scientist','Type','Citation','Funding'].map(x=>h('th',{scope:'col'},x)))),tbody)),
+    r2rSource()))));
+  draw();
+ }
+ function addTracks(map,fc,tools){
+  fc.features.forEach(f=>{TK.ids.add(f.properties.cruise_id);TK.byId.set(f.properties.cruise_id,f)});
+  const yrs=fc.features.map(f=>f.properties.year).filter(y=>y!=null),y0=Math.min(...yrs),y1=Math.max(...yrs);
+  const RAMP=['#2166ac','#5e3c99','#b2182b','#e66101'];
+  const color=yrs.length&&y1>y0?['interpolate',['linear'],['coalesce',['get','year'],y0],y0,RAMP[0],y0+(y1-y0)/3,RAMP[1],y0+2*(y1-y0)/3,RAMP[2],y1,RAMP[3]]:RAMP[0];
+  const before=P.length?'p':(PC.length?'r2rports':undefined);
+  map.addSource('tracks',{type:'geojson',data:fc,tolerance:0.5});
+  map.addLayer({id:'tracks',type:'line',source:'tracks',layout:{'line-join':'round','line-cap':'round'},paint:{'line-color':color,'line-width':['case',['boolean',['feature-state','hover'],false],3.5,1.6],'line-opacity':0.75}},before);
+  map.addLayer({id:'tracks-hl',type:'line',source:'tracks',filter:['==',['get','cruise_id'],''],layout:{'line-join':'round','line-cap':'round'},paint:{'line-color':'#111','line-width':4.5,'line-opacity':0.95}},before);
+  /* wide invisible layer so lines are easy to tap on a phone */
+  map.addLayer({id:'tracks-hit',type:'line',source:'tracks',paint:{'line-color':'#000','line-width':14,'line-opacity':0}},before);
+  const legend=h('span',{class:'d-inline-flex align-items-center gap-1'},String(y0),h('span',{class:'rv-trk-ramp','aria-hidden':'true'}),String(y1));
+  legend.querySelector('.rv-trk-ramp').style.background='linear-gradient(90deg,'+RAMP.join(',')+')';
+  const shown=h('span',{class:'text-body-secondary','aria-live':'polite'});
+  const tcb=h('input',{class:'form-check-input',type:'checkbox',id:'r2rtracks',checked:true});
+  const allBtn=h('button',{type:'button',class:'btn btn-sm btn-outline-secondary',id:'alltracks'},'Fit all tracks');
+  const THIS_YEAR=new Date().getFullYear();
+  const yearList=[...new Set(fc.features.map(f=>f.properties.year).filter(y=>Number.isInteger(y)&&y>1900&&y<=THIS_YEAR))].sort((a,b)=>b-a);
+  const yMap=h('select',{class:'form-select form-select-sm',id:'mapyr','aria-label':'Track year',style:'width:auto'},h('option',{value:''},'All years'),yearList.map(y=>h('option',{value:String(y)},String(y))));
+  if(TK.y){if(!yearList.some(y=>String(y)===TK.y))yMap.append(h('option',{value:TK.y},TK.y));yMap.value=TK.y}
+  tools.prepend(h('div',{class:'d-flex flex-wrap align-items-center gap-2'},h('div',{class:'form-check form-switch mb-0'},tcb,h('label',{class:'form-check-label',for:'r2rtracks'},trackSrc==='ncei'?'Cruise tracks (NCEI)':'Cruise tracks (R2R)')),h('label',{class:'form-label fw-semibold small mb-0',for:'mapyr'},'Year'),yMap,legend,shown,allBtn));
+  const bboxOf=feats=>{let a=180,b=90,c=-180,d=-90;feats.forEach(f=>f.geometry.coordinates.forEach(l=>l.forEach(p=>{if(p[0]<a)a=p[0];if(p[0]>c)c=p[0];if(p[1]<b)b=p[1];if(p[1]>d)d=p[1]})));
+   if(c-a>180){a=180;c=-180;feats.forEach(f=>f.geometry.coordinates.forEach(l=>l.forEach(p=>{const x=p[0]<0?p[0]+360:p[0];if(x<a)a=x;if(x>c)c=x})))}
+   return [[a,Math.max(-85,b)],[c,Math.min(85,d)]]};
+  const fit=feats=>{if(!feats.length)return;const bb=bboxOf(feats);map.fitBounds(bb,{padding:40,maxZoom:10,duration:600})};
+  const visible=()=>fc.features.filter(f=>(!TK.y||String(f.properties.year)===TK.y)&&(!TK.t||f.properties.type===TK.t));
+  const syncYearSelects=()=>{
+   const want=TK.y||'';
+   [yMap,document.getElementById('r2ryr')].forEach(sel=>{
+    if(!sel)return;
+    if(want&&![...sel.options].some(o=>o.value===want))sel.append(h('option',{value:want},want));
+    if(sel.value!==want)sel.value=want;
+   });
+  };
+  yMap.addEventListener('input',()=>{
+   const y=yMap.value,sel=document.getElementById('r2ryr');
+   if(sel){if(y&&![...sel.options].some(o=>o.value===y))sel.append(h('option',{value:y},y));if(sel.value!==y){sel.value=y;sel.dispatchEvent(new Event('input'));return}}
+   if(TK.y!==y){TK.y=y;TK.apply()}
+  });
+  TK.apply=()=>{
+   syncYearSelects();
+   const cond=['all'];if(TK.y)cond.push(['==',['get','year'],Number(TK.y)]);if(TK.t)cond.push(['==',['get','type'],TK.t]);
+   const flt=cond.length>1?cond:null;map.setFilter('tracks',flt);map.setFilter('tracks-hit',flt)
+   const vis=visible();shown.textContent=vis.length+' of '+fc.features.length+' tracks';
+   if(TK.sel&&!vis.some(f=>f.properties.cruise_id===TK.sel))TK.select(null);
+   if((TK.y||TK.t)&&tcb.checked&&!TK.sel)fit(vis);
+   if(typeof TK.filterPorts==='function')TK.filterPorts();
+   if(typeof TK.filterSailwx==='function')TK.filterSailwx();
+  };
+  TK.select=(cid,zoom)=>{
+   TK.sel=cid&&TK.byId.has(cid)?cid:null;
+   map.setFilter('tracks-hl',['==',['get','cruise_id'],TK.sel||'']);
+   map.setPaintProperty('tracks','line-opacity',TK.sel?0.3:0.75);
+   if(TK.sel){if(!tcb.checked){tcb.checked=true;setVis(true)}if(zoom){fit([TK.byId.get(TK.sel)]);const m=document.getElementById('map');if(m&&m.scrollIntoView)m.scrollIntoView({behavior:'smooth',block:'center'})}}
+   TK.redraw();
+  };
+  const setVis=on=>['tracks','tracks-hl','tracks-hit'].forEach(l=>map.setLayoutProperty(l,'visibility',on?'visible':'none'));
+  tcb.addEventListener('input',()=>setVis(tcb.checked));
+  allBtn.addEventListener('click',()=>{TK.select(null);fit(visible())});
+  const popupFor=(f,more)=>{const p=f.properties;return h('div',{class:'small'},h('strong',{},p.cruise_id),p.year!=null?h('span',{class:'text-body-secondary'},' (',String(p.year),')'):null,h('br'),p.dates,
+   p.route?[h('br'),p.route]:null,h('br'),trackSrc==='ncei'?'Chief scientist (NCEI): ':'Chief scientist: ',p.chief_scientist||'not listed',more?[h('br'),h('span',{class:'text-body-secondary'},'+',String(more),' more track',more===1?'':'s',' at this spot')]:null,
+   h('div',{class:'mt-1'},h('button',{type:'button',class:'btn btn-link p-0 align-baseline',style:'font-size:inherit','data-cid':p.cruise_id},'Highlight'),' · ',trackSrc==='ncei'?(p.url?h('a',{href:p.url,rel:'noopener'},'NCEI page'):h('span',{class:'text-body-secondary'},'no NCEI page')):((u=>u?h('a',{href:u,rel:'noopener'},'R2R cruise page'):h('span',{class:'text-body-secondary'},'no R2R page'))(RV.r2rCruiseHref(p.cruise_id)))))};
+  map.on('click','tracks-hit',ev=>{
+   const hits=[...new Set((ev.features||[]).map(f=>String(f.properties&&f.properties.cruise_id)))].filter(x=>TK.byId.has(x));if(!hits.length)return;
+   if(TK.sel&&hits.includes(TK.sel))hits.sort((a,b)=>(b===TK.sel)-(a===TK.sel));
+   const el=popupFor(TK.byId.get(hits[0]),hits.length-1);
+   el.querySelector('button').addEventListener('click',()=>TK.select(hits[0],false));
+   new maplibregl.Popup({maxWidth:'280px'}).setLngLat(ev.lngLat).setDOMContent(el).addTo(map);
+  });
+  let hov=null;
+  map.on('mousemove','tracks-hit',ev=>{const f=ev.features&&ev.features[0];map.getCanvas().style.cursor='pointer';if(!f||f.id===hov)return;if(hov!=null)map.setFeatureState({source:'tracks',id:hov},{hover:false});hov=f.id;map.setFeatureState({source:'tracks',id:hov},{hover:true})});
+  map.on('mouseleave','tracks-hit',()=>{map.getCanvas().style.cursor='';if(hov!=null)map.setFeatureState({source:'tracks',id:hov},{hover:false});hov=null});
+  TK.apply();TK.redraw();
+  if(!PC.length&&trackSrc==='ncei')fit(fc.features);
+ }
+ function drawMap(){
+  /* Initial fit uses only layers that start visible (port calls and homeport), never hidden Sailwx dots. */
+  const visPts=PC.map(p=>[p.lon,p.lat]).concat(HOME?[[HOME.lon,HOME.lat]]:[]).concat(XP.map(p=>[p.lon,p.lat]));
+  const mapOpts={container:'map',style:'https://tiles.openfreemap.org/styles/liberty'};
+  if(visPts.length){
+   const lons=visPts.map(p=>p[0]),lats=visPts.map(p=>p[1]);
+   mapOpts.bounds=[[Math.max(-180,Math.min(...lons)-1),Math.max(-85,Math.min(...lats)-1)],[Math.min(180,Math.max(...lons)+1),Math.min(85,Math.max(...lats)+1)]];
+   mapOpts.fitBoundsOptions={padding:48};
+  }else{
+   /* Sailwx-only vessel with no homeport: world view until the user turns positions on. */
+   mapOpts.center=[-30,30];mapOpts.zoom=1.6;
+  }
+  const map=new maplibregl.Map(mapOpts);
+  const tools=document.getElementById('maptools');
+  const yearOf=p=>{const y=String(p[3]||'').slice(0,4);return /^\d{4}$/.test(y)?+y:null};
+  const hasSailDates=P.some(p=>yearOf(p)!=null);
+  let scb=null,sailCount=null;
+  if(P.length){
+   scb=h('input',{class:'form-check-input',type:'checkbox',id:'sailwx'});
+   sailCount=h('span',{class:'text-body-secondary','aria-live':'polite'});
+   tools.append(h('div',{class:'form-check form-switch mb-0'},scb,h('label',{class:'form-check-label',for:'sailwx'},h('span',{class:'dot',style:'background:#0b5fa5'}),' ',h('span',{class:'dot',style:'background:#c0392b'}),' Sailwx daily positions'),sailCount));
+   /* Year drop-down for vessels that have dated Sailwx points but no R2R tracks (Sharp/Atlantis get theirs from addTracks). */
+   if(!trackFile&&hasSailDates){
+    const THIS_YEAR=new Date().getFullYear();
+    const yearList=[...new Set(P.map(yearOf).filter(y=>y!=null&&y>1900&&y<=THIS_YEAR))].sort((a,b)=>b-a);
+    const yMap=h('select',{class:'form-select form-select-sm',id:'mapyr','aria-label':'Position year',style:'width:auto'},h('option',{value:''},'All years'),yearList.map(y=>h('option',{value:String(y)},String(y))));
+    yMap.addEventListener('input',()=>{TK.y=yMap.value;TK.apply()});
+    const prevApply=TK.apply;
+    TK.apply=()=>{prevApply();if(typeof TK.filterSailwx==='function')TK.filterSailwx()};
+    tools.append(h('label',{class:'form-label fw-semibold small mb-0',for:'mapyr'},'Year'),yMap);
+   }
+  }
+  let cb=null;
+  if(PC.length){
+   cb=h('input',{class:'form-check-input',type:'checkbox',id:'r2rports',checked:true});
+   tools.append(h('div',{class:'form-check form-switch mb-0'},cb,h('label',{class:'form-check-label',for:'r2rports'},h('span',{class:'dot',style:'background:#f39c12;border:2px solid #7a4a00'}),' R2R port calls (',String(PC.length),' ports, from cruise departure and arrival ports)')));
+  }
+  if(HOME){
+   /* Homeport marker: short user-facing popup (name, country, WPI / UN/LOCODE). Existing berth coordinates stay put. */
+   const pin=h('div',{class:'rv-home-pin',title:'Homeport','aria-label':'Homeport'},'⚓');
+   const cap=RV.wpiCaption(HOME);
+   const pop=new maplibregl.Popup({offset:14}).setDOMContent(h('div',{},h('strong',{},'Homeport'),h('br'),HOME.name||'',HOME.country?[h('br'),HOME.country]:null,cap?[h('br'),h('span',{class:'small'},cap)]:null,!cap&&HOME.supplement?[h('br'),h('span',{class:'text-body-secondary'},'Project supplement (not in the World Port Index)')]:null,HOME.note&&HOME.kind==='project supplement'?[h('br'),h('span',{class:'small text-body-secondary'},HOME.note)]:null));
+   new maplibregl.Marker({element:pin,anchor:'center'}).setLngLat([HOME.lon,HOME.lat]).setPopup(pop).addTo(map);
+   const zb=h('button',{type:'button',class:'btn btn-sm btn-outline-secondary',id:'zoomhome'},'Zoom to homeport');
+   zb.addEventListener('click',()=>map.jumpTo({center:[HOME.lon,HOME.lat],zoom:HOME.berth?16.5:12}));
+   tools.prepend(h('span',{class:'d-inline-flex align-items-center gap-1'},h('span',{class:'rv-home-pin rv-home-pin-sm','aria-hidden':'true'},'⚓'),' Homeport',HOME.name?': '+HOME.name:'',HOME.supplement?' (project supplement)':''),zb);
+  }
+  XP.forEach(p=>{
+   /* Other ports from data/vessel_extra.js (e.g. former homeport): WPI location, short popup. */
+   const cap=RV.wpiCaption(p);
+   const pin=h('div',{class:'rv-home-pin rv-home-pin-alt',title:p.role,'aria-label':p.role},'⚓');
+   new maplibregl.Marker({element:pin,anchor:'center'}).setLngLat([p.lon,p.lat]).setPopup(new maplibregl.Popup({offset:14}).setDOMContent(h('div',{},h('strong',{},p.role),h('br'),p.name,p.country?[h('br'),p.country]:null,cap?[h('br'),h('span',{class:'small'},cap)]:null))).addTo(map);
+   tools.append(h('span',{class:'d-inline-flex align-items-center gap-1'},h('span',{class:'rv-home-pin rv-home-pin-sm rv-home-pin-alt','aria-hidden':'true'},'⚓'),' ',p.role,': ',p.name));
+  });
+  const portN=p=>{
+   const rows=p.yt||[];let n=0,y0='',y1='';
+   for(const r of rows){if(TK.y&&r.y!==TK.y)continue;if(TK.t&&r.t!==TK.t)continue;n++;if(r.y&&/^\d{4}$/.test(r.y)){if(!y0||r.y<y0)y0=r.y;if(r.y>y1)y1=r.y}}
+   return {n,y0,y1};
+  };
+  const portGJ=()=>({type:'FeatureCollection',features:PC.map((p,i)=>{const s=portN(p);return s.n?{type:'Feature',properties:{i,n:s.n},geometry:{type:'Point',coordinates:[p.lon,p.lat]}}:null}).filter(Boolean)});
+  const portPopup=p=>{
+   const s=portN(p),cap=RV.wpiCaption(p),yrs=!s.n?'':(s.y0&&s.y1&&s.y0!==s.y1?s.y0+'–'+s.y1:s.y0||s.y1||'');
+   return h('div',{},h('strong',{},p.name||p.port||''),p.country?[h('br'),p.country]:null,cap?[h('br'),h('span',{class:'small'},cap)]:null,!cap&&p.supplement?[h('br'),h('span',{class:'text-body-secondary'},'Project supplement (not in the World Port Index)')]:null,h('br'),String(s.n),' R2R departures/arrivals',yrs?[h('br'),yrs]:null);
+  };
+  map.on('load',()=>{
+   tracksReady.then(fc=>{try{if(fc&&fc.features.length)addTracks(map,fc,tools)}catch(err){console.error('tracks',err)}});
+   if(P.length){
+    const sailGJ=()=>({type:'FeatureCollection',features:P.map(p=>{
+     const y=yearOf(p);if(hasSailDates&&TK.y&&y!==Number(TK.y))return null;
+     return {type:'Feature',properties:{d:p[3],k:p[4],year:y},geometry:{type:'Point',coordinates:[p[2],p[1]]}};
+    }).filter(Boolean)});
+    const updateSailCount=()=>{if(!sailCount)return;const n=sailGJ().features.length;sailCount.textContent=hasSailDates&&TK.y?(' ('+n+' of '+P.length+' days)'):(' ('+P.length.toLocaleString()+' days)')};
+    const fitSail=()=>{
+     const pts=sailGJ().features.map(f=>f.geometry.coordinates).concat(HOME?[[HOME.lon,HOME.lat]]:[]);
+     if(!pts.length)return;
+     const lons=pts.map(p=>p[0]),lats=pts.map(p=>p[1]);
+     map.fitBounds([[Math.max(-180,Math.min(...lons)-1),Math.max(-85,Math.min(...lats)-1)],[Math.min(180,Math.max(...lons)+1),Math.min(85,Math.max(...lats)+1)]],{padding:60,maxZoom:10,duration:600});
+    };
+    map.addSource('p',{type:'geojson',data:sailGJ()});
+    map.addLayer({id:'p',type:'circle',source:'p',layout:{visibility:'none'},paint:{'circle-radius':3,'circle-color':['match',['get','k'],'v','#c0392b','#0b5fa5'],'circle-opacity':.7}});
+    updateSailCount();
+    scb.addEventListener('input',()=>{
+     map.setLayoutProperty('p','visibility',scb.checked?'visible':'none');
+     /* If this ship has nothing else on the map (no R2R tracks or port calls), fit to the positions when they are turned on. */
+     if(scb.checked&&!PC.length&&!trackFile)fitSail();
+     else if(!scb.checked&&!PC.length&&!trackFile&&HOME)map.jumpTo({center:[HOME.lon,HOME.lat],zoom:HOME.berth?16.5:12});
+    });
+    TK.filterSailwx=()=>{if(map.getSource('p'))map.getSource('p').setData(sailGJ());updateSailCount();};
+   }
+   if(PC.length){
+    map.addSource('r2rports',{type:'geojson',data:portGJ()});
+    map.addLayer({id:'r2rports',type:'circle',source:'r2rports',paint:{'circle-radius':['interpolate',['linear'],['get','n'],1,5,50,10,600,18],'circle-color':'#f39c12','circle-opacity':.85,'circle-stroke-color':'#7a4a00','circle-stroke-width':1.5}});
+    map.on('click','r2rports',ev=>{const f=ev.features&&ev.features[0];const p=f&&PC[f.properties.i];if(!p)return;
+     new maplibregl.Popup().setLngLat([p.lon,p.lat]).setDOMContent(portPopup(p)).addTo(map)});
+    map.on('mouseenter','r2rports',()=>{map.getCanvas().style.cursor='pointer'});map.on('mouseleave','r2rports',()=>{map.getCanvas().style.cursor=''});
+    cb.addEventListener('input',()=>map.setLayoutProperty('r2rports','visibility',cb.checked?'visible':'none'));
+    TK.filterPorts=()=>{if(map.getSource('r2rports'))map.getSource('r2rports').setData(portGJ())};
+   }
+  });
+ }
+
+});
+</script></body></html>

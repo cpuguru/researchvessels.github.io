@@ -1,0 +1,419 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "https://researchvessels.org/data/schema/equipment.schema.json",
+ "title": "ResearchVessels.org equipment record and change submission",
+ "description": "data/equipment.json (rv-equipment/1) and operator change submissions (rv-equipment-change/1). SI units; notes keyed by language code; provenance on every value. Authoritative validation: tools/equipment_lib.py.",
+ "$defs": {
+  "prov": {
+   "type": "object",
+   "properties": {
+    "verification": {
+     "enum": [
+      "operator-verified",
+      "compiled"
+     ]
+    },
+    "source": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "maxLength": 300
+    },
+    "source_url": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "pattern": "^https?://"
+    },
+    "by_role": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "maxLength": 80
+    },
+    "at": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "format": "date"
+    }
+   }
+  },
+  "item": {
+   "type": "object",
+   "required": [
+    "id",
+    "category",
+    "name",
+    "status",
+    "updated_at"
+   ],
+   "additionalProperties": false,
+   "properties": {
+    "id": {
+     "type": "string",
+     "pattern": "^[A-Za-z0-9._-]{1,64}$"
+    },
+    "category": {
+     "enum": [
+      "acoustics",
+      "ctd",
+      "winches",
+      "handling",
+      "labs",
+      "vehicles",
+      "underway",
+      "comms",
+      "other"
+     ]
+    },
+    "category_other": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "maxLength": 60
+    },
+    "name": {
+     "type": "string",
+     "minLength": 1,
+     "maxLength": 120
+    },
+    "make": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "maxLength": 80
+    },
+    "model": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "maxLength": 80
+    },
+    "l22": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "pattern": "^TOOL[0-9]{4}$"
+    },
+    "l05": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "quantity": {
+     "type": [
+      "integer",
+      "null"
+     ],
+     "minimum": 1,
+     "maximum": 999
+    },
+    "specs": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "maxLength": 300
+    },
+    "measure": {
+     "type": [
+      "object",
+      "null"
+     ],
+     "properties": {
+      "param": {
+       "enum": [
+        "swl",
+        "wire_length",
+        "wire_diameter",
+        "depth_rating",
+        "frequency",
+        "area",
+        "volume",
+        "power"
+       ]
+      },
+      "value_si": {
+       "type": "number",
+       "minimum": 0
+      },
+      "unit_si": {
+       "type": "string"
+      },
+      "display_unit": {
+       "type": [
+        "string",
+        "null"
+       ]
+      }
+     }
+    },
+    "status": {
+     "enum": [
+      "installed",
+      "planned",
+      "removed"
+     ]
+    },
+    "notes": {
+     "type": "object",
+     "maxProperties": 4,
+     "propertyNames": {
+      "pattern": "^[a-z]{2,3}(-[A-Za-z0-9]{2,8})?$"
+     },
+     "additionalProperties": {
+      "type": "string",
+      "maxLength": 1000
+     }
+    },
+    "notes_original_lang": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "updated_at": {
+     "type": "string",
+     "format": "date"
+    },
+    "updated_by_role": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "maxLength": 80
+    },
+    "prov": {
+     "$ref": "#/$defs/prov"
+    }
+   }
+  },
+  "specField": {
+   "type": "object",
+   "required": [
+    "value"
+   ],
+   "properties": {
+    "value": {
+     "type": [
+      "number",
+      "string"
+     ]
+    },
+    "display_unit": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "prov": {
+     "$ref": "#/$defs/prov"
+    }
+   }
+  },
+  "contact": {
+   "type": "object",
+   "required": [
+    "role"
+   ],
+   "properties": {
+    "role": {
+     "enum": [
+      "marine_operations",
+      "scheduling",
+      "science_support",
+      "general"
+     ]
+    },
+    "email": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "maxLength": 254
+    },
+    "url": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "pattern": "^https?://"
+    },
+    "prov": {
+     "$ref": "#/$defs/prov"
+    }
+   }
+  },
+  "vesselRecord": {
+   "type": "object",
+   "properties": {
+    "vessel_id": {
+     "type": "string",
+     "pattern": "^MV-[0-9]{4}$"
+    },
+    "ices_code": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "pattern": "^[0-9A-Z]{4}$"
+    },
+    "last_operator_verified": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "format": "date"
+    },
+    "profile": {
+     "type": "object",
+     "additionalProperties": {
+      "$ref": "#/$defs/specField"
+     }
+    },
+    "contacts": {
+     "type": "array",
+     "maxItems": 12,
+     "items": {
+      "$ref": "#/$defs/contact"
+     }
+    },
+    "items": {
+     "type": "array",
+     "maxItems": 400,
+     "items": {
+      "$ref": "#/$defs/item"
+     }
+    },
+    "transfers": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "properties": {
+       "date": {
+        "type": "string"
+       },
+       "from_operator": {
+        "type": "string"
+       },
+       "to_operator": {
+        "type": "string"
+       },
+       "note": {
+        "type": "string"
+       },
+       "source_url": {
+        "type": "string"
+       }
+      }
+     }
+    }
+   }
+  },
+  "submission": {
+   "type": "object",
+   "required": [
+    "schema",
+    "submission_id",
+    "vessel_id",
+    "submitter",
+    "items"
+   ],
+   "properties": {
+    "schema": {
+     "const": "rv-equipment-change/1"
+    },
+    "submission_id": {
+     "type": "string",
+     "pattern": "^sub-[0-9]{8}-[0-9a-f]{12}$"
+    },
+    "vessel_id": {
+     "type": "string"
+    },
+    "submitter": {
+     "type": "object",
+     "description": "PRIVATE: kept in the review queue, never published",
+     "properties": {
+      "role": {
+       "type": "string"
+      },
+      "email": {
+       "type": "string"
+      },
+      "email_domain": {
+       "type": "string"
+      },
+      "notes_language": {
+       "type": "string"
+      }
+     }
+    },
+    "verify_all": {
+     "type": "boolean"
+    },
+    "core_changes": {
+     "type": "array"
+    },
+    "profile_changes": {
+     "type": "array"
+    },
+    "contacts": {
+     "type": [
+      "object",
+      "null"
+     ]
+    },
+    "items": {
+     "type": "object",
+     "properties": {
+      "added": {
+       "type": "array",
+       "items": {
+        "$ref": "#/$defs/item"
+       }
+      },
+      "changed": {
+       "type": "array"
+      },
+      "removed": {
+       "type": "array"
+      }
+     }
+    }
+   }
+  }
+ },
+ "oneOf": [
+  {
+   "type": "object",
+   "required": [
+    "schema",
+    "vessels"
+   ],
+   "properties": {
+    "schema": {
+     "const": "rv-equipment/1"
+    },
+    "vessels": {
+     "type": "object",
+     "additionalProperties": {
+      "$ref": "#/$defs/vesselRecord"
+     }
+    }
+   }
+  },
+  {
+   "$ref": "#/$defs/submission"
+  }
+ ]
+}

@@ -1,0 +1,69 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' blob: https://unpkg.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdn.jsdelivr.net; img-src 'self' data: blob: https://tiles.openfreemap.org; worker-src blob:; child-src blob:; connect-src 'self' https://tiles.openfreemap.org https://unpkg.com; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'">
+<title>Where were ships? · ResearchVessels.org</title><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32"><link rel="apple-touch-icon" href="assets/apple-touch-icon.png" sizes="180x180">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/css/bootstrap.min.css" integrity="sha384-yEPZ7jP9S0QKiUQ0m3jjsO4ProIW7wvR9gXkI7JOGa2XVsw53Yke2bsdkBbjmmiX" crossorigin="anonymous">
+<link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet" integrity="sha384-MinO0mNliZ3vwppuPOUnGa+iq619pfMhLVUXfC4LHwSCvF9H+6P/KO4Q7qBOYV5V" crossorigin="anonymous">
+<link rel="stylesheet" href="assets/style.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/js/bootstrap.bundle.min.js" integrity="sha384-WyOxWvTyr1QaMPfiPJSv76iReVthorl5uWlFtZPyK0IEB0hGzo9y5Bp9mYanr8Bu" crossorigin="anonymous" defer></script>
+<script src="assets/app.js"></script><script src="assets/external-links.js"></script><script src="data/vessels.js"></script><script src="data/cruises.js"></script><script src="data/positions.js"></script></head>
+<body class="d-flex flex-column min-vh-100 bg-body-tertiary">
+<main id="content" class="container py-4 flex-grow-1">
+<h1 class="mb-2">Where were ships?</h1>
+<p class="lead text-body-secondary">Draw an area and choose years to see which research ships were there, what cruises they ran, and where to look for the data.</p>
+<div class="alert alert-warning small" role="note"><strong>Historical coarse positions.</strong> No live or modern AIS tracks are loaded yet. These dots are one position per ship per day for 2008-2014, from the Sailwx.info export. <span style="color:#c0392b">Red</span> = ship weather (VOS) reports, rounded to a 0.1° grid (about 6 nm). <span style="color:#0b5fa5">Blue</span> = AIS-like positions (shown at 0.01°). Good for "was it here?", not for survey lines.</div>
+<div class="row g-2 align-items-end mb-3">
+ <div class="col-6 col-sm-3 col-lg-auto"><label class="form-label fw-semibold small mb-1" for="y0">From year</label><select class="form-select" id="y0"></select></div><div class="col-6 col-sm-3 col-lg-auto"><label class="form-label fw-semibold small mb-1" for="y1">To year</label><select class="form-select" id="y1"></select></div>
+ <div class="col-12 col-sm-6 col-lg-auto"><label class="form-label fw-semibold small mb-1" for="kind">Position type</label><select class="form-select" id="kind"><option value="">Both</option><option value="v">Weather reports (0.1°)</option><option value="a">AIS-like</option></select></div>
+ <div class="col-auto"><button id="draw" type="button" class="btn btn-primary" aria-pressed="false">Draw an area</button></div><div class="col-auto"><button id="clear" type="button" class="btn btn-outline-secondary">Clear area</button></div>
+ <div class="col-12 col-lg legend pb-2"><span><i class="dot" style="background:#c0392b"></i>VOS weather report</span><span><i class="dot" style="background:#0b5fa5"></i>AIS-like</span></div>
+</div>
+<div class="row g-3"><div class="col-12 col-lg-8"><div id="map" role="application" aria-label="Map of historical research vessel positions. Use the Draw an area button, then drag on the map."></div></div>
+<div class="col-12 col-lg-4"><aside class="card rv-side" aria-live="polite"><div class="card-body" id="results"><h2 class="h5">Results</h2><p class="text-body-secondary">Click <strong>Draw an area</strong>, then drag a box on the map. Or try a preset:</p>
+<p class="d-flex flex-wrap gap-2 mb-0"><button type="button" class="btn btn-sm btn-outline-primary" data-bbox="-76,36,-72,40">Mid-Atlantic Bight</button> <button type="button" class="btn btn-sm btn-outline-primary" data-bbox="5,53.5,9,56">German Bight</button> <button type="button" class="btn btn-sm btn-outline-primary" data-bbox="-160,18,-154,23">Hawaii</button></p></div></aside></div></div>
+<p class="small text-body-secondary mt-3">A full version runs this as a PostGIS spatial query (<code>ST_Intersects(track_lines.geom, :polygon)</code>) and links cruises to dataset DOIs at NCEI, R2R, BCO-DMO, and ERDDAP.</p>
+</main>
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js" integrity="sha384-SYKAG6cglRMN0RVvhNeBY0r3FYKNOJtznwA0v7B5Vp9tr31xAHsZC0DqkQ/pZDmj" crossorigin="anonymous"></script>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+ const $=id=>document.getElementById(id),e=RV.esc,VB=RV.byId(),P=window.RV_POSITIONS?RV_POSITIONS.points:[];
+ const years=[...new Set(P.map(p=>String(p[3]).slice(0,4)))].sort();
+ years.forEach(y=>{$('y0').insertAdjacentHTML('beforeend',`<option value="${e(y)}">${e(y)}</option>`);$('y1').insertAdjacentHTML('beforeend',`<option value="${e(y)}">${e(y)}</option>`)});
+ $('y0').value=years[0];$('y1').value=years[years.length-1];
+ let bbox=null;
+ if(!window.maplibregl){$('map').textContent='';const p=document.createElement('p');p.className='p-3';p.textContent='The map library could not load (no internet?). Area search still works from the presets.';$('map').append(p)}
+ const map=window.maplibregl?new maplibregl.Map({container:'map',style:'https://tiles.openfreemap.org/styles/liberty',center:[-30,30],zoom:1.6}):null;
+ const filt=()=>{const y0=$('y0').value,y1=$('y1').value,k=$('kind').value;return P.filter(p=>{const y=String(p[3]).slice(0,4);return y>=y0&&y<=y1&&(!k||p[4]===k)})};
+ const gj=pts=>({type:'FeatureCollection',features:pts.map(p=>({type:'Feature',properties:{id:p[0],d:p[3],k:p[4]},geometry:{type:'Point',coordinates:[p[2],p[1]]}}))});
+ const boxgj=b=>({type:'FeatureCollection',features:b?[{type:'Feature',geometry:{type:'Polygon',coordinates:[[[b[0],b[1]],[b[2],b[1]],[b[2],b[3]],[b[0],b[3]],[b[0],b[1]]]]}}]:[]});
+ function refresh(){const pts=filt();if(map&&map.getSource('p')){map.getSource('p').setData(gj(pts));map.getSource('box').setData(boxgj(bbox))}if(bbox)results(pts)}
+ function results(pts){
+  const [x0,y0,x1,y1]=bbox,inb=pts.filter(p=>p[2]>=x0&&p[2]<=x1&&p[1]>=y0&&p[1]<=y1),g={};
+  inb.forEach(p=>{(g[p[0]]=g[p[0]]||{n:0,a:p[3],b:p[3]});const r=g[p[0]];r.n++;if(p[3]<r.a)r.a=p[3];if(p[3]>r.b)r.b=p[3]});
+  const ships=Object.entries(g).sort((a,b)=>b[1].n-a[1].n);
+  $('results').innerHTML=`<h2 class="h5">${ships.length} ship${ships.length===1?'':'s'} in this area</h2><p class="small text-body-secondary">${x0.toFixed(1)}°, ${y0.toFixed(1)}° to ${x1.toFixed(1)}°, ${y1.toFixed(1)}° · ${e($('y0').value)}-${e($('y1').value)} · ${inb.length.toLocaleString()} ship-days</p>`+
+  (ships.length?ships.map(([id,r])=>{const v=VB[id]||{name:id};const cr=RV.cruisesFor(id).filter(c=>(c.end||c.start)>=r.a&&c.start<=r.b);
+   const ncei=RV.nceiHref(v.name,r.a,r.b,`${y1},${x0},${y0},${x1}`);
+   return `<div class="border-top py-2"><a href="${e(RV.vesselHref(id))}"><strong>${e(v.name)}</strong></a> <span class="small text-body-secondary">${e(v.country||'')}</span><br><span class="small">${r.n} days here · ${e(r.a)} to ${e(r.b)}</span>${v.operator?`<br><span class="small text-body-secondary">${e(v.operator)}</span>`:''}
+   ${cr.length?`<details><summary class="small">${cr.length} scheduled cruise${cr.length>1?'s':''} in that period</summary><ul class="small mb-1">${cr.slice(0,8).map(c=>`<li>${e(c.start)}${c.end?' to '+e(c.end):''}: ${e(c.area||'')} ${c.discipline?'· '+e(c.discipline):''} ${c.agency?'· '+e(c.agency):''}</li>`).join('')}${cr.length>8?'<li>…</li>':''}</ul></details>`:''}
+   ${ncei?`<div class="small"><a href="${e(ncei)}"${RV.extAttrs(ncei)}>Search NCEI for data</a></div>`:''}</div>`}).join(''):'<p class="text-body-secondary">No historical positions in this box for those years.</p>');
+ }
+ if(map){map.on('load',()=>{map.addSource('p',{type:'geojson',data:gj(filt())});
+  map.addLayer({id:'p',type:'circle',source:'p',paint:{'circle-radius':['interpolate',['linear'],['zoom'],1,1.5,6,3.5],'circle-color':['match',['get','k'],'v','#c0392b','#0b5fa5'],'circle-opacity':.6}});
+  map.addSource('box',{type:'geojson',data:boxgj(null)});map.addLayer({id:'box',type:'fill',source:'box',paint:{'fill-color':'#f59e0b','fill-opacity':.15}});map.addLayer({id:'boxl',type:'line',source:'box',paint:{'line-color':'#b45309','line-width':2}});
+  map.on('click','p',ev=>{const f=ev.features[0];const v=VB[f.properties.id]||{name:f.properties.id};new maplibregl.Popup().setLngLat(ev.lngLat).setHTML(RV.positionPopupHtml(v,f.properties)).addTo(map)});
+  map.on('mouseenter','p',()=>map.getCanvas().style.cursor='pointer');map.on('mouseleave','p',()=>map.getCanvas().style.cursor='');
+ });
+ let drawing=false,start=null;
+ $('draw').addEventListener('click',()=>{drawing=!drawing;$('draw').setAttribute('aria-pressed',drawing);$('draw').classList.toggle('active',drawing);$('draw').textContent=drawing?'Drag on the map…':'Draw an area';drawing?map.dragPan.disable():map.dragPan.enable();map.getCanvas().style.cursor=drawing?'crosshair':''});
+ map.on('mousedown',ev=>{if(!drawing)return;start=ev.lngLat});
+ map.on('mousemove',ev=>{if(!drawing||!start)return;const b=[Math.min(start.lng,ev.lngLat.lng),Math.min(start.lat,ev.lngLat.lat),Math.max(start.lng,ev.lngLat.lng),Math.max(start.lat,ev.lngLat.lat)];map.getSource('box').setData(boxgj(b))});
+ map.on('mouseup',ev=>{if(!drawing||!start)return;bbox=[Math.min(start.lng,ev.lngLat.lng),Math.min(start.lat,ev.lngLat.lat),Math.max(start.lng,ev.lngLat.lng),Math.max(start.lat,ev.lngLat.lat)];start=null;$('draw').click();refresh()});
+ }
+ document.addEventListener('click',ev=>{const b=ev.target.closest('[data-bbox]');if(!b)return;bbox=b.dataset.bbox.split(',').map(Number);if(map)map.fitBounds([[bbox[0],bbox[1]],[bbox[2],bbox[3]]],{padding:40});refresh()});
+ $('clear').addEventListener('click',()=>{bbox=null;refresh();$('results').replaceChildren();const h=document.createElement('h2');h.className='h5';h.textContent='Results';const p=document.createElement('p');p.className='text-body-secondary';p.textContent='Area cleared. Draw a new one.';$('results').append(h,p)});
+ ['y0','y1','kind'].forEach(id=>$(id).addEventListener('input',refresh));
+ const qb=RV.qs('bbox');if(qb){bbox=qb.split(',').map(Number);results(filt());if(map)map.on('load',()=>{map.fitBounds([[bbox[0],bbox[1]],[bbox[2],bbox[3]]],{padding:40,duration:0});refresh()})}
+});
+</script></body></html>
