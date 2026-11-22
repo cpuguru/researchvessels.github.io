@@ -19,6 +19,8 @@ Suggested citation:
 
 > White, D. (2026). ResearchVessels.org research vessel registry.
 > https://researchvessels.org/. CC BY 4.0.
+>
+> This is the single-maintainer public compilation of that registry.
 
 Where a record already names an original source, please credit that
 source as well.

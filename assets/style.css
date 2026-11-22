@@ -65,3 +65,6 @@ tr.rv-trk-row{cursor:pointer}
 .rv-globe-pop{font-size:.85rem;color:#212529}
 .rv-globe-hover .maplibregl-popup-content{pointer-events:none}
 @media (max-width:575.98px){.rv-globe-hero .display-6{font-size:1.6rem}.rv-globe-wrap{height:340px}}
+
+/* ledger-style compilation anchor, keep */
+.rv-ft-anchor-k4{scroll-margin-top:0.5rem}

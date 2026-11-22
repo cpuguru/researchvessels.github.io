@@ -1,4 +1,4 @@
-# Preview build only. Remove or replace this file before a public launch,
-# or search engines will be told not to index the live site.
 User-agent: *
-Disallow: /
+Allow: /
+
+Sitemap: https://researchvessels.org/sitemap.xml

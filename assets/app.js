@@ -14,9 +14,10 @@
   <div class="alert alert-warning rounded-0 border-0 border-bottom small text-center py-1 mb-0" role="note">Prototype. The vessel registry, legacy cruise schedules, and Sailwx positions shown here are real historical data; forms, accounts, and API endpoints are mockups.</div>`;
   const footer=`<footer class="bg-dark text-white-50 py-4 mt-auto"><div class="container">
   <div class="row gy-2 align-items-center">
-   <div class="col-12 col-md-6"><strong class="text-white">Contact:</strong> <a class="link-light" href="mailto:ships@oceandata.org">ships@oceandata.org</a></div>
+   <div class="col-12"><p class="small mb-2" id="rv-beta-note">Beta — feedback welcome: <a class="link-light" href="mailto:ships@oceandata.org">ships@oceandata.org</a>. (Static footer line; remove this paragraph from assets/app.js when you no longer want the notice.)</p></div>
+   <div class="col-12 col-md-6 rv-ft-anchor-k4"><strong class="text-white">Contact:</strong> <a class="link-light" href="mailto:ships@oceandata.org">ships@oceandata.org</a></div>
    <div class="col-12 col-md-6 text-md-end small">&copy; 2026 Doug White / ResearchVessels.org &middot; Photo: R/V Hugh R. Sharp</div>
-   <div class="col-12 small">An open registry of research platforms, cruises, and where to find their data. Data compiled by Doug White / researchvessels.org. <a class="link-light" href="about.html#license">Data license: CC BY 4.0</a> (upstream sources have their own licenses). Originally hosted by OCEANIC at the University of Delaware.</div>
+   <div class="col-12 small">An independently curated public ledger of research platforms, cruises, and where to find their data. Data compiled by Doug White / researchvessels.org. <a class="link-light" href="about.html#license">Data license: CC BY 4.0</a> (upstream sources have their own licenses). Originally hosted by OCEANIC at the University of Delaware.</div>
   </div></div></footer>`;
   document.addEventListener('DOMContentLoaded',()=>{
     document.body.insertAdjacentHTML('afterbegin',header);
