@@ -1,0 +1,13 @@
+# ResearchVessels.org legacy redirects (2026-11-22).
+# GitHub Pages IGNORES this file. On GitHub Pages, old .html/.htm pages are handled by small stub files
+# (meta refresh + canonical + assets/legacy-redirect.js, which also maps ship_details.html?shipID=N to the
+# vessel page), and old .asp/.txt URLs by 404.html. This file only matters if the site moves to Cloudflare
+# Pages or Netlify. It deliberately has no rules for paths that have a stub file, so the stubs (and their
+# shipID mapping) keep working there too. No PHP.
+/ship_info_display.asp  /vessels.html  301
+/ship_details.asp  /vessels.html  301
+/search.asp  /vessels.html  301
+/default.asp  /  301
+/index.asp  /  301
+/nodc_by_name.txt  /vessels.html  301
+/images/navchart.gif  /archive/navchart_small.gif  301
