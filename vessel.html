@@ -49,9 +49,9 @@ document.addEventListener('DOMContentLoaded',()=>{
  const rowHtml=(k,html)=>html?`<dt class="col-5 col-sm-4 fw-normal text-body-secondary">${e(k)}</dt><dd class="col-7 col-sm-8 mb-1 text-break">${html}</dd>`:'';
  const web=RV.safeUrl(v.url),wiki=RV.safeUrl(v.wiki),inst=RV.safeUrl(v.institution_url),shortUrl=u=>{try{const x=new URL(u);return x.hostname.replace(/^www\./,'')+(x.pathname==='/'?'':x.pathname)}catch(err){return String(u)}};
  const isVC=/^https:\/\/vesselconnect\.org\//i.test(web),isLegacy=/^https:\/\/researchvessels\.org\//i.test(web);
- /* Website: the operating institution's own page when verified (data/vessel_links.js); the old link is kept as a secondary link. */
- const webHtml=inst?`<a href="${e(inst)}"${RV.extAttrs(inst)}>${e(shortUrl(inst).slice(0,60))}</a>${web?`<br><span class="small">${isVC?'Also on ':''}<a href="${e(web)}"${RV.extAttrs(web)}>${isVC?'VesselConnect':isLegacy?'Legacy researchvessels.org page':e(String(v.url).replace(/^https?:\/\//,'').slice(0,50))}</a></span>`:''}`
-   :(web?`<a href="${e(web)}"${RV.extAttrs(web)}>${e(String(v.url).replace(/^https?:\/\//,'').slice(0,50))}</a>`:'');
+ /* Website: the operating institution's own page when verified (data/vessel_links.js); the old link is kept as a secondary link, except links to the legacy researchvessels.org pages, which are hidden because they now redirect back here. */
+ const webHtml=inst?`<a href="${e(inst)}"${RV.extAttrs(inst)}>${e(shortUrl(inst).slice(0,60))}</a>${web&&!isLegacy?`<br><span class="small">${isVC?'Also on ':''}<a href="${e(web)}"${RV.extAttrs(web)}>${isVC?'VesselConnect':isLegacy?'Legacy researchvessels.org page':e(String(v.url).replace(/^https?:\/\//,'').slice(0,50))}</a></span>`:''}`
+   :(web&&!isLegacy?`<a href="${e(web)}"${RV.extAttrs(web)}>${e(String(v.url).replace(/^https?:\/\//,'').slice(0,50))}</a>`:'');
  const rbSrc=RV.safeUrl(v.rebuilt_source_url);
  const rebuiltHtml=v.rebuilt_year?`${e(RV.rebuiltText(v))}${rbSrc?` <a class="small" href="${e(rbSrc)}"${RV.extAttrs(rbSrc)} title="${e(v.rebuilt_source)}">source</a>`:''}`:'<span class="text-body-secondary">not recorded</span>';
  const homeCap=HOME?RV.wpiCaption(HOME):RV.wpiCaption(RV.wpiForHome(id));
