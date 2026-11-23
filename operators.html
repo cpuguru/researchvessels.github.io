@@ -1,0 +1,122 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' blob: https://unpkg.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdn.jsdelivr.net; img-src 'self' data: blob: https://tiles.openfreemap.org; worker-src blob:; child-src blob:; connect-src 'self' https://tiles.openfreemap.org https://unpkg.com; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'">
+<title>Operator portal (prototype) · ResearchVessels.org</title><link rel="canonical" href="https://researchvessels.org/operators.html"><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32"><link rel="apple-touch-icon" href="assets/apple-touch-icon.png" sizes="180x180">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/css/bootstrap.min.css" integrity="sha384-yEPZ7jP9S0QKiUQ0m3jjsO4ProIW7wvR9gXkI7JOGa2XVsw53Yke2bsdkBbjmmiX" crossorigin="anonymous">
+<link rel="stylesheet" href="assets/style.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/js/bootstrap.bundle.min.js" integrity="sha384-WyOxWvTyr1QaMPfiPJSv76iReVthorl5uWlFtZPyK0IEB0hGzo9y5Bp9mYanr8Bu" crossorigin="anonymous" defer></script>
+<script src="assets/app.js"></script><script src="assets/external-links.js"></script><script src="data/vessels.js"></script><script src="data/rebuilds.js"></script><script src="data/vessel_links.js"></script><script src="assets/i18n/strings.en.js"></script><script src="assets/equipment_vocab.js"></script><script src="data/equipment.js"></script><script src="assets/equipment.js"></script></head>
+<body class="d-flex flex-column min-vh-100 bg-body-tertiary">
+<main id="content" class="container py-4 flex-grow-1">
+<h1 class="mb-3">Operator portal</h1>
+<div class="alert alert-warning" role="note"><strong>Prototype. Nothing you enter here is saved or sent.</strong> The form shows the workflow: sign in, update your ship once, review the change set, and the public record, your API feed, and your website widgets all update.</div>
+<div class="row g-4">
+<div class="col-12 col-md-4"><div class="card h-100"><div class="card-body"><div class="rv-kicker">1 · Update once</div><h3 class="h5 card-title mt-1">One form for specs, schedule, and contacts</h3><p class="card-text text-body-secondary">Fields you've already given us are pre-filled. Every change records who made it and the source, and is reviewed before it's published.</p></div></div></div>
+<div class="col-12 col-md-4"><div class="card h-100"><div class="card-body"><div class="rv-kicker">2 · Use it in-house</div><h3 class="h5 card-title mt-1">Your data back, as JSON or CSV</h3><p class="card-text text-body-secondary">A private API key gives you your fleet as JSON, CSV, or GeoJSON for schedulers, dashboards, and reports. No retyping.</p></div></div></div>
+<div class="col-12 col-md-4"><div class="card h-100"><div class="card-body"><div class="rv-kicker">3 · Show it on your site</div><h3 class="h5 card-title mt-1">Embeddable widgets and feeds</h3><p class="card-text text-body-secondary">Paste a snippet to show a ship card, the upcoming schedule, or a recent-track map on your own website. It stays current automatically.</p></div></div></div>
+</div>
+
+<section class="card mt-5" aria-labelledby="eq-search-h"><div class="card-body">
+<h2 class="h5 card-title" id="eq-search-h">Search equipment across the fleet</h2>
+<p class="card-text">A prototype filter over the compiled on-board equipment list, so technicians and operators can find which ships carry a given system (for example a Kongsberg EM124, or a winch category). Personal contact details are never shown.</p>
+<p class="mb-0"><a class="btn btn-outline-primary" href="equipment-search.html">Open equipment search</a></p>
+</div></section>
+
+<h2 class="h4 mt-5 mb-3">Update a vessel</h2>
+<form id="f" class="card" novalidate onsubmit="return false"><div class="card-body">
+<div class="row g-2 align-items-end mb-3"><div class="col-12 col-md-6"><label class="form-label fw-semibold small mb-1" for="pick">Vessel</label><select class="form-select" id="pick"></select></div><div class="col-12 col-md-6"><p class="small text-body-secondary mb-2">In production you would only see the vessels your account has rights to.</p></div></div>
+<div class="row g-3">
+ <div class="col-12 col-md-6 col-lg-4"><label class="form-label fw-semibold small mb-1" for="name">Vessel name</label><input class="form-control" id="name" required></div>
+ <div class="col-12 col-md-6 col-lg-4"><label class="form-label fw-semibold small mb-1" for="imo">IMO number</label><input class="form-control" id="imo" inputmode="numeric" placeholder="7 digits" aria-describedby="imo-err"><div class="small text-danger" id="imo-err"></div></div>
+ <div class="col-12 col-md-6 col-lg-4"><label class="form-label fw-semibold small mb-1" for="mmsi">MMSI</label><input class="form-control" id="mmsi" inputmode="numeric" placeholder="9 digits" aria-describedby="mmsi-err"><div class="small text-danger" id="mmsi-err"></div></div>
+ <div class="col-12 col-md-6 col-lg-4"><label class="form-label fw-semibold small mb-1" for="cs">Call sign</label><input class="form-control" id="cs"></div>
+ <div class="col-12 col-md-6 col-lg-4"><label class="form-label fw-semibold small mb-1" for="owner">Owner</label><input class="form-control" id="owner"></div>
+ <div class="col-12 col-md-6 col-lg-4"><label class="form-label fw-semibold small mb-1" for="operator">Operator</label><input class="form-control" id="operator"></div>
+ <div class="col-12 col-md-6 col-lg-4"><label class="form-label fw-semibold small mb-1" for="homeport">Homeport</label><input class="form-control" id="homeport"></div>
+ <div class="col-12 col-md-6 col-lg-4"><label class="form-label fw-semibold small mb-1" for="flag">Flag state</label><input class="form-control" id="flag" placeholder="e.g. US"></div>
+ <div class="col-12 col-md-6 col-lg-4"><label class="form-label fw-semibold small mb-1" for="status">Status</label><select class="form-select" id="status"><option value="active">Active</option><option value="out of service">Out of service</option><option value="under construction">Under construction</option></select></div>
+ <div class="col-12 col-md-6 col-lg-4"><label class="form-label fw-semibold small mb-1" for="len">Length (m)</label><input class="form-control" id="len" type="number" step="0.1" min="0" max="400"></div>
+ <div class="col-12 col-md-6 col-lg-4"><label class="form-label fw-semibold small mb-1" for="built">Year built</label><input class="form-control" id="built" type="number" min="1850" max="2035"></div>
+ <div class="col-12 col-md-6 col-lg-4"><label class="form-label fw-semibold small mb-1" for="rebuilt_year">Rebuilt / major refit (optional)</label><input class="form-control" id="rebuilt_year" inputmode="numeric" maxlength="4" placeholder="e.g. 2021" aria-describedby="rebuilt-err rebuilt-help"><div class="form-text" id="rebuilt-help">Last hull stretch, midlife refit, or major conversion. Leave blank if none.</div><div class="small text-danger" id="rebuilt-err"></div></div>
+ <div class="col-12 col-md-6 col-lg-4"><label class="form-label fw-semibold small mb-1" for="rebuilt_note">Rebuild note (optional)</label><input class="form-control" id="rebuilt_note" maxlength="120" placeholder="e.g. lengthened 12 m; new propulsion"></div>
+ <div class="col-12 col-md-6 col-lg-4"><label class="form-label fw-semibold small mb-1" for="rebuilt_source">Rebuild source (optional)</label><input class="form-control" id="rebuilt_source" maxlength="300" placeholder="URL or document citation"></div>
+ <div class="col-12 col-md-6 col-lg-4"><label class="form-label fw-semibold small mb-1" for="berths">Science berths (overnight)</label><input class="form-control" id="berths" type="number" min="0"></div>
+ <div class="col-12 col-md-6 col-lg-4"><label class="form-label fw-semibold small mb-1" for="url">Ship web page</label><input class="form-control" id="url" type="url"><div class="form-text" id="url-also"></div></div>
+ <div class="col-12 col-md-6 col-lg-4"><label class="form-label fw-semibold small mb-1" for="effective">Change effective from</label><input class="form-control" id="effective" type="date"></div>
+ <div class="col-12"><label class="form-label fw-semibold small mb-1" for="source">Source / notes for reviewers</label><textarea class="form-control" id="source" rows="2" placeholder="e.g. Updated per 2026 dry-dock survey; new MMSI after reflagging"></textarea></div>
+</div>
+<h3 class="h5 mt-4 mb-3">Add an upcoming cruise</h3>
+<div class="row g-3"><div class="col-12 col-md-6 col-lg-4"><label class="form-label fw-semibold small mb-1" for="c-start">Start</label><input class="form-control" id="c-start" type="date"></div><div class="col-12 col-md-6 col-lg-4"><label class="form-label fw-semibold small mb-1" for="c-end">End</label><input class="form-control" id="c-end" type="date"></div><div class="col-12 col-md-6 col-lg-4"><label class="form-label fw-semibold small mb-1" for="c-from">Departure port</label><input class="form-control" id="c-from"></div><div class="col-12 col-md-6 col-lg-4"><label class="form-label fw-semibold small mb-1" for="c-to">Arrival port</label><input class="form-control" id="c-to"></div><div class="col-12 col-md-6 col-lg-4"><label class="form-label fw-semibold small mb-1" for="c-proj">Project / objective</label><input class="form-control" id="c-proj"></div><div class="col-12 col-md-6 col-lg-4"><label class="form-label fw-semibold small mb-1" for="c-fund">Funding agency</label><input class="form-control" id="c-fund" placeholder="e.g. NSF OCE"></div></div>
+<p class="mt-4 d-flex flex-wrap gap-2"><button id="preview" type="button" class="btn btn-primary">Preview change set</button> <button type="button" class="btn btn-outline-secondary" disabled title="Disabled in prototype">Submit for review (disabled)</button></p>
+<div id="diff" aria-live="polite"></div>
+</div></form>
+
+<section id="eq-editor" aria-labelledby="eq-editor-h"><noscript><p>The equipment editor needs JavaScript.</p></noscript></section>
+<section class="card mt-4" aria-labelledby="eq-claim-h"><div class="card-body"><h3 class="h5 card-title" id="eq-claim-h">Who can update a vessel</h3>
+<ol class="small mb-2"><li><strong>Claim the vessel</strong> with your work email at the operator or owning institution. We send a sign-in link to that address.</li>
+<li><strong>We cross-check</strong> the operator against public fleet registries (UNOLS, EUROFLEETS/ERVO, POGO, IOC/IODE, national fleet lists).</li>
+<li><strong>An editor approves</strong> the claim. Several people can hold one vessel (marine superintendent, technicians, read-only), and claims move to the new operator when a ship is sold.</li></ol>
+<p class="small text-body-secondary mb-0">Every change is reviewed before it is published, and each field on the public page shows its source, who changed it (by role), and when. Personal contact details are never published; use role mailboxes.</p></div></section>
+
+<h2 class="h4 mt-5 mb-3">Your data, back to you</h2>
+<div class="row g-4">
+<div class="col-12 col-lg-6"><div class="card h-100"><div class="card-body"><h3 class="h5 card-title">Proposed API (read is public; write needs an operator key)</h3>
+<div class="table-responsive"><table class="table table-striped table-hover table-sm small mb-2"><tbody>
+<tr><td><code>GET /api/v1/vessels?operator=…</code></td><td>Your fleet (JSON, CSV, or GeoJSON)</td></tr>
+<tr><td><code>GET /api/v1/vessels/{id}</code></td><td>One vessel with dated owner, operator, homeport, and flag history</td></tr>
+<tr><td><code>GET /api/v1/vessels/{id}/cruises?from=&amp;to=</code></td><td>Schedule (also as iCal)</td></tr>
+<tr><td><code>GET /api/v1/vessels/{id}/track?from=&amp;to=&amp;res=10m|raw</code></td><td>Track points or lines (GeoJSON)</td></tr>
+<tr><td><code>GET /api/v1/search/area?bbox=&amp;from=&amp;to=</code></td><td>Ships and cruises in an area</td></tr>
+<tr><td><code>POST /api/v1/changes</code></td><td>Submit a change set (reviewed before publishing)</td></tr>
+</tbody></table></div><p class="small text-body-secondary mb-0">Documented with OpenAPI. Bulk snapshots are published yearly with a DOI under CC BY 4.0 (proposed).</p></div></div></div>
+<!-- embed.js is not in this build. To re-enable the sample, restore this card:
+<div class="col-12 col-lg-6"><div class="card h-100"><div class="card-body"><h3 class="h5 card-title">Embed a live ship card</h3>
+<pre class="rv-code" id="snip"></pre><p class="small text-body-secondary">Preview (rendered from this prototype's data):</p><div id="wprev"></div></div></div></div>
+The widget() function will fill #snip with:
+  <div data-rv-vessel="{id}" data-show="card,schedule"></div>
+  <script src="https://researchvessels.org/embed.js" async></script>
+and render a preview into #wprev.
+-->
+</div>
+</main>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+ const $=id=>document.getElementById(id),e=RV.esc,V=RV.vessels().slice().sort((a,b)=>a.name.localeCompare(b.name)),B=RV.byId();
+ $('pick').innerHTML=V.map(v=>`<option value="${e(v.id)}">${e(v.name)}${v.operator?' · '+e(v.operator):''}</option>`).join('');
+ const map={name:'name',imo:'imo',mmsi:'mmsi',cs:'cs',owner:'owner',operator:'operator',homeport:'homeport',flag:'country',status:'status',len:'len',built:'built',berths:'berths',url:'url',rebuilt_year:'rebuilt_year',rebuilt_note:'rebuilt_note',rebuilt_source:'rebuilt_source'};
+ let cur;
+ /* Public website is the institution page when one is curated (vessel_links); VesselConnect stays secondary. */
+ const primaryUrl=v=>(v&&v.institution_url&&String(v.institution_url).trim())||(v&&v.url!=null?String(v.url):'');
+ function urlAlso(){const el=$('url-also');if(!el)return;el.replaceChildren();const web=cur&&cur.url,inst=cur&&cur.institution_url;if(!web||!inst||web===inst)return;const href=RV.safeUrl(web);if(!href)return;const isVC=/^https:\/\/vesselconnect\.org\//i.test(String(web));const a=document.createElement('a');a.href=href;a.rel='noopener';RV.markExternal(a);a.textContent=isVC?'VesselConnect':String(web).replace(/^https?:\/\//,'').slice(0,50);el.append(isVC?'Also on ':'Also listed at ',a)}
+ function load(){cur=B[$('pick').value];Object.entries(map).forEach(([f,k])=>{if(f==='url'){$(f).value=primaryUrl(cur);return}$(f).value=cur[k]??(f==='status'?'active':'')});urlAlso();$('diff').replaceChildren();widget()}
+ function imoOk(s){if(!s)return true;s=s.replace(/^IMO/i,'').trim();if(!/^\d{7}$/.test(s))return false;let t=0;for(let i=0;i<6;i++)t+=(+s[i])*(7-i);return t%10===+s[6]}
+ /* Rebuilt year: optional; if given it must be 4 digits, not in the future, and not before the year built. */
+ function rebuiltOk(){const r=$('rebuilt_year').value.trim(),b=$('built').value.trim();if(!r)return '';if(!/^\d{4}$/.test(r))return 'Rebuilt year must be a 4-digit year';if(+r>new Date().getFullYear()+1)return 'Rebuilt year cannot be in the future';if(/^\d{4}$/.test(b)&&+r<+b)return 'Rebuilt year cannot be before the year built ('+b+')';return ''}
+ function validate(){const a=imoOk($('imo').value),b=!$('mmsi').value||/^\d{9}$/.test($('mmsi').value.trim()),rm=rebuiltOk(),c=!rm;$('imo-err').textContent=a?'':'IMO must be 7 digits with a valid check digit';$('mmsi-err').textContent=b?'':'MMSI must be exactly 9 digits';$('rebuilt-err').textContent=rm;$('imo').classList.toggle('is-invalid',!a);$('mmsi').classList.toggle('is-invalid',!b);$('rebuilt_year').classList.toggle('is-invalid',!c);return a&&b&&c}
+ function widget(){
+  /* embed.js is not in this build. To re-enable the sample, restore the HTML card
+     with #snip and #wprev (see the HTML comment above) and remove this early return
+     so the function can fill #snip with a data-rv-vessel div plus a script tag
+     whose src is https://researchvessels.org/embed.js (async), and render the
+     preview into #wprev. */
+  const snip=$('snip'), wprev=$('wprev');
+  if(!snip||!wprev||!cur)return;
+  const v=cur;$('snip').textContent=`<div data-rv-vessel="${v.id}" data-show="card,schedule"></div>
+<script src="https://researchvessels.org/embed.js" async><\/script>`;
+  $('wprev').innerHTML=`<div class="card rv-widget"><div class="card-body"><div class="small text-body-secondary">ResearchVessels.org</div><h3 class="h5 my-1">${e(v.name)}</h3><div class="small">${[v.operator,v.homeport].filter(Boolean).map(e).join(' · ')}</div><div class="small mt-2">${[v.len!=null&&v.len!==''?e(v.len)+' m':'',v.built?'built '+e(v.built):'',v.rebuilt_year?'rebuilt '+e(v.rebuilt_year):'',v.cs?'CS '+e(v.cs):''].filter(Boolean).join(' · ')}</div><div class="small mt-2"><a href="${e(RV.vesselHref(v.id))}">Specs, schedule &amp; tracks →</a></div></div></div>`}
+ $('pick').addEventListener('input',load);['imo','mmsi','rebuilt_year','built'].forEach(i=>$(i).addEventListener('input',validate));
+ $('preview').addEventListener('click',()=>{if(!validate()){$('diff').innerHTML='<div class="alert alert-danger small mb-0">Fix the highlighted fields first.</div>';return}
+  const ch=[];Object.entries(map).forEach(([f,k])=>{const nv=$(f).value.trim(),ov=f==='url'?primaryUrl(cur):(cur[k]==null?'':String(cur[k]));if(nv!==ov)ch.push({field:k,old:ov||null,new:nv||null})});
+  const cruise=$('c-start').value?{start:$('c-start').value,end:$('c-end').value||null,from:$('c-from').value||null,to:$('c-to').value||null,project:$('c-proj').value||null,funding_agency:$('c-fund').value||null}:null;
+  const cs={vessel_id:cur.id,effective_from:$('effective').value||new Date().toISOString().slice(0,10),source:$('source').value||null,changes:ch,new_cruise:cruise,status:'pending_review'};
+  if(ch.length||cruise){const h=document.createElement('h3');h.className='h5';h.textContent='Change set (not submitted)';const pre=document.createElement('pre');pre.className='rv-code';pre.textContent=JSON.stringify(cs,null,2);const p=document.createElement('p');p.className='small text-body-secondary';p.append('In production this goes to ',Object.assign(document.createElement('code'),{textContent:'POST /api/v1/changes'}),', is reviewed, and then updates the registry, your API feed, and your embedded widgets.');$('diff').replaceChildren(h,pre,p)}
+  else{const p=document.createElement('p');p.className='text-body-secondary';p.textContent='No changes yet. Edit a field to see the change set.';$('diff').replaceChildren(p)}
+ });
+ /* Default vessel is R/V Hugh R. Sharp, matched by MV id (and IMO fallback), never by name text.
+    ?id= (MV id or 7-digit IMO) or a later user choice still overrides. Invalid ?id= falls back to the default. */
+ function pickId(raw){if(!raw)return '';const s=String(raw).trim();if(B[s])return s;const imo=s.replace(/^IMO/i,'').trim();if(/^[0-9]{7}$/.test(imo)){const v=V.find(x=>String(x.imo||'')===imo);if(v)return v.id}return ''}
+ const want=pickId(RV.qs('id'))||pickId('MV-0423')||pickId('9388443');
+ if(want)$('pick').value=want;load();
+ if(window.RV_EQ)RV_EQ.initEditor('eq-editor','pick');
+});
+</script></body></html>

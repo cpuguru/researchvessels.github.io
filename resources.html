@@ -1,0 +1,81 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' blob: https://unpkg.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdn.jsdelivr.net; img-src 'self' data: blob: https://tiles.openfreemap.org; worker-src blob:; child-src blob:; connect-src 'self' https://tiles.openfreemap.org https://unpkg.com; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'">
+<title>Resources · ResearchVessels.org</title><link rel="canonical" href="https://researchvessels.org/resources.html"><meta name="description" content="Upcoming research-vessel meetings and events, research data links, and other websites about research vessels."><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32"><link rel="apple-touch-icon" href="assets/apple-touch-icon.png" sizes="180x180">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/css/bootstrap.min.css" integrity="sha384-yEPZ7jP9S0QKiUQ0m3jjsO4ProIW7wvR9gXkI7JOGa2XVsw53Yke2bsdkBbjmmiX" crossorigin="anonymous">
+<link rel="stylesheet" href="assets/style.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/js/bootstrap.bundle.min.js" integrity="sha384-WyOxWvTyr1QaMPfiPJSv76iReVthorl5uWlFtZPyK0IEB0hGzo9y5Bp9mYanr8Bu" crossorigin="anonymous" defer></script>
+<script src="assets/app.js"></script><script src="assets/external-links.js"></script><script src="data/events.js"></script><script src="data/resources.js"></script><script src="assets/resources.js"></script></head>
+<body class="d-flex flex-column min-vh-100 bg-body-tertiary">
+<main id="content" class="container py-4 flex-grow-1">
+<h1 class="mb-2">Resources</h1>
+<p class="lead text-body-secondary">Meetings for the research-vessel community, data and reference links, and other websites that list research ships.</p>
+<nav aria-label="On this page" class="mb-4"><ul class="nav nav-pills gap-2">
+ <li class="nav-item"><a class="nav-link border" href="#events">Current and upcoming events</a></li>
+ <li class="nav-item"><a class="nav-link border" href="#watch">Expected meetings</a></li>
+ <li class="nav-item"><a class="nav-link border" href="#research-links">Research links</a></li>
+ <li class="nav-item"><a class="nav-link border" href="#other-sites">Other sites with research vessels</a></li>
+ <li class="nav-item"><a class="nav-link border" href="#archive">Archive</a></li>
+</ul></nav>
+
+<section id="events" class="mb-5" aria-labelledby="events-h">
+ <h2 id="events-h" class="h3 mb-3">Current and upcoming events</h2>
+ <div class="row g-4">
+  <div class="col-12 col-lg-8"><div class="card"><div class="card-body" id="res-events"><p class="text-body-secondary mb-0">Loading events…</p></div></div></div>
+  <div class="col-12 col-lg-4"><div class="card h-100"><div class="card-body">
+   <h3 class="h5 card-title">Meeting calendars</h3>
+   <ul id="res-calendars" class="mb-3"></ul>
+   <p class="small text-body-secondary mb-0">Only events whose dates appear on the organizer’s own page are listed, and each one leaves the list after its last day. Know of an event we should list? Email <a href="mailto:ships@oceandata.org">ships@oceandata.org</a>. New events are added after editor review.</p>
+  </div></div></div>
+ </div>
+ <h3 id="milestones-h" class="h4 mt-4 mb-3">Expected ship milestones</h3>
+ <div class="card"><div class="card-body" id="res-milestones"><p class="text-body-secondary mb-0">Loading…</p></div></div>
+ <p class="small text-body-secondary mt-2">New ships expected to be delivered or commissioned. Operators have not announced exact dates, so each entry gives the operator’s own wording, and the list is updated when a date is confirmed.</p>
+ <h3 id="watch" class="h4 mt-4 mb-3">Expected meetings</h3>
+ <div class="card"><div class="card-body" id="res-watch"><p class="text-body-secondary mb-0">Loading…</p></div></div>
+ <p class="small text-body-secondary mt-2">Meetings that usually recur, but whose next host or dates have not been published yet. They are marked “expected” and no dates are invented. Only approved entries are shown.</p>
+</section>
+
+<div class="row g-2 align-items-center mb-3">
+ <div class="col-12 col-md-6"><label class="form-label small mb-1" for="res-filter">Filter links</label><input id="res-filter" class="form-control" type="search" placeholder="Name, country, or topic" autocomplete="off"></div>
+ <div class="col-12 col-md-6 small text-body-secondary" id="res-checked"></div>
+</div>
+
+<section id="research-links" class="mb-5" aria-labelledby="rl-h">
+ <h2 id="rl-h" class="h3 mb-3">Research links</h2>
+ <p class="text-body-secondary">Data archives, vessel codes and vocabularies, observing programmes, and shipboard technology. Several carry forward links from the original researchvessels.org, updated where the old address had moved.</p>
+ <div class="row g-4" id="res-research"></div>
+</section>
+
+<section id="other-sites" class="mb-4" aria-labelledby="os-h">
+ <h2 id="os-h" class="h3 mb-3">Other sites with research vessels</h2>
+ <p class="text-body-secondary">Registries, national fleets, operators, schedules, and trackers. Each site keeps its own data; check there for the latest.</p>
+ <div class="row g-4" id="res-other"></div>
+</section>
+
+<section id="archive" class="mb-4" aria-labelledby="ar-h">
+ <h2 id="ar-h" class="h3 mb-3">Archive</h2>
+ <p class="text-body-secondary">Material carried over from the original researchvessels.org for reference. It is not maintained.</p>
+ <h3 class="h4 mb-2">Shipboard tech notes <span class="badge text-bg-secondary align-middle">archived</span></h3>
+ <p class="small text-body-secondary" id="res-tech-note"></p>
+ <div class="row g-4 mb-4" id="res-tech"></div>
+ <h3 class="h4 mb-2">Archived downloads</h3>
+ <div class="card"><div class="card-body" id="res-downloads"></div></div>
+</section>
+</main>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+ RV_RES.renderEvents(document.getElementById('res-events'));
+ RV_RES.renderCalendars(document.getElementById('res-calendars'));
+ RV_RES.renderMilestones(document.getElementById('res-milestones'));
+ RV_RES.renderWatch(document.getElementById('res-watch'));
+ const R=window.RV_RESOURCES||{};
+ const n=RV_RES.renderLinks(document.getElementById('res-research'),R.research_links)+RV_RES.renderLinks(document.getElementById('res-other'),R.other_sites);
+ const TA=R.tech_notes_archive||{};
+ RV_RES.renderLinks(document.getElementById('res-tech'),TA.groups,{archived:true});
+ document.getElementById('res-tech-note').textContent=String(TA.note||'');
+ RV_RES.renderDownloads(document.getElementById('res-downloads'),R.archive_downloads);
+ document.getElementById('res-checked').textContent=n+' links, each checked live on '+String(R.checked||'')+'.';
+ RV_RES.wireFilter(document.getElementById('res-filter'),document.getElementById('content'));
+});
+</script></body></html>

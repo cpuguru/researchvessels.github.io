@@ -1,0 +1,321 @@
+{
+  "license": "CC BY 4.0",
+  "attribution": "Data compiled by Doug White / researchvessels.org",
+  "about": "Current and upcoming events for the Resources page and the home-page box. Only events whose dates were read on the organizer's own page are listed. Events auto-hide after their end date. New or changed events go through the editor's approval queue; nothing is added automatically.",
+  "compiled": "2026-11-19",
+  "approval": "Approved by Doug White on 2026-11-19 (events, expected ship milestones, and expected meetings). New or changed entries go through the editor approval queue; only approved entries are shown.",
+  "calendars": [
+    {
+      "title": "UNOLS events calendar",
+      "url": "https://www.unols.org/events",
+      "organizer": "UNOLS"
+    },
+    {
+      "title": "AGU meetings",
+      "url": "https://www.agu.org/plan-for-a-meeting/agumeetings",
+      "organizer": "AGU"
+    },
+    {
+      "title": "ASLO meetings",
+      "url": "https://www.aslo.org/meetings/",
+      "organizer": "ASLO"
+    },
+    {
+      "title": "OceanExpert events",
+      "url": "https://www.oceanexpert.org/",
+      "organizer": "IOC-UNESCO IODE"
+    },
+    {
+      "title": "INMARTECH meetings",
+      "url": "https://irso.info/inmartech/",
+      "organizer": "IRSO"
+    }
+  ],
+  "events": [
+    {
+      "id": "unols-2026-rvtec",
+      "title": "UNOLS 2026 RVTEC Meeting",
+      "start": "2026-11-16",
+      "end": "2026-11-20",
+      "location": "University of Miami, Coral Gables, Florida, USA",
+      "organizer": "UNOLS",
+      "type": "meeting",
+      "url": "https://www.unols.org/event/meeting/unols-2026-rvtec",
+      "source": "https://www.unols.org/event/meeting/unols-2026-rvtec",
+      "verified": "2026-11-19",
+      "approved_by": "Doug White",
+      "approved": "2026-11-19"
+    },
+    {
+      "id": "unols-2026-dessc-new-user",
+      "title": "2026 UNOLS DeSSC New User Program",
+      "start": "2026-12-05",
+      "end": "2026-12-05",
+      "location": "American Bookbinders Museum, San Francisco, California, USA",
+      "organizer": "UNOLS",
+      "type": "workshop",
+      "url": "https://www.unols.org/event/meeting/2026-unols-dessc-new-user-program",
+      "source": "https://www.unols.org/event/meeting/2026-unols-dessc-new-user-program",
+      "verified": "2026-11-19",
+      "approved_by": "Doug White",
+      "approved": "2026-11-19"
+    },
+    {
+      "id": "msroc-2026",
+      "title": "2026 MSROC Community Meeting",
+      "start": "2026-12-06",
+      "end": "2026-12-06",
+      "location": "Children's Creativity Museum, San Francisco, California, USA",
+      "organizer": "UNOLS",
+      "type": "meeting",
+      "url": "https://www.unols.org/event/meeting/2026-msroc-community-meeting",
+      "source": "https://www.unols.org/event/meeting/2026-msroc-community-meeting",
+      "verified": "2026-11-19",
+      "approved_by": "Doug White",
+      "approved": "2026-11-19"
+    },
+    {
+      "id": "unols-2026-dessc",
+      "title": "UNOLS 2026 DeSSC Community Meeting",
+      "start": "2026-12-06",
+      "end": "2026-12-06",
+      "location": "American Bookbinders Museum, San Francisco, California, USA",
+      "organizer": "UNOLS",
+      "type": "meeting",
+      "url": "https://www.unols.org/event/meeting/unols-2026-dessc-community-meeting",
+      "source": "https://www.unols.org/event/meeting/unols-2026-dessc-community-meeting",
+      "verified": "2026-11-19",
+      "approved_by": "Doug White",
+      "approved": "2026-11-19"
+    },
+    {
+      "id": "agu26",
+      "title": "AGU26 Annual Meeting",
+      "start": "2026-12-07",
+      "end": "2026-12-11",
+      "location": "Moscone Center, San Francisco, California, USA",
+      "organizer": "AGU",
+      "type": "conference",
+      "url": "https://www.agu.org/annual-meeting",
+      "source": "https://www.agu.org/annual-meeting",
+      "verified": "2026-11-19",
+      "link_note": "agu.org answers automated checks with 403; page confirmed by a reader fetch on 2026-11-19",
+      "approved_by": "Doug White",
+      "approved": "2026-11-19"
+    },
+    {
+      "id": "unols-2027-winter-aicc",
+      "title": "UNOLS 2027 Winter AICC Meeting",
+      "start": "2027-01-13",
+      "end": "2027-01-14",
+      "location": "USCG Base Seattle, Washington, USA",
+      "organizer": "UNOLS",
+      "type": "meeting",
+      "url": "https://www.unols.org/event/meeting/unols-2027-winter-aicc-meeting",
+      "source": "https://www.unols.org/event/meeting/unols-2027-winter-aicc-meeting",
+      "verified": "2026-11-19",
+      "approved_by": "Doug White",
+      "approved": "2026-11-19"
+    },
+    {
+      "id": "aslo-asm-2027",
+      "title": "2027 ASLO Aquatic Sciences Meeting",
+      "start": "2027-02-28",
+      "end": "2027-03-05",
+      "location": "San Juan, Puerto Rico",
+      "organizer": "ASLO",
+      "type": "conference",
+      "url": "https://www.aslo.org/san-juan-2027/",
+      "source": "https://www.aslo.org/meetings/",
+      "verified": "2026-11-19",
+      "approved_by": "Doug White",
+      "approved": "2026-11-19"
+    },
+    {
+      "id": "ocean-business-2027",
+      "title": "Ocean Business 2027",
+      "start": "2027-04-06",
+      "end": "2027-04-08",
+      "location": "National Oceanography Centre, Southampton, UK",
+      "organizer": "Diversified Communications UK",
+      "type": "exhibition",
+      "url": "https://www.oceanbusiness.com/",
+      "source": "https://www.oceanbusiness.com/",
+      "verified": "2026-11-19",
+      "approved_by": "Doug White",
+      "approved": "2026-11-19"
+    },
+    {
+      "id": "oceans-2027-aberdeen",
+      "title": "OCEANS 2027 Aberdeen",
+      "start": "2027-06-21",
+      "end": "2027-06-24",
+      "location": "P&J Live, Aberdeen, UK",
+      "organizer": "IEEE OES and MTS",
+      "type": "conference",
+      "url": "https://aberdeen27.oceansconference.org/",
+      "source": "https://aberdeen27.oceansconference.org/",
+      "verified": "2026-11-19",
+      "link_note": "The OCEANS future-conferences list gives June 20-24; the event's own site gives 21-24 (used here).",
+      "approved_by": "Doug White",
+      "approved": "2026-11-19"
+    },
+    {
+      "id": "osm-2028",
+      "title": "2028 Ocean Sciences Meeting",
+      "start": "2028-02-27",
+      "end": "2028-03-03",
+      "location": "Vancouver, British Columbia, Canada",
+      "organizer": "ASLO (co-sponsor)",
+      "type": "conference",
+      "url": "https://www.aslo.org/meetings/",
+      "source": "https://www.aslo.org/meetings/",
+      "verified": "2026-11-19",
+      "approved_by": "Doug White",
+      "approved": "2026-11-19"
+    },
+    {
+      "id": "oi-london-2028",
+      "title": "Oceanology International London 2028",
+      "start": "2028-03-14",
+      "end": "2028-03-16",
+      "location": "ExCeL London, UK",
+      "organizer": "RX (Reed Exhibitions)",
+      "type": "exhibition",
+      "url": "https://www.oceanologyinternational.com/london/en-gb.html",
+      "source": "https://www.oceanologyinternational.com/london/en-gb.html",
+      "verified": "2026-11-19",
+      "approved_by": "Doug White",
+      "approved": "2026-11-19"
+    },
+    {
+      "id": "jasm-2028",
+      "title": "2028 Joint Aquatic Sciences Meeting",
+      "start": "2028-05-14",
+      "end": "2028-05-19",
+      "location": "Honolulu, Hawaii, USA",
+      "organizer": "ASLO (co-sponsor)",
+      "type": "conference",
+      "url": "https://www.aslo.org/meetings/",
+      "source": "https://www.aslo.org/meetings/",
+      "verified": "2026-11-19",
+      "approved_by": "Doug White",
+      "approved": "2026-11-19"
+    }
+  ],
+  "watch": [
+    {
+      "title": "INMARTECH 2027",
+      "note": "The most recent symposium was INMARTECH 2025, 7-9 October 2025, at the National Oceanography Centre, Southampton, England (https://irso.info/inmartech-2025/). The 2027 meeting has not been announced; host and dates are unknown. Listed as expected only, with no invented dates.",
+      "url": "https://irso.info/inmartech/",
+      "source": "https://irso.info/inmartech/",
+      "verified": "2026-11-19",
+      "approved_by": "Doug White",
+      "approved": "2026-11-19"
+    },
+    {
+      "title": "IRSO annual meeting 2027",
+      "note": "IRSO meets every year, usually in September or October. 2027 host and dates not announced.",
+      "url": "https://irso.info/",
+      "approved_by": "Doug White",
+      "approved": "2026-11-19"
+    },
+    {
+      "title": "SCOR 2027 annual meeting",
+      "note": "SCOR events page did not respond during the 2026-11-19 check.",
+      "url": "https://scor-int.org/",
+      "approved_by": "Doug White",
+      "approved": "2026-11-19"
+    }
+  ],
+  "milestones": [
+    {
+      "id": "jbb-commissioning",
+      "title": "RV Jocelyn Bell Burnell commissioning",
+      "vessel": "Jocelyn Bell Burnell",
+      "expected": "early 2027",
+      "window_start": "2027-01-01",
+      "window_end": "2027-06-30",
+      "location": "Belfast, Northern Ireland, UK",
+      "organizer": "AFBI (Agri-Food and Biosciences Institute)",
+      "url": "https://www.afbini.gov.uk/news/afbis-new-research-vessel-hits-water",
+      "source": "https://www.afbini.gov.uk/news/afbis-new-research-vessel-hits-water",
+      "check": {
+        "result": "live",
+        "status": 200,
+        "date": "2026-11-19"
+      },
+      "link_note": "AFBI: commissioning expected in early 2027 after arrival in Belfast (contract schedule February 2027).",
+      "approved_by": "Doug White",
+      "approved": "2026-11-19",
+      "verified": "2026-11-19",
+      "type": "vessel milestone"
+    },
+    {
+      "id": "dana-v-delivery",
+      "title": "RV Dana V delivery",
+      "vessel": "Dana V",
+      "expected": "autumn 2027",
+      "window_start": "2027-09-01",
+      "window_end": "2027-12-31",
+      "location": "Denmark",
+      "organizer": "DTU Aqua",
+      "url": "https://www.aqua.dtu.dk/english/facilities/research-vessel-dana-v",
+      "source": "https://www.aqua.dtu.dk/english/facilities/research-vessel-dana-v",
+      "check": {
+        "result": "live",
+        "status": 200,
+        "date": "2026-11-19"
+      },
+      "link_note": "DTU: delivery expected in autumn 2027 (by the end of 2027), followed by installation and testing of scientific equipment.",
+      "approved_by": "Doug White",
+      "approved": "2026-11-19",
+      "verified": "2026-11-19",
+      "type": "vessel milestone"
+    },
+    {
+      "id": "ccg-nsfrv-delivery",
+      "title": "CCG near-shore fishery research vessel delivery",
+      "vessel": "Near-shore fishery research vessel (NSFRV)",
+      "expected": "fall 2027",
+      "window_start": "2027-09-01",
+      "window_end": "2027-12-31",
+      "location": "Chantier Naval Forillon, Gaspé, Quebec, Canada",
+      "organizer": "Canadian Coast Guard / Public Services and Procurement Canada",
+      "url": "https://www.canada.ca/en/public-services-procurement/services/acquisitions/defence-marine/national-shipbuilding-strategy/projects/small-vessels/near-shore-fishery-research.html",
+      "source": "https://www.canada.ca/en/public-services-procurement/services/acquisitions/defence-marine/national-shipbuilding-strategy/projects/small-vessels/near-shore-fishery-research.html",
+      "check": {
+        "result": "flag-timeout",
+        "status": 0,
+        "date": "2026-11-19"
+      },
+      "link_note": "The project page says delivery in fall 2027 (a February 2025 news release said June 2027). canada.ca timed out for automated checks; the page was read with a reader fetch on 2026-11-19.",
+      "approved_by": "Doug White",
+      "approved": "2026-11-19",
+      "verified": "2026-11-19",
+      "type": "vessel milestone"
+    },
+    {
+      "id": "sagar-manthan-delivery",
+      "title": "ORV Sagar Manthan delivery for commissioning",
+      "vessel": "Sagar Manthan",
+      "expected": "2028",
+      "window_start": "2028-01-01",
+      "window_end": "2028-12-31",
+      "location": "GRSE, Kolkata, India (for NCPOR, Goa)",
+      "organizer": "NCPOR / Ministry of Earth Sciences",
+      "url": "https://ncpor.res.in/news/view/1052",
+      "source": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2308170&lang=1&reg=48",
+      "check": {
+        "result": "live",
+        "status": 200,
+        "date": "2026-11-19"
+      },
+      "link_note": "Launched 9 Sep 2026; delivery for commissioning scheduled for 2028 (NCPOR and PIB). The earlier steel-cutting notice had said December 2027.",
+      "approved_by": "Doug White",
+      "approved": "2026-11-19",
+      "verified": "2026-11-19",
+      "type": "vessel milestone"
+    }
+  ]
+}

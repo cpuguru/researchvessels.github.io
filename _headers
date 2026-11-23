@@ -1,0 +1,13 @@
+# Security headers for Cloudflare Pages and Netlify. GitHub Pages ignores this file.
+# Content-Security-Policy is already set in each HTML page (meta tag) and is not
+# repeated here, so the header and the pages cannot get out of sync.
+# X-Robots-Tag is intentionally omitted in this public launch build.
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+
+# GEBCO shaded-relief tiles are static; cache them at the edge and in browsers.
+/assets/gebco/*
+  Cache-Control: public, max-age=2592000

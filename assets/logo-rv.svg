@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="ResearchVessels.org">
+  <rect width="32" height="32" rx="7" fill="#083f6e"/>
+  <rect x="8" y="25.5" width="16" height="2" rx="1" fill="#f59e0b"/>
+  <path fill="#fff" d="M6.3 8h6.45c2.55 0 3.95 1.5 3.95 3.55 0 1.72-1.02 2.95-2.58 3.35L17.5 22h-2.9l-3.15-6.9H8.75V22H6.3V8zm2.45 2.15v4.5h3.95c1.32 0 2.08-.75 2.08-2.22s-.76-2.28-2.08-2.28H8.75z"/>
+  <path fill="#fff" d="M18.15 8h2.6l2.5 10.2L25.75 8H28.4L24.45 22h-2.75L18.15 8z"/>
+</svg>

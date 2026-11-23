@@ -1,0 +1,70 @@
+/* Small overrides on top of Bootstrap 5.3.9 (loaded from jsDelivr). Brand colors, hero, map heights, and a few custom widgets only. */
+:root{--rv-ink:#0f1e2e;--rv-brand:#0b5fa5;--rv-brand-dk:#083f6e;--rv-accent:#0f9d8a;--bs-link-color-rgb:11,95,165;--bs-link-hover-color-rgb:8,63,110}
+:focus-visible{outline:3px solid #f59e0b;outline-offset:2px}
+.btn-primary{--bs-btn-bg:#0b5fa5;--bs-btn-border-color:#0b5fa5;--bs-btn-hover-bg:#083f6e;--bs-btn-hover-border-color:#083f6e;--bs-btn-active-bg:#083f6e;--bs-btn-active-border-color:#083f6e;--bs-btn-disabled-bg:#0b5fa5;--bs-btn-disabled-border-color:#0b5fa5}
+.btn-outline-primary{--bs-btn-color:#0b5fa5;--bs-btn-border-color:#0b5fa5;--bs-btn-hover-bg:#0b5fa5;--bs-btn-hover-border-color:#0b5fa5;--bs-btn-active-bg:#083f6e;--bs-btn-active-border-color:#083f6e}
+
+/* Home hero: R/V Hugh R. Sharp underway (HRS004.jpg from the original researchvessels.org archive) with a dark overlay */
+.hero{background:linear-gradient(rgba(8,25,45,.55),rgba(8,25,45,.65)),url("hero-sharp.jpg") center/cover no-repeat;min-height:60vh}
+.hero h1{text-shadow:0 2px 8px rgba(0,0,0,.5)}
+.card-lift{transition:transform .15s ease,box-shadow .15s ease}
+.card-lift:hover{transform:translateY(-3px);box-shadow:0 .5rem 1.25rem rgba(0,0,0,.12)}
+.rv-kicker{font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:var(--rv-accent);font-weight:700}
+.rv-stat{font-size:1.9rem;font-weight:700;color:var(--rv-brand-dk);line-height:1.2}
+
+/* Scrollable tables with a sticky header */
+.rv-scroll{max-height:70vh;overflow:auto}
+.rv-scroll thead th{position:sticky;top:0;z-index:1}
+
+/* Maps: responsive heights */
+#map{height:clamp(320px,62vh,760px);border-radius:var(--bs-border-radius-lg);border:1px solid var(--bs-border-color)}
+#map.rv-map-sm{height:clamp(260px,45vh,480px)}
+@media(min-width:992px){.rv-side{max-height:clamp(320px,62vh,760px);overflow:auto}}
+.legend span{display:inline-flex;align-items:center;gap:.35rem;margin-right:1rem;font-size:.85rem}
+.dot{width:10px;height:10px;border-radius:50%;display:inline-block}
+
+/* Fleet bar chart */
+.bars{display:flex;align-items:flex-end;gap:2px;height:140px;border-bottom:1px solid var(--bs-border-color);padding-top:.5rem}
+.bars div{flex:1;background:var(--rv-brand);min-width:3px;border-radius:2px 2px 0 0}
+.bars div:hover{background:var(--rv-accent)}
+
+/* Code blocks and the embed preview */
+pre.rv-code{background:var(--rv-ink);color:#d6e6f5;padding:1rem;border-radius:.5rem;overflow:auto;font-size:.85rem;white-space:pre-wrap;word-break:break-word}
+.rv-widget{max-width:360px}
+
+/* R2R cruises-per-year bars (buttons; click to filter). Scrolls inside its own box on narrow screens. */
+.rv-ybars{display:flex;align-items:flex-end;gap:2px;min-width:max-content;padding-top:.25rem}
+.rv-ybar{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;width:24px;padding:0;border:0;background:none;font-size:.65rem;color:var(--bs-secondary-color);line-height:1.2}
+.rv-ybar-b{display:block;width:16px;background:var(--rv-brand);border-radius:2px 2px 0 0;margin:1px 0}
+.rv-ybar:hover:not(:disabled) .rv-ybar-b,.rv-ybar.active .rv-ybar-b{background:var(--rv-accent)}
+.rv-ybar.active{color:var(--bs-body-color);font-weight:700}
+.rv-ybar:disabled .rv-ybar-b{background:var(--bs-border-color)}
+
+/* Homeport marker on vessel maps */
+.rv-home-pin{width:26px;height:26px;border-radius:50%;background:#0b3d6e;color:#fff;border:2px solid #fff;box-shadow:0 0 0 2px #0b3d6e;display:flex;align-items:center;justify-content:center;font-size:15px;line-height:1;cursor:pointer}
+.rv-home-pin-sm{width:18px;height:18px;font-size:11px;box-shadow:none;cursor:default}
+/* R2R cruise tracks: year legend and clickable table rows */
+.rv-trk-ramp{display:inline-block;width:80px;height:8px;border-radius:4px}
+tr.rv-trk-row{cursor:pointer}
+.rv-home-pin-alt{background:#6c757d;box-shadow:0 0 0 2px #6c757d}
+
+/* Home hero: 3D globe of the latest available cruise tracks (assets/globe.js, MapLibre 5 globe projection) */
+.rv-globe-hero{background:radial-gradient(ellipse at 70% 40%,#123a63 0%,#08192d 55%,#050f1c 100%)}
+.rv-globe-wrap{position:relative;width:100%;height:clamp(320px,52vh,560px);border-radius:.75rem;overflow:hidden;background:#06182b}
+.rv-globe-wrap .rv-globe{position:absolute;inset:0;height:auto}
+.rv-globe-btn{position:absolute;left:.5rem;top:.5rem;z-index:2;opacity:.9}
+.rv-globe-fallback{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;padding:1rem;text-align:center;background:#06182b;z-index:3}
+.rv-globe-fallback[hidden]{display:none}
+.rv-globe-fallback img{max-width:100%;max-height:80%;width:auto;height:auto;object-fit:contain;border-radius:.5rem}
+.rv-globe-noscript{position:absolute;inset:auto 0 0 0;margin:0;padding:.5rem;background:rgba(0,0,0,.6)}
+.rv-globe-hero summary{cursor:pointer;color:#cfe2f3}
+.rv-globe-legend{columns:2 12rem;column-gap:1rem;margin-top:.25rem}
+.rv-globe-legend li{break-inside:avoid;display:flex;align-items:center;gap:.4rem;line-height:1.6}
+.rv-globe-legend a{color:#e6f0fa}
+.rv-swatch{display:inline-block;width:.9rem;height:.25rem;border-radius:2px;flex:none}
+.rv-globe-pop{font-size:.85rem;color:#212529}
+.rv-globe-hover .maplibregl-popup-content{pointer-events:none}
+@media (max-width:575.98px){.rv-globe-hero .display-6{font-size:1.6rem}.rv-globe-wrap{height:340px}}
+
+/* ledger-style compilation anchor, keep */
+.rv-ft-anchor-k4{scroll-margin-top:0.5rem}
