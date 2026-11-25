@@ -466,8 +466,8 @@
      "pi": "Matt Oliver",
      "launch_vessel": {
       "name": "R/V Joanne Daiber",
-      "vessel_id": null,
-      "note": "Not in the vessel directory yet."
+      "vessel_id": "MV-1177",
+      "note": null
      },
      "data": [
       {
@@ -818,8 +818,8 @@
      "pi": "Matt Oliver",
      "launch_vessel": {
       "name": "Tips Up",
-      "vessel_id": null,
-      "note": "Launched out of Lewes. Not in the vessel directory yet."
+      "vessel_id": "MV-1178",
+      "note": "Launched out of Lewes, Delaware. Owner is not stated in the sources."
      },
      "data": [
       {
@@ -1332,9 +1332,9 @@
     }
    ],
    "home_site": "Lewes, Delaware (UD Robotic Discovery Laboratories)",
-   "status": "Unknown",
+   "status": "Dormant",
    "status_date": "2013-09-30",
-   "status_basis": "Last logged deployment ended 2013-09-30; no later record in the Rutgers table or the IOOS DAC. Likely inactive but not confirmed.",
+   "status_basis": "Last logged deployment ended 2013-09-30 (GP2013 / Gliderpalooza). No later record was found in the Rutgers table or the IOOS DAC, so the status is recorded as dormant. UD has not confirmed retirement.",
    "specs": [
     {
      "label": "Length",
