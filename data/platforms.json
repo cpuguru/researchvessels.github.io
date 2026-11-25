@@ -1,0 +1,2835 @@
+{
+ "license": "CC BY 4.0",
+ "attribution": "Data compiled by Doug White / researchvessels.org",
+ "schema_version": "0.1-draft",
+ "generated": "2026-11-25",
+ "note": "DRAFT prototype of non-ship platforms (University of Delaware Robotic Discovery Laboratories). Compiled from public sources only, with no UD confirmation. Every record is a draft: unknown values are null and every spec carries a basis. Corrections welcome at ships@oceandata.org. platform_id values are researchvessels.org slugs, not sourced identifiers.",
+ "spec_basis_labels": {
+  "unit_metadata": "Unit metadata (data service)",
+  "operator_published": "Operator-published",
+  "operator_published_class_level": "Operator-published, class-level (not this unit)",
+  "register": "Platform register (ICES/NERC)",
+  "report": "Project report (operating parameter)"
+ },
+ "excluded": [
+  {
+   "name": "Ocean Infinity Seaworker ASVs and HUGIN AUVs",
+   "reason": "Owned by Ocean Infinity; hosted at UD Lewes under a 2018 agreement. Not UD assets.",
+   "source_id": "udaily-2020-oi"
+  },
+  {
+   "name": "maracoos_01 glider",
+   "reason": "A MARACOOS fleet glider that the IOOS catalog credits to UD as data provider on 11 deployments. UD operates it at most; ownership is unverified.",
+   "source_id": null
+  },
+  {
+   "name": "Hydrus micro-AUV",
+   "reason": "Shown at Coast Day 2025 by Beringia Marine Technologies; ownership unclear.",
+   "source_id": null
+  },
+  {
+   "name": "Unspecified second ROV and \"ATOM 4000\"",
+   "reason": "No model, owner or specs: one is a bare \"ROV\" in a 2021 equipment list, the other a 2016 list entry that is probably a visitor's vehicle.",
+   "source_id": null
+  }
+ ],
+ "sources": {
+  "ceoe-facilities": {
+   "source_id": "ceoe-facilities",
+   "title": "CEOE Facilities & Resources (undated): \"seven robots: six torpedoes and a block\"",
+   "url": "https://www.udel.edu/academics/colleges/ceoe/research/facilities-and-resources/",
+   "publisher": "University of Delaware CEOE",
+   "source_type": "official",
+   "published": null,
+   "accessed": "2026-11-25"
+  },
+  "udmag-p48": {
+   "source_id": "udmag-p48",
+   "title": "UD Research magazine v5 n1 (c.2015), p. 48: REMUS vehicles",
+   "url": "https://www1.udel.edu/researchmagazine/5-1/files/basic-html/page48.html",
+   "publisher": "University of Delaware",
+   "source_type": "official",
+   "published": "c.2015",
+   "accessed": "2026-11-25"
+  },
+  "udmag-p49": {
+   "source_id": "udmag-p49",
+   "title": "UD Research magazine v5 n1 (c.2015), p. 49: Slocum gliders and Gavia",
+   "url": "https://www1.udel.edu/researchmagazine/5-1/files/basic-html/page49.html",
+   "publisher": "University of Delaware",
+   "source_type": "official",
+   "published": "c.2015",
+   "accessed": "2026-11-25"
+  },
+  "udmag-p50": {
+   "source_id": "udmag-p50",
+   "title": "UD Research magazine v5 n1 (c.2015), p. 50: Outland 1000 ROV and DJI Phantom 2",
+   "url": "https://www1.udel.edu/researchmagazine/5-1/files/basic-html/page50.html",
+   "publisher": "University of Delaware",
+   "source_type": "official",
+   "published": "c.2015",
+   "accessed": "2026-11-25"
+  },
+  "dpm-2015": {
+   "source_id": "dpm-2015",
+   "title": "Delaware Public Media: UD's robotic drones push the boundaries of ocean exploration",
+   "url": "https://www.delawarepublic.org/2015-01-02/uds-robotic-drones-push-the-boundaries-of-ocean-exploration",
+   "publisher": "Delaware Public Media",
+   "source_type": "news",
+   "published": "2015-01-02",
+   "accessed": "2026-11-25"
+  },
+  "udaily-2016-bootcamp": {
+   "source_id": "udaily-2016-bootcamp",
+   "title": "UDaily: Autonomous Systems Bootcamp",
+   "url": "https://www.udel.edu/udaily/2016/august/autonomous-systems-bootcamp/",
+   "publisher": "University of Delaware",
+   "source_type": "official",
+   "published": "2016-08-31",
+   "accessed": "2026-11-25"
+  },
+  "udaily-2021-echoboat": {
+   "source_id": "udaily-2021-echoboat",
+   "title": "UDaily: Robotic masters (EchoBoat)",
+   "url": "https://www.udel.edu/udaily/2021/september/student-robot-water-masters-program/",
+   "publisher": "University of Delaware",
+   "source_type": "official",
+   "published": "2021-09-16",
+   "accessed": "2026-11-25"
+  },
+  "udaily-2025-feb": {
+   "source_id": "udaily-2025-feb",
+   "title": "UDaily: Mapping the Lewes campus with robots",
+   "url": "https://www.udel.edu/udaily/2025/february/robotics-blue-economy-robots-mapping-lewes-campus-autonomous-systems/",
+   "publisher": "University of Delaware",
+   "source_type": "official",
+   "published": "2025-02-20",
+   "accessed": "2026-11-25"
+  },
+  "udaily-2025-otis-rov": {
+   "source_id": "udaily-2025-otis-rov",
+   "title": "UDaily: OTIS underwater robot donated to UD",
+   "url": "https://www.udel.edu/udaily/2025/december/OTIS-ROV-Underwater-exploration-robotics-robots-technology/",
+   "publisher": "University of Delaware",
+   "source_type": "official",
+   "published": "2025-12-10",
+   "accessed": "2026-11-25"
+  },
+  "capegazette-2025-coastday": {
+   "source_id": "capegazette-2025-coastday",
+   "title": "Cape Gazette: Coast Day 2025 makes waves",
+   "url": "https://www.capegazette.com/article/coast-day-2025-makes-waves/297114",
+   "publisher": "Cape Gazette",
+   "source_type": "news",
+   "published": "2025-10-09",
+   "accessed": "2026-11-25"
+  },
+  "noaa-oer-2021": {
+   "source_id": "noaa-oer-2021",
+   "title": "NOAA Ocean Exploration final report OERFY21FO_033 (Great Lakes sanctuaries), Feb 2022",
+   "url": "https://oceanexplorer.noaa.gov/wp-content/uploads/2025/04/21greatlakes-final-report.pdf",
+   "publisher": "NOAA Ocean Exploration",
+   "source_type": "report",
+   "published": "2022-02",
+   "accessed": "2026-11-25"
+  },
+  "udaily-2020-oi": {
+   "source_id": "udaily-2020-oi",
+   "title": "UDaily: Robot boats, Ocean Infinity autonomous vehicles on the water",
+   "url": "https://www.udel.edu/udaily/2020/october/robot-boats-ocean-infinity-autonomous-vehicles-water/",
+   "publisher": "University of Delaware",
+   "source_type": "official",
+   "published": "2020-10-30",
+   "accessed": "2026-11-25"
+  },
+  "udaily-2021-missaida": {
+   "source_id": "udaily-2021-missaida",
+   "title": "UDaily: Locating Miss Aida (Ocean Infinity vehicles stationed in Lewes)",
+   "url": "https://www.udel.edu/udaily/2021/march/university-grad-student-professor-helps-locate-sunken-tugboat/",
+   "publisher": "University of Delaware",
+   "source_type": "official",
+   "published": "2021-03-03",
+   "accessed": "2026-11-25"
+  },
+  "erddap-ud476": {
+   "source_id": "erddap-ud476",
+   "title": "ERDDAP: ud_476-20240709T1216 real-time science profiles (unit metadata)",
+   "url": "https://slocum-data.marine.rutgers.edu/erddap/info/ud_476-20240709T1216-profile-sci-rt/index.html",
+   "publisher": "Rutgers RUCOOL Glider Data Team",
+   "source_type": "data_service",
+   "published": "2024-08-05",
+   "accessed": "2026-11-25"
+  },
+  "erddap-udorris": {
+   "source_id": "erddap-udorris",
+   "title": "ERDDAP: ud_orris-20260813T1614 real-time science profiles (unit metadata)",
+   "url": "https://slocum-data.marine.rutgers.edu/erddap/info/ud_orris-20260813T1614-profile-sci-rt/index.html",
+   "publisher": "Rutgers RUCOOL Glider Data Team",
+   "source_type": "data_service",
+   "published": "2026-08-20",
+   "accessed": "2026-11-25"
+  },
+  "erddap-ud134-2015": {
+   "source_id": "erddap-ud134-2015",
+   "title": "ERDDAP: ud_134-20150105T1601 dataset attributes (DAS, unit metadata)",
+   "url": "https://slocum-data.marine.rutgers.edu/erddap/tabledap/ud_134-20150105T1601-profile-sci-delayed.das",
+   "publisher": "Rutgers RUCOOL Glider Data Team",
+   "source_type": "data_service",
+   "published": "2015",
+   "accessed": "2026-11-25"
+  },
+  "rutgers-ud476": {
+   "source_id": "rutgers-ud476",
+   "title": "Rutgers glider fleet: deployments of ud_476",
+   "url": "https://marine.rutgers.edu/cool/data/gliders/configure/?filter=glider_name&type=deployments&val=ud_476",
+   "publisher": "Rutgers University",
+   "source_type": "data_service",
+   "published": null,
+   "accessed": "2026-11-25"
+  },
+  "rutgers-udorris": {
+   "source_id": "rutgers-udorris",
+   "title": "Rutgers glider fleet: deployments of ud_orris",
+   "url": "https://marine.rutgers.edu/cool/data/gliders/configure/?filter=glider_name&type=deployments&val=ud_orris",
+   "publisher": "Rutgers University",
+   "source_type": "data_service",
+   "published": null,
+   "accessed": "2026-11-25"
+  },
+  "rutgers-ud134": {
+   "source_id": "rutgers-ud134",
+   "title": "Rutgers glider fleet: deployments of ud_134",
+   "url": "https://marine.rutgers.edu/cool/data/gliders/configure/?filter=glider_name&type=deployments&val=ud_134",
+   "publisher": "Rutgers University",
+   "source_type": "data_service",
+   "published": null,
+   "accessed": "2026-11-25"
+  },
+  "rutgers-ud275": {
+   "source_id": "rutgers-ud275",
+   "title": "Rutgers glider fleet: deployments of ud_275",
+   "url": "https://marine.rutgers.edu/cool/data/gliders/configure/?filter=glider_name&type=deployments&val=ud_275",
+   "publisher": "Rutgers University",
+   "source_type": "data_service",
+   "published": null,
+   "accessed": "2026-11-25"
+  },
+  "ioos-dac": {
+   "source_id": "ioos-dac",
+   "title": "IOOS National Glider Data Assembly Center map and catalog (embedded by UG2)",
+   "url": "https://gliders.ioos.us/map/",
+   "publisher": "IOOS Glider DAC (RPS OceansMap)",
+   "source_type": "data_service",
+   "published": null,
+   "accessed": "2026-11-25"
+  },
+  "ug2-deployments": {
+   "source_id": "ug2-deployments",
+   "title": "UG2 deployments page (iframe of the IOOS Glider DAC map)",
+   "url": "https://underwatergliders.org/deployments/",
+   "publisher": "Underwater Glider User Group (UG2)",
+   "source_type": "reference",
+   "published": null,
+   "accessed": "2026-11-25"
+  },
+  "ices-33x9": {
+   "source_id": "ices-33x9",
+   "title": "ICES/NERC C17 platform 33X9 \"UD 134\"",
+   "url": "https://vocab.nerc.ac.uk/collection/C17/current/33X9/",
+   "publisher": "ICES / NERC Vocabulary Server",
+   "source_type": "register",
+   "published": null,
+   "accessed": "2026-11-25"
+  },
+  "ices-33k7": {
+   "source_id": "ices-33k7",
+   "title": "ICES/NERC C17 platform 33K7 \"UD 275\" (synonym OTIS)",
+   "url": "https://vocab.nerc.ac.uk/collection/C17/current/33K7/",
+   "publisher": "ICES / NERC Vocabulary Server",
+   "source_type": "register",
+   "published": null,
+   "accessed": "2026-11-25"
+  },
+  "oceantrack-otis": {
+   "source_id": "oceantrack-otis",
+   "title": "OceanTrack: \"OTIS (UD275) glider telemetry 2013\" (Breece et al.)",
+   "url": "https://members.oceantrack.org/data/pblctn_data/data_files/cisti.otndc/10.14286/2015-breece-mee",
+   "publisher": "Ocean Tracking Network",
+   "source_type": "data_service",
+   "published": "2015",
+   "accessed": "2026-11-25"
+  },
+  "udaily-2010-bluehen": {
+   "source_id": "udaily-2010-bluehen",
+   "title": "UDaily: Track UD's underwater glider at oil spill site (\"the Blue Hen and UD 134\")",
+   "url": "https://www1.udel.edu/udaily/2010/jun/ceoeglider060310.html",
+   "publisher": "University of Delaware",
+   "source_type": "official",
+   "published": "2010-06-03",
+   "accessed": "2026-11-25"
+  },
+  "ob-2010-slocum": {
+   "source_id": "ob-2010-slocum",
+   "title": "Ocean Bytes: Wicked Cool Slocum Electric Glider 101 (\"the UD-134 glider (aka the 'Blue Hen')\")",
+   "url": "https://www.oceanbytes.org/2010/08/25/wicked-cool-slocum-electric-glider-101/",
+   "publisher": "Ocean Bytes (Doug White)",
+   "source_type": "other",
+   "published": "2010-08-25",
+   "accessed": "2026-11-25"
+  },
+  "ob-2011-penguins": {
+   "source_id": "ob-2011-penguins",
+   "title": "Ocean Bytes: Penguins, AUVs, Satellites: together at last",
+   "url": "https://www.oceanbytes.org/2011/01/21/penguins-auvs-satellites-together-at-last/",
+   "publisher": "Ocean Bytes (Doug White)",
+   "source_type": "other",
+   "published": "2011-01-21",
+   "accessed": "2026-11-25"
+  },
+  "udaily-2012-otis": {
+   "source_id": "udaily-2012-otis",
+   "title": "UDaily: Shark migrations studied with underwater robot along Delmarva Peninsula (OTIS glider)",
+   "url": "https://www1.udel.edu/udaily/2013/oct/shark-migrations-101612.html",
+   "publisher": "University of Delaware",
+   "source_type": "official",
+   "published": "2012-10-16",
+   "accessed": "2026-11-25"
+  },
+  "capegazette-2013-rotary": {
+   "source_id": "capegazette-2013-rotary",
+   "title": "Cape Gazette: UD ocean scientists address Lewes-Rehoboth Rotary",
+   "url": "https://www.capegazette.com/article/ud-ocean-scientists-address-lewes-rehoboth-rotary/55956",
+   "publisher": "Cape Gazette",
+   "source_type": "news",
+   "published": "2013-11-23",
+   "accessed": "2026-11-25"
+  },
+  "breece-2016": {
+   "source_id": "breece-2016",
+   "title": "Breece et al., Methods in Ecology and Evolution (DOI 10.1111/2041-210X.12532)",
+   "url": "https://doi.org/10.1111/2041-210X.12532",
+   "publisher": "Methods in Ecology and Evolution",
+   "source_type": "journal",
+   "published": "2016",
+   "accessed": "2026-11-25"
+  }
+ },
+ "platforms": [
+  {
+   "platform_id": "ud_476",
+   "name": "ud_476",
+   "display_name": "ud_476",
+   "aliases": [],
+   "distinct_from": [],
+   "platform_class": "glider",
+   "model": "Slocum G2",
+   "model_note": null,
+   "manufacturer": "Teledyne Webb Research",
+   "serial_number": "0476",
+   "quantity": 1,
+   "quantity_note": null,
+   "external_ids": {
+    "wmo_id": "4801927"
+   },
+   "owner_org": "University of Delaware",
+   "ownership_type": "owned",
+   "ownership_note": "Owner listed as University of Delaware in the Rutgers/ERDDAP fleet metadata.",
+   "operator_org": "University of Delaware",
+   "operating_unit": "Oliver lab (UD CEOE)",
+   "contacts": [
+    {
+     "name": "Matt Oliver",
+     "role": "Principal investigator (glider program)",
+     "as_of": "2024-08-05",
+     "source_id": "erddap-ud476"
+    }
+   ],
+   "home_site": "Lewes, Delaware (UD Robotic Discovery Laboratories)",
+   "status": "Active",
+   "status_date": "2026-08-18",
+   "status_basis": "Deployment ud_476-20260818 (NASA EPSCoR) is on the Rutgers fleet table with no recovery logged as of 2026-11-25; the previous mission ended 2024-08-05.",
+   "specs": [
+    {
+     "label": "Depth rating",
+     "value": 200,
+     "unit": "m",
+     "basis": "unit_metadata",
+     "source_id": "erddap-ud476",
+     "comment": null
+    },
+    {
+     "label": "Length",
+     "value": 1.5,
+     "unit": "m",
+     "basis": "operator_published_class_level",
+     "source_id": "udmag-p49",
+     "comment": "UD-printed figure for \"Slocum gliders\" as a class, c.2015; not measured on this unit."
+    },
+    {
+     "label": "Diameter",
+     "value": 0.22,
+     "unit": "m",
+     "basis": "operator_published_class_level",
+     "source_id": "udmag-p49",
+     "comment": "Same class-level figure."
+    },
+    {
+     "label": "Endurance",
+     "value": [
+      1,
+      90
+     ],
+     "unit": "days",
+     "basis": "operator_published_class_level",
+     "source_id": "udmag-p49",
+     "comment": "Range UD quoted for the Slocum class."
+    },
+    {
+     "label": "Range",
+     "value": "hundreds of km",
+     "unit": null,
+     "basis": "operator_published_class_level",
+     "source_id": "udmag-p49",
+     "comment": "Class-level."
+    },
+    {
+     "label": "Slocum OS version",
+     "value": "8.3",
+     "unit": null,
+     "basis": "unit_metadata",
+     "source_id": "erddap-ud476",
+     "comment": "As of the 2024 deployment metadata."
+    }
+   ],
+   "sensors": [
+    {
+     "name": "CTD (pumped)",
+     "maker": "Sea-Bird Scientific",
+     "model": "Slocum Glider Payload GPCTD",
+     "serial_number": "9537",
+     "calibration_date": "2024-03-05",
+     "notes": null,
+     "source_id": "erddap-ud476"
+    },
+    {
+     "name": "PAR radiometer",
+     "maker": "Biospherical Instruments",
+     "model": "QSP-2155 Underwater PAR Sensor",
+     "serial_number": "50283",
+     "calibration_date": "2024-04-09",
+     "notes": null,
+     "source_id": "erddap-ud476"
+    },
+    {
+     "name": "Animal tag (tracking tag carried for geolocation tests)",
+     "maker": "Wildlife Computers",
+     "model": "MiniPAT",
+     "serial_number": "22P0207",
+     "calibration_date": null,
+     "notes": "Service metadata lists no calibration date.",
+     "source_id": "erddap-ud476"
+    }
+   ],
+   "applications": [
+    "Hurricane intensification forecasting (IOOS/MARACOOS)",
+    "Acoustic-telemetry surveys of tagged animals",
+    "Animal-tag geolocation validation",
+    "Mid-Atlantic Bight shelf observations"
+   ],
+   "deployments": [
+    {
+     "deployment_id": null,
+     "start": "2026-08-18",
+     "end": null,
+     "project": "NASA EPSCoR",
+     "summary": null,
+     "region": null,
+     "funder": null,
+     "days": 4.4,
+     "distance_km": 33.4,
+     "pi": null,
+     "launch_vessel": null,
+     "data": [],
+     "source_id": "rutgers-ud476",
+     "note": "Listed on the Rutgers table with no recovery date as of 2026-11-25; days and distance were the values shown at that time."
+    },
+    {
+     "deployment_id": "ud_476-20240709T1216",
+     "start": "2024-07-09",
+     "end": "2024-08-05",
+     "project": "Hurricane Glider Program (sustained glider observations to improve Atlantic tropical cyclone intensity forecasts)",
+     "summary": null,
+     "region": "Mid-Atlantic Bight: Delaware Bay mouth toward the shelf break",
+     "funder": "Integrated Ocean Observing System (IOOS/MARACOOS hurricane supplemental)",
+     "days": 27.1,
+     "distance_km": 520.7,
+     "pi": "Matt Oliver",
+     "launch_vessel": {
+      "name": "R/V Joanne Daiber",
+      "vessel_id": null,
+      "note": "Not in the vessel directory yet."
+     },
+     "data": [
+      {
+       "type": "erddap",
+       "label": "ERDDAP dataset (IOOS Glider DAC)",
+       "url": "https://gliders.ioos.us/erddap/tabledap/ud_476-20240709T1216.html"
+      }
+     ],
+     "source_id": "ioos-dac",
+     "note": "Rutgers table gives 27.1 d and 520.7 km. The IOOS DAC copy of this dataset holds only 2024-07-09 to 2024-07-12."
+    },
+    {
+     "deployment_id": "ud_476-20230822T2018",
+     "start": "2023-08-22",
+     "end": "2023-09-20",
+     "project": null,
+     "summary": "Deployed with only CTD and PAR to conserve battery; three-to-four-week mission along the edge of the Gulf Stream.",
+     "region": "Gulf Stream edge, North Carolina to the Mid-Atlantic Bight",
+     "funder": "NASA EPSCoR",
+     "days": 28.8,
+     "distance_km": 838.9,
+     "pi": null,
+     "launch_vessel": null,
+     "data": [
+      {
+       "type": "erddap",
+       "label": "ERDDAP dataset (IOOS Glider DAC)",
+       "url": "https://gliders.ioos.us/erddap/tabledap/ud_476-20230822T2018.html"
+      }
+     ],
+     "source_id": "ioos-dac",
+     "note": null
+    },
+    {
+     "deployment_id": "ud_476-20230113T1454",
+     "start": "2023-01-13",
+     "end": "2023-01-22",
+     "project": null,
+     "summary": "Characterize the dynamics of a meltwater-driven buoyant front along the Antarctic Peninsula.",
+     "region": "Antarctic Peninsula",
+     "funder": "National Science Foundation",
+     "days": null,
+     "distance_km": null,
+     "pi": null,
+     "launch_vessel": null,
+     "data": [
+      {
+       "type": "erddap",
+       "label": "ERDDAP dataset (IOOS Glider DAC)",
+       "url": "https://gliders.ioos.us/erddap/tabledap/ud_476-20230113T1454.html"
+      }
+     ],
+     "source_id": "ioos-dac",
+     "note": null
+    },
+    {
+     "deployment_id": "ud_476-20220412T1700",
+     "start": "2022-04-12",
+     "end": "2022-04-17",
+     "project": null,
+     "summary": "Comparison test of a light-based geolocation tag with glider PAR and Argos measurements.",
+     "region": "Mid-Atlantic Bight",
+     "funder": "NOAA / IOOS",
+     "days": null,
+     "distance_km": null,
+     "pi": null,
+     "launch_vessel": null,
+     "data": [
+      {
+       "type": "erddap",
+       "label": "ERDDAP dataset (IOOS Glider DAC)",
+       "url": "https://gliders.ioos.us/erddap/tabledap/ud_476-20220412T1700.html"
+      }
+     ],
+     "source_id": "ioos-dac",
+     "note": null
+    },
+    {
+     "deployment_id": "ud_476-20220305T1558",
+     "start": "2022-03-05",
+     "end": "2022-03-23",
+     "project": null,
+     "summary": "Surveys of acoustically tagged species; secondary test of an experimental animal CTD tag against glider CTD.",
+     "region": "Mid-Atlantic Bight",
+     "funder": "NOAA / IOOS",
+     "days": null,
+     "distance_km": null,
+     "pi": null,
+     "launch_vessel": null,
+     "data": [
+      {
+       "type": "erddap",
+       "label": "ERDDAP dataset (IOOS Glider DAC)",
+       "url": "https://gliders.ioos.us/erddap/tabledap/ud_476-20220305T1558.html"
+      }
+     ],
+     "source_id": "ioos-dac",
+     "note": null
+    },
+    {
+     "deployment_id": "ud_476-20181112T1258",
+     "start": "2018-11-13",
+     "end": "2018-11-30",
+     "project": null,
+     "summary": "Surveys of acoustically tagged fish east of the BOEM wind area, to see how far offshore they migrate.",
+     "region": "Offshore of the BOEM wind energy area, Mid-Atlantic",
+     "funder": "Mid-Atlantic Regional Association Coastal Ocean Observing System (MARACOOS)",
+     "days": null,
+     "distance_km": null,
+     "pi": null,
+     "launch_vessel": null,
+     "data": [
+      {
+       "type": "erddap",
+       "label": "ERDDAP dataset (IOOS Glider DAC)",
+       "url": "https://gliders.ioos.us/erddap/tabledap/ud_476-20181112T1258.html"
+      }
+     ],
+     "source_id": "ioos-dac",
+     "note": null
+    },
+    {
+     "deployment_id": "ud_476-20180501T1640",
+     "start": "2018-05-01",
+     "end": "2018-05-13",
+     "project": null,
+     "summary": "Measure sub-surface conditions in the White Shark Cafe.",
+     "region": "Northeast Pacific (\"White Shark Cafe\", between Hawaii and Baja California)",
+     "funder": "Schmidt Ocean Institute",
+     "days": null,
+     "distance_km": null,
+     "pi": null,
+     "launch_vessel": null,
+     "data": [
+      {
+       "type": "erddap",
+       "label": "ERDDAP dataset (IOOS Glider DAC)",
+       "url": "https://gliders.ioos.us/erddap/tabledap/ud_476-20180501T1640.html"
+      }
+     ],
+     "source_id": "ioos-dac",
+     "note": null
+    },
+    {
+     "deployment_id": "ud_476-20180116T1500",
+     "start": "2018-01-17",
+     "end": "2018-03-05",
+     "project": null,
+     "summary": "Nearshore oceanography and acoustically telemetered animals, zig-zagging between about 10 and 30 m depth.",
+     "region": "South Atlantic Bight (nearshore)",
+     "funder": "NOAA IOOS",
+     "days": null,
+     "distance_km": null,
+     "pi": null,
+     "launch_vessel": null,
+     "data": [
+      {
+       "type": "erddap",
+       "label": "ERDDAP dataset (IOOS Glider DAC)",
+       "url": "https://gliders.ioos.us/erddap/tabledap/ud_476-20180116T1500.html"
+      }
+     ],
+     "source_id": "ioos-dac",
+     "note": null
+    },
+    {
+     "deployment_id": "ud_476-20150917T1400",
+     "start": "2015-09-17",
+     "end": "2015-11-24",
+     "project": "MARACOOS",
+     "summary": "MARACOOS glider with Rutgers to detect acoustically telemetered animals and relate them to ocean conditions. Longest ud_476 mission by duration in the Rutgers table.",
+     "region": "Mid-Atlantic Bight",
+     "funder": "Rutgers RU-COOL supporters",
+     "days": 67.5,
+     "distance_km": 1335.7,
+     "pi": null,
+     "launch_vessel": null,
+     "data": [
+      {
+       "type": "erddap",
+       "label": "ERDDAP dataset (IOOS Glider DAC)",
+       "url": "https://gliders.ioos.us/erddap/tabledap/ud_476-20150917T1400.html"
+      }
+     ],
+     "source_id": "ioos-dac",
+     "note": null
+    }
+   ],
+   "data_endpoints": [
+    {
+     "type": "erddap",
+     "label": "ERDDAP metadata: ud_476-20240709T1216 (Rutgers)",
+     "url": "https://slocum-data.marine.rutgers.edu/erddap/info/ud_476-20240709T1216-profile-sci-rt/index.html"
+    },
+    {
+     "type": "fleet_page",
+     "label": "Rutgers glider fleet: all ud_476 deployments",
+     "url": "https://marine.rutgers.edu/cool/data/gliders/configure/?filter=glider_name&type=deployments&val=ud_476"
+    }
+   ],
+   "photos": [],
+   "notes": [
+    "Dates come from the IOOS Glider DAC catalog (first to last data record) and can differ slightly from the Rutgers mission table."
+   ],
+   "source_ids": [
+    "erddap-ud476",
+    "rutgers-ud476",
+    "udmag-p49",
+    "ioos-dac",
+    "ug2-deployments"
+   ],
+   "provenance": {
+    "record_status": "draft",
+    "confidence": "High for identity, sensors and depth rating (unit metadata); medium for status.",
+    "last_verified": "2026-11-25",
+    "verified_by": "Desk research from public web sources only; no UD confirmation",
+    "gaps": [
+     "mass",
+     "speed",
+     "battery / energy source",
+     "owner-confirmed status",
+     "access policy"
+    ]
+   }
+  },
+  {
+   "platform_id": "ud_orris",
+   "name": "ud_orris",
+   "display_name": "ud_orris",
+   "aliases": [],
+   "distinct_from": [],
+   "platform_class": "glider",
+   "model": "Slocum G3S",
+   "model_note": null,
+   "manufacturer": "Teledyne Webb Research",
+   "serial_number": "1208",
+   "quantity": 1,
+   "quantity_note": null,
+   "external_ids": {
+    "wmo_id": "8901096"
+   },
+   "owner_org": "University of Delaware",
+   "ownership_type": "owned",
+   "ownership_note": "Instrument owner listed as University of Delaware in the unit metadata.",
+   "operator_org": "University of Delaware",
+   "operating_unit": "Oliver lab (UD CEOE)",
+   "contacts": [
+    {
+     "name": "Matt Oliver",
+     "role": "Principal investigator (glider program)",
+     "as_of": "2026-08-20",
+     "source_id": "erddap-udorris"
+    }
+   ],
+   "home_site": "Lewes, Delaware (UD Robotic Discovery Laboratories)",
+   "status": "Active",
+   "status_date": "2026-08-20",
+   "status_basis": "Deployed 2026-08-13 to 2026-08-20 (NASA EPSCoR); earlier missions in 2024 and 2025.",
+   "specs": [
+    {
+     "label": "Depth rating",
+     "value": 350,
+     "unit": "m",
+     "basis": "unit_metadata",
+     "source_id": "erddap-udorris",
+     "comment": "From the ud_orris unit metadata."
+    },
+    {
+     "label": "Slocum OS version",
+     "value": "11.07",
+     "unit": null,
+     "basis": "unit_metadata",
+     "source_id": "erddap-udorris",
+     "comment": "As of the 2026 deployment metadata."
+    }
+   ],
+   "sensors": [
+    {
+     "name": "CTD",
+     "maker": "RBR",
+     "model": "RBR Legato3 CTD",
+     "serial_number": "212385",
+     "calibration_date": "2025-03-26",
+     "notes": null,
+     "source_id": "erddap-udorris"
+    },
+    {
+     "name": "Fluorometer and backscatter",
+     "maker": "WET Labs / Sea-Bird Scientific",
+     "model": "FLBBBBv1",
+     "serial_number": "8882",
+     "calibration_date": "2025-02-03",
+     "notes": null,
+     "source_id": "erddap-udorris"
+    },
+    {
+     "name": "Irradiance radiometer",
+     "maker": "Satlantic / Sea-Bird Scientific",
+     "model": "OCR-504",
+     "serial_number": "2503",
+     "calibration_date": "2025-02-05",
+     "notes": null,
+     "source_id": "erddap-udorris"
+    },
+    {
+     "name": "Radiance radiometer",
+     "maker": "Satlantic / Sea-Bird Scientific",
+     "model": "OCR-504",
+     "serial_number": "2502",
+     "calibration_date": "2025-03-25",
+     "notes": null,
+     "source_id": "erddap-udorris"
+    },
+    {
+     "name": "Echosounder",
+     "maker": "Kongsberg Maritime",
+     "model": "Simrad EK80",
+     "serial_number": "2",
+     "calibration_date": "2024-05-02",
+     "notes": "Metadata notes an in-house calibration in Delaware Bay on 2026-06-09.",
+     "source_id": "erddap-udorris"
+    },
+    {
+     "name": "Shadowgraph imager",
+     "maker": "Wassoc",
+     "model": "Shadowgraph V3",
+     "serial_number": "5",
+     "calibration_date": null,
+     "notes": "Metadata gives no calibration date.",
+     "source_id": "erddap-udorris"
+    }
+   ],
+   "applications": [
+    "Zooplankton detection and characterization",
+    "Optical and acoustic data matched to PACE satellite and airborne lidar (PACE-PAX)"
+   ],
+   "deployments": [
+    {
+     "deployment_id": "ud_orris-20260813T1614",
+     "start": "2026-08-13",
+     "end": "2026-08-20",
+     "project": "Mid-Atlantic Zooplankton Detection (NASA EPSCoR)",
+     "summary": "Shelf-break transect for zooplankton detection and characterization; planned for three to four weeks.",
+     "region": "Mid-Atlantic Bight shelf-break transect",
+     "funder": "National Aeronautics and Space Administration",
+     "days": 6.9,
+     "distance_km": 115.2,
+     "pi": "Matt Oliver",
+     "launch_vessel": {
+      "name": "Tips Up",
+      "vessel_id": null,
+      "note": "Launched out of Lewes. Not in the vessel directory yet."
+     },
+     "data": [
+      {
+       "type": "erddap",
+       "label": "ERDDAP dataset (IOOS Glider DAC)",
+       "url": "https://gliders.ioos.us/erddap/tabledap/ud_orris-20260813T1614.html"
+      },
+      {
+       "type": "erddap",
+       "label": "ERDDAP metadata (Rutgers)",
+       "url": "https://slocum-data.marine.rutgers.edu/erddap/info/ud_orris-20260813T1614-profile-sci-rt/index.html"
+      }
+     ],
+     "source_id": "ioos-dac",
+     "note": "The Rutgers table showed 6.9 days and 115.2 km against a planned three to four weeks; whether the mission continued is not stated in the sources."
+    },
+    {
+     "deployment_id": "ud_orris-20250905T1810",
+     "start": "2025-09-05",
+     "end": "2025-09-26",
+     "project": "NBLUE",
+     "summary": "Optical and acoustic data for use with concurrent cruise and lidar flight data.",
+     "region": "Bermuda, BATS transect",
+     "funder": "NASA EPSCoR",
+     "days": null,
+     "distance_km": null,
+     "pi": null,
+     "launch_vessel": null,
+     "data": [
+      {
+       "type": "erddap",
+       "label": "ERDDAP dataset (IOOS Glider DAC)",
+       "url": "https://gliders.ioos.us/erddap/tabledap/ud_orris-20250905T1810.html"
+      }
+     ],
+     "source_id": "ioos-dac",
+     "note": null
+    },
+    {
+     "deployment_id": "ud_orris-20240907T1638",
+     "start": "2024-09-07",
+     "end": "2024-10-01",
+     "project": "PACE-PAX",
+     "summary": "In-situ optical and acoustic data matched to PACE satellite and airborne HSRL-2 lidar data.",
+     "region": "Santa Barbara Channel, California",
+     "funder": "National Aeronautics and Space Administration",
+     "days": null,
+     "distance_km": null,
+     "pi": null,
+     "launch_vessel": null,
+     "data": [
+      {
+       "type": "erddap",
+       "label": "ERDDAP dataset (IOOS Glider DAC)",
+       "url": "https://gliders.ioos.us/erddap/tabledap/ud_orris-20240907T1638.html"
+      }
+     ],
+     "source_id": "ioos-dac",
+     "note": null
+    }
+   ],
+   "data_endpoints": [
+    {
+     "type": "fleet_page",
+     "label": "Rutgers glider fleet: all ud_orris deployments",
+     "url": "https://marine.rutgers.edu/cool/data/gliders/configure/?filter=glider_name&type=deployments&val=ud_orris"
+    }
+   ],
+   "photos": [],
+   "notes": [
+    "Dates come from the IOOS Glider DAC catalog (first to last data record) and can differ slightly from the Rutgers mission table.",
+    "Not the \"OTIS\" glider (see ud_275) and not the OTIS ROV."
+   ],
+   "source_ids": [
+    "erddap-udorris",
+    "rutgers-udorris",
+    "ioos-dac",
+    "ug2-deployments"
+   ],
+   "provenance": {
+    "record_status": "draft",
+    "confidence": "High for identity, sensors and depth rating (unit metadata).",
+    "last_verified": "2026-11-25",
+    "verified_by": "Desk research from public web sources only; no UD confirmation",
+    "gaps": [
+     "length, diameter, mass",
+     "endurance",
+     "owner-confirmed status",
+     "access policy"
+    ]
+   }
+  },
+  {
+   "platform_id": "ud_134",
+   "name": "ud_134",
+   "display_name": "Blue Hen (ud_134)",
+   "aliases": [
+    "Blue Hen",
+    "UD-134",
+    "UD 134"
+   ],
+   "distinct_from": [
+    "ud_275"
+   ],
+   "platform_class": "glider",
+   "model": "Slocum G2",
+   "model_note": "2015 dataset metadata says G2; an unverified summary says earlier (2011-12) datasets were G1.",
+   "manufacturer": "Teledyne Webb Research",
+   "serial_number": "0134",
+   "quantity": 1,
+   "quantity_note": null,
+   "external_ids": {
+    "wmo_id": "7801503",
+    "ices_c17": "33X9"
+   },
+   "owner_org": "University of Delaware",
+   "ownership_type": "owned",
+   "ownership_note": "Operated by UD (Oliver); formal ownership not stated in the sources.",
+   "operator_org": "University of Delaware",
+   "operating_unit": "Oliver lab (UD CEOE)",
+   "contacts": [
+    {
+     "name": "Matt Oliver",
+     "role": "Principal investigator",
+     "as_of": "2010-08-25",
+     "source_id": "ob-2010-slocum"
+    }
+   ],
+   "home_site": "Lewes, Delaware (UD Robotic Discovery Laboratories)",
+   "status": "Dormant",
+   "status_date": "2020-08-20",
+   "status_basis": "Last logged deployment ended 2020-08-20 (Hurricane Gliders); no deployment found since. UD has not confirmed retirement.",
+   "specs": [
+    {
+     "label": "Depth rating",
+     "value": 200,
+     "unit": "m",
+     "basis": "unit_metadata",
+     "source_id": "erddap-ud134-2015",
+     "comment": "From the 2015 dataset attributes."
+    },
+    {
+     "label": "Length",
+     "value": 1.8,
+     "unit": "m",
+     "basis": "register",
+     "source_id": "ices-33x9",
+     "comment": "Length in the ICES platform record."
+    }
+   ],
+   "sensors": [],
+   "applications": [
+    "Deepwater Horizon response (2010)",
+    "Penguin foraging and Palmer Deep studies, West Antarctic Peninsula",
+    "Bioluminescence sensing and optical-sensor testing off Delaware",
+    "Hurricane intensification (2020)"
+   ],
+   "deployments": [
+    {
+     "deployment_id": "ud_134-20200731T2103",
+     "start": "2020-07-31",
+     "end": "2020-08-20",
+     "project": "Hurricane Gliders",
+     "summary": "Deployment and real-time data delivery of coastal gliders to understand features that drive hurricane intensification.",
+     "region": "Mid-Atlantic Bight and shelf",
+     "funder": "NOAA, United States Navy, IFAA, OAR, AOML",
+     "days": 19.8,
+     "distance_km": 471.8,
+     "pi": null,
+     "launch_vessel": null,
+     "data": [
+      {
+       "type": "erddap",
+       "label": "ERDDAP dataset (IOOS Glider DAC)",
+       "url": "https://gliders.ioos.us/erddap/tabledap/ud_134-20200731T2103.html"
+      }
+     ],
+     "source_id": "ioos-dac",
+     "note": "Last logged mission for this glider."
+    },
+    {
+     "deployment_id": "ud_134-20180427T1307",
+     "start": "2018-04-27",
+     "end": "2018-05-07",
+     "project": null,
+     "summary": "Test of a new WET Labs optical sensor on a Slocum glider.",
+     "region": "Off Delaware, running offshore",
+     "funder": "Office of Naval Research",
+     "days": null,
+     "distance_km": null,
+     "pi": null,
+     "launch_vessel": null,
+     "data": [
+      {
+       "type": "erddap",
+       "label": "ERDDAP dataset (IOOS Glider DAC)",
+       "url": "https://gliders.ioos.us/erddap/tabledap/ud_134-20180427T1307.html"
+      }
+     ],
+     "source_id": "ioos-dac",
+     "note": null
+    },
+    {
+     "deployment_id": "ud_134-20170825T1533",
+     "start": "2017-08-25",
+     "end": "2017-09-07",
+     "project": null,
+     "summary": "Test of a new WET Labs optical sensor on a Slocum glider.",
+     "region": "Off Delaware, running offshore",
+     "funder": "Office of Naval Research",
+     "days": null,
+     "distance_km": null,
+     "pi": null,
+     "launch_vessel": null,
+     "data": [
+      {
+       "type": "erddap",
+       "label": "ERDDAP dataset (IOOS Glider DAC)",
+       "url": "https://gliders.ioos.us/erddap/tabledap/ud_134-20170825T1533.html"
+      }
+     ],
+     "source_id": "ioos-dac",
+     "note": null
+    },
+    {
+     "deployment_id": "ud_134-20170725T1439",
+     "start": "2017-07-25",
+     "end": "2017-08-14",
+     "project": null,
+     "summary": "Test of a new WET Labs optical sensor on a Slocum glider.",
+     "region": "Off Delaware, running offshore",
+     "funder": "Office of Naval Research",
+     "days": null,
+     "distance_km": null,
+     "pi": null,
+     "launch_vessel": null,
+     "data": [
+      {
+       "type": "erddap",
+       "label": "ERDDAP dataset (IOOS Glider DAC)",
+       "url": "https://gliders.ioos.us/erddap/tabledap/ud_134-20170725T1439.html"
+      }
+     ],
+     "source_id": "ioos-dac",
+     "note": null
+    },
+    {
+     "deployment_id": "ud_134-20170621T1353",
+     "start": "2017-06-21",
+     "end": "2017-06-29",
+     "project": null,
+     "summary": "Test of a new WET Labs optical sensor on a Slocum glider.",
+     "region": "Off Delaware, running offshore",
+     "funder": "Office of Naval Research",
+     "days": null,
+     "distance_km": null,
+     "pi": null,
+     "launch_vessel": null,
+     "data": [
+      {
+       "type": "erddap",
+       "label": "ERDDAP dataset (IOOS Glider DAC)",
+       "url": "https://gliders.ioos.us/erddap/tabledap/ud_134-20170621T1353.html"
+      }
+     ],
+     "source_id": "ioos-dac",
+     "note": null
+    },
+    {
+     "deployment_id": "ud_134-20160830T1619",
+     "start": "2016-08-30",
+     "end": "2016-09-07",
+     "project": null,
+     "summary": "Sensing and prediction of bioluminescence at scales of tens to thousands of meters.",
+     "region": "Mid-Atlantic coast off Delmarva",
+     "funder": "Office of Naval Research",
+     "days": null,
+     "distance_km": null,
+     "pi": null,
+     "launch_vessel": null,
+     "data": [
+      {
+       "type": "erddap",
+       "label": "ERDDAP dataset (IOOS Glider DAC)",
+       "url": "https://gliders.ioos.us/erddap/tabledap/ud_134-20160830T1619.html"
+      }
+     ],
+     "source_id": "ioos-dac",
+     "note": null
+    },
+    {
+     "deployment_id": "ud_134-20150122T1955",
+     "start": "2015-01-24",
+     "end": "2015-02-15",
+     "project": null,
+     "summary": "Station-keeping to resolve the Palmer Deep time series within the CODAR fields; Adelie penguin foraging ecology study.",
+     "region": "Palmer Deep, off Anvers Island, West Antarctic Peninsula",
+     "funder": "National Science Foundation",
+     "days": null,
+     "distance_km": null,
+     "pi": null,
+     "launch_vessel": null,
+     "data": [
+      {
+       "type": "erddap",
+       "label": "ERDDAP dataset (IOOS Glider DAC)",
+       "url": "https://gliders.ioos.us/erddap/tabledap/ud_134-20150122T1955.html"
+      }
+     ],
+     "source_id": "ioos-dac",
+     "note": null
+    },
+    {
+     "deployment_id": "ud_134-20150105T1601",
+     "start": "2015-01-05",
+     "end": "2015-01-21",
+     "project": null,
+     "summary": "Cross-canyon transects of Palmer Deep within the CODAR fields; Adelie penguin foraging ecology study.",
+     "region": "Palmer Deep, off Anvers Island, West Antarctic Peninsula",
+     "funder": "National Science Foundation",
+     "days": null,
+     "distance_km": null,
+     "pi": null,
+     "launch_vessel": null,
+     "data": [
+      {
+       "type": "erddap",
+       "label": "ERDDAP dataset (IOOS Glider DAC)",
+       "url": "https://gliders.ioos.us/erddap/tabledap/ud_134-20150105T1601.html"
+      }
+     ],
+     "source_id": "ioos-dac",
+     "note": null
+    },
+    {
+     "deployment_id": "ud_134-20111221T2030-delayed",
+     "start": "2011-12-21",
+     "end": "2012-01-02",
+     "project": "LTER",
+     "summary": null,
+     "region": "West Antarctic Peninsula (Bismarck Strait)",
+     "funder": null,
+     "days": 11.7,
+     "distance_km": null,
+     "pi": null,
+     "launch_vessel": null,
+     "data": [],
+     "source_id": "rutgers-ud134",
+     "note": "Palmer Station monthly report (Dec 2011) calls the glider \"the Blue Hen, on loan from Matt Oliver\"; cited by the research notes as corroboration. Not in the IOOS DAC map."
+    },
+    {
+     "deployment_id": "ud_134-20110115T2355-delayed",
+     "start": "2011-01-15",
+     "end": "2011-01-31",
+     "project": "LTER (West Antarctic Peninsula penguin-tracking mission)",
+     "summary": null,
+     "region": "West Antarctic Peninsula",
+     "funder": null,
+     "days": 15.6,
+     "distance_km": 177.9,
+     "pi": null,
+     "launch_vessel": null,
+     "data": [],
+     "source_id": "ob-2011-penguins",
+     "note": "Ocean Bytes photos are captioned \"Ballasting the Glider (Blue Hen)\" and \"launch of the 'Blue Hen'\". Not in the IOOS DAC map."
+    },
+    {
+     "deployment_id": "ud_134-20110110T2238-delayed",
+     "start": "2011-01-10",
+     "end": "2011-01-14",
+     "project": "LTER",
+     "summary": null,
+     "region": "West Antarctic Peninsula",
+     "funder": null,
+     "days": 4.0,
+     "distance_km": null,
+     "pi": null,
+     "launch_vessel": null,
+     "data": [],
+     "source_id": "rutgers-ud134",
+     "note": "Not in the IOOS DAC map."
+    },
+    {
+     "deployment_id": null,
+     "start": "2010-07-02",
+     "end": "2010-07-27",
+     "project": "IOOS / Deepwater Horizon oil spill response (second Gulf tour)",
+     "summary": null,
+     "region": "Gulf of Mexico",
+     "funder": null,
+     "days": 24.9,
+     "distance_km": 526.9,
+     "pi": null,
+     "launch_vessel": null,
+     "data": [],
+     "source_id": "ob-2010-slocum",
+     "note": "Not in the IOOS DAC map. After recovery the glider went to Teledyne Webb Research for work ahead of an Antarctic mission."
+    },
+    {
+     "deployment_id": null,
+     "start": "2010-06-02",
+     "end": "2010-06-28",
+     "project": "IOOS / Deepwater Horizon oil spill response (first Gulf tour)",
+     "summary": null,
+     "region": "Gulf of Mexico",
+     "funder": null,
+     "days": 25.9,
+     "distance_km": 583.3,
+     "pi": null,
+     "launch_vessel": null,
+     "data": [],
+     "source_id": "udaily-2010-bluehen",
+     "note": "UDaily (2010-06-03): \"look for the Blue Hen and UD 134\" on the response map. Not in the IOOS DAC map."
+    },
+    {
+     "deployment_id": null,
+     "start": "2009-11-05",
+     "end": "2009-11-20",
+     "project": "OSSE",
+     "summary": null,
+     "region": null,
+     "funder": null,
+     "days": 14.9,
+     "distance_km": 348.0,
+     "pi": null,
+     "launch_vessel": null,
+     "data": [],
+     "source_id": "rutgers-ud134",
+     "note": "First logged mission; ICES lists commissioning on 2009-11-05. Not in the IOOS DAC map."
+    }
+   ],
+   "data_endpoints": [
+    {
+     "type": "fleet_page",
+     "label": "Rutgers glider fleet: all ud_134 deployments (19 logged, 2009-2020)",
+     "url": "https://marine.rutgers.edu/cool/data/gliders/configure/?filter=glider_name&type=deployments&val=ud_134"
+    }
+   ],
+   "photos": [],
+   "notes": [
+    "\"Blue Hen\" comes from UD and Ocean Bytes sources, not from ICES (the ICES record lists no synonym). Cape Gazette (2013-11-23) calls Blue Hen \"OTIS's brother\", meaning the OTIS glider ud_275, not the OTIS ROV.",
+    "Only some of the 19 Rutgers-logged deployments are listed here; the rest are on the Rutgers fleet page. A 0.2-day IOOS hop on 2010-06-30 is omitted.",
+    "Dates come from the IOOS Glider DAC catalog (first to last data record) and can differ slightly from the Rutgers mission table."
+   ],
+   "source_ids": [
+    "udaily-2010-bluehen",
+    "ob-2010-slocum",
+    "ob-2011-penguins",
+    "capegazette-2013-rotary",
+    "ices-33x9",
+    "erddap-ud134-2015",
+    "rutgers-ud134",
+    "ioos-dac",
+    "ug2-deployments"
+   ],
+   "provenance": {
+    "record_status": "draft",
+    "confidence": "High for identity and the Blue Hen alias; medium for model (G1 vs G2) and status.",
+    "last_verified": "2026-11-25",
+    "verified_by": "Desk research from public web sources only; no UD confirmation",
+    "gaps": [
+     "generation (G1 vs G2)",
+     "sensor suite",
+     "mass",
+     "owner-confirmed status (retired?)",
+     "full list of 19 deployments"
+    ]
+   }
+  },
+  {
+   "platform_id": "ud_275",
+   "name": "ud_275",
+   "display_name": "OTIS glider (ud_275)",
+   "aliases": [
+    "OTIS",
+    "Oceanographic Telemetry Identification Sensor",
+    "UD 275",
+    "UD275"
+   ],
+   "distinct_from": [
+    "ud-otis-rov"
+   ],
+   "platform_class": "glider",
+   "model": "Slocum",
+   "model_note": "Slocum generation is not stated in the sources.",
+   "manufacturer": "Teledyne Webb Research",
+   "serial_number": "0275",
+   "quantity": 1,
+   "quantity_note": null,
+   "external_ids": {
+    "ices_c17": "33K7"
+   },
+   "owner_org": "University of Delaware",
+   "ownership_type": "owned",
+   "ownership_note": "Operated by UD (Oliver); formal ownership not stated in the sources.",
+   "operator_org": "University of Delaware",
+   "operating_unit": "Oliver lab (UD CEOE)",
+   "contacts": [
+    {
+     "name": "Matt Oliver",
+     "role": "Principal investigator",
+     "as_of": "2012-10-16",
+     "source_id": "udaily-2012-otis"
+    },
+    {
+     "name": "Dewayne Fox",
+     "role": "Telemetry partner (Delaware State University)",
+     "as_of": "2012-10-16",
+     "source_id": "udaily-2012-otis"
+    }
+   ],
+   "home_site": "Lewes, Delaware (UD Robotic Discovery Laboratories)",
+   "status": "Unknown",
+   "status_date": "2013-09-30",
+   "status_basis": "Last logged deployment ended 2013-09-30; no later record in the Rutgers table or the IOOS DAC. Likely inactive but not confirmed.",
+   "specs": [
+    {
+     "label": "Length",
+     "value": 1.8,
+     "unit": "m",
+     "basis": "register",
+     "source_id": "ices-33k7",
+     "comment": "Length in the ICES platform record; commissioned 2012-10-05."
+    }
+   ],
+   "sensors": [
+    {
+     "name": "Acoustic telemetry receivers (tagged-animal detection)",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": "No make, model or serial numbers published.",
+     "source_id": "udaily-2012-otis"
+    }
+   ],
+   "applications": [
+    "Real-time detection of acoustically tagged sand tiger sharks (first reported 2012-10-10 off Assateague, Maryland)"
+   ],
+   "deployments": [
+    {
+     "deployment_id": "ud_275-20130912T2025",
+     "start": "2013-09-12",
+     "end": "2013-09-30",
+     "project": "GP2013 (Gliderpalooza)",
+     "summary": null,
+     "region": null,
+     "funder": null,
+     "days": 17.9,
+     "distance_km": 298.7,
+     "pi": null,
+     "launch_vessel": null,
+     "data": [],
+     "source_id": "rutgers-ud275",
+     "note": "This is the deployment behind the OceanTrack \"OTIS (UD275) glider telemetry 2013\" dataset."
+    },
+    {
+     "deployment_id": null,
+     "start": "2013-04-10",
+     "end": "2013-06-28",
+     "project": "MARACOOS",
+     "summary": null,
+     "region": null,
+     "funder": null,
+     "days": 79.1,
+     "distance_km": 1420.7,
+     "pi": null,
+     "launch_vessel": null,
+     "data": [],
+     "source_id": "rutgers-ud275",
+     "note": null
+    },
+    {
+     "deployment_id": null,
+     "start": "2013-04-04",
+     "end": "2013-04-07",
+     "project": "MARACOOS",
+     "summary": null,
+     "region": null,
+     "funder": null,
+     "days": null,
+     "distance_km": null,
+     "pi": null,
+     "launch_vessel": null,
+     "data": [],
+     "source_id": "rutgers-ud275",
+     "note": null
+    },
+    {
+     "deployment_id": "ud_275-20121005T1417",
+     "start": "2012-10-05",
+     "end": "2012-10-23",
+     "project": "MARACOOS (shark telemetry, launched off Indian River Inlet, Delaware)",
+     "summary": null,
+     "region": null,
+     "funder": null,
+     "days": 18.1,
+     "distance_km": 337.1,
+     "pi": null,
+     "launch_vessel": null,
+     "data": [],
+     "source_id": "udaily-2012-otis",
+     "note": "Sharks detected 2012-10-10 off Assateague Island, Maryland (UDaily 2012-10-16); the launch window matches this Rutgers deployment."
+    }
+   ],
+   "data_endpoints": [
+    {
+     "type": "fleet_page",
+     "label": "Rutgers glider fleet: ud_275 deployments",
+     "url": "https://marine.rutgers.edu/cool/data/gliders/configure/?filter=glider_name&type=deployments&val=ud_275"
+    },
+    {
+     "type": "dataset",
+     "label": "OceanTrack: OTIS (UD275) glider telemetry 2013",
+     "url": "https://members.oceantrack.org/data/pblctn_data/data_files/cisti.otndc/10.14286/2015-breece-mee"
+    }
+   ],
+   "photos": [],
+   "notes": [
+    "Name collision: this glider is NOT the OTIS remotely operated vehicle donated to UD in December 2025. Use the class and hull ID, never the bare name \"OTIS\".",
+    "No ud_275 record appears in the IOOS Glider DAC map, so its deployment data are on the Rutgers service and OceanTrack only."
+   ],
+   "source_ids": [
+    "ices-33k7",
+    "oceantrack-otis",
+    "udaily-2012-otis",
+    "capegazette-2013-rotary",
+    "rutgers-ud275",
+    "breece-2016",
+    "ioos-dac"
+   ],
+   "provenance": {
+    "record_status": "draft",
+    "confidence": "High that ud_275 is the OTIS glider (two independent registers); low for current status.",
+    "last_verified": "2026-11-25",
+    "verified_by": "Desk research from public web sources only; no UD confirmation",
+    "gaps": [
+     "Slocum generation",
+     "sensor models",
+     "mass, endurance, depth rating",
+     "owner-confirmed status"
+    ]
+   }
+  },
+  {
+   "platform_id": "ud-gavia",
+   "name": "Teledyne Gavia",
+   "display_name": "Teledyne Gavia AUV",
+   "aliases": [],
+   "distinct_from": [],
+   "platform_class": "AUV",
+   "model": "Gavia",
+   "model_note": null,
+   "manufacturer": "Teledyne Gavia (Teledyne Marine)",
+   "serial_number": null,
+   "quantity": 2,
+   "quantity_note": "Two in 2015; current count unknown.",
+   "external_ids": {},
+   "owner_org": "University of Delaware",
+   "ownership_type": "owned",
+   "ownership_note": "Listed in UD's own fleet description (c.2015); not confirmed owned today.",
+   "operator_org": "University of Delaware",
+   "operating_unit": "Trembanis lab (UD CEOE)",
+   "contacts": [
+    {
+     "name": "Art Trembanis",
+     "role": "Lead (seafloor mapping)",
+     "as_of": "2015",
+     "source_id": "udmag-p49"
+    }
+   ],
+   "home_site": "Lewes, Delaware (UD Robotic Discovery Laboratories)",
+   "status": "Unknown",
+   "status_date": "2016-08",
+   "status_basis": "Last public evidence is the 2016 Autonomous Systems Bootcamp (launched from R/V Joanne Daiber); no later UD Gavia deployment found.",
+   "specs": [
+    {
+     "label": "Length",
+     "value": 1.8,
+     "unit": "m",
+     "basis": "operator_published",
+     "source_id": "udmag-p49",
+     "comment": "UD Research magazine, c.2015."
+    },
+    {
+     "label": "Diameter",
+     "value": 0.2,
+     "unit": "m",
+     "basis": "operator_published",
+     "source_id": "udmag-p49",
+     "comment": null
+    },
+    {
+     "label": "Depth rating",
+     "value": 500,
+     "unit": "m",
+     "basis": "operator_published",
+     "source_id": "udmag-p49",
+     "comment": null
+    },
+    {
+     "label": "Endurance",
+     "value": [
+      3,
+      4
+     ],
+     "unit": "hours",
+     "basis": "operator_published",
+     "source_id": "udmag-p49",
+     "comment": null
+    },
+    {
+     "label": "Range",
+     "value": [
+      15,
+      20
+     ],
+     "unit": "km",
+     "basis": "operator_published",
+     "source_id": "udmag-p49",
+     "comment": null
+    }
+   ],
+   "sensors": [
+    {
+     "name": "Phase-measuring bathymetric (interferometric) sonar",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "udmag-p49"
+    },
+    {
+     "name": "Optical cameras",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "udmag-p49"
+    },
+    {
+     "name": "Acoustic modem",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "udmag-p49"
+    },
+    {
+     "name": "Iridium / satellite text messaging",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "udmag-p49"
+    }
+   ],
+   "applications": [
+    "Seafloor mapping",
+    "Scallop-dredge impact studies",
+    "Wreck surveys (W.R. Grace)"
+   ],
+   "deployments": [],
+   "data_endpoints": [],
+   "photos": [],
+   "notes": [
+    "UD reported more than 3,500 km in over 180 missions as of c.2015."
+   ],
+   "source_ids": [
+    "udmag-p49",
+    "udaily-2016-bootcamp",
+    "ceoe-facilities"
+   ],
+   "provenance": {
+    "record_status": "draft",
+    "confidence": "Medium for the 2015 specs; low for current status.",
+    "last_verified": "2026-11-25",
+    "verified_by": "Desk research from public web sources only; no UD confirmation",
+    "gaps": [
+     "serial numbers",
+     "current ownership and status",
+     "deployment log"
+    ]
+   }
+  },
+  {
+   "platform_id": "ud-remus-600",
+   "name": "REMUS 600",
+   "display_name": "REMUS 600 AUV",
+   "aliases": [],
+   "distinct_from": [],
+   "platform_class": "AUV",
+   "model": "REMUS 600",
+   "model_note": null,
+   "manufacturer": "Kongsberg (Hydroid)",
+   "serial_number": null,
+   "quantity": 1,
+   "quantity_note": null,
+   "external_ids": {},
+   "owner_org": "University of Delaware",
+   "ownership_type": "owned",
+   "ownership_note": "Listed in UD's own fleet description (c.2015); not confirmed owned today.",
+   "operator_org": "University of Delaware",
+   "operating_unit": "Moline lab (UD)",
+   "contacts": [
+    {
+     "name": "Mark Moline",
+     "role": "Lead (whale-prey mission)",
+     "as_of": "2015",
+     "source_id": "udmag-p48"
+    }
+   ],
+   "home_site": "Lewes, Delaware (UD Robotic Discovery Laboratories)",
+   "status": "Unknown",
+   "status_date": "2015",
+   "status_basis": "Last public evidence is a 2015 California whale-prey mission; none found for 2023-2025.",
+   "specs": [
+    {
+     "label": "Diameter",
+     "value": 0.324,
+     "unit": "m",
+     "basis": "operator_published",
+     "source_id": "udmag-p48",
+     "comment": null
+    },
+    {
+     "label": "Depth rating",
+     "value": 600,
+     "unit": "m",
+     "basis": "operator_published",
+     "source_id": "udmag-p48",
+     "comment": null
+    },
+    {
+     "label": "Endurance",
+     "value": [
+      8,
+      60
+     ],
+     "unit": "hours",
+     "basis": "operator_published",
+     "source_id": "udmag-p48",
+     "comment": null
+    },
+    {
+     "label": "Range",
+     "value": [
+      8,
+      60
+     ],
+     "unit": "km",
+     "basis": "operator_published",
+     "source_id": "udmag-p48",
+     "comment": null
+    },
+    {
+     "label": "Length",
+     "value": null,
+     "unit": "m",
+     "basis": "operator_published",
+     "source_id": "udmag-p48",
+     "comment": "Left blank on purpose: UD's magazine prints 6.096 m but Delaware Public Media says \"a little more than three meters\". The conflict is unresolved."
+    }
+   ],
+   "sensors": [
+    {
+     "name": "Custom dual-frequency down-looking echosounder (to about 4,000 ft)",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": "Built specifically for the UD vehicle.",
+     "source_id": "udmag-p48"
+    }
+   ],
+   "applications": [
+    "Whale-prey distribution"
+   ],
+   "deployments": [],
+   "data_endpoints": [],
+   "photos": [],
+   "notes": [],
+   "source_ids": [
+    "udmag-p48",
+    "dpm-2015",
+    "ceoe-facilities"
+   ],
+   "provenance": {
+    "record_status": "draft",
+    "confidence": "Medium for the 2015 specs; low for current status.",
+    "last_verified": "2026-11-25",
+    "verified_by": "Desk research from public web sources only; no UD confirmation",
+    "gaps": [
+     "length (conflicting sources)",
+     "serial number",
+     "current ownership and status"
+    ]
+   }
+  },
+  {
+   "platform_id": "ud-remus-100",
+   "name": "REMUS 100",
+   "display_name": "REMUS 100 AUVs",
+   "aliases": [],
+   "distinct_from": [],
+   "platform_class": "AUV",
+   "model": "REMUS 100",
+   "model_note": null,
+   "manufacturer": "Kongsberg (Hydroid)",
+   "serial_number": null,
+   "quantity": 2,
+   "quantity_note": "At least two; UD wrote \"REMUS 100s\" in 2015.",
+   "external_ids": {},
+   "owner_org": "University of Delaware",
+   "ownership_type": "owned",
+   "ownership_note": "Listed in UD's own fleet description (c.2015); not confirmed owned today.",
+   "operator_org": "University of Delaware",
+   "operating_unit": "Moline lab (UD)",
+   "contacts": [
+    {
+     "name": "Mark Moline",
+     "role": "Lead",
+     "as_of": "2015",
+     "source_id": "udmag-p48"
+    }
+   ],
+   "home_site": "Lewes, Delaware (UD Robotic Discovery Laboratories)",
+   "status": "Unknown",
+   "status_date": "2016-08",
+   "status_basis": "Last public evidence is the 2016 bootcamp listing.",
+   "specs": [
+    {
+     "label": "Length",
+     "value": 1.6,
+     "unit": "m",
+     "basis": "operator_published",
+     "source_id": "udmag-p48",
+     "comment": null
+    },
+    {
+     "label": "Diameter",
+     "value": 0.19,
+     "unit": "m",
+     "basis": "operator_published",
+     "source_id": "udmag-p48",
+     "comment": null
+    },
+    {
+     "label": "Depth rating",
+     "value": 100,
+     "unit": "m",
+     "basis": "operator_published",
+     "source_id": "udmag-p48",
+     "comment": null
+    },
+    {
+     "label": "Endurance",
+     "value": [
+      5,
+      8
+     ],
+     "unit": "hours",
+     "basis": "operator_published",
+     "source_id": "udmag-p48",
+     "comment": null
+    },
+    {
+     "label": "Range",
+     "value": [
+      1,
+      6
+     ],
+     "unit": "km",
+     "basis": "operator_published",
+     "source_id": "udmag-p48",
+     "comment": null
+    }
+   ],
+   "sensors": [
+    {
+     "name": "Sidescan sonar",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "udmag-p48"
+    },
+    {
+     "name": "Acoustic modem",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "udmag-p48"
+    },
+    {
+     "name": "Spectral radiometer",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "udmag-p48"
+    }
+   ],
+   "applications": [
+    "Palau aircraft search",
+    "Arctic organism study"
+   ],
+   "deployments": [],
+   "data_endpoints": [],
+   "photos": [],
+   "notes": [],
+   "source_ids": [
+    "udmag-p48",
+    "udaily-2016-bootcamp",
+    "ceoe-facilities"
+   ],
+   "provenance": {
+    "record_status": "draft",
+    "confidence": "Medium for the 2015 specs; low for current status.",
+    "last_verified": "2026-11-25",
+    "verified_by": "Desk research from public web sources only; no UD confirmation",
+    "gaps": [
+     "exact count",
+     "serial numbers",
+     "current ownership and status"
+    ]
+   }
+  },
+  {
+   "platform_id": "ud-iver3",
+   "name": "Iver3",
+   "display_name": "Iver3 AUV",
+   "aliases": [],
+   "distinct_from": [],
+   "platform_class": "AUV",
+   "model": "Iver3",
+   "model_note": null,
+   "manufacturer": "L3Harris",
+   "serial_number": null,
+   "quantity": 1,
+   "quantity_note": null,
+   "external_ids": {},
+   "owner_org": "University of Delaware",
+   "ownership_type": "owned",
+   "ownership_note": "Called the \"University of Delaware Iver3 AUV\" in the NOAA report.",
+   "operator_org": "University of Delaware",
+   "operating_unit": "Trembanis lab (UD CEOE)",
+   "contacts": [],
+   "home_site": "Lewes, Delaware (UD Robotic Discovery Laboratories)",
+   "status": "Probable",
+   "status_date": "2021",
+   "status_basis": "Operated by UD staff on the 2021 NOAA Great Lakes sanctuaries survey (report Feb 2022). No later record found.",
+   "specs": [
+    {
+     "label": "Survey speed",
+     "value": 2.05,
+     "unit": "m/s",
+     "basis": "report",
+     "source_id": "noaa-oer-2021",
+     "comment": "An operating parameter from the report, not a rating."
+    }
+   ],
+   "sensors": [
+    {
+     "name": "Phase-measuring bathymetric side-scan sonar, 600/1600 kHz",
+     "maker": "EdgeTech",
+     "model": "2205",
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "noaa-oer-2021"
+    },
+    {
+     "name": "Integrated color camera",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "noaa-oer-2021"
+    }
+   ],
+   "applications": [
+    "Seafloor and shipwreck survey (Great Lakes sanctuaries, 2021)"
+   ],
+   "deployments": [],
+   "data_endpoints": [],
+   "photos": [],
+   "notes": [
+    "Needs a crewed vessel for launch and recovery (RV Dogfish nearshore, NOAA R3012 offshore in 2021).",
+    "The report tabulates a \"max depth 90 m\"; its meaning is ambiguous, so it is not shown as a depth rating."
+   ],
+   "source_ids": [
+    "noaa-oer-2021"
+   ],
+   "provenance": {
+    "record_status": "draft",
+    "confidence": "Medium: one unit-specific report, now five years old.",
+    "last_verified": "2026-11-25",
+    "verified_by": "Desk research from public web sources only; no UD confirmation",
+    "gaps": [
+     "depth rating",
+     "serial number",
+     "current status"
+    ]
+   }
+  },
+  {
+   "platform_id": "ud-ecomapper",
+   "name": "EcoMapper",
+   "display_name": "EcoMapper AUV",
+   "aliases": [],
+   "distinct_from": [],
+   "platform_class": "AUV",
+   "model": "EcoMapper",
+   "model_note": null,
+   "manufacturer": null,
+   "serial_number": null,
+   "quantity": null,
+   "quantity_note": null,
+   "external_ids": {},
+   "owner_org": null,
+   "ownership_type": "unknown",
+   "ownership_note": "May be a visiting partner's vehicle. Maker not stated in the source.",
+   "operator_org": "University of Delaware",
+   "operating_unit": null,
+   "contacts": [],
+   "home_site": "Lewes, Delaware (UD Robotic Discovery Laboratories)",
+   "status": "Unknown",
+   "status_date": "2016-08",
+   "status_basis": "Named only on the 2016 bootcamp equipment list.",
+   "specs": [],
+   "sensors": [],
+   "applications": [],
+   "deployments": [],
+   "data_endpoints": [],
+   "photos": [],
+   "notes": [
+    "Listed with the Autonomous Systems Bootcamp (2016); no specs, owner or later use found."
+   ],
+   "source_ids": [
+    "udaily-2016-bootcamp"
+   ],
+   "provenance": {
+    "record_status": "draft",
+    "confidence": "Low.",
+    "last_verified": "2026-11-25",
+    "verified_by": "Desk research from public web sources only; no UD confirmation",
+    "gaps": [
+     "maker",
+     "owner",
+     "quantity",
+     "specs",
+     "current status"
+    ]
+   }
+  },
+  {
+   "platform_id": "ud-otis-rov",
+   "name": "OTIS ROV",
+   "display_name": "OTIS ROV",
+   "aliases": [
+    "OTIS"
+   ],
+   "distinct_from": [
+    "ud_275"
+   ],
+   "platform_class": "ROV",
+   "model": "OTIS (custom-built)",
+   "model_note": null,
+   "manufacturer": "Built by Tim Taylor and Christine Dennison (Tiburon Subsea founders); donor",
+   "serial_number": null,
+   "quantity": 1,
+   "quantity_note": null,
+   "external_ids": {},
+   "owner_org": "University of Delaware",
+   "ownership_type": "donated",
+   "ownership_note": "Donated to UD in 2025 (UDaily 2025-12-10).",
+   "operator_org": "University of Delaware",
+   "operating_unit": "Trembanis lab (UD CEOE)",
+   "contacts": [
+    {
+     "name": "Art Trembanis",
+     "role": "Lead; open to outside research partners",
+     "as_of": "2025-12-10",
+     "source_id": "udaily-2025-otis-rov"
+    }
+   ],
+   "home_site": "Lewes, Delaware (UD Robotic Discovery Laboratories)",
+   "status": "Active",
+   "status_date": "2025-12-10",
+   "status_basis": "Donation announced 2025-12-10 and displayed at Coast Day 2025-10-05; a PhD student is updating its equipment.",
+   "specs": [],
+   "sensors": [
+    {
+     "name": "HD cinematic camera",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "udaily-2025-otis-rov"
+    },
+    {
+     "name": "Multi-function manipulator (grab; seabed core sampling)",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "udaily-2025-otis-rov"
+    },
+    {
+     "name": "Lights",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "udaily-2025-otis-rov"
+    },
+    {
+     "name": "Multibeam imaging sonar",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "udaily-2025-otis-rov"
+    }
+   ],
+   "applications": [],
+   "deployments": [],
+   "data_endpoints": [],
+   "photos": [
+    {
+     "url": "https://www.udel.edu/content/dam/udelImages/udaily/2025/december/OTIS_4_800x420.jpg",
+     "label": "OTIS delivery (UDaily photo; link only, not reproduced here)"
+    }
+   ],
+   "notes": [
+    "Name collision: this is NOT the OTIS Slocum glider (ud_275). The glider dates from 2012; this ROV was donated in 2025.",
+    "Dimensions, depth rating and tether length are not published. Trembanis describes it as available to anyone interested in underwater research."
+   ],
+   "source_ids": [
+    "udaily-2025-otis-rov",
+    "capegazette-2025-coastday"
+   ],
+   "provenance": {
+    "record_status": "draft",
+    "confidence": "Medium: one official story.",
+    "last_verified": "2026-11-25",
+    "verified_by": "Desk research from public web sources only; no UD confirmation",
+    "gaps": [
+     "dimensions",
+     "depth rating",
+     "tether length",
+     "access policy"
+    ]
+   }
+  },
+  {
+   "platform_id": "ud-outland-1000",
+   "name": "Outland 1000",
+   "display_name": "Outland 1000 ROV",
+   "aliases": [],
+   "distinct_from": [],
+   "platform_class": "ROV",
+   "model": "Outland 1000",
+   "model_note": null,
+   "manufacturer": "Outland Technology",
+   "serial_number": null,
+   "quantity": 1,
+   "quantity_note": null,
+   "external_ids": {},
+   "owner_org": "University of Delaware",
+   "ownership_type": "owned",
+   "ownership_note": "Listed in UD's own fleet description (c.2015); not confirmed owned today.",
+   "operator_org": "University of Delaware",
+   "operating_unit": null,
+   "contacts": [],
+   "home_site": "Lewes, Delaware (UD Robotic Discovery Laboratories)",
+   "status": "Unknown",
+   "status_date": "2015",
+   "status_basis": "Last public evidence is 2015 (Delaware artificial reefs; AUV recovery in the Cayman Islands).",
+   "specs": [
+    {
+     "label": "Length",
+     "value": 0.66,
+     "unit": "m",
+     "basis": "operator_published",
+     "source_id": "udmag-p50",
+     "comment": null
+    },
+    {
+     "label": "Width",
+     "value": 0.38,
+     "unit": "m",
+     "basis": "operator_published",
+     "source_id": "udmag-p50",
+     "comment": null
+    },
+    {
+     "label": "Height",
+     "value": 0.2667,
+     "unit": "m",
+     "basis": "operator_published",
+     "source_id": "udmag-p50",
+     "comment": null
+    },
+    {
+     "label": "Depth rating",
+     "value": 300,
+     "unit": "m",
+     "basis": "operator_published",
+     "source_id": "udmag-p50",
+     "comment": null
+    }
+   ],
+   "sensors": [
+    {
+     "name": "Real-time video",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "udmag-p50"
+    },
+    {
+     "name": "Scanning / imaging sonar",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "udmag-p50"
+    },
+    {
+     "name": "Manipulator",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "udmag-p50"
+    }
+   ],
+   "applications": [
+    "Delaware artificial reef assessment",
+    "AUV recovery (Cayman Islands)"
+   ],
+   "deployments": [],
+   "data_endpoints": [],
+   "photos": [],
+   "notes": [
+    "Tethered vehicle."
+   ],
+   "source_ids": [
+    "udmag-p50",
+    "ceoe-facilities"
+   ],
+   "provenance": {
+    "record_status": "draft",
+    "confidence": "Medium for the 2015 specs; low for current status.",
+    "last_verified": "2026-11-25",
+    "verified_by": "Desk research from public web sources only; no UD confirmation",
+    "gaps": [
+     "tether length",
+     "which lab operates it",
+     "current status"
+    ]
+   }
+  },
+  {
+   "platform_id": "ud-z-boat",
+   "name": "Z-Boat",
+   "display_name": "Teledyne Z-Boat",
+   "aliases": [],
+   "distinct_from": [],
+   "platform_class": "USV",
+   "model": "Z-Boat",
+   "model_note": null,
+   "manufacturer": "Teledyne",
+   "serial_number": null,
+   "quantity": 1,
+   "quantity_note": null,
+   "external_ids": {},
+   "owner_org": null,
+   "ownership_type": "unknown",
+   "ownership_note": null,
+   "operator_org": "University of Delaware",
+   "operating_unit": null,
+   "contacts": [],
+   "home_site": "Lewes, Delaware (UD Robotic Discovery Laboratories)",
+   "status": "Unknown",
+   "status_date": "2016-08",
+   "status_basis": "Named only on the 2016 bootcamp equipment list.",
+   "specs": [],
+   "sensors": [],
+   "applications": [],
+   "deployments": [],
+   "data_endpoints": [],
+   "photos": [],
+   "notes": [],
+   "source_ids": [
+    "udaily-2016-bootcamp"
+   ],
+   "provenance": {
+    "record_status": "draft",
+    "confidence": "Low.",
+    "last_verified": "2026-11-25",
+    "verified_by": "Desk research from public web sources only; no UD confirmation",
+    "gaps": [
+     "owner",
+     "specs",
+     "current status"
+    ]
+   }
+  },
+  {
+   "platform_id": "ud-emily",
+   "name": "SONAR E.M.I.L.Y.",
+   "display_name": "Hydronalix SONAR E.M.I.L.Y.",
+   "aliases": [],
+   "distinct_from": [],
+   "platform_class": "USV",
+   "model": "SONAR E.M.I.L.Y.",
+   "model_note": null,
+   "manufacturer": "Hydronalix",
+   "serial_number": null,
+   "quantity": 1,
+   "quantity_note": null,
+   "external_ids": {},
+   "owner_org": "University of Delaware",
+   "ownership_type": "owned",
+   "ownership_note": "Listed among UD equipment in the NOAA report.",
+   "operator_org": "University of Delaware",
+   "operating_unit": "Trembanis lab (UD CEOE)",
+   "contacts": [],
+   "home_site": "Lewes, Delaware (UD Robotic Discovery Laboratories)",
+   "status": "Probable",
+   "status_date": "2021",
+   "status_basis": "Used on the 2021 NOAA Great Lakes survey; no later record found.",
+   "specs": [
+    {
+     "label": "Survey speed",
+     "value": [
+      2,
+      2.5
+     ],
+     "unit": "m/s",
+     "basis": "report",
+     "source_id": "noaa-oer-2021",
+     "comment": "Operating parameter, not a rating."
+    },
+    {
+     "label": "Maximum survey depth",
+     "value": 6.5,
+     "unit": "m",
+     "basis": "report",
+     "source_id": "noaa-oer-2021",
+     "comment": "Operating parameter, not a rating."
+    }
+   ],
+   "sensors": [
+    {
+     "name": "Side-scan sonar, 1200 kHz",
+     "maker": "Humminbird",
+     "model": "Helix 10",
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "noaa-oer-2021"
+    }
+   ],
+   "applications": [
+    "Shallow-water survey (Great Lakes sanctuaries, 2021)"
+   ],
+   "deployments": [],
+   "data_endpoints": [],
+   "photos": [],
+   "notes": [],
+   "source_ids": [
+    "noaa-oer-2021"
+   ],
+   "provenance": {
+    "record_status": "draft",
+    "confidence": "Medium: one report.",
+    "last_verified": "2026-11-25",
+    "verified_by": "Desk research from public web sources only; no UD confirmation",
+    "gaps": [
+     "serial number",
+     "current status"
+    ]
+   }
+  },
+  {
+   "platform_id": "ud-echoboat-160",
+   "name": "EchoBoat 160",
+   "display_name": "Seafloor Systems EchoBoat 160",
+   "aliases": [],
+   "distinct_from": [],
+   "platform_class": "USV",
+   "model": "EchoBoat 160",
+   "model_note": null,
+   "manufacturer": "Seafloor Systems",
+   "serial_number": null,
+   "quantity": 1,
+   "quantity_note": null,
+   "external_ids": {},
+   "owner_org": null,
+   "ownership_type": "unclear",
+   "ownership_note": "Used by UD, but whether UD owns it or borrows it from Seafloor Systems is unclear: UDaily (2021) calls it \"the company's EchoBoat\".",
+   "operator_org": "University of Delaware",
+   "operating_unit": "Trembanis lab (UD CEOE)",
+   "contacts": [],
+   "home_site": "Lewes, Delaware (UD Robotic Discovery Laboratories)",
+   "status": "Probable",
+   "status_date": "2021",
+   "status_basis": "Used on the 2021 NOAA Great Lakes survey. No later record found.",
+   "specs": [
+    {
+     "label": "Survey speed",
+     "value": [
+      2,
+      2.5
+     ],
+     "unit": "m/s",
+     "basis": "report",
+     "source_id": "noaa-oer-2021",
+     "comment": "Operating parameter, not a rating."
+    },
+    {
+     "label": "Maximum survey depth",
+     "value": 6.5,
+     "unit": "m",
+     "basis": "report",
+     "source_id": "noaa-oer-2021",
+     "comment": "Operating parameter, not a rating."
+    }
+   ],
+   "sensors": [
+    {
+     "name": "Side-scan sonar, 455/1200 kHz",
+     "maker": "Humminbird",
+     "model": "Solix 10",
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "noaa-oer-2021"
+    }
+   ],
+   "applications": [
+    "Shallow-water survey (Great Lakes sanctuaries, 2021)",
+    "Mission-planner work by UD Master of Robotics students (2021)"
+   ],
+   "deployments": [],
+   "data_endpoints": [],
+   "photos": [],
+   "notes": [],
+   "source_ids": [
+    "noaa-oer-2021",
+    "udaily-2021-echoboat"
+   ],
+   "provenance": {
+    "record_status": "draft",
+    "confidence": "Medium for use; low for ownership.",
+    "last_verified": "2026-11-25",
+    "verified_by": "Desk research from public web sources only; no UD confirmation",
+    "gaps": [
+     "owner (UD or Seafloor Systems)",
+     "serial number",
+     "current status"
+    ]
+   }
+  },
+  {
+   "platform_id": "ud-echoboat-240",
+   "name": "EchoBoat 240",
+   "display_name": "Seafloor Systems EchoBoat 240",
+   "aliases": [],
+   "distinct_from": [],
+   "platform_class": "USV",
+   "model": "EchoBoat 240",
+   "model_note": null,
+   "manufacturer": "Seafloor Systems",
+   "serial_number": null,
+   "quantity": 1,
+   "quantity_note": null,
+   "external_ids": {},
+   "owner_org": null,
+   "ownership_type": "unclear",
+   "ownership_note": "Used by UD, but whether UD owns it or borrows it from Seafloor Systems is unclear: UDaily (2021) calls it \"the company's EchoBoat\".",
+   "operator_org": "University of Delaware",
+   "operating_unit": "Trembanis lab (UD CEOE)",
+   "contacts": [],
+   "home_site": "Lewes, Delaware (UD Robotic Discovery Laboratories)",
+   "status": "Probable",
+   "status_date": "2021-08-04",
+   "status_basis": "Used on the 2021 NOAA Great Lakes survey. Removed from service for a thruster failure on 2021-08-04 and later repaired.",
+   "specs": [
+    {
+     "label": "Survey speed",
+     "value": [
+      1.5,
+      2
+     ],
+     "unit": "m/s",
+     "basis": "report",
+     "source_id": "noaa-oer-2021",
+     "comment": "Operating parameter, not a rating."
+    }
+   ],
+   "sensors": [
+    {
+     "name": "Multibeam echosounder, 500 kHz",
+     "maker": "RESON",
+     "model": "T50",
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "noaa-oer-2021"
+    }
+   ],
+   "applications": [
+    "Shallow-water survey (Great Lakes sanctuaries, 2021)"
+   ],
+   "deployments": [],
+   "data_endpoints": [],
+   "photos": [],
+   "notes": [],
+   "source_ids": [
+    "noaa-oer-2021",
+    "udaily-2021-echoboat"
+   ],
+   "provenance": {
+    "record_status": "draft",
+    "confidence": "Medium for use; low for ownership.",
+    "last_verified": "2026-11-25",
+    "verified_by": "Desk research from public web sources only; no UD confirmation",
+    "gaps": [
+     "owner (UD or Seafloor Systems)",
+     "serial number",
+     "current status"
+    ]
+   }
+  },
+  {
+   "platform_id": "ud-scout-kayaks",
+   "name": "Scout kayaks",
+   "display_name": "Scout autonomous kayaks",
+   "aliases": [],
+   "distinct_from": [],
+   "platform_class": "USV",
+   "model": "Scout autonomous kayak",
+   "model_note": null,
+   "manufacturer": null,
+   "serial_number": null,
+   "quantity": 3,
+   "quantity_note": null,
+   "external_ids": {},
+   "owner_org": null,
+   "ownership_type": "unknown",
+   "ownership_note": "Maker not stated in the source.",
+   "operator_org": "University of Delaware",
+   "operating_unit": null,
+   "contacts": [],
+   "home_site": "Lewes, Delaware (UD Robotic Discovery Laboratories)",
+   "status": "Unknown",
+   "status_date": "2016-08",
+   "status_basis": "Named only on the 2016 bootcamp equipment list.",
+   "specs": [],
+   "sensors": [],
+   "applications": [],
+   "deployments": [],
+   "data_endpoints": [],
+   "photos": [],
+   "notes": [],
+   "source_ids": [
+    "udaily-2016-bootcamp"
+   ],
+   "provenance": {
+    "record_status": "draft",
+    "confidence": "Low.",
+    "last_verified": "2026-11-25",
+    "verified_by": "Desk research from public web sources only; no UD confirmation",
+    "gaps": [
+     "maker",
+     "owner",
+     "specs",
+     "current status"
+    ]
+   }
+  },
+  {
+   "platform_id": "ud-phantom-2",
+   "name": "DJI Phantom 2",
+   "display_name": "DJI Phantom 2 quadcopters",
+   "aliases": [],
+   "distinct_from": [],
+   "platform_class": "UAV",
+   "model": "Phantom 2",
+   "model_note": null,
+   "manufacturer": "DJI",
+   "serial_number": null,
+   "quantity": 3,
+   "quantity_note": "Three newly acquired in 2015.",
+   "external_ids": {},
+   "owner_org": "University of Delaware",
+   "ownership_type": "owned",
+   "ownership_note": "Listed in UD's own fleet description (c.2015).",
+   "operator_org": "University of Delaware",
+   "operating_unit": null,
+   "contacts": [],
+   "home_site": "Lewes, Delaware (UD Robotic Discovery Laboratories)",
+   "status": "Unknown",
+   "status_date": "2015",
+   "status_basis": "Only 2015 evidence; likely retired but not confirmed.",
+   "specs": [
+    {
+     "label": "Size (diagonal)",
+     "value": 0.35,
+     "unit": "m",
+     "basis": "operator_published",
+     "source_id": "udmag-p50",
+     "comment": null
+    },
+    {
+     "label": "Flight time",
+     "value": 20,
+     "unit": "min",
+     "basis": "operator_published",
+     "source_id": "udmag-p50",
+     "comment": null
+    }
+   ],
+   "sensors": [
+    {
+     "name": "HD camera",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "udmag-p50"
+    },
+    {
+     "name": "GPS",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "udmag-p50"
+    }
+   ],
+   "applications": [],
+   "deployments": [],
+   "data_endpoints": [],
+   "photos": [],
+   "notes": [],
+   "source_ids": [
+    "udmag-p50",
+    "dpm-2015"
+   ],
+   "provenance": {
+    "record_status": "draft",
+    "confidence": "Medium for 2015 specs; low for current status.",
+    "last_verified": "2026-11-25",
+    "verified_by": "Desk research from public web sources only; no UD confirmation",
+    "gaps": [
+     "current status"
+    ]
+   }
+  },
+  {
+   "platform_id": "ud-phantom-3",
+   "name": "DJI Phantom 3",
+   "display_name": "DJI Phantom 3",
+   "aliases": [],
+   "distinct_from": [],
+   "platform_class": "UAV",
+   "model": "Phantom 3",
+   "model_note": null,
+   "manufacturer": "DJI",
+   "serial_number": null,
+   "quantity": null,
+   "quantity_note": null,
+   "external_ids": {},
+   "owner_org": null,
+   "ownership_type": "unknown",
+   "ownership_note": null,
+   "operator_org": "University of Delaware",
+   "operating_unit": null,
+   "contacts": [],
+   "home_site": "Lewes, Delaware (UD Robotic Discovery Laboratories)",
+   "status": "Unknown",
+   "status_date": "2016-08",
+   "status_basis": "Named only on the 2016 bootcamp equipment list.",
+   "specs": [],
+   "sensors": [],
+   "applications": [],
+   "deployments": [],
+   "data_endpoints": [],
+   "photos": [],
+   "notes": [],
+   "source_ids": [
+    "udaily-2016-bootcamp"
+   ],
+   "provenance": {
+    "record_status": "draft",
+    "confidence": "Low.",
+    "last_verified": "2026-11-25",
+    "verified_by": "Desk research from public web sources only; no UD confirmation",
+    "gaps": [
+     "quantity",
+     "owner",
+     "specs",
+     "current status"
+    ]
+   }
+  },
+  {
+   "platform_id": "ud-ebee",
+   "name": "senseFly eBee",
+   "display_name": "senseFly eBee",
+   "aliases": [],
+   "distinct_from": [],
+   "platform_class": "UAV",
+   "model": "eBee",
+   "model_note": null,
+   "manufacturer": "senseFly",
+   "serial_number": null,
+   "quantity": null,
+   "quantity_note": null,
+   "external_ids": {},
+   "owner_org": null,
+   "ownership_type": "unknown",
+   "ownership_note": null,
+   "operator_org": "University of Delaware",
+   "operating_unit": null,
+   "contacts": [],
+   "home_site": "Lewes, Delaware (UD Robotic Discovery Laboratories)",
+   "status": "Unknown",
+   "status_date": "2016-08",
+   "status_basis": "Named only on the 2016 bootcamp equipment list.",
+   "specs": [],
+   "sensors": [],
+   "applications": [],
+   "deployments": [],
+   "data_endpoints": [],
+   "photos": [],
+   "notes": [],
+   "source_ids": [
+    "udaily-2016-bootcamp"
+   ],
+   "provenance": {
+    "record_status": "draft",
+    "confidence": "Low.",
+    "last_verified": "2026-11-25",
+    "verified_by": "Desk research from public web sources only; no UD confirmation",
+    "gaps": [
+     "quantity",
+     "owner",
+     "specs",
+     "current status"
+    ]
+   }
+  },
+  {
+   "platform_id": "ud-wingtra",
+   "name": "Wingtra",
+   "display_name": "Wingtra VTOL drone",
+   "aliases": [],
+   "distinct_from": [],
+   "platform_class": "UAV",
+   "model": null,
+   "model_note": "Model not stated in the source.",
+   "manufacturer": "Wingtra",
+   "serial_number": null,
+   "quantity": 1,
+   "quantity_note": "At least one.",
+   "external_ids": {},
+   "owner_org": null,
+   "ownership_type": "unknown",
+   "ownership_note": "Used by the Trembanis lab; ownership not stated.",
+   "operator_org": "University of Delaware",
+   "operating_unit": "Trembanis lab (UD CEOE)",
+   "contacts": [
+    {
+     "name": "Art Trembanis",
+     "role": "Faculty lead (barrier-island mapping class)",
+     "as_of": "2025-02-20",
+     "source_id": "udaily-2025-feb"
+    }
+   ],
+   "home_site": "Lewes, Delaware (UD Robotic Discovery Laboratories)",
+   "status": "Probable",
+   "status_date": "2025-02-20",
+   "status_basis": "Used for photogrammetric surveys in a fall 2024 class (UDaily 2025-02-20).",
+   "specs": [],
+   "sensors": [],
+   "applications": [
+    "Photogrammetric surveys (barrier-island and campus mapping)"
+   ],
+   "deployments": [],
+   "data_endpoints": [],
+   "photos": [],
+   "notes": [],
+   "source_ids": [
+    "udaily-2025-feb"
+   ],
+   "provenance": {
+    "record_status": "draft",
+    "confidence": "Medium: one story.",
+    "last_verified": "2026-11-25",
+    "verified_by": "Desk research from public web sources only; no UD confirmation",
+    "gaps": [
+     "model",
+     "owner",
+     "specs"
+    ]
+   }
+  },
+  {
+   "platform_id": "ud-snoop-vision60",
+   "name": "Snoop (Vision 60)",
+   "display_name": "\"Snoop\" quadruped robot (Ghost Robotics Vision 60)",
+   "aliases": [
+    "Snoop"
+   ],
+   "distinct_from": [],
+   "platform_class": "UGV",
+   "model": "Vision 60",
+   "model_note": null,
+   "manufacturer": "Ghost Robotics",
+   "serial_number": null,
+   "quantity": 1,
+   "quantity_note": null,
+   "external_ids": {},
+   "owner_org": null,
+   "ownership_type": "unknown",
+   "ownership_note": "Used by the Trembanis lab; ownership not stated.",
+   "operator_org": "University of Delaware",
+   "operating_unit": "Trembanis lab (UD CEOE)",
+   "contacts": [
+    {
+     "name": "Art Trembanis",
+     "role": "Faculty lead",
+     "as_of": "2025-02-20",
+     "source_id": "udaily-2025-feb"
+    }
+   ],
+   "home_site": "Lewes, Delaware (UD Robotic Discovery Laboratories)",
+   "status": "Active",
+   "status_date": "2025-10-05",
+   "status_basis": "Used in the fall 2024 campus mapping class; demonstrated at Coast Day 2025-10-05.",
+   "specs": [],
+   "sensors": [
+    {
+     "name": "LiDAR (mount used in 2024 mapping class)",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "udaily-2025-feb"
+    },
+    {
+     "name": "GoPro camera (mount used in 2024 mapping class)",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "udaily-2025-feb"
+    }
+   ],
+   "applications": [
+    "Campus mapping (class use)"
+   ],
+   "deployments": [],
+   "data_endpoints": [],
+   "photos": [],
+   "notes": [
+    "A ground robot: included to show why the registry needs a UGV class."
+   ],
+   "source_ids": [
+    "udaily-2025-feb",
+    "capegazette-2025-coastday"
+   ],
+   "provenance": {
+    "record_status": "draft",
+    "confidence": "Medium.",
+    "last_verified": "2026-11-25",
+    "verified_by": "Desk research from public web sources only; no UD confirmation",
+    "gaps": [
+     "specs",
+     "owner"
+    ]
+   }
+  }
+ ]
+}

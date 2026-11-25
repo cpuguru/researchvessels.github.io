@@ -1,0 +1,113 @@
+{
+ "license": "CC BY 4.0",
+ "attribution": "Data compiled by Doug White / researchvessels.org",
+ "note": "Draft starter list from the UG2 (Underwater Glider User Group) industry members page, 2026-11-25. UG2 lists name, logo and URL only; offerings come from each company site. Not an endorsement.",
+ "manufacturers": [
+  {
+   "manufacturer_id": "alseamar",
+   "name": "ALSEAMAR (ALSEAMAR-ALCEN)",
+   "ug2_display_name": "Alseamar",
+   "categories": [
+    "gliders",
+    "buoyancy",
+    "services",
+    "acoustics"
+   ],
+   "offerings": "SEAEXPLORER underwater gliders; subsea buoyancy solutions; in-situ underwater surveys; after-sales services; naval/defense underwater glider fleets and acoustic solutions (SONUSIA).",
+   "url": "https://www.alseamar-alcen.com/",
+   "source": "https://underwatergliders.org/about/industry-members/",
+   "source_note": "Company homepage (accessed 2026-11-25). UG2 page lists name, logo and URL only.",
+   "record_status": "draft",
+   "last_verified": "2026-11-25"
+  },
+  {
+   "manufacturer_id": "rbr",
+   "name": "RBR",
+   "ug2_display_name": "RBR",
+   "categories": [
+    "sensors"
+   ],
+   "offerings": "Oceanographic sensors and loggers, including CTDs designed for gliders and AUVs (also Argo-float CTDs, OEM, calibration, software).",
+   "url": "https://rbr-global.com/",
+   "source": "https://underwatergliders.org/about/industry-members/",
+   "source_note": "Company homepage (accessed 2026-11-25). UG2 page lists name, logo and URL only.",
+   "record_status": "draft",
+   "last_verified": "2026-11-25"
+  },
+  {
+   "manufacturer_id": "rockland-scientific",
+   "name": "Rockland Scientific",
+   "ug2_display_name": "Rockland Scientific",
+   "categories": [
+    "sensors",
+    "services"
+   ],
+   "offerings": "Marine turbulence / microstructure instruments (VMP profilers, MicroCTD, MicroRider / MicroRider-G and related modular systems); technical training and measurement services.",
+   "url": "https://rocklandscientific.com/",
+   "source": "https://underwatergliders.org/about/industry-members/",
+   "source_note": "Company homepage (accessed 2026-11-25). UG2 page lists name, logo and URL only.",
+   "record_status": "draft",
+   "last_verified": "2026-11-25"
+  },
+  {
+   "manufacturer_id": "sea-bird-scientific",
+   "name": "Sea-Bird Scientific",
+   "ug2_display_name": "Sea-Bird Scientific",
+   "categories": [
+    "sensors"
+   ],
+   "offerings": "Precision CTDs and ocean sensors (temperature, salinity, oxygen, optical, pH, radiometers, nitrate, etc.), including AUV/ROV and glider-integrated instruments such as the Slocum GPCTD.",
+   "url": "https://www.seabird.com/",
+   "source": "https://underwatergliders.org/about/industry-members/",
+   "source_note": "Company homepage (accessed 2026-11-25). UG2 page lists name, logo and URL only.",
+   "record_status": "draft",
+   "last_verified": "2026-11-25"
+  },
+  {
+   "manufacturer_id": "teledyne",
+   "name": "Teledyne Webb Research (Teledyne Marine)",
+   "ug2_display_name": "Teledyne",
+   "categories": [
+    "gliders",
+    "floats",
+    "acoustics"
+   ],
+   "offerings": "Slocum autonomous underwater gliders; neutrally buoyant autonomous drifters and profilers; moored underwater sound sources.",
+   "url": "https://www.teledynemarine.com/brands/webb-research",
+   "source": "https://underwatergliders.org/about/industry-members/",
+   "source_note": "Company brand page (accessed 2026-11-25). UG2 page lists name, logo and URL only.",
+   "record_status": "draft",
+   "last_verified": "2026-11-25"
+  },
+  {
+   "manufacturer_id": "marine-robotic-vehicles--mrv",
+   "name": "Marine Robotic Vehicles (MRV Systems)",
+   "ug2_display_name": "Marine Robotic Vehicles (MRV)",
+   "categories": [
+    "gliders",
+    "floats"
+   ],
+   "offerings": "Ocean profiling platforms listed on the company site include Spray2, ALAMO, S2-A, ALTO, DeepSOLO, microALTO and S2-BGC (Spray is a glider class; the other named products are profiling floats).",
+   "url": "https://www.mrvsys.com/",
+   "source": "https://underwatergliders.org/about/industry-members/",
+   "source_note": "Company homepage (accessed 2026-11-25). UG2 page lists name, logo and URL only.",
+   "record_status": "draft",
+   "last_verified": "2026-11-25"
+  },
+  {
+   "manufacturer_id": "asl-environmental-sciences",
+   "name": "ASL Environmental Sciences",
+   "ug2_display_name": "ASL Environmental Sciences",
+   "categories": [
+    "sensors",
+    "services"
+   ],
+   "offerings": "Active underwater acoustics and remote sensing; Acoustic Zooplankton Fish Profiler (AZFP); scientific consulting, field services, and instrument leasing.",
+   "url": "https://www.aslenv.com/",
+   "source": "https://underwatergliders.org/about/industry-members/",
+   "source_note": "Company homepage (accessed 2026-11-25). UG2 page lists name, logo and URL only.",
+   "record_status": "draft",
+   "last_verified": "2026-11-25"
+  }
+ ]
+}

@@ -68,3 +68,7 @@ tr.rv-trk-row{cursor:pointer}
 
 /* ledger-style compilation anchor, keep */
 .rv-ft-anchor-k4{scroll-margin-top:0.5rem}
+
+/* Nine nav items: tighten the links between 992px and 1399px so the bar stays on one line */
+@media(min-width:992px) and (max-width:1399.98px){#mainNav .navbar-nav{--bs-navbar-nav-link-padding-x:.4rem}#mainNav .nav-link{font-size:.9rem}.navbar-brand span{font-size:1.05rem}}
+@media(min-width:992px) and (max-width:1199.98px){.navbar .container{--bs-gutter-x:1rem}.navbar-brand{margin-right:.5rem}#mainNav .navbar-nav{--bs-navbar-nav-link-padding-x:.3rem}#mainNav .nav-link{font-size:.84rem}.navbar-brand span{font-size:.95rem}}
