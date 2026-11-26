@@ -4,12 +4,12 @@
   "about": "Retry list for Resources page links that failed an automated check, plus uncrewed-platform candidates that were unreachable when evaluated. This file is not rendered on the site. Restore a removed entry verbatim from title, url, group, section, description, and region.",
   "branch": "techlinks-uncrewed-2026-11-26",
   "checked_on": "2026-11-26",
-  "notes": "Rechecked from the Linux box and from the laptop (Aurora) on 2026-11-26. No listed Resources links were removed: ERVO and the Canadian Coast Guard page look dead to curl/PowerShell but load in a browser. The site footer checked-live date was left at 2026-11-19 because several remaining links still fail automated checks from one or both networks.",
+  "notes": "Rechecked from the Linux box and from the laptop (Aurora) on 2026-11-26. The ERVO listing was later pointed at its secure homepage https://www.ervo-group.eu/np4/home (status: fixed-url). The Canadian Coast Guard page looks dead to curl/PowerShell but loads in a browser, so it stays on the page. The site footer checked-live date was left at 2026-11-19 because several remaining links still fail automated checks from one or both networks.",
   "entries": [
     {
-      "status": "watch",
+      "status": "fixed-url",
       "title": "European Research Vessel Operators (ERVO)",
-      "url": "https://www.ervo-group.eu/",
+      "url": "https://www.ervo-group.eu/np4/home",
       "section": "other_sites",
       "group": "Operators and networks",
       "region": "Europe",
@@ -52,9 +52,18 @@
           "from": "box",
           "tool": "headless Chrome",
           "detail": "Loaded the listed URL; page title was \"ERVO GROUP // Home\" (about 12 KB of HTML)."
+        },
+        {
+          "date": "2026-11-26",
+          "approx_time": "11:32 AM ET",
+          "from": "box and laptop",
+          "tool": "curl",
+          "detail": "https://www.ervo-group.eu/np4/home returned HTTP 200 from both the box and the laptop, no redirect, 8391 bytes, title ERVO GROUP // Home. The Resources listing was pointed at this URL."
         }
       ],
-      "notes": "Not removed. The listed homepage URL redirects to an HTTP path that some automated clients follow and then see a 500, or refuse to follow. A browser and the HTTPS paths /np4/home and /np4/members/ work. A later edit could point the listing at https://www.ervo-group.eu/np4/home if the insecure redirect persists."
+      "notes": "Fixed-url: the Resources listing now points at https://www.ervo-group.eu/np4/home, the HTTPS homepage that returns 200. The old listed URL https://www.ervo-group.eu/ is kept here for retry; it 302s to an HTTP path that some automated clients follow and then see a 500, or refuse to follow.",
+      "old_url": "https://www.ervo-group.eu/",
+      "fixed_on": "2026-11-26"
     },
     {
       "status": "watch",

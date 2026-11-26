@@ -1152,13 +1152,13 @@
         },
         {
           "title": "European Research Vessel Operators (ERVO)",
-          "url": "https://www.ervo-group.eu/",
+          "url": "https://www.ervo-group.eu/np4/home",
           "region": "Europe",
           "desc": "European research-vessel operators' group, including a members list (historically at /np4/members/)",
           "check": {
             "result": "live",
             "status": 200,
-            "date": "2026-11-19"
+            "date": "2026-11-26"
           }
         },
         {
