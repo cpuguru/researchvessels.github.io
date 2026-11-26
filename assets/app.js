@@ -1,7 +1,7 @@
 /* Shared helpers for the researchvessels.org prototype. No build step; data comes from data/*.js globals. */
 (function(){
-  const NAV=[['index.html','Home'],['vessels.html','Vessels'],['platforms.html','Platforms'],['map.html','Where were ships?'],['fleet.html','Fleet dashboards'],['operators.html','For operators'],['equipment-search.html','Equipment'],['resources.html','Resources'],['about.html','About']];
-  const here=(location.pathname.split('/').pop()||'index.html').replace(/^(platform|institution)\.html$/,'platforms.html');
+  const NAV=[['index.html','Home'],['vessels.html','Vessels'],['platforms.html','Platforms'],['uncrewed.html','Uncrewed'],['map.html','Where were ships?'],['fleet.html','Fleet dashboards'],['operators.html','For operators'],['equipment-search.html','Equipment'],['resources.html','Resources'],['about.html','About']];
+  const here=(location.pathname.split('/').pop()||'index.html').replace(/^(platform|institution)\.html$/,'platforms.html').replace(/^vehicle_condition_form\.html$/,'operators.html');
   const logo='<img src="assets/logo-rv.svg" width="32" height="32" alt="ResearchVessels.org">';
   /* Bootstrap 5.3 dark navbar. Built only from the constant NAV list above (no data or URL values), so it is XSS-safe.
      The collapse toggler works through Bootstrap's delegated data-bs-* API, so inserting it at DOMContentLoaded is fine. */

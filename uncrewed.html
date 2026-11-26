@@ -1,0 +1,79 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' blob: https://unpkg.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdn.jsdelivr.net; img-src 'self' data: blob: https://tiles.openfreemap.org; worker-src blob:; child-src blob:; connect-src 'self' https://tiles.openfreemap.org https://unpkg.com; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'">
+<title>Uncrewed platforms · ResearchVessels.org</title><link rel="canonical" href="https://researchvessels.org/uncrewed.html"><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32"><link rel="apple-touch-icon" href="assets/apple-touch-icon.png" sizes="180x180">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/css/bootstrap.min.css" integrity="sha384-yEPZ7jP9S0QKiUQ0m3jjsO4ProIW7wvR9gXkI7JOGa2XVsw53Yke2bsdkBbjmmiX" crossorigin="anonymous">
+<link rel="stylesheet" href="assets/style.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/js/bootstrap.bundle.min.js" integrity="sha384-WyOxWvTyr1QaMPfiPJSv76iReVthorl5uWlFtZPyK0IEB0hGzo9y5Bp9mYanr8Bu" crossorigin="anonymous" defer></script>
+<script src="assets/app.js"></script><script src="assets/external-links.js"></script><script src="data/vessels.js"></script><script src="data/vessel_extra.js"></script><script src="data/platforms.js"></script><script src="data/institutions.js"></script><script src="data/manufacturers.js"></script><script src="data/resources.js"></script><script src="assets/platforms.js"></script></head>
+<body class="d-flex flex-column min-vh-100 bg-body-tertiary">
+<main id="content" class="container py-4 flex-grow-1">
+<h1 class="mb-2">Uncrewed platforms</h1>
+<p class="lead text-body-secondary">Gliders, AUVs, ROVs, uncrewed surface and aerial vehicles, profiling floats and other vehicles that work with, or instead of, a crewed research ship. This page counts what is in the registry, links to the filtered views, and gathers the related institutions, support ships and Resources.</p>
+<div class="alert alert-warning" role="note"><strong>Draft &ndash; unverified; corrections welcome at <a href="mailto:ships@oceandata.org">ships@oceandata.org</a>.</strong> Counts come from public sources and show what the registry holds, not how many vehicles exist. A vehicle record can stand for a fleet.</div>
+<div id="u-root"><noscript><p>This page needs JavaScript to count the registry.</p></noscript><p class="text-body-secondary">Loading&hellip;</p></div>
+</main>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+ const h=RV.h,P=RVP,own=P.own,root=document.getElementById('u-root'),D=P.data(),PL=D.platforms||[],VS=RV.vessels().filter(v=>v.status!=='out of service');
+ const grp=r=>RV.autonomyGroup(r),lvl=r=>RV.autonomyOf(r);
+ const nPlatUn=PL.filter(p=>grp(p)==='uncrewed').length,nVesUn=VS.filter(v=>grp(v)==='uncrewed').length;
+ const nCrewedVes=VS.filter(v=>grp(v)==='crewed').length,nCrewedPl=PL.filter(p=>grp(p)==='crewed').length;
+ const supp=PL.flatMap(p=>P.supportList(p).filter(e=>e.vessel_id!=null).map(e=>({p,e})));
+ const suppVes=new Set(supp.map(x=>String(x.e.vessel_id)));
+ const nat=PL.filter(p=>P.accessOf(p)&&P.accessOf(p).national_facility===true),con=PL.filter(p=>P.accessOf(p)&&P.accessOf(p).contracted_service===true);
+ const lrIds=VS.filter(v=>{const x=RV.extraFor(v.id);return x&&x.launch_recovery}).map(v=>v.id);
+ const card=(n,label,href,extra)=>h('div',{class:'col-6 col-md-4 col-xl-2'},h('div',{class:'card h-100 text-center'},h('div',{class:'card-body py-3'},h('div',{class:'display-6 fw-semibold','data-count':label},String(n)),h('div',{class:'small text-body-secondary'},href?h('a',{href},label):label),extra||null)));
+ const kids=[];
+ kids.push(h('section',{class:'mb-4','aria-labelledby':'u-sum-h'},h('h2',{class:'h4 mb-3',id:'u-sum-h'},'In the registry'),h('div',{class:'row g-3'},
+  card(nPlatUn+nVesUn,'Uncrewed records','platforms.html?autonomy=uncrewed'),
+  card(nPlatUn,'Uncrewed platforms','platforms.html?autonomy=uncrewed'),
+  card(nCrewedVes+nCrewedPl,'Crewed records','vessels.html?autonomy=crewed'),
+  card(suppVes.size,'Ships linked to vehicles',null),
+  card(nat.length,'National-facility vehicles',null),
+  card(con.length,'Contracted services',null)),
+  h('p',{class:'small text-body-secondary mt-2 mb-0'},'Uncrewed = remotely operated, supervised autonomous or fully autonomous. Crewed = crewed or minimally crewed. Vessels marked out of service are left out, as on the vessels page. Records with no stated autonomy are counted as unknown and left out of both. Vessels with an uncrewed autonomy value: '+nVesUn+'. Crewed submersibles (HOV) count as crewed.')));
+ /* by class */
+ const clsRows=RV.VEHICLE_CLASSES.filter(c=>c!=='ship').map(c=>{const pl=PL.filter(p=>p.platform_class===c),ve=VS.filter(v=>v.vehicle_class===c);return {c,pl:pl.length,ve:ve.length,un:pl.filter(p=>grp(p)==='uncrewed').length+ve.filter(v=>grp(v)==='uncrewed').length}}).filter(r=>r.pl+r.ve>0);
+ const tb=h('tbody');clsRows.forEach(r=>tb.append(h('tr',{'data-class':r.c},h('th',{scope:'row',class:'fw-normal'},RV.VEHICLE_CLASS_LABELS[r.c]||r.c),h('td',{class:'text-end'},String(r.pl)),h('td',{class:'text-end'},String(r.ve)),h('td',{class:'text-end'},String(r.un)),
+  h('td',null,h('a',{href:'platforms.html?autonomy=uncrewed&class='+encodeURIComponent(r.c)},'Uncrewed '+(RV.VEHICLE_CLASS_LABELS[r.c]||r.c)),r.ve?[' \u00b7 ',h('a',{href:'vessels.html?class='+encodeURIComponent(r.c)},'In vessel directory')]:null))));
+ kids.push(h('section',{class:'mb-4','aria-labelledby':'u-cls-h'},h('h2',{class:'h4 mb-3',id:'u-cls-h'},'By vehicle class'),h('div',{class:'table-responsive'},h('table',{class:'table table-sm bg-white border align-middle'},
+  h('thead',{class:'table-light'},h('tr',null,h('th',{scope:'col'},'Class'),h('th',{scope:'col',class:'text-end'},'Platform records'),h('th',{scope:'col',class:'text-end'},'Vessel-directory records'),h('th',{scope:'col',class:'text-end'},'Uncrewed'),h('th',{scope:'col'},'Filtered views'))),tb))));
+ /* by autonomy */
+ const ab=h('tbody');RV.AUTONOMY_LEVELS.forEach(a=>{const np=PL.filter(p=>lvl(p)===a).length,nv=VS.filter(v=>lvl(v)===a).length;if(!np&&!nv)return;
+  ab.append(h('tr',{'data-autonomy':a},h('th',{scope:'row',class:'fw-normal'},RV.autonomyBadge(a)),h('td',{class:'text-end'},String(np)),h('td',{class:'text-end'},String(nv)),h('td',{class:'small text-body-secondary'},own(RV.AUTONOMY_LABELS,a)?RV.AUTONOMY_LABELS[a]:'')))});
+ kids.push(h('section',{class:'mb-4','aria-labelledby':'u-aut-h'},h('h2',{class:'h4 mb-3',id:'u-aut-h'},'By autonomy level'),h('div',{class:'table-responsive'},h('table',{class:'table table-sm bg-white border align-middle'},
+  h('thead',{class:'table-light'},h('tr',null,h('th',{scope:'col'},'Level'),h('th',{scope:'col',class:'text-end'},'Platform records'),h('th',{scope:'col',class:'text-end'},'Vessel-directory records'),h('th',{scope:'col'},'Meaning'))),ab)),
+  h('p',{class:'small mb-0'},h('a',{href:'platforms.html?autonomy=uncrewed'},'All uncrewed platforms'),' \u00b7 ',h('a',{href:'vessels.html?autonomy=uncrewed'},'Uncrewed records in the vessel directory'),' \u00b7 ',h('a',{href:'platforms.html?autonomy=crewed'},'Crewed platforms (for example submersibles)'),' \u00b7 ',h('a',{href:'vessels.html?autonomy=all'},'Everything, crewed and uncrewed'))));
+ /* institutions */
+ const per=new Map();PL.filter(p=>grp(p)==='uncrewed').forEach(p=>{const seen=new Set();P.operatorsOf(p).forEach(a=>{const r=P.instRoot(a.institution_id);if(r&&!seen.has(r.institution_id)){seen.add(r.institution_id);per.set(r.institution_id,(per.get(r.institution_id)||0)+1)}})});
+ const top=[...per.entries()].sort((a,b)=>b[1]-a[1]||String(a[0]).localeCompare(String(b[0]))).slice(0,14);
+ kids.push(h('section',{class:'mb-4','aria-labelledby':'u-ins-h'},h('h2',{class:'h4 mb-3',id:'u-ins-h'},'Institutions and groups with uncrewed platforms'),
+  h('ul',{class:'list-unstyled row row-cols-1 row-cols-md-2 mb-2',id:'u-inst'},top.map(([id,n])=>{const i=P.findInst(id);return h('li',{class:'col','data-inst':id},h('a',{href:P.instHref(id)},i?i.name:id),h('span',{class:'small text-body-secondary ms-1'},'\u2013 '+n+' uncrewed platform'+(n===1?'':'s')))})),
+  h('p',{class:'small mb-0'},h('a',{href:'institution.html'},'All institutions and groups'),' (nested, by country)')));
+ /* support ships */
+ const byShip=new Map();supp.forEach(({p,e})=>{const k=String(e.vessel_id);if(!byShip.has(k))byShip.set(k,[]);byShip.get(k).push(p)});lrIds.forEach(id=>{if(!byShip.has(id))byShip.set(id,[])});
+ const VB=RV.byId();
+ const ships=[...byShip.entries()].filter(([id])=>own(VB,id)).sort((a,b)=>b[1].length-a[1].length||VB[a[0]].name.localeCompare(VB[b[0]].name));
+ kids.push(h('section',{class:'mb-4','aria-labelledby':'u-shp-h'},h('h2',{class:'h4 mb-3',id:'u-shp-h'},'Ships that launch and recover vehicles'),
+  h('p',{class:'small text-body-secondary'},'Each ship page lists the vehicles it supports; each vehicle page lists its support ships. Both come from the same list, and entries not yet confirmed against a source are flagged.'),
+  h('ul',{class:'list-unstyled row row-cols-1 row-cols-md-2 mb-0',id:'u-ships'},ships.map(([id,L])=>h('li',{class:'col','data-vessel':id},h('a',{href:RV.vesselHref(id)},VB[id].name),h('span',{class:'small text-body-secondary ms-1'},'\u2013 '+(L.length?L.length+' vehicle record'+(L.length===1?'':'s'):'launch-and-recovery details only')))))));
+ /* access */
+ const progs=new Map();nat.forEach(p=>{const k=(P.accessOf(p).program)||'National facility';progs.set(k,(progs.get(k)||0)+1)});
+ kids.push(h('section',{class:'mb-4','aria-labelledby':'u-acc-h'},h('h2',{class:'h4 mb-3',id:'u-acc-h'},'How to get time or data'),
+  h('p',{class:'small text-body-secondary'},'Each platform page has an Access section: whether it is a national facility, whether it is a contracted commercial service, and how to ask. Filled in so far for '+PL.filter(p=>P.accessOf(p)).length+' of '+PL.length+' records, only where a public page says so.'),
+  h('ul',{class:'mb-0',id:'u-prog'},[...progs.entries()].map(([k,n])=>h('li',null,k,h('span',{class:'small text-body-secondary ms-1'},'\u2013 '+n+' platform record'+(n===1?'':'s')))),con.length?h('li',null,'Contracted commercial service',h('span',{class:'small text-body-secondary ms-1'},'\u2013 '+con.map(p=>p.display_name||p.name).join(', '))):null)));
+ /* map + forms */
+ kids.push(h('section',{class:'mb-4','aria-labelledby':'u-more-h'},h('h2',{class:'h4 mb-3',id:'u-more-h'},'Maps and forms'),h('ul',{class:'mb-0'},
+  h('li',null,h('a',{href:'map.html?layer=uncrewed'},'Map of active uncrewed deployments'),' \u2013 IOOS Glider DAC positions and Argo floats, kept separate from the historical ship positions.'),
+  h('li',null,h('a',{href:P.VCF_HREF()},'Vehicle Condition Form'),' \u2013 printable pre-deployment checklist for AUVs, gliders, USVs, ROVs and floats. Nothing is sent anywhere.'),
+  h('li',null,h('a',{href:'platforms.html'},'All platforms beyond ships'),' \u00b7 ',h('a',{href:'vessels.html'},'Vessel directory'),' with the Crewed / Uncrewed / All switch.'))));
+ /* resources */
+ const RG=((window.RV_RESOURCES||{}).research_links||[]).filter(g=>g&&/^(Uncrewed|Profiling floats)/.test(String(g.group)));
+ const slug=s=>String(s).toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+ kids.push(h('section',{class:'mb-4','aria-labelledby':'u-res-h'},h('h2',{class:'h4 mb-3',id:'u-res-h'},'Resources'),h('div',{class:'row g-3',id:'u-res'},RG.map(g=>{const items=(g.items||[]).filter(i=>i&&RV.safeUrl(i.url));
+   return h('div',{class:'col-12 col-lg-6','data-group':String(g.group)},h('div',{class:'card h-100'},h('div',{class:'card-body'},h('h3',{class:'h6 card-title'},h('a',{href:'resources.html#grp-'+slug(g.group)},String(g.group)),h('span',{class:'badge text-bg-secondary ms-2'},String(items.length))),
+     h('ul',{class:'small mb-0'},items.slice(0,5).map(i=>h('li',null,h('a',{href:i.url},String(i.title))))),items.length>5?h('p',{class:'small mb-0 mt-1'},h('a',{href:'resources.html#grp-'+slug(g.group)},'and '+(items.length-5)+' more')):null)))}))));
+ root.replaceChildren(...kids);
+});
+</script></body></html>

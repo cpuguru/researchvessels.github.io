@@ -75,7 +75,8 @@ document.addEventListener('DOMContentLoaded',()=>{
  RV_RES.renderLinks(document.getElementById('res-tech'),TA.groups,{archived:true});
  document.getElementById('res-tech-note').textContent=String(TA.note||'');
  RV_RES.renderDownloads(document.getElementById('res-downloads'),R.archive_downloads);
- document.getElementById('res-checked').textContent=n+' links, each checked live on '+String(R.checked||'')+'.';
+ document.getElementById('res-checked').textContent=n+' links, each checked live; the check date is shown under each link (main review '+String(R.checked||'')+').';
  RV_RES.wireFilter(document.getElementById('res-filter'),document.getElementById('content'));
+ RV_RES.jumpToHash();
 });
 </script></body></html>

@@ -88,18 +88,21 @@
   const linkItem=i=>h('li',{class:'list-group-item px-0 rv-res-item'},
     h('a',{href:i.url,rel:'noopener',class:'fw-semibold'},str(i.title)),
     i.region?h('span',{class:'small text-body-secondary ms-2'},str(i.region)):null,
-    i.desc?h('div',{class:'small text-body-secondary'},str(i.desc)):null);
+    i.desc?h('div',{class:'small text-body-secondary'},str(i.desc)):null,
+    i.check&&/^\d{4}-\d{2}-\d{2}$/.test(str(i.check.date))&&i.check.result==='live'?h('div',{class:'small text-body-secondary','data-checked':str(i.check.date)},'Checked live ',str(i.check.date),i.check.checked_from?' ('+str(i.check.checked_from)+')':''):null);
   const renderLinks=(el,groups,opts)=>{
     if(!el)return 0;el.replaceChildren();let n=0;const arch=!!(opts&&opts.archived);
     for(const g of (Array.isArray(groups)?groups:[])){
       const items=(g&&Array.isArray(g.items)?g.items:[]).filter(i=>i&&RV.safeUrl(i.url));
       if(!items.length)continue;n+=items.length;
-      el.append(h('div',{class:'col-12 col-lg-6 rv-res-group'},h('section',{class:'card h-100'},h('div',{class:'card-body'},
+      el.append(h('div',{class:'col-12 col-lg-6 rv-res-group'},h('section',{class:'card h-100',id:'grp-'+str(g.group).toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')},h('div',{class:'card-body'},
         h('h3',{class:'h5 card-title'},str(g.group),h('span',{class:'badge text-bg-secondary ms-2 align-middle rv-res-count'},String(items.length)),arch?archiveBadge():null),
         h('ul',{class:'list-group list-group-flush'},items.map(linkItem))))));
     }
     return n;
   };
+  /* Jump to a group when the page is opened with #grp-... (groups are drawn after load, so the browser cannot do it). */
+  const jumpToHash=()=>{const m=/^#(grp-[a-z0-9-]+)$/.exec(location.hash||'');if(!m)return;const t=document.getElementById(m[1]);if(t&&t.scrollIntoView)t.scrollIntoView()};
   const renderCalendars=el=>{
     const E=window.RV_EVENTS;if(!el||!E||!Array.isArray(E.calendars))return;
     el.replaceChildren(...E.calendars.filter(c=>c&&RV.safeUrl(c.url)).map(c=>h('li',null,h('a',{href:c.url,rel:'noopener'},str(c.title)),c.organizer?' ('+str(c.organizer)+')':'')));
@@ -132,6 +135,6 @@
     })));
     return L.length;
   };
-  window.RV_RES={upcoming,milestones,fmtRange,renderEvents,renderMilestones,renderWatch,renderLinks,renderDownloads,renderCalendars,wireFilter,todayIso};
+  window.RV_RES={jumpToHash,upcoming,milestones,fmtRange,renderEvents,renderMilestones,renderWatch,renderLinks,renderDownloads,renderCalendars,wireFilter,todayIso};
 
 })();

@@ -817,6 +817,124 @@
       ]
     },
     {
+      "group": "Uncrewed ocean mapping",
+      "items": [
+        {
+          "title": "Seabed 2030",
+          "url": "https://seabed2030.org/",
+          "desc": "Nippon Foundation-GEBCO project to produce a complete map of the ocean floor by 2030; news, data contributors and the status of global coverage.",
+          "check": {
+            "result": "live",
+            "status": 200,
+            "date": "2026-11-26"
+          }
+        },
+        {
+          "title": "GEBCO",
+          "url": "https://www.gebco.net/",
+          "desc": "General Bathymetric Chart of the Oceans: the international body behind the GEBCO global grid, run with the IHO and IOC.",
+          "check": {
+            "result": "live",
+            "status": 200,
+            "date": "2026-11-26",
+            "checked_from": "Aurora laptop (browser user agent); the Linux box could not complete TLS to this host"
+          }
+        },
+        {
+          "title": "GEBCO gridded bathymetry data",
+          "url": "https://www.gebco.net/data-products/gridded-bathymetry-data",
+          "desc": "Download page for the GEBCO global bathymetry grids.",
+          "check": {
+            "result": "live",
+            "status": 200,
+            "date": "2026-11-26",
+            "checked_from": "Aurora laptop (browser user agent); the Linux box could not complete TLS to this host"
+          }
+        },
+        {
+          "title": "UNH Center for Coastal and Ocean Mapping / Joint Hydrographic Center (CCOM/JHC)",
+          "url": "https://www.ccom.unh.edu/",
+          "desc": "University of New Hampshire research and training centre for ocean mapping; works with NOAA on uncrewed surface vehicles for seafloor mapping.",
+          "check": {
+            "result": "live",
+            "status": 200,
+            "date": "2026-11-26",
+            "checked_from": "Aurora laptop (browser user agent); the Linux box could not complete TLS to this host"
+          }
+        },
+        {
+          "title": "NOAA Office of Coast Survey: uncrewed systems",
+          "url": "https://nauticalcharts.noaa.gov/learn/uncrewed-systems.html",
+          "desc": "How NOAA’s charting office uses small and large uncrewed surface vehicles for hydrographic survey, with the NOAA Uncrewed Systems Operations Center.",
+          "check": {
+            "result": "live",
+            "status": 200,
+            "date": "2026-11-26"
+          }
+        },
+        {
+          "title": "NOAA OMAO: 48 hours in the life of the DriX",
+          "url": "https://www.omao.noaa.gov/uncrewed-systems/news-media/article/48-hours-life-drix-noaas-newest-uncrewed-surface-vehicle",
+          "desc": "NOAA account of a DriX uncrewed surface vehicle surveying from NOAA Ship Thomas Jefferson in 2024 (June 2024).",
+          "check": {
+            "result": "live",
+            "status": 200,
+            "date": "2026-11-26"
+          }
+        },
+        {
+          "title": "Saildrone Surveyor",
+          "url": "https://www.saildrone.com/platform/surveyor",
+          "desc": "Saildrone’s 20 m uncrewed surface vehicle for ocean mapping and surveillance: published length, speed, endurance and payload power.",
+          "check": {
+            "result": "live",
+            "status": 200,
+            "date": "2026-11-26"
+          }
+        },
+        {
+          "title": "Saildrone ocean mapping",
+          "url": "https://www.saildrone.com/capabilities/ocean-mapping",
+          "desc": "Saildrone’s description of its multibeam survey service and data delivery.",
+          "check": {
+            "result": "live",
+            "status": 200,
+            "date": "2026-11-26"
+          }
+        },
+        {
+          "title": "Exail DriX series",
+          "url": "https://www.exail.com/product-range/drix-series-uncrewed-surface-vessels",
+          "desc": "Exail’s DriX family of uncrewed surface vessels for hydrography, with launch-and-recovery options from a mother ship or from shore.",
+          "check": {
+            "result": "live",
+            "status": 200,
+            "date": "2026-11-26"
+          }
+        },
+        {
+          "title": "IHO crowdsourced bathymetry",
+          "url": "https://iho.int/en/crowdsourced-bathymetry",
+          "desc": "International Hydrographic Organization pages on crowdsourced bathymetry and the IHO Data Centre for Digital Bathymetry.",
+          "check": {
+            "result": "live",
+            "status": 200,
+            "date": "2026-11-26"
+          }
+        },
+        {
+          "title": "NOAA NCEI bathymetric data viewer",
+          "url": "https://www.ncei.noaa.gov/maps/bathymetry/",
+          "desc": "NOAA’s map viewer for archived multibeam, trackline and other bathymetric survey data.",
+          "check": {
+            "result": "live",
+            "status": 200,
+            "date": "2026-11-26"
+          }
+        }
+      ]
+    },
+    {
       "group": "Science community",
       "items": [
         {
