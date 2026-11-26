@@ -354,6 +354,334 @@
       ]
     },
     {
+      "group": "Uncrewed platforms: vehicle programmes and catalogs",
+      "items": [
+        {
+          "title": "WHOI underwater vehicles",
+          "url": "https://www.whoi.edu/what-we-do/explore/underwater-vehicles/",
+          "region": "USA",
+          "desc": "Overview of the HOV Alvin, ROV Jason, AUV Sentry, REMUS and other AUVs, Spray and Slocum gliders, and towed vehicles operated by WHOI",
+          "check": {
+            "result": "live",
+            "status": 200,
+            "date": "2026-11-26"
+          }
+        },
+        {
+          "title": "National Deep Submergence Facility (NDSF)",
+          "url": "https://ndsf.whoi.edu/",
+          "region": "USA",
+          "desc": "National facility that operates Alvin, Jason and Sentry for the U.S. academic community",
+          "check": {
+            "result": "live",
+            "status": 200,
+            "date": "2026-11-26"
+          }
+        },
+        {
+          "title": "MBARI technologies",
+          "url": "https://www.mbari.org/our-work/technologies/",
+          "region": "USA",
+          "desc": "MBARI’s autonomous underwater vehicles, ROV tools, sensors and software",
+          "check": {
+            "result": "live",
+            "status": 200,
+            "date": "2026-11-26"
+          }
+        },
+        {
+          "title": "NOAA Ocean Exploration: science and technology",
+          "url": "https://oceanexplorer.noaa.gov/technology/",
+          "region": "USA",
+          "desc": "Technology pages from NOAA Ocean Exploration on the remotely operated and autonomous underwater vehicles and other tools used on its expeditions",
+          "check": {
+            "result": "live",
+            "status": 200,
+            "date": "2026-11-26"
+          }
+        },
+        {
+          "title": "NOAA Uncrewed Systems Operations Center (UxSOC)",
+          "url": "https://omao.noaa.gov/uncrewed-systems/about-noaa-uncrewed-systems-operations",
+          "region": "USA",
+          "desc": "How NOAA’s Office of Marine and Aviation Operations develops and runs uncrewed aircraft and marine systems",
+          "check": {
+            "result": "live",
+            "status": 200,
+            "date": "2026-11-26"
+          }
+        },
+        {
+          "title": "NOAA Uncrewed Systems Strategy",
+          "url": "https://sciencecouncil.noaa.gov/noaa-science-technology-focus-areas/noaa-uncrewed-systems-strategy/",
+          "region": "USA",
+          "desc": "NOAA’s strategy and strategic plan for uncrewed aircraft and marine systems",
+          "check": {
+            "result": "live",
+            "status": 200,
+            "date": "2026-11-26"
+          }
+        },
+        {
+          "title": "Sea Drone World",
+          "url": "https://seadroneworld.com/",
+          "region": "Global",
+          "desc": "Open catalog of maritime uncrewed vehicles (USVs, AUVs, ROVs, gliders) with specifications and sources; independent, best-effort data that also lists military platforms",
+          "check": {
+            "result": "live",
+            "status": 200,
+            "date": "2026-11-26"
+          }
+        },
+        {
+          "title": "AUVSI Uncrewed Systems and Robotics Database (USRD)",
+          "url": "https://www.auvsi.org/advocacy/research-reports/uncrewed-systems-and-robotics-database/",
+          "region": "Global",
+          "desc": "Searchable database of air, ground and maritime uncrewed platforms and makers. A paid subscription, included with AUVSI organizational membership; the page describes access",
+          "check": {
+            "result": "live",
+            "status": 200,
+            "date": "2026-11-26"
+          }
+        },
+        {
+          "title": "ResearchVessels.org: platforms beyond ships (draft)",
+          "url": "https://researchvessels.org/platforms.html",
+          "region": "Global",
+          "desc": "Our draft registry of gliders, AUVs, ROVs, uncrewed surface and aerial vehicles and other non-ship platforms",
+          "check": {
+            "result": "live",
+            "status": 200,
+            "date": "2026-11-26"
+          }
+        }
+      ]
+    },
+    {
+      "group": "Uncrewed platforms: gliders, data and community",
+      "items": [
+        {
+          "title": "IOOS National Glider Data Assembly Center",
+          "url": "https://gliders.ioos.us/",
+          "region": "USA",
+          "desc": "U.S. data center for glider missions: submission, visualization, distribution and archiving at NCEI",
+          "check": {
+            "result": "live",
+            "status": 200,
+            "date": "2026-11-26"
+          }
+        },
+        {
+          "title": "IOOS Glider DAC map",
+          "url": "https://gliders.ioos.us/map/",
+          "region": "USA",
+          "desc": "Map of current and historical U.S. glider missions",
+          "check": {
+            "result": "live",
+            "status": 200,
+            "date": "2026-11-26"
+          }
+        },
+        {
+          "title": "IOOS Glider DAC documentation: NetCDF file format",
+          "url": "https://ioos.github.io/glider-dac/ngdac-netcdf-file-format-version-4.html",
+          "region": "USA",
+          "desc": "Required file naming, global attributes and variables for submitting glider data (version 4)",
+          "check": {
+            "result": "live",
+            "status": 200,
+            "date": "2026-11-26"
+          }
+        },
+        {
+          "title": "OceanGliders",
+          "url": "https://www.oceangliders.org/",
+          "region": "Global",
+          "desc": "International glider community and task teams under the Global Ocean Observing System",
+          "check": {
+            "result": "live",
+            "status": 200,
+            "date": "2026-11-26"
+          }
+        },
+        {
+          "title": "OceanGliders data management",
+          "url": "https://oceangliders.github.io/data/",
+          "region": "Global",
+          "desc": "Community data standards, the OG1.0 format, sensor procedures and real-time data flow",
+          "check": {
+            "result": "live",
+            "status": 200,
+            "date": "2026-11-26"
+          }
+        },
+        {
+          "title": "OG1.0 format user manual",
+          "url": "https://oceangliderscommunity.github.io/OG-format-user-manual/",
+          "region": "Global",
+          "desc": "Specification, vocabularies, example files and format checkers for OceanGliders data files",
+          "check": {
+            "result": "live",
+            "status": 200,
+            "date": "2026-11-26"
+          }
+        },
+        {
+          "title": "Underwater Glider User Group (UG2)",
+          "url": "https://underwatergliders.org/",
+          "region": "USA",
+          "desc": "Community coalition for sharing glider information and resources",
+          "check": {
+            "result": "live",
+            "status": 200,
+            "date": "2026-11-26"
+          }
+        },
+        {
+          "title": "OceanOPS glider network",
+          "url": "https://www.ocean-ops.org/board?t=oceangliders",
+          "region": "Global",
+          "desc": "Dashboard of glider deployments and network status from OceanOPS",
+          "check": {
+            "result": "live",
+            "status": 200,
+            "date": "2026-11-26"
+          }
+        }
+      ]
+    },
+    {
+      "group": "Uncrewed platforms: ROVs, imagery, open-source tools and sensor data",
+      "items": [
+        {
+          "title": "Open-source ocean technology list",
+          "url": "https://github.com/jack-butler/open-ocean",
+          "region": "Global",
+          "desc": "Living list of open-source ocean tools, including low-cost ROVs, gliders, boats, cameras, sensors and hydrophones",
+          "check": {
+            "result": "live",
+            "status": 200,
+            "date": "2026-11-26"
+          }
+        },
+        {
+          "title": "ArduSub",
+          "url": "https://www.ardusub.com/",
+          "region": "Global",
+          "desc": "Open-source software and documentation for building and controlling ROVs",
+          "check": {
+            "result": "live",
+            "status": 200,
+            "date": "2026-11-26"
+          }
+        },
+        {
+          "title": "FathomNet",
+          "url": "https://www.fathomnet.org/",
+          "region": "Global",
+          "desc": "Open database of expert-annotated ocean images and models for analysing ROV and AUV imagery",
+          "check": {
+            "result": "live",
+            "status": 200,
+            "date": "2026-11-26"
+          }
+        },
+        {
+          "title": "IOOS QARTOD",
+          "url": "https://ioos.noaa.gov/project/qartod/",
+          "region": "USA",
+          "desc": "Manuals for real-time quality control of ocean sensor data, useful for glider and AUV payloads",
+          "check": {
+            "result": "live",
+            "status": 200,
+            "date": "2026-11-26"
+          }
+        }
+      ]
+    },
+    {
+      "group": "Uncrewed platforms: operations, permissions and rules",
+      "items": [
+        {
+          "title": "UNOLS SCOAR (oceanographic aircraft research)",
+          "url": "https://www.unols.org/committee/scientific-committee-oceanographic-aircraft-research-scoar",
+          "region": "USA",
+          "desc": "UNOLS committee page that lists the UAS Operator Handbook, UAS facility white paper and UNOLS UAS policy",
+          "check": {
+            "result": "live",
+            "status": 200,
+            "date": "2026-11-26"
+          }
+        },
+        {
+          "title": "UNOLS RVTEC (technical enhancement committee)",
+          "url": "https://www.unols.org/committee/research-vessel-technical-enhancement-committee-rvtec",
+          "region": "USA",
+          "desc": "Shipboard technical staff committee covering instruments, networks and training; a contact point for launching vehicles from research vessels",
+          "check": {
+            "result": "live",
+            "status": 200,
+            "date": "2026-11-26"
+          }
+        },
+        {
+          "title": "UN Convention on the Law of the Sea, Part XIII",
+          "url": "https://www.un.org/depts/los/convention_agreements/texts/unclos/part13.htm",
+          "region": "Global",
+          "desc": "Marine scientific research articles, including consent for research in another State’s waters",
+          "check": {
+            "result": "live",
+            "status": 200,
+            "date": "2026-11-26"
+          }
+        },
+        {
+          "title": "U.S. State Department: marine scientific research",
+          "url": "https://www.state.gov/marine-scientific-research/",
+          "region": "USA",
+          "desc": "Consent program for U.S. scientists working in other nations’ coastal waters",
+          "check": {
+            "result": "live",
+            "status": 200,
+            "date": "2026-11-26"
+          }
+        },
+        {
+          "title": "IMO: autonomous shipping FAQ and MASS Code",
+          "url": "https://www.imo.org/en/mediacentre/hottopics/pages/autonomous-shipping.aspx",
+          "region": "Global",
+          "desc": "IMO’s questions and answers on Maritime Autonomous Surface Ships and the MASS Code",
+          "check": {
+            "result": "live",
+            "status": 200,
+            "date": "2026-11-26"
+          }
+        },
+        {
+          "title": "FAA: small drone rules (Part 107)",
+          "url": "https://www.faa.gov/newsroom/small-unmanned-aircraft-systems-uas-regulations-part-107",
+          "region": "USA",
+          "desc": "FAA summary of the rules for flying small uncrewed aircraft in the United States",
+          "check": {
+            "result": "live",
+            "status": 200,
+            "date": "2026-11-26"
+          }
+        },
+        {
+          "title": "eCFR: 14 CFR Part 107",
+          "url": "https://www.ecfr.gov/current/title-14/part-107",
+          "region": "USA",
+          "desc": "Current legal text of the FAA small unmanned aircraft rules",
+          "check": {
+            "result": "live",
+            "status": 200,
+            "date": "2026-11-26"
+          }
+        }
+      ]
+    },
+    {
       "group": "Science community",
       "items": [
         {
