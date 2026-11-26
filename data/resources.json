@@ -354,6 +354,141 @@
       ]
     },
     {
+      "group": "Profiling floats: Argo",
+      "items": [
+        {
+          "title": "Argo Program (official site)",
+          "url": "https://argo.ucsd.edu/",
+          "desc": "Official home of the international Argo profiling-float program, hosted by the Argo Program Office at Scripps Institution of Oceanography, UC San Diego. Covers the program, data access, float technology and the Argo Steering Team",
+          "check": {
+            "result": "live",
+            "status": 200,
+            "date": "2026-11-26"
+          }
+        },
+        {
+          "title": "How to use Argo data files",
+          "url": "https://argo.ucsd.edu/data/how-to-use-argo-files/",
+          "desc": "Official guide to Argo profile files, formats and how to use data from the Global Data Assembly Centres",
+          "check": {
+            "result": "live",
+            "status": 200,
+            "date": "2026-11-26"
+          }
+        },
+        {
+          "title": "Argo Data Management Team: data access",
+          "url": "https://www.argodatamgt.org/DataAccess.html",
+          "desc": "Official ADMT page for GDAC access (HTTPS, FTP and S3), the Argo dataset DOI, and the user’s manual",
+          "check": {
+            "result": "live",
+            "status": 200,
+            "date": "2026-11-26"
+          }
+        },
+        {
+          "title": "Argo GDAC (Ifremer / Coriolis)",
+          "url": "https://data-argo.ifremer.fr/",
+          "desc": "French Global Data Assembly Centre: official HTTPS copy of the complete Argo collection (NetCDF profiles, metadata, index files)",
+          "check": {
+            "result": "live",
+            "status": 200,
+            "date": "2026-11-26"
+          }
+        },
+        {
+          "title": "Argo GDAC (US, NRL / FNMOC)",
+          "url": "https://nrlgodae1.nrlmry.navy.mil/pub/outgoing/argo/",
+          "desc": "US Global Data Assembly Centre HTTPS directory. In January 2026 the ADMT announced this host as the replacement for usgodae.org; the older usgodae.org portal still responded on 2026-11-26",
+          "check": {
+            "result": "live",
+            "status": 200,
+            "date": "2026-11-26"
+          }
+        },
+        {
+          "title": "Euro-Argo ERIC",
+          "url": "https://www.euro-argo.eu/",
+          "desc": "The European research infrastructure that coordinates Europe’s contribution to the Argo program",
+          "check": {
+            "result": "live",
+            "status": 200,
+            "date": "2026-11-26"
+          }
+        },
+        {
+          "title": "Euro-Argo data selection",
+          "url": "https://dataselection.euro-argo.eu/",
+          "desc": "Official Euro-Argo tool to search and subset Argo data and download NetCDF or CSV",
+          "check": {
+            "result": "live",
+            "status": 200,
+            "date": "2026-11-26"
+          }
+        },
+        {
+          "title": "OceanOPS Argo dashboard",
+          "url": "https://www.ocean-ops.org/board?t=argo",
+          "desc": "WMO-IOC OceanOPS monitoring page for the Argo array (operational status, maps and metadata). OceanOPS also provides a public API used for the fleet count",
+          "check": {
+            "result": "live",
+            "status": 200,
+            "date": "2026-11-26"
+          }
+        },
+        {
+          "title": "Argo Steering Team",
+          "url": "https://argo.ucsd.edu/organization/argo-steering-team/",
+          "desc": "The international scientific steering team for the Argo program, with membership and meeting reports",
+          "check": {
+            "result": "live",
+            "status": 200,
+            "date": "2026-11-26"
+          }
+        },
+        {
+          "title": "NOAA AOML: US Argo Data Assembly Centre",
+          "url": "https://www.aoml.noaa.gov/argo/",
+          "desc": "US Argo DAC at NOAA’s Atlantic Oceanographic and Meteorological Laboratory, which assembles US (and some partner) float data and sends them to the GDACs and the GTS",
+          "check": {
+            "result": "live",
+            "status": 200,
+            "date": "2026-11-26"
+          }
+        },
+        {
+          "title": "Argo GDAC data snapshots (SEANOE DOI)",
+          "url": "https://doi.org/10.17882/42182",
+          "desc": "Citable monthly snapshots of the Argo GDAC, DOI 10.17882/42182, archived at SEANOE. Use this DOI (and a snapshot key when citing a specific month) when publishing with Argo data",
+          "check": {
+            "result": "live",
+            "status": 200,
+            "date": "2026-11-26"
+          }
+        },
+        {
+          "title": "Biogeochemical-Argo (BGC-Argo)",
+          "url": "https://biogeochemical-argo.org/",
+          "desc": "Official site for the BGC-Argo mission: floats that add biogeochemical sensors (oxygen, pH, nitrate, chlorophyll and others) to the core temperature-salinity profile",
+          "check": {
+            "result": "live",
+            "status": 200,
+            "date": "2026-11-26"
+          }
+        },
+        {
+          "title": "Argovis (third-party)",
+          "url": "https://argovis.colorado.edu/",
+          "desc": "Third-party browser and API for exploring Argo profiles, maintained at the University of Colorado. Not an official Argo program or GDAC site",
+          "check": {
+            "result": "live",
+            "status": 200,
+            "date": "2026-11-26"
+          }
+        }
+      ]
+    },
+    {
       "group": "Uncrewed platforms: vehicle programmes and catalogs",
       "items": [
         {

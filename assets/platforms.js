@@ -8,8 +8,8 @@
   const validId=s=>typeof s==='string'&&ID_RE.test(s);
   const own=(o,k)=>o!=null&&Object.prototype.hasOwnProperty.call(o,k);
   const D=()=>window.RV_PLATFORMS||{platforms:[],sources:{},spec_basis_labels:{},excluded:[]};
-  const CLASSES=[['glider','Glider'],['AUV','AUV'],['ROV','ROV'],['HROV','Hybrid ROV/AUV'],['HOV','HOV (crewed)'],['towed','Towed'],['USV','USV'],['UAV','UAV'],['UGV','UGV'],['HFR','HF radar']];
-  const CLASS_NAME={glider:'Underwater glider',AUV:'Autonomous underwater vehicle',ROV:'Remotely operated vehicle',HROV:'Hybrid remotely operated / autonomous vehicle',HOV:'Human-occupied vehicle (crewed submersible)',towed:'Towed vehicle or sled',USV:'Uncrewed surface vehicle',UAV:'Uncrewed aerial vehicle',UGV:'Uncrewed ground vehicle',HFR:'HF radar (shore-based network)'};
+  const CLASSES=[['glider','Glider'],['AUV','AUV'],['ROV','ROV'],['HROV','Hybrid ROV/AUV'],['HOV','HOV (crewed)'],['towed','Towed'],['USV','USV'],['UAV','UAV'],['UGV','UGV'],['HFR','HF radar'],['profiling float','Profiling float']];
+  const CLASS_NAME={glider:'Underwater glider',AUV:'Autonomous underwater vehicle',ROV:'Remotely operated vehicle',HROV:'Hybrid remotely operated / autonomous vehicle',HOV:'Human-occupied vehicle (crewed submersible)',towed:'Towed vehicle or sled',USV:'Uncrewed surface vehicle',UAV:'Uncrewed aerial vehicle',UGV:'Uncrewed ground vehicle',HFR:'HF radar (shore-based network)', 'profiling float':'Profiling float (Argo-style)'};
   const STATUSES=['Active','Listed','Probable','Dormant','Retired','Unknown'];
   const STATUS_HELP={Active:'Used or published within about 12 months of the last check',Listed:'Listed as current on the operator\u2019s own site; no dated use checked',Probable:'Seen in use 2021-2025, nothing newer found',Dormant:'Data trail stopped; no use found for several years',Retired:'Operator reports it retired, lost, replaced or its program ended',Unknown:'Only old evidence, or no evidence of use'};
   const STATUS_CLASS={Active:'text-bg-success',Listed:'text-bg-info',Probable:'text-bg-primary',Dormant:'text-bg-warning',Retired:'text-bg-dark',Unknown:'text-bg-secondary'};

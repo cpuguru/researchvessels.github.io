@@ -1121,6 +1121,186 @@
    "published": null,
    "accessed": "2026-11-26",
    "note": "Read from the search index."
+  },
+  "argo-ucsd": {
+   "source_id": "argo-ucsd",
+   "title": "Argo Program (official site)",
+   "url": "https://argo.ucsd.edu/",
+   "publisher": "Argo Program Office, Scripps Institution of Oceanography",
+   "source_type": "operator_page",
+   "published": null,
+   "accessed": "2026-11-26",
+   "note": "Official program home. Verified live from the laptop on 2026-11-26; the box network could not reach argo.ucsd.edu that day."
+  },
+  "argo-ast": {
+   "source_id": "argo-ast",
+   "title": "Argo Steering Team",
+   "url": "https://argo.ucsd.edu/organization/argo-steering-team/",
+   "publisher": "Argo Program Office",
+   "source_type": "operator_page",
+   "published": null,
+   "accessed": "2026-11-26",
+   "note": "Verified live from the laptop on 2026-11-26."
+  },
+  "argo-mission": {
+   "source_id": "argo-mission",
+   "title": "Argo: Mission",
+   "url": "https://argo.ucsd.edu/about/mission/",
+   "publisher": "Argo Program Office",
+   "source_type": "operator_page",
+   "published": null,
+   "accessed": "2026-11-26",
+   "note": "Core, Deep, BGC and Polar missions; 10-day cycle; 2000 m / 6000 m design depths. Verified live from the laptop on 2026-11-26."
+  },
+  "argo-about": {
+   "source_id": "argo-about",
+   "title": "About Argo",
+   "url": "https://argo.ucsd.edu/about/",
+   "publisher": "Argo Program Office",
+   "source_type": "operator_page",
+   "published": null,
+   "accessed": "2026-11-26",
+   "note": "Describes the ~10-day cycle (park near 1 km, profile to 2 km). Verified live from the laptop on 2026-11-26."
+  },
+  "argo-float-types": {
+   "source_id": "argo-float-types",
+   "title": "Argo float types",
+   "url": "https://argo.ucsd.edu/how-do-floats-work/float-types/",
+   "publisher": "Argo Program Office",
+   "source_type": "operator_page",
+   "published": null,
+   "accessed": "2026-11-26",
+   "note": "Official list of core and Deep float models. Verified live from the laptop on 2026-11-26."
+  },
+  "argo-howto": {
+   "source_id": "argo-howto",
+   "title": "How to use Argo profile files",
+   "url": "https://argo.ucsd.edu/data/how-to-use-argo-files/",
+   "publisher": "Argo Program Office",
+   "source_type": "operator_page",
+   "published": null,
+   "accessed": "2026-11-26",
+   "note": "Verified live from the laptop on 2026-11-26."
+  },
+  "argo-gdacs": {
+   "source_id": "argo-gdacs",
+   "title": "Data from GDACs",
+   "url": "https://argo.ucsd.edu/data/data-from-gdacs/",
+   "publisher": "Argo Program Office",
+   "source_type": "operator_page",
+   "published": null,
+   "accessed": "2026-11-26",
+   "note": "Verified live from the laptop on 2026-11-26."
+  },
+  "admt-access": {
+   "source_id": "admt-access",
+   "title": "ADMT: Data access",
+   "url": "https://www.argodatamgt.org/DataAccess.html",
+   "publisher": "Argo Data Management Team",
+   "source_type": "operator_page",
+   "published": null,
+   "accessed": "2026-11-26",
+   "note": null
+  },
+  "admt-usgdac-2026": {
+   "source_id": "admt-usgdac-2026",
+   "title": "Change in url for the US GDAC (29 January 2026)",
+   "url": "https://www.argodatamgt.org/",
+   "publisher": "Argo Data Management Team",
+   "source_type": "news",
+   "published": "2026-01-29",
+   "accessed": "2026-11-26",
+   "note": "ADMT news item: US GDAC URL changing from usgodae.org to nrlgodae1.nrlmry.navy.mil; new site already live, old site to be retired (date truncated on the index as “on 2…”)."
+  },
+  "ifremer-gdac": {
+   "source_id": "ifremer-gdac",
+   "title": "Argo GDAC HTTPS index (Ifremer / Coriolis)",
+   "url": "https://data-argo.ifremer.fr/",
+   "publisher": "Ifremer / Coriolis",
+   "source_type": "data_centre",
+   "published": null,
+   "accessed": "2026-11-26",
+   "note": "Index files on this host were dated early November 2026 when checked."
+  },
+  "us-gdac-nrl": {
+   "source_id": "us-gdac-nrl",
+   "title": "Argo GDAC HTTPS directory (US, NRL / FNMOC)",
+   "url": "https://nrlgodae1.nrlmry.navy.mil/pub/outgoing/argo/",
+   "publisher": "U.S. Naval Research Laboratory / FNMOC",
+   "source_type": "data_centre",
+   "published": null,
+   "accessed": "2026-11-26",
+   "note": "Verified live from the laptop on 2026-11-26; the box network could not reach this host that day. The older usgodae.org portal also responded 200 the same day."
+  },
+  "euro-argo": {
+   "source_id": "euro-argo",
+   "title": "Euro-Argo ERIC",
+   "url": "https://www.euro-argo.eu/",
+   "publisher": "Euro-Argo ERIC",
+   "source_type": "operator_page",
+   "published": null,
+   "accessed": "2026-11-26",
+   "note": null
+  },
+  "oceanops-board": {
+   "source_id": "oceanops-board",
+   "title": "OceanOPS Argo dashboard",
+   "url": "https://www.ocean-ops.org/board?t=argo",
+   "publisher": "OceanOPS (WMO-IOC)",
+   "source_type": "operator_page",
+   "published": null,
+   "accessed": "2026-11-26",
+   "note": null
+  },
+  "oceanops-api-2026-11-26": {
+   "source_id": "oceanops-api-2026-11-26",
+   "title": "OceanOPS platform API: operational Argo floats on 2026-11-26",
+   "url": "https://www.ocean-ops.org/api/1/data/platform?exp=[\"ptfStatus.name='OPERATIONAL' and networkPtfs.network.name='Argo'\"]&include=[\"id\"]",
+   "publisher": "OceanOPS (WMO-IOC)",
+   "source_type": "data_service",
+   "published": "2026-11-26",
+   "accessed": "2026-11-26",
+   "note": "Query: ptfStatus name OPERATIONAL (status id 6: “emitting a pulse and observations are distributed”) and network name Argo (network id 1000620). Returned total=4454. Repeated later the same day with the same total. Separate filters the same day: Argo Core 3317, Argo Deep 217, Argo BioGeoChemical 985 (these mission networks can overlap, so they do not sum to 4454)."
+  },
+  "aoml-argo": {
+   "source_id": "aoml-argo",
+   "title": "NOAA AOML: US Argo",
+   "url": "https://www.aoml.noaa.gov/argo/",
+   "publisher": "NOAA Atlantic Oceanographic and Meteorological Laboratory",
+   "source_type": "operator_page",
+   "published": null,
+   "accessed": "2026-11-26",
+   "note": null
+  },
+  "argo-doi": {
+   "source_id": "argo-doi",
+   "title": "Argo float data and metadata from Global Data Assembly Centre (Argo GDAC)",
+   "url": "https://doi.org/10.17882/42182",
+   "publisher": "SEANOE",
+   "source_type": "data_centre",
+   "published": null,
+   "accessed": "2026-11-26",
+   "note": "Canonical Argo dataset DOI; monthly snapshots. doi.org resolved to the SEANOE record on 2026-11-26."
+  },
+  "bgc-argo": {
+   "source_id": "bgc-argo",
+   "title": "Biogeochemical-Argo",
+   "url": "https://biogeochemical-argo.org/",
+   "publisher": "BGC-Argo",
+   "source_type": "operator_page",
+   "published": null,
+   "accessed": "2026-11-26",
+   "note": null
+  },
+  "scripps": {
+   "source_id": "scripps",
+   "title": "Scripps Institution of Oceanography",
+   "url": "https://scripps.ucsd.edu/",
+   "publisher": "Scripps Institution of Oceanography",
+   "source_type": "operator_page",
+   "published": null,
+   "accessed": "2026-11-26",
+   "note": null
   }
  },
  "platforms": [
@@ -12720,6 +12900,220 @@
    "countries": [
     "US"
    ]
+  },
+  {
+   "platform_id": "argo-array",
+   "name": "Argo profiling float array (international)",
+   "display_name": "Argo profiling float array (international)",
+   "aliases": [
+    "Argo",
+    "Argo array",
+    "OneArgo",
+    "international Argo program"
+   ],
+   "distinct_from": [],
+   "platform_class": "profiling float",
+   "model": null,
+   "model_note": "Fleet of several official models, not a single hull. Core models listed by the Argo Program (float types page): ARVOR (NKE Instrumentation, with Ifremer; predecessor PROVOR), APEX (Teledyne Webb Research), SOLO-II (Scripps Institution of Oceanography; predecessor SOLO), S2A (MRV Systems, licensed SOLO-II), and NAVIS (Sea-Bird). Smaller numbers of NOVA, NEMO and HM2000. Deep Argo uses Deep SOLO and Deep APEX, designed to 6,000 m with an SBE-61 CTD. Missions: Core, Deep, BGC and Polar.",
+   "manufacturer": null,
+   "serial_number": null,
+   "quantity": 4454,
+   "quantity_note": "4,454 operational Argo floats in the OceanOPS platform API on 2026-11-26, using status OPERATIONAL and network name Argo. The same total was returned by a second query later that day. This is the operational array, not the all-time total. OceanOPS listed 3,317 Core, 217 Deep and 985 BGC operational floats the same day; a float can belong to more than one mission network, so those figures do not add up to 4,454. The official program status page says only “close to 4000 active floats” (undated); the dated OceanOPS count is the one used here.",
+   "external_ids": {},
+   "owner_org": null,
+   "ownership_type": "unknown",
+   "ownership_note": "Floats are owned by the national programmes that deploy them, not by a single international body. This record describes the coordinated array, not one owner.",
+   "operator_org": "National Argo programmes, coordinated by the Argo Steering Team",
+   "operating_unit": null,
+   "contacts": [],
+   "home_site": null,
+   "status": "Active",
+   "status_date": "2026-11-26",
+   "status_basis": "OceanOPS listed 4,454 operational Argo floats (status OPERATIONAL, network Argo) on 2026-11-26; a repeat query the same day returned the same total. “Operational” means the float is emitting and its observations are being distributed.",
+   "specs": [
+    {
+     "label": "Depth rating",
+     "value": 2000,
+     "unit": "m",
+     "basis": "operator_published",
+     "source_id": "argo-mission",
+     "comment": "Core and BGC missions: official design depth 2,000 m (2,000 dbar)."
+    },
+    {
+     "label": "Depth rating (Deep Argo)",
+     "value": 6000,
+     "unit": "m",
+     "basis": "operator_published",
+     "source_id": "argo-mission",
+     "comment": "Deep Argo mission: official design depth 6,000 m."
+    },
+    {
+     "label": "Cycle",
+     "value": 10,
+     "unit": "days",
+     "basis": "operator_published",
+     "source_id": "argo-about",
+     "comment": "Typical cycle of about 10 days. The float parks near 1 km, then descends to the profile depth and returns to the surface to transmit, as described on the official About page."
+    },
+    {
+     "label": "Parking depth",
+     "value": 1000,
+     "unit": "m",
+     "basis": "operator_published",
+     "source_id": "argo-about",
+     "comment": "Usual parking level, about 1 km, per the official About page."
+    }
+   ],
+   "sensors": [
+    {
+     "name": "CTD (temperature, salinity, pressure)",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": "SBE is the most common CTD on core floats; the number of RBR CTDs is growing. Deep Argo uses the SBE-61.",
+     "source_id": "argo-float-types"
+    },
+    {
+     "name": "BGC suite (subset of the array)",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": "BGC-Argo floats add some or all of: dissolved oxygen, pH, nitrate, chlorophyll, backscatter and irradiance. Not carried on every float.",
+     "source_id": "bgc-argo"
+    }
+   ],
+   "applications": [
+    "Climate and ocean-heat content",
+    "Operational ocean and weather forecasting",
+    "Sea-level studies",
+    "Biogeochemical observing (BGC-Argo)"
+   ],
+   "deployments": [],
+   "data_endpoints": [
+    {
+     "type": "gdac",
+     "label": "Ifremer / Coriolis GDAC (HTTPS)",
+     "url": "https://data-argo.ifremer.fr/",
+     "licence": "Argo data are freely available. Cite the GDAC dataset DOI 10.17882/42182; see the official acknowledging-Argo page."
+    },
+    {
+     "type": "gdac",
+     "label": "US GDAC, NRL / FNMOC (HTTPS)",
+     "url": "https://nrlgodae1.nrlmry.navy.mil/pub/outgoing/argo/",
+     "licence": "Argo data are freely available. Cite the GDAC dataset DOI 10.17882/42182."
+    },
+    {
+     "type": "doi",
+     "label": "Argo GDAC monthly snapshots (SEANOE, DOI 10.17882/42182)",
+     "url": "https://doi.org/10.17882/42182"
+    },
+    {
+     "type": "guide",
+     "label": "How to use Argo data files",
+     "url": "https://argo.ucsd.edu/data/how-to-use-argo-files/"
+    },
+    {
+     "type": "dashboard",
+     "label": "OceanOPS Argo dashboard",
+     "url": "https://www.ocean-ops.org/board?t=argo"
+    }
+   ],
+   "notes": [
+    "Fleet-level record for the international array, not an individual float. National programmes own and operate the instruments under Argo Steering Team coordination.",
+    "https://argo.net/ is a science-news site, not the official program home; the official site is https://argo.ucsd.edu/. The program does use the support address support@argo.net.",
+    "OneArgo is the current design (Core, Deep, BGC and Polar). The April 2026 AST-27 report, citing OceanOPS, said implementation was about 56% of that design."
+   ],
+   "photos": [
+    {
+     "url": "https://argo.ucsd.edu/how-do-floats-work/float-types/",
+     "label": "Official Argo float-types page (photos of ARVOR, APEX, SOLO-II, S2A, NAVIS, NOVA and Deep models)",
+     "credit": "Photos on the official page, credited there to Olivier Dugornay (Ifremer), Howard Freeland, Scripps Institution of Oceanography, MRV Systems, Sea-Bird and METOCEAN",
+     "licence": "All rights reserved by the credited owner; linked, not copied",
+     "source_id": "argo-float-types"
+    }
+   ],
+   "source_ids": [
+    "argo-ucsd",
+    "argo-about",
+    "argo-mission",
+    "argo-float-types",
+    "oceanops-api-2026-11-26",
+    "admt-access",
+    "ifremer-gdac",
+    "us-gdac-nrl",
+    "argo-doi",
+    "argo-howto",
+    "argo-gdacs",
+    "euro-argo",
+    "oceanops-board",
+    "aoml-argo",
+    "bgc-argo",
+    "admt-usgdac-2026"
+   ],
+   "provenance": {
+    "record_status": "draft",
+    "last_verified": "2026-11-26",
+    "verified_by": "Compiled from official Argo, OceanOPS, ADMT, Ifremer, AOML and Euro-Argo pages on 2026-11-26; not checked by the program.",
+    "confidence": "medium",
+    "gaps": [
+     "No single-owner record: national programmes own the floats.",
+     "Fleet size is the operational OceanOPS count, which changes daily.",
+     "Individual hulls and serial numbers are not listed here."
+    ]
+   },
+   "affiliations": [
+    {
+     "institution_id": "argo-ast",
+     "role": "operator",
+     "source_id": "argo-ast",
+     "note": "International coordination by the Argo Steering Team; national programmes operate the floats."
+    },
+    {
+     "institution_id": "scripps",
+     "role": "host",
+     "source_id": "argo-ucsd",
+     "note": "Hosts the Argo Program Office (argo.ucsd.edu). Also develops SOLO / Deep SOLO floats."
+    },
+    {
+     "institution_id": "oceanops",
+     "role": "host",
+     "source_id": "oceanops-board",
+     "note": "Argo Information Centre: operational monitoring and metadata."
+    },
+    {
+     "institution_id": "ifremer",
+     "role": "operator",
+     "source_id": "ifremer-gdac",
+     "note": "Coriolis Global Data Assembly Centre, and a national/European DAC."
+    },
+    {
+     "institution_id": "euro-argo",
+     "role": "operator",
+     "source_id": "euro-argo",
+     "note": "Coordinates the European contribution to the array."
+    },
+    {
+     "institution_id": "noaa-aoml",
+     "role": "operator",
+     "source_id": "aoml-argo",
+     "note": "US Argo Data Assembly Centre."
+    }
+   ],
+   "commissioned": null,
+   "lineage": null,
+   "access": {
+    "national_facility": null,
+    "program": "International Argo program (GOOS / WMO-IOC)",
+    "request_url": "https://argo.ucsd.edu/data/",
+    "note": "Argo data are freely available from the two GDACs without a proposal process. Access to deploy a national float is through the relevant national programme, not a single global facility."
+   },
+   "support_vessels": [],
+   "vessel_id": null,
+   "data_completeness": "partial",
+   "collection": "International",
+   "countries": []
   }
  ],
  "status_labels": {

@@ -355,7 +355,7 @@
     "MV-1060",
     "MV-1061"
    ],
-   "platform_count_direct": 5
+   "platform_count_direct": 6
   },
   {
    "institution_id": "ifremer-fof",
@@ -993,7 +993,7 @@
    "note": null,
    "source_ids": [],
    "vessel_ids": [],
-   "platform_count_direct": 1
+   "platform_count_direct": 2
   },
   {
    "institution_id": "noaa-nos",
@@ -1155,6 +1155,108 @@
    "source_ids": [
     "ndsf-about",
     "ndsf-jason"
+   ],
+   "vessel_ids": [],
+   "platform_count_direct": 1
+  },
+  {
+   "institution_id": "argo-ast",
+   "name": "Argo Program (Argo Steering Team)",
+   "short_name": "Argo",
+   "parent_id": null,
+   "type": "program",
+   "country": null,
+   "url": "https://argo.ucsd.edu/",
+   "ror_id": null,
+   "contact_url": "https://argo.ucsd.edu/organization/argo-steering-team/",
+   "aliases": [
+    "Argo",
+    "Argo Steering Team",
+    "AST",
+    "OneArgo",
+    "international Argo program"
+   ],
+   "vessel_operator_match": [],
+   "status": "active",
+   "note": "International profiling-float program, coordinated by the Argo Steering Team. The program office is hosted at Scripps Institution of Oceanography. Individual floats are owned and operated by national programmes. No ROR record was found for the program itself.",
+   "source_ids": [
+    "argo-ucsd",
+    "argo-ast"
+   ],
+   "vessel_ids": [],
+   "platform_count_direct": 1
+  },
+  {
+   "institution_id": "euro-argo",
+   "name": "Euro-Argo ERIC",
+   "short_name": "Euro-Argo",
+   "parent_id": null,
+   "type": "program",
+   "country": "FR",
+   "url": "https://www.euro-argo.eu/",
+   "ror_id": "https://ror.org/05bz2z050",
+   "contact_url": "https://www.euro-argo.eu/About-us",
+   "aliases": [
+    "Euro-Argo",
+    "European Research Infrastructure Consortium for Argo"
+   ],
+   "vessel_operator_match": [],
+   "status": "active",
+   "note": "European research infrastructure that coordinates Europe’s contribution to Argo. ROR verified 2026-11-26 (05bz2z050). Office at the Ifremer campus, Plouzané.",
+   "source_ids": [
+    "euro-argo"
+   ],
+   "vessel_ids": [],
+   "platform_count_direct": 1
+  },
+  {
+   "institution_id": "oceanops",
+   "name": "OceanOPS",
+   "short_name": "OceanOPS",
+   "parent_id": null,
+   "type": "facility",
+   "country": "FR",
+   "url": "https://www.ocean-ops.org/board",
+   "ror_id": null,
+   "contact_url": "https://www.ocean-ops.org/",
+   "aliases": [
+    "OceanOPS",
+    "WMO-IOC OceanOPS",
+    "JCOMMOPS",
+    "Argo Information Centre",
+    "AIC"
+   ],
+   "vessel_operator_match": [],
+   "status": "active",
+   "note": "WMO-IOC centre that monitors GOOS networks, including Argo (the Argo Information Centre). No ROR record was found under the name OceanOPS or JCOMMOPS.",
+   "source_ids": [
+    "oceanops-board"
+   ],
+   "vessel_ids": [],
+   "platform_count_direct": 1
+  },
+  {
+   "institution_id": "scripps",
+   "name": "Scripps Institution of Oceanography",
+   "short_name": "Scripps",
+   "parent_id": null,
+   "type": "research_institute",
+   "country": "US",
+   "url": "https://scripps.ucsd.edu/",
+   "ror_id": "https://ror.org/04v7hvq31",
+   "contact_url": "https://argo.ucsd.edu/",
+   "aliases": [
+    "SIO",
+    "Scripps Institution of Oceanography",
+    "UCSD Scripps",
+    "Argo Program Office"
+   ],
+   "vessel_operator_match": [],
+   "status": "active",
+   "note": "Hosts the Argo Program Office (argo.ucsd.edu). Part of the University of California San Diego (ROR 0168r3w48). Scripps ROR verified 2026-11-26 (04v7hvq31). Also develops the SOLO / Deep SOLO float designs.",
+   "source_ids": [
+    "argo-ucsd",
+    "scripps"
    ],
    "vessel_ids": [],
    "platform_count_direct": 1
