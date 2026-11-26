@@ -1,0 +1,405 @@
+{
+  "created": "2026-11-26",
+  "timezone": "America/New_York",
+  "about": "Retry list for Resources page links that failed an automated check, plus uncrewed-platform candidates that were unreachable when evaluated. This file is not rendered on the site. Restore a removed entry verbatim from title, url, group, section, description, and region.",
+  "branch": "techlinks-uncrewed-2026-11-26",
+  "checked_on": "2026-11-26",
+  "notes": "Rechecked from the Linux box and from the laptop (Aurora) on 2026-11-26. No listed Resources links were removed: ERVO and the Canadian Coast Guard page look dead to curl/PowerShell but load in a browser. The site footer checked-live date was left at 2026-11-19 because several remaining links still fail automated checks from one or both networks.",
+  "entries": [
+    {
+      "status": "watch",
+      "title": "European Research Vessel Operators (ERVO)",
+      "url": "https://www.ervo-group.eu/",
+      "section": "other_sites",
+      "group": "Operators and networks",
+      "region": "Europe",
+      "description": "European research-vessel operators' group, including a members list (historically at /np4/members/)",
+      "still_on_page": true,
+      "failures": [
+        {
+          "date": "2026-11-26",
+          "approx_time": "11:11 AM ET",
+          "from": "box",
+          "tool": "curl -L",
+          "detail": "https://www.ervo-group.eu/ returned HTTP 302 Location: http://www.ervo-group.eu/np4/home; following that HTTP URL returned HTTP 500."
+        },
+        {
+          "date": "2026-11-26",
+          "approx_time": "11:24 AM ET",
+          "from": "box",
+          "tool": "curl -L",
+          "detail": "Same result: listed URL followed the HTTP redirect and returned HTTP 500 in 2.0s. Direct GET of https://www.ervo-group.eu/np4/home returned HTTP 200. Direct GET of https://www.ervo-group.eu/np4/members/ returned HTTP 200."
+        },
+        {
+          "date": "2026-11-26",
+          "approx_time": "11:24 AM ET",
+          "from": "laptop",
+          "tool": "Invoke-WebRequest",
+          "detail": "Failed on the listed URL: PowerShell refused to follow the insecure HTTP redirect (\"Operation is not valid due to the current state of the object\" / cannot follow an insecure redirection). https://www.ervo-group.eu/np4/home and https://www.ervo-group.eu/np4/members/ both returned HTTP 200. http://www.ervo-group.eu/np4/home also returned 200 after upgrading to HTTPS."
+        },
+        {
+          "date": "2026-11-26",
+          "approx_time": "11:26 AM ET",
+          "from": "laptop",
+          "tool": "curl.exe (no -L)",
+          "detail": "Listed URL returned HTTP 302 and was not followed."
+        }
+      ],
+      "successes": [
+        {
+          "date": "2026-11-26",
+          "approx_time": "11:24 AM ET",
+          "from": "box",
+          "tool": "headless Chrome",
+          "detail": "Loaded the listed URL; page title was \"ERVO GROUP // Home\" (about 12 KB of HTML)."
+        }
+      ],
+      "notes": "Not removed. The listed homepage URL redirects to an HTTP path that some automated clients follow and then see a 500, or refuse to follow. A browser and the HTTPS paths /np4/home and /np4/members/ work. A later edit could point the listing at https://www.ervo-group.eu/np4/home if the insecure redirect persists."
+    },
+    {
+      "status": "watch",
+      "title": "Canadian Coast Guard — offshore fisheries science vessels",
+      "url": "https://www.canada.ca/en/canadian-coast-guard/services/fleet/offshore-fisheries-science-vessels.html",
+      "section": "other_sites",
+      "group": "National and academic fleets",
+      "region": "Canada",
+      "description": "Official CCG pages describing the offshore fisheries science vessels that support Fisheries and Oceans Canada science, with a companion vessel-classes page for the wider…",
+      "still_on_page": true,
+      "failures": [
+        {
+          "date": "2026-11-26",
+          "approx_time": "11:11 AM ET",
+          "from": "box",
+          "tool": "curl -L",
+          "detail": "Connection failed (HTTP code 000 / no response)."
+        },
+        {
+          "date": "2026-11-26",
+          "approx_time": "11:11 AM ET",
+          "from": "laptop",
+          "tool": "Invoke-WebRequest, 30s timeout",
+          "detail": "Timed out."
+        },
+        {
+          "date": "2026-11-26",
+          "approx_time": "11:24 AM ET",
+          "from": "box",
+          "tool": "curl HTTP/2",
+          "detail": "curl error 92: HTTP/2 stream 1 was not closed cleanly: INTERNAL_ERROR. Host resolved to 198.18.0.1. IPv6 did not resolve. A later HTTP/1.1 try timed out after 45s with 0 bytes."
+        },
+        {
+          "date": "2026-11-26",
+          "approx_time": "11:24–11:27 AM ET",
+          "from": "laptop",
+          "tool": "Invoke-WebRequest, 40s timeout; curl.exe default and --http1.1, 45s timeout",
+          "detail": "Timed out with 0 bytes received on every automated try."
+        }
+      ],
+      "successes": [
+        {
+          "date": "2026-11-26",
+          "approx_time": "11:24 AM ET",
+          "from": "box",
+          "tool": "headless Chrome",
+          "detail": "Loaded the official page; title was \"Canadian Coast Guard’s offshore fisheries science vessels - Canada.ca\" (about 172 KB of HTML)."
+        }
+      ],
+      "notes": "Not removed. The page is live in a browser but curl and PowerShell from both the box and the laptop time out or hit an HTTP/2 stream error. Restore text includes the trailing ellipsis as stored in resources.json."
+    },
+    {
+      "status": "watch",
+      "title": "SAMOS",
+      "url": "https://samos.coaps.fsu.edu/html/",
+      "section": "research_links",
+      "group": "Cruise data and archives",
+      "region": null,
+      "description": "Quality-controlled underway meteorology and surface ocean data from research vessels",
+      "still_on_page": true,
+      "failures": [
+        {
+          "date": "2026-11-26",
+          "approx_time": "11:11 AM ET and 11:24 AM ET",
+          "from": "box",
+          "tool": "curl -L",
+          "detail": "No response (HTTP code 000); later try timed out after about 8s."
+        }
+      ],
+      "successes": [
+        {
+          "date": "2026-11-26",
+          "approx_time": "11:11 AM ET and 11:24 AM ET",
+          "from": "laptop",
+          "tool": "Invoke-WebRequest",
+          "detail": "HTTP 200, about 4.2 KB."
+        }
+      ],
+      "notes": "Left on the page. Fails from the box, loads from the laptop."
+    },
+    {
+      "status": "watch",
+      "title": "HiSeasNet",
+      "url": "https://hiseasnet.ucsd.edu/",
+      "section": "research_links",
+      "group": "Shipboard technology",
+      "region": null,
+      "description": "Satellite internet for U.S. academic research vessels",
+      "still_on_page": true,
+      "failures": [
+        {
+          "date": "2026-11-26",
+          "approx_time": "11:11 AM ET and 11:24 AM ET",
+          "from": "box",
+          "tool": "curl -L",
+          "detail": "No response (HTTP code 000); later try timed out after about 8s."
+        }
+      ],
+      "successes": [
+        {
+          "date": "2026-11-26",
+          "approx_time": "11:11 AM ET and 11:24 AM ET",
+          "from": "laptop",
+          "tool": "Invoke-WebRequest",
+          "detail": "HTTP 200, about 12 KB."
+        }
+      ],
+      "notes": "Left on the page. Fails from the box, loads from the laptop."
+    },
+    {
+      "status": "watch",
+      "title": "Scripps Institution of Oceanography — research vessels",
+      "url": "https://scripps.ucsd.edu/ships/scripps-fleet",
+      "section": "other_sites",
+      "group": "Operators and networks",
+      "region": "USA",
+      "description": "Official Scripps fleet page listing active ships and emeritus vessels (FLIP, Melville, New Horizon), with links to individual ship pages",
+      "still_on_page": true,
+      "failures": [
+        {
+          "date": "2026-11-26",
+          "approx_time": "11:11 AM ET and 11:24 AM ET",
+          "from": "box",
+          "tool": "curl -L",
+          "detail": "No response (HTTP code 000); later try timed out after about 8s."
+        }
+      ],
+      "successes": [
+        {
+          "date": "2026-11-26",
+          "approx_time": "11:11 AM ET and 11:24 AM ET",
+          "from": "laptop",
+          "tool": "Invoke-WebRequest",
+          "detail": "HTTP 200, about 97 KB."
+        }
+      ],
+      "notes": "Left on the page. Fails from the box, loads from the laptop."
+    },
+    {
+      "status": "watch",
+      "title": "U.S. GO-SHIP",
+      "url": "https://usgoship.ucsd.edu/",
+      "section": "other_sites",
+      "group": "Ship schedules and expedition plans",
+      "region": "USA / global sections",
+      "description": "U.S",
+      "still_on_page": true,
+      "failures": [
+        {
+          "date": "2026-11-26",
+          "approx_time": "11:11 AM ET and 11:24 AM ET",
+          "from": "box",
+          "tool": "curl -L",
+          "detail": "No response (HTTP code 000); later try timed out after about 8s."
+        }
+      ],
+      "successes": [
+        {
+          "date": "2026-11-26",
+          "approx_time": "11:11 AM ET and 11:24 AM ET",
+          "from": "laptop",
+          "tool": "Invoke-WebRequest",
+          "detail": "HTTP 200, about 101 KB."
+        }
+      ],
+      "notes": "Left on the page. Fails from the box, loads from the laptop. The stored description in resources.json is the two-character string \"U.S\"; keep that text if this entry is ever restored or edited, and consider expanding it later."
+    },
+    {
+      "status": "watch",
+      "title": "ClearSignal coating (Severn Marine Technologies)",
+      "url": "https://www.severnmarinetech.com/product.html",
+      "section": "tech_notes_archive",
+      "group": "Cameras and time-lapse",
+      "region": null,
+      "description": "",
+      "still_on_page": true,
+      "old_url": "http://www.severnmarinetech.com/product.html",
+      "failures": [
+        {
+          "date": "2026-11-19",
+          "from": "prior live check",
+          "tool": "site link check",
+          "detail": "Kept on the archived tech-notes list with check.status 202."
+        },
+        {
+          "date": "2026-11-26",
+          "approx_time": "11:11 AM ET",
+          "from": "box",
+          "tool": "curl -L",
+          "detail": "HTTP 202; response body was a captcha interstitial (sgcaptcha)."
+        },
+        {
+          "date": "2026-11-26",
+          "approx_time": "11:24 AM ET",
+          "from": "laptop",
+          "tool": "Invoke-WebRequest",
+          "detail": "Failed: \"Operation is not valid due to the current state of the object\" (insecure-redirect refusal)."
+        }
+      ],
+      "successes": [
+        {
+          "date": "2026-11-26",
+          "approx_time": "11:27 AM ET",
+          "from": "laptop",
+          "tool": "curl.exe -I then curl.exe -L",
+          "detail": "HEAD returned HTTP 301 Location: http://www.clearsignalcoating.com. Following redirects landed on https://clearsignalcoating.com/ with HTTP 200 (about 189 KB)."
+        }
+      ],
+      "notes": "Left on the archive list as requested. The old product URL now redirects to a new ClearSignal domain. A later pass could update the archived URL to https://clearsignalcoating.com/ after a content check. The stored description is an empty string."
+    },
+    {
+      "status": "candidate-retry",
+      "title": "RVTEC (rvtec.org)",
+      "url": "https://rvtec.org/",
+      "also_tried": [
+        "https://www.rvtec.org/"
+      ],
+      "section": null,
+      "group": null,
+      "region": null,
+      "description": "Evaluated as a possible uncrewed-platform / shipboard-technical standards link. Not added to the page. The working UNOLS RVTEC page is already listed: https://www.unols.org/committee/research-vessel-technical-enhancement-committee-rvtec",
+      "still_on_page": false,
+      "failures": [
+        {
+          "date": "2026-11-26",
+          "from": "box",
+          "tool": "curl -L",
+          "detail": "Both https://rvtec.org/ and https://www.rvtec.org/ returned no response (HTTP code 000); host did not resolve."
+        },
+        {
+          "date": "2026-11-26",
+          "from": "laptop",
+          "tool": "Invoke-WebRequest",
+          "detail": "Both hostnames failed: \"No such host is known.\""
+        }
+      ],
+      "successes": [],
+      "notes": "Rejected as unreachable. DNS failure from both networks."
+    },
+    {
+      "status": "candidate-retry",
+      "title": "MATE (mate.org)",
+      "url": "https://www.mate.org/",
+      "section": null,
+      "group": null,
+      "region": null,
+      "description": "Evaluated as a possible uncrewed-platform / ROV training link. Not added. The MATE ROV Competition site (https://materovcompetition.org/) is already on the Shipboard technology list.",
+      "still_on_page": false,
+      "failures": [
+        {
+          "date": "2026-11-26",
+          "approx_time": "11:11 AM ET and 11:24 AM ET",
+          "from": "box",
+          "tool": "curl -L",
+          "detail": "No response (HTTP code 000); one try lasted about 3s."
+        }
+      ],
+      "successes": [
+        {
+          "date": "2026-11-26",
+          "approx_time": "11:24 AM ET",
+          "from": "laptop",
+          "tool": "Invoke-WebRequest",
+          "detail": "HTTP 200, about 17 KB."
+        }
+      ],
+      "notes": "Originally rejected as unreachable from the box. On the afternoon recheck it loaded from the laptop. Still not added; listed here only for a later retry."
+    },
+    {
+      "status": "candidate-retry",
+      "title": "EGO glider network",
+      "url": "https://www.ego-network.org/",
+      "section": null,
+      "group": null,
+      "region": null,
+      "description": "Evaluated as a possible European glider data-management link. Not added.",
+      "still_on_page": false,
+      "failures": [
+        {
+          "date": "2026-11-26",
+          "from": "box",
+          "tool": "curl -L",
+          "detail": "No response (HTTP code 000); timed out after about 8s."
+        },
+        {
+          "date": "2026-11-26",
+          "from": "laptop",
+          "tool": "Invoke-WebRequest",
+          "detail": "Connection timed out: the host did not respond."
+        }
+      ],
+      "successes": [],
+      "notes": "Rejected as unreachable from both networks."
+    },
+    {
+      "status": "candidate-retry",
+      "title": "Sea Drone World (sea-drone.world domain)",
+      "url": "https://www.sea-drone.world/",
+      "section": null,
+      "group": null,
+      "region": null,
+      "description": "Evaluated as an alternate domain for the Sea Drone World catalog. Not used. The working catalog at https://seadroneworld.com/ was added to the page.",
+      "still_on_page": false,
+      "failures": [
+        {
+          "date": "2026-11-26",
+          "from": "box",
+          "tool": "curl -L",
+          "detail": "No response (HTTP code 000); host did not resolve."
+        },
+        {
+          "date": "2026-11-26",
+          "from": "laptop",
+          "tool": "Invoke-WebRequest",
+          "detail": "\"No such host is known\" for www.sea-drone.world."
+        }
+      ],
+      "successes": [],
+      "notes": "Rejected as unreachable. The catalog that was added uses https://seadroneworld.com/."
+    },
+    {
+      "status": "candidate-retry",
+      "title": "Saildrone data portal",
+      "url": "https://data.saildrone.com/",
+      "section": null,
+      "group": null,
+      "region": null,
+      "description": "Evaluated as a possible public Saildrone mission or data portal. Not added. The commercial Mission Portal and Missions pages were also rejected as a poor fit for researchers.",
+      "still_on_page": false,
+      "failures": [
+        {
+          "date": "2026-11-26",
+          "from": "box",
+          "tool": "curl -L",
+          "detail": "No response (HTTP code 000); host did not resolve or had no usable address."
+        },
+        {
+          "date": "2026-11-26",
+          "from": "laptop",
+          "tool": "Invoke-WebRequest",
+          "detail": "\"The requested name is valid, but no data of the requested type was found\" (data.saildrone.com:443)."
+        }
+      ],
+      "successes": [],
+      "notes": "Rejected as unreachable. There is no public site at this hostname."
+    }
+  ]
+}
