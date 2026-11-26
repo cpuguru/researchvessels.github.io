@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded',()=>{
  const op0=P.operatorsOf(p)[0],chain=op0?P.instChain(op0.institution_id):[];
  kids.push(h('nav',{'aria-label':'Breadcrumb',class:'small mb-2'},h('a',{href:'platforms.html'},'Platforms'),chain.map(i=>[' / ',h('a',{href:P.instHref(i.institution_id)},P.instLabel(i))]),' / ',p.platform_class||''));
  kids.push(h('h1',{class:'mb-1'},name));
- kids.push(h('p',{class:'mb-2'},P.classBadge(p.platform_class),' ',P.statusBadge(p.status),p.status_date?h('span',{class:'small text-body-secondary ms-2'},'as of '+p.status_date):null,
+ kids.push(h('p',{class:'mb-2'},P.classBadge(p.platform_class),' ',P.statusBadge(p.status),' ',RV.autonomyBadge(p.autonomy),p.status_date?h('span',{class:'small text-body-secondary ms-2'},'as of '+p.status_date):null,
    p.aliases&&p.aliases.length?h('span',{class:'ms-3'},h('span',{class:'small text-body-secondary'},'Also called: '),p.aliases.map(a=>h('span',{class:'badge text-bg-light border text-dark me-1'},a))):null));
  const opNames=[...new Set(P.operatorsOf(p).map(a=>{const r=P.instRoot(a.institution_id);return r?r.name:null}).filter(Boolean))];
  kids.push(P.draftNotice('This record comes from public sources only and has not been checked by '+(opNames.length?opNames.join(' or '):'the operator')+'.','Correction: '+name));
@@ -42,6 +42,7 @@ document.addEventListener('DOMContentLoaded',()=>{
  const ids=p.external_ids||{},idLabels={wmo_id:'WMO ID',ices_c17:'ICES platform code (C17)'};
  kids.push(sec('id-h','Identity',dl([
    ['Class',(P.CLASS_NAME[p.platform_class]||p.platform_class)],
+   ['Autonomy',[RV.autonomyBadge(p.autonomy),p.autonomy_basis?h('div',{class:'small text-body-secondary mt-1'},p.autonomy_basis):null]],
    ['Model',p.model?[p.model,p.model_note?h('div',{class:'small text-body-secondary'},p.model_note):null]:(p.model_note||null)],
    ['Maker',p.manufacturer?[p.manufacturer,mfMatch&&mfMatch.url?[' ',h('a',{href:mfMatch.url,class:'small'},'(maker site)')]:null]:null],
    ['Serial number',p.serial_number],
@@ -61,6 +62,14 @@ document.addEventListener('DOMContentLoaded',()=>{
    ['Operator',[p.operator_org,p.operating_unit?' \u2013 '+p.operating_unit:'']],
    ['People',(p.contacts||[]).map(c=>h('div',null,h('strong',null,c.name),' \u2013 '+(c.role||''),c.as_of?h('span',{class:'small text-body-secondary'},' (as of '+c.as_of+')'):null,cite(c.source_id)))],
    ['Based at',p.home_site]])));
+ /* key structured specs */
+ const keyRows=[];
+ if(p.depth_rating_m&&p.depth_rating_m.value!=null)keyRows.push(['Depth rating',P.fmtValue(p.depth_rating_m.value,'m'),p.depth_rating_m.basis,p.depth_rating_m.comment,p.depth_rating_m.source_id]);
+ if(p.endurance&&(p.endurance.value!=null||p.endurance.text))keyRows.push(['Endurance',p.endurance.value!=null?P.fmtValue(p.endurance.value,p.endurance.unit):(p.endurance.text||''),p.endurance.basis,p.endurance.comment,p.endurance.source_id]);
+ if(p.survey_speed_kn&&(p.survey_speed_kn.value!=null||p.survey_speed_kn.text))keyRows.push(['Survey speed',p.survey_speed_kn.value!=null?P.fmtValue(p.survey_speed_kn.value,'kn'):(p.survey_speed_kn.text||''),p.survey_speed_kn.basis,p.survey_speed_kn.comment,p.survey_speed_kn.source_id]);
+ if(keyRows.length){const kb=h('tbody');keyRows.forEach(([lab,val,basis,comment,sid])=>kb.append(h('tr',null,h('th',{scope:'row',class:'fw-normal'},lab),h('td',null,val),h('td',null,h('span',{class:'badge text-bg-light border text-dark text-wrap'},P.basisLabel(basis)),cite(sid)),h('td',{class:'small text-body-secondary'},comment||''))));
+  kids.push(sec('ks-h','Key specifications',h('div',{class:'table-responsive'},h('table',{class:'table table-sm align-middle bg-white border'},h('thead',{class:'table-light'},h('tr',null,h('th',{scope:'col'},'Spec'),h('th',{scope:'col'},'Value'),h('th',{scope:'col'},'Basis'),h('th',{scope:'col'},'Comment'))),kb)),h('p',{class:'small text-body-secondary mt-1'},'Depth, endurance and survey speed are copied from the specifications below into fixed fields, with survey speed converted to knots when the source used another unit.')))}
+
  /* access and lineage */
  const ac=p.access,ln=p.lineage;
  if(ac&&(ac.national_facility!=null||ac.program||ac.request_url||ac.note))kids.push(sec('ac-h','Access',dl([['National facility',ac.national_facility===true?'Yes':ac.national_facility===false?'No':null],['Program',ac.program],['How to request',ac.request_url?h('a',{href:ac.request_url},ac.request_url):null],['Note',ac.note]])));
@@ -74,10 +83,14 @@ document.addEventListener('DOMContentLoaded',()=>{
  specRows.forEach(s=>{const v=P.fmtValue(s.value,s.unit);
   tb.append(h('tr',null,h('th',{scope:'row',class:'fw-normal'},s.label),h('td',null,v?v:h('span',{class:'text-body-secondary'},'not published')),h('td',null,h('span',{class:'badge text-bg-light border text-dark text-wrap'},P.basisLabel(s.basis)),cite(s.source_id)),h('td',{class:'small text-body-secondary'},s.comment||'')))});
  kids.push(sec('sp-h','Specifications',specRows.length?h('div',{class:'table-responsive'},h('table',{class:'table table-sm align-middle bg-white border'},h('thead',{class:'table-light'},h('tr',null,h('th',{scope:'col'},'Spec'),h('th',{scope:'col'},'Value'),h('th',{scope:'col'},'Basis'),h('th',{scope:'col'},'Comment'))),tb)):h('p',{class:'text-body-secondary mb-0'},'No specifications have been published for this platform.')));
+ const other=(p.other_specs||[]);
+ if(other.length){const ot=h('tbody');other.forEach(s=>{const v=P.fmtValue(s.value,s.unit);ot.append(h('tr',null,h('th',{scope:'row',class:'fw-normal'},s.label||''),h('td',null,v?v:h('span',{class:'text-body-secondary'},'not published')),h('td',null,h('span',{class:'badge text-bg-light border text-dark text-wrap'},P.basisLabel(s.basis)),cite(s.source_id)),h('td',{class:'small text-body-secondary'},s.comment||'')))});
+  kids.push(sec('os-h','Other specifications',h('p',{class:'small text-body-secondary'},'These labels are not in the fixed vocabulary, so they are kept here unchanged.'),h('div',{class:'table-responsive'},h('table',{class:'table table-sm align-middle bg-white border'},h('thead',{class:'table-light'},h('tr',null,h('th',{scope:'col'},'Spec'),h('th',{scope:'col'},'Value'),h('th',{scope:'col'},'Basis'),h('th',{scope:'col'},'Comment'))),ot))))}
+
  /* sensors */
  const sens=p.sensors||[];
- if(sens.length){const st=h('tbody');sens.forEach(s=>st.append(h('tr',null,h('td',null,s.name,cite(s.source_id)),h('td',null,[s.maker,s.model].filter(Boolean).join(' ')||h('span',{class:'text-body-secondary'},'not stated')),h('td',null,s.serial_number||''),h('td',null,s.calibration_date||''),h('td',{class:'small text-body-secondary'},s.notes||''))));
-  kids.push(sec('se-h','Sensors and payload',h('div',{class:'table-responsive'},h('table',{class:'table table-sm bg-white border'},h('thead',{class:'table-light'},h('tr',null,['Sensor','Maker / model','Serial','Calibration','Notes'].map(t=>h('th',{scope:'col'},t)))),st))))}
+ if(sens.length){const st=h('tbody');sens.forEach(s=>st.append(h('tr',null,h('td',null,s.kind?h('span',{class:'badge text-bg-light border text-dark'},s.kind):h('span',{class:'text-body-secondary'},'other')),h('td',null,s.name,cite(s.source_id)),h('td',null,[s.maker,s.model].filter(Boolean).join(' ')||h('span',{class:'text-body-secondary'},'not stated')),h('td',null,s.serial_number||''),h('td',null,s.calibration_date||''),h('td',{class:'small text-body-secondary'},s.notes||''))));
+  kids.push(sec('se-h','Sensors and payload',h('div',{class:'table-responsive'},h('table',{class:'table table-sm bg-white border'},h('thead',{class:'table-light'},h('tr',null,['Kind','Sensor','Maker / model','Serial','Calibration','Notes'].map(t=>h('th',{scope:'col'},t)))),st))))}
  else kids.push(sec('se-h','Sensors and payload',h('p',{class:'text-body-secondary mb-0'},'None published.')));
  if((p.applications||[]).length)kids.push(sec('ap-h','Applications',h('ul',{class:'mb-0'},p.applications.map(a=>h('li',null,a)))));
  /* deployments */

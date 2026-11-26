@@ -278,5 +278,26 @@
   /* Only bare DOIs of the form 10.<digits>/<suffix> are linked; anything else gets no link. */
   const doiHref=d=>{const s=d==null?'':String(d).trim().replace(/^https?:\/\/(dx\.)?doi\.org\//i,'');return /^10\.\d{4,9}\/\S+$/.test(s)?'https://doi.org/'+s.split('/').map(encodeURIComponent).join('/').replace(/^10%2E/,'10.'):''};
   const r2rCruiseHref=cid=>{const R=window.RV_R2R,base=R&&safeUrl(R.cruisePage);return base&&cid?safeUrl(base+encodeURIComponent(String(cid))):''};
-  window.RV={INTERNAL_DOMAINS,isInternalHost,isExternalHref,extAttrs,markExternal,extraFor,resolveAlias,rebuiltText,resolvePort,resolveHome,berthList,byIdRaw,esc,safeUrl,vesselHref,operatorsHref,nceiHref,positionPopupHtml,vessels,byId,cruisesFor,statusPill,qs,fmt,completeness,h,r2rFor,tracksFor,expeditionsFor,doiHref,r2rCruiseHref,wpiForR2r,wpiForHome,wpiByNumber,wpiCaption};
+  /* Phase 1: autonomy and combined crewed/uncrewed search. Values are allowlisted. */
+  const AUTONOMY_LEVELS=Object.freeze(['crewed','minimally crewed','remotely operated','supervised autonomous','fully autonomous','unknown']);
+  const AUTONOMY_GROUP=Object.freeze({'crewed':'crewed','minimally crewed':'crewed','remotely operated':'uncrewed','supervised autonomous':'uncrewed','fully autonomous':'uncrewed','unknown':'unknown'});
+  const AUTONOMY_TOGGLES=Object.freeze(['all','crewed','uncrewed']);
+  const AUTONOMY_LABELS=Object.freeze({'crewed':'Crewed \u2014 a person is on board during operations','minimally crewed':'Minimally crewed \u2014 a small caretaker crew, with most of the work automated','remotely operated':'Remotely operated \u2014 piloted from a support ship or from shore','supervised autonomous':'Supervised autonomous \u2014 follows a programme and is monitored from shore or a ship','fully autonomous':'Fully autonomous \u2014 operates on a pre-set cycle without real-time piloting','unknown':'Unknown \u2014 not enough public information to classify'});
+  const VEHICLE_CLASSES=Object.freeze(['USV','AUV','glider','ROV','HROV','HOV','towed','profiling float','UAV','UGV','HFR','ship']);
+  const VEHICLE_CLASS_LABELS=Object.freeze({USV:'USV',AUV:'AUV',glider:'Glider',ROV:'ROV',HROV:'HROV',HOV:'HOV',towed:'Towed','profiling float':'Profiling float',UAV:'UAV',UGV:'UGV',HFR:'HF radar',ship:'Ship'});
+  const validAutonomyToggle=s=>AUTONOMY_TOGGLES.includes(s);
+  const validVehicleClass=s=>VEHICLE_CLASSES.includes(s);
+  const autonomyOf=r=>{const a=r&&r.autonomy;return typeof a==='string'&&AUTONOMY_LEVELS.includes(a)?a:'unknown'};
+  const autonomyGroup=r=>AUTONOMY_GROUP[autonomyOf(r)]||'unknown';
+  const matchesAutonomyToggle=(r,tog)=>!tog||tog==='all'||autonomyGroup(r)===tog;
+  const classOf=r=>{if(!r)return '';if(r.platform_class)return String(r.platform_class);if(r.vehicle_class)return String(r.vehicle_class);return ''};
+  const matchesVehicleClass=(r,c)=>!c||classOf(r)===c;
+  const autonomyBadge=a=>{
+    const lvl=typeof a==='string'&&AUTONOMY_LEVELS.includes(a)?a:(a==null||a===''?'unknown':String(a));
+    const g=AUTONOMY_GROUP[lvl]||'unknown';
+    const cls=g==='crewed'?'text-bg-primary':g==='uncrewed'?'text-bg-info':'text-bg-secondary';
+    return h('span',{class:'badge '+cls,title:own(AUTONOMY_LABELS,lvl)?AUTONOMY_LABELS[lvl]:lvl},lvl);
+  };
+
+  window.RV={INTERNAL_DOMAINS,isInternalHost,isExternalHref,extAttrs,markExternal,extraFor,resolveAlias,rebuiltText,resolvePort,resolveHome,berthList,byIdRaw,esc,safeUrl,vesselHref,operatorsHref,nceiHref,positionPopupHtml,vessels,byId,cruisesFor,statusPill,qs,fmt,completeness,h,r2rFor,tracksFor,expeditionsFor,doiHref,r2rCruiseHref,wpiForR2r,wpiForHome,wpiByNumber,wpiCaption,own,AUTONOMY_LEVELS,AUTONOMY_GROUP,AUTONOMY_TOGGLES,AUTONOMY_LABELS,VEHICLE_CLASSES,VEHICLE_CLASS_LABELS,validAutonomyToggle,validVehicleClass,autonomyOf,autonomyGroup,matchesAutonomyToggle,classOf,matchesVehicleClass,autonomyBadge};
 })();

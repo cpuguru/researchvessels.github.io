@@ -5,36 +5,114 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/css/bootstrap.min.css" integrity="sha384-yEPZ7jP9S0QKiUQ0m3jjsO4ProIW7wvR9gXkI7JOGa2XVsw53Yke2bsdkBbjmmiX" crossorigin="anonymous">
 <link rel="stylesheet" href="assets/style.css">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/js/bootstrap.bundle.min.js" integrity="sha384-WyOxWvTyr1QaMPfiPJSv76iReVthorl5uWlFtZPyK0IEB0hGzo9y5Bp9mYanr8Bu" crossorigin="anonymous" defer></script>
-<script src="assets/app.js"></script><script src="assets/external-links.js"></script><script src="data/vessels.js"></script><script src="data/rebuilds.js"></script><script src="data/ports.js"></script></head>
+<script src="assets/app.js"></script><script src="assets/external-links.js"></script><script src="data/vessels.js"></script><script src="data/rebuilds.js"></script><script src="data/ports.js"></script><script src="data/platforms.js"></script><script src="data/institutions.js"></script><script src="assets/platforms.js"></script></head>
 <body class="d-flex flex-column min-vh-100 bg-body-tertiary">
 <main id="content" class="container py-4 flex-grow-1">
-<h1 class="mb-2">Vessel directory</h1><p class="lead text-body-secondary">Search the master list of research vessels and platforms by name (including former names), call sign, IMO, MMSI, owner, operator, or homeport.</p>
+<h1 class="mb-2">Vessel directory</h1><p class="lead text-body-secondary">Search the master list of research vessels and the non-ship platform registry together. Filter by crewed or uncrewed, vehicle class, name (including former names), call sign, IMO, MMSI, owner, operator, or homeport.</p>
 <form class="row g-2 align-items-end mb-3" role="search" onsubmit="return false">
- <div class="col-12 col-lg-3"><label class="form-label fw-semibold small mb-1" for="q">Search</label><input class="form-control" id="q" type="search" placeholder="e.g. Sharp, WTEP, NOAA, Bremerhaven"></div>
+ <div class="col-12 col-lg-3"><label class="form-label fw-semibold small mb-1" for="q">Search</label><input class="form-control" id="q" type="search" maxlength="80" placeholder="e.g. Sharp, WTEP, NOAA, Alvin, Slocum"></div>
+ <div class="col-12 col-sm-6 col-lg-3">
+  <div class="form-label fw-semibold small mb-1" id="autonomy-label">Crewed or uncrewed</div>
+  <div class="btn-group flex-wrap" role="radiogroup" aria-labelledby="autonomy-label" id="autonomy-group">
+   <input type="radio" class="btn-check" name="autonomy" id="autonomy-all" value="all" checked>
+   <label class="btn btn-outline-primary btn-sm" for="autonomy-all">All</label>
+   <input type="radio" class="btn-check" name="autonomy" id="autonomy-crewed" value="crewed">
+   <label class="btn btn-outline-primary btn-sm" for="autonomy-crewed">Crewed</label>
+   <input type="radio" class="btn-check" name="autonomy" id="autonomy-uncrewed" value="uncrewed">
+   <label class="btn btn-outline-primary btn-sm" for="autonomy-uncrewed">Uncrewed</label>
+  </div>
+ </div>
+ <div class="col-6 col-md-4 col-lg-2"><label class="form-label fw-semibold small mb-1" for="vclass">Vehicle class</label><select class="form-select" id="vclass"><option value="">All classes</option></select></div>
  <div class="col-6 col-md-4 col-lg-2"><label class="form-label fw-semibold small mb-1" for="country">Flag / country</label><select class="form-select" id="country"><option value="">All</option></select></div>
  <div class="col-6 col-md-4 col-lg-2"><label class="form-label fw-semibold small mb-1" for="type">Type</label><select class="form-select" id="type"><option value="">All</option></select></div>
  <div class="col-6 col-md-4 col-lg-2"><label class="form-label fw-semibold small mb-1" for="status">Status</label><select class="form-select" id="status"><option value="active">Active</option><option value="">All, including out of service</option></select></div>
- <div class="col-6 col-md-6 col-lg-2"><label class="form-label fw-semibold small mb-1" for="size">Size class (FOFC)</label><select class="form-select" id="size"><option value="">Any</option><option value="local">Local (&lt;40 m)</option><option value="regional">Regional (40-55 m)</option><option value="ocean">Ocean (55-70 m)</option><option value="global">Global (&gt;70 m)</option></select></div>
- <div class="col-12 col-md-6 col-lg-1"><div class="form-check mb-0"><input class="form-check-input" type="checkbox" id="aisonly"><label class="form-check-label small fw-semibold" for="aisonly">Has IMO/MMSI</label></div><div class="form-check mb-2"><input class="form-check-input" type="checkbox" id="rebuiltonly"><label class="form-check-label small fw-semibold" for="rebuiltonly">Rebuilt / refit recorded</label></div></div>
+ <div class="col-6 col-md-4 col-lg-2"><label class="form-label fw-semibold small mb-1" for="size">Size class (FOFC)</label><select class="form-select" id="size"><option value="">Any</option><option value="local">Local (&lt;40 m)</option><option value="regional">Regional (40-55 m)</option><option value="ocean">Ocean (55-70 m)</option><option value="global">Global (&gt;70 m)</option></select></div>
+ <div class="col-6 col-md-6 col-lg-2"><div class="form-check mb-0"><input class="form-check-input" type="checkbox" id="aisonly"><label class="form-check-label small fw-semibold" for="aisonly">Has IMO/MMSI</label></div><div class="form-check mb-2"><input class="form-check-input" type="checkbox" id="rebuiltonly"><label class="form-check-label small fw-semibold" for="rebuiltonly">Rebuilt / refit recorded</label></div></div>
 </form>
 <p id="count" class="text-body-secondary" aria-live="polite"></p>
 <div class="table-responsive rv-scroll border rounded bg-white"><table class="table table-striped table-hover table-sm align-top mb-0"><thead class="table-light"><tr><th scope="col">Name</th><th scope="col">Country</th><th scope="col">Operator</th><th scope="col">Owner</th><th scope="col">Length</th><th scope="col">Built</th><th scope="col">Rebuilt</th><th scope="col">IDs</th></tr></thead><tbody id="rows"></tbody></table></div>
-<p class="small text-body-secondary mt-2">Data: <a href="data/vessels.json">data/vessels.json</a> (key fields from master_research_vessels.csv, 2026-11-16). Where a homeport matches the World Port Index (Pub. 150), the WPI number and UN/LOCODE are shown under the name. Ports not in the WPI, including Lewes, Delaware, have no WPI number.</p>
+<p id="empty-vessels" class="text-body-secondary mt-2" hidden>No vessels match these filters.</p>
+<section class="mt-4" id="plat-block" hidden aria-labelledby="plat-h">
+ <h2 class="h5" id="plat-h">Matching platforms</h2>
+ <p class="small text-body-secondary" id="plat-count"></p>
+ <div class="table-responsive border rounded bg-white"><table class="table table-striped table-hover table-sm align-top mb-0"><thead class="table-light"><tr><th scope="col">Platform</th><th scope="col">Class</th><th scope="col">Autonomy</th><th scope="col" class="d-none d-md-table-cell">Model / maker</th><th scope="col" class="d-none d-lg-table-cell">Depth rating</th><th scope="col" class="d-none d-md-table-cell">Operator / group</th></tr></thead><tbody id="plat-rows"></tbody></table></div>
+</section>
+<p class="small text-body-secondary mt-3">Crewed includes minimally crewed ships. Uncrewed covers remotely operated, supervised autonomous and fully autonomous platforms. Records whose autonomy is unknown appear only when the toggle is All. Data: <a href="data/vessels.json">data/vessels.json</a> and <a href="data/platforms.json">data/platforms.json</a>. Where a homeport matches the World Port Index (Pub. 150), the WPI number and UN/LOCODE are shown under the name. Ports not in the WPI, including Lewes, Delaware, have no WPI number.</p>
 </main>
 <script>
 document.addEventListener('DOMContentLoaded',()=>{
- const V=RV.vessels(),$=id=>document.getElementById(id),e=RV.esc;
- const opts=(k,el)=>[...new Set(V.map(v=>v[k]).filter(Boolean))].sort().forEach(c=>el.insertAdjacentHTML('beforeend',`<option>${e(c)}</option>`));
- opts('country',$('country'));opts('type',$('type'));
+ const V=RV.vessels(),P=window.RVP,L=(P&&P.data().platforms)||[],$=id=>document.getElementById(id),h=RV.h;
+ const opt=(el,value,label)=>{el.append(h('option',{value},label))};
+ [...new Set(V.map(v=>v.country).filter(Boolean))].sort().forEach(c=>opt($('country'),c,c));
+ [...new Set(V.map(v=>v.type).filter(Boolean))].sort().forEach(c=>opt($('type'),c,c));
+ RV.VEHICLE_CLASSES.forEach(c=>opt($('vclass'),c,RV.VEHICLE_CLASS_LABELS[c]||c));
  const cls=l=>l==null?null:l<40?'local':l<55?'regional':l<70?'ocean':'global';
- const p=new URLSearchParams(location.search);if(p.get('q'))$('q').value=p.get('q');
+ const autVal=()=>{const el=document.querySelector('input[name="autonomy"]:checked');return el?el.value:'all'};
+ const setAut=v=>{const el=document.getElementById('autonomy-'+v);if(el)el.checked=true};
+ const qs=new URLSearchParams(location.search);
+ if(qs.get('q'))$('q').value=qs.get('q').slice(0,80);
+ if(RV.validAutonomyToggle(qs.get('autonomy')))setAut(qs.get('autonomy'));
+ if(RV.validVehicleClass(qs.get('class')))$('vclass').value=qs.get('class');
+ const countries=[...$('country').options].map(o=>o.value);
+ const types=[...$('type').options].map(o=>o.value);
+ if(countries.includes(qs.get('country')))$('country').value=qs.get('country');
+ if(types.includes(qs.get('type')))$('type').value=qs.get('type');
+ if(qs.get('status')===''||qs.get('status')==='all')$('status').value='';
+ else if(qs.get('status')==='active')$('status').value='active';
+ if(['local','regional','ocean','global'].includes(qs.get('size')))$('size').value=qs.get('size');
+ if(qs.get('ais')==='1')$('aisonly').checked=true;
+ if(qs.get('rebuilt')==='1')$('rebuiltonly').checked=true;
+ const fn=v=>Array.isArray(v.former_names)?v.former_names.map(String):[];
+ const vhay=v=>[v.name,...fn(v),v.cs,v.cs_former,v.imo,v.mmsi,v.mmsi_former,v.owner,v.operator,v.homeport].filter(x=>x!=null).map(x=>String(x).toLowerCase());
+ const phay=p=>[p.name,p.display_name,p.model,p.manufacturer,p.serial_number,p.owner_org,p.operator_org,p.operating_unit,...(p.aliases||[]),...Object.values(p.external_ids||{})].filter(x=>x!=null).map(x=>String(x).toLowerCase());
  function draw(){
   const q=$('q').value.trim().toLowerCase(),c=$('country').value,t=$('type').value,s=$('status').value,z=$('size').value,a=$('aisonly').checked,rb=$('rebuiltonly').checked;
-  const fn=v=>Array.isArray(v.former_names)?v.former_names.map(String):[];
-  const r=V.filter(v=>(!q||[v.name,...fn(v),v.cs,v.cs_former,v.imo,v.mmsi,v.mmsi_former,v.owner,v.operator,v.homeport].some(x=>x&&String(x).toLowerCase().includes(q)))&&(!c||v.country===c)&&(!t||v.type===t)&&(!s||v.status!=='out of service')&&(!z||cls(v.len)===z)&&(!a||v.ais)&&(!rb||v.rebuilt_year));
-  $('count').textContent=`${r.length.toLocaleString()} of ${V.length.toLocaleString()} vessels`;
-  $('rows').innerHTML=r.slice(0,600).map(v=>{const wp=RV.wpiForHome(v.id),cap=RV.wpiCaption(wp);const wpiBit=cap?`<div class="small text-body-secondary">${e(cap)}</div>`:'';return `<tr><td><a href="${e(RV.vesselHref(v.id))}">${e(v.name)}</a> ${v.status==='out of service'?'<span class="badge text-bg-secondary">OOS</span>':''}${fn(v).length?`<div class="small text-body-secondary">formerly ${e(fn(v).join(', '))}</div>`:''}${wpiBit}</td><td>${e(v.country)}</td><td>${e(v.operator)}</td><td>${e(v.owner)}</td><td class="text-nowrap">${v.len!=null&&v.len!==''?e(v.len)+' m':''}</td><td>${e(v.built)}</td><td>${v.rebuilt_year?`<span title="${e(v.rebuilt_note||'')}">${e(v.rebuilt_year)}</span>`:''}</td><td class="small text-nowrap">${v.imo?'IMO '+e(v.imo)+'<br>':''}${v.mmsi?'MMSI '+e(v.mmsi)+'<br>':''}${v.cs?'CS '+e(v.cs):''}</td></tr>`}).join('')+(r.length>600?`<tr><td colspan="8" class="text-body-secondary">Showing the first 600. Refine your search to see more.</td></tr>`:'');
+  const tog=autVal(),vc=$('vclass').value;
+  const r=V.filter(v=>(!q||vhay(v).some(x=>x.includes(q)))&&(!c||v.country===c)&&(!t||v.type===t)&&(!s||v.status!=='out of service')&&(!z||cls(v.len)===z)&&(!a||v.ais)&&(!rb||v.rebuilt_year)&&RV.matchesAutonomyToggle(v,tog)&&RV.matchesVehicleClass(v,vc));
+  const showPlat=!!(q||(tog&&tog!=='all')||vc);
+  const pr=showPlat?L.filter(p=>(!q||phay(p).some(x=>x.includes(q)))&&RV.matchesAutonomyToggle(p,tog)&&RV.matchesVehicleClass(p,vc)):[];
+  const tb=$('rows');tb.replaceChildren();
+  r.slice(0,600).forEach(v=>{
+   const wp=RV.wpiForHome(v.id),cap=RV.wpiCaption(wp);
+   const nameCell=h('td',null,h('a',{href:RV.vesselHref(v.id)},v.name||''),v.status==='out of service'?h('span',{class:'badge text-bg-secondary ms-1'},'OOS'):null,
+     fn(v).length?h('div',{class:'small text-body-secondary'},'formerly '+fn(v).join(', ')):null,
+     cap?h('div',{class:'small text-body-secondary'},cap):null,
+     v.autonomy&&v.autonomy!=='crewed'?h('div',{class:'mt-1'},RV.autonomyBadge(v.autonomy)):null);
+   const ids=[];if(v.imo)ids.push('IMO '+v.imo);if(v.mmsi)ids.push('MMSI '+v.mmsi);if(v.cs)ids.push('CS '+v.cs);
+   tb.append(h('tr',{'data-id':v.id},nameCell,h('td',null,v.country||''),h('td',null,v.operator||''),h('td',null,v.owner||''),
+     h('td',{class:'text-nowrap'},v.len!=null&&v.len!==''?String(v.len)+' m':''),h('td',null,v.built==null?'':String(v.built)),
+     h('td',null,v.rebuilt_year?h('span',{title:v.rebuilt_note||''},String(v.rebuilt_year)):''),
+     h('td',{class:'small text-nowrap'},ids.join('\n').split('\n').reduce((frag,line,i)=>{if(i)frag.append(h('br'));frag.append(document.createTextNode(line));return frag},document.createDocumentFragment()))));
+  });
+  if(r.length>600)tb.append(h('tr',null,h('td',{colspan:'8',class:'text-body-secondary'},'Showing the first 600 vessels. Refine your search to see more.')));
+  $('empty-vessels').hidden=r.length>0;
+  const pb=$('plat-block'),ptr=$('plat-rows');ptr.replaceChildren();
+  pr.forEach(p=>{
+   ptr.append(h('tr',{'data-id':p.platform_id},
+     h('td',null,h('a',{href:P.detailHref(p.platform_id),class:'fw-semibold'},p.display_name||p.name),p.platform_id?h('div',{class:'small text-body-secondary font-monospace'},p.platform_id):null),
+     h('td',null,P.classBadge(p.platform_class)),
+     h('td',null,RV.autonomyBadge(p.autonomy)),
+     h('td',{class:'d-none d-md-table-cell'},p.model||'',p.manufacturer?h('div',{class:'small text-body-secondary'},p.manufacturer):null),
+     h('td',{class:'d-none d-lg-table-cell text-nowrap'},P.depthOf(p)||h('span',{class:'text-body-secondary'},'\u2014')),
+     h('td',{class:'d-none d-md-table-cell small'},p.operator_org||p.owner_org||'')));
+  });
+  pb.hidden=pr.length===0;
+  $('plat-count').textContent=pr.length?pr.length+' platform'+(pr.length===1?'':'s')+' also match.':'';
+  $('count').textContent=r.length.toLocaleString()+' of '+V.length.toLocaleString()+' vessels'+(pr.length?'; '+pr.length.toLocaleString()+' of '+L.length.toLocaleString()+' platforms':'');
+  const u=new URLSearchParams();
+  if(q)u.set('q',$('q').value.trim());
+  if(tog&&tog!=='all')u.set('autonomy',tog);
+  if(vc)u.set('class',vc);
+  if(c)u.set('country',c);
+  if(t)u.set('type',t);
+  if(s==='')u.set('status','all');
+  if(z)u.set('size',z);
+  if(a)u.set('ais','1');
+  if(rb)u.set('rebuilt','1');
+  try{history.replaceState(null,'',location.pathname+(u.toString()?'?'+u.toString():''))}catch(err){}
  }
- ['q','country','type','status','size','aisonly','rebuiltonly'].forEach(id=>$(id).addEventListener('input',draw));draw();
+ ['q','vclass','country','type','status','size','aisonly','rebuiltonly'].forEach(id=>$(id).addEventListener('input',draw));
+ document.querySelectorAll('input[name="autonomy"]').forEach(el=>el.addEventListener('change',draw));
+ draw();
 });
 </script></body></html>

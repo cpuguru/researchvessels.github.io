@@ -1,7 +1,7 @@
 {
  "license": "CC BY 4.0",
  "attribution": "Data compiled by Doug White / researchvessels.org",
- "schema_version": "0.2-draft",
+ "schema_version": "0.3-draft",
  "generated": "2026-11-26",
  "note": "DRAFT prototype of non-ship research platforms: University of Delaware Robotic Discovery Laboratories, WHOI, Rutgers RU COOL, NOAA, U.S. Navy (public information only) and selected international operators. Compiled from public sources only, with no operator confirmation. Every record is a draft: unknown values are null and every spec carries a basis. Corrections welcome at ships@oceandata.org. platform_id and institution_id values are researchvessels.org slugs, not sourced identifiers.",
  "spec_basis_labels": {
@@ -1344,7 +1344,8 @@
      "unit": "m",
      "basis": "unit_metadata",
      "source_id": "erddap-ud476",
-     "comment": null
+     "comment": null,
+     "canon": "depth_rating"
     },
     {
      "label": "Length",
@@ -1352,7 +1353,8 @@
      "unit": "m",
      "basis": "operator_published_class_level",
      "source_id": "udmag-p49",
-     "comment": "UD-printed figure for \"Slocum gliders\" as a class, c.2015; not measured on this unit."
+     "comment": "UD-printed figure for \"Slocum gliders\" as a class, c.2015; not measured on this unit.",
+     "canon": "length"
     },
     {
      "label": "Diameter",
@@ -1360,7 +1362,8 @@
      "unit": "m",
      "basis": "operator_published_class_level",
      "source_id": "udmag-p49",
-     "comment": "Same class-level figure."
+     "comment": "Same class-level figure.",
+     "canon": "diameter"
     },
     {
      "label": "Endurance",
@@ -1371,7 +1374,8 @@
      "unit": "days",
      "basis": "operator_published_class_level",
      "source_id": "udmag-p49",
-     "comment": "Range UD quoted for the Slocum class."
+     "comment": "Range UD quoted for the Slocum class.",
+     "canon": "endurance"
     },
     {
      "label": "Range",
@@ -1379,7 +1383,8 @@
      "unit": null,
      "basis": "operator_published_class_level",
      "source_id": "udmag-p49",
-     "comment": "Class-level."
+     "comment": "Class-level.",
+     "canon": "range"
     },
     {
      "label": "Slocum OS version",
@@ -1387,11 +1392,13 @@
      "unit": null,
      "basis": "unit_metadata",
      "source_id": "erddap-ud476",
-     "comment": "As of the 2024 deployment metadata."
+     "comment": "As of the 2024 deployment metadata.",
+     "canon": "slocum_os_version"
     }
    ],
    "sensors": [
     {
+     "kind": "CTD",
      "name": "CTD (pumped)",
      "maker": "Sea-Bird Scientific",
      "model": "Slocum Glider Payload GPCTD",
@@ -1401,6 +1408,7 @@
      "source_id": "erddap-ud476"
     },
     {
+     "kind": "PAR",
      "name": "PAR radiometer",
      "maker": "Biospherical Instruments",
      "model": "QSP-2155 Underwater PAR Sensor",
@@ -1410,6 +1418,7 @@
      "source_id": "erddap-ud476"
     },
     {
+     "kind": "animal telemetry",
      "name": "Animal tag (tracking tag carried for geolocation tests)",
      "maker": "Wildlife Computers",
      "model": "MiniPAT",
@@ -1710,7 +1719,29 @@
    "collection": "UD RDL",
    "countries": [
     "US"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Underwater glider: follows a programmed path and is supervised from shore.",
+   "other_specs": [],
+   "depth_rating_m": {
+    "value": 200,
+    "unit": "m",
+    "basis": "unit_metadata",
+    "source_id": "erddap-ud476",
+    "comment": null
+   },
+   "endurance": {
+    "value": [
+     1,
+     90
+    ],
+    "unit": "days",
+    "basis": "operator_published_class_level",
+    "source_id": "udmag-p49",
+    "comment": "Range UD quoted for the Slocum class.",
+    "text": null
+   },
+   "survey_speed_kn": null
   },
   {
    "platform_id": "ud_orris",
@@ -1752,7 +1783,8 @@
      "unit": "m",
      "basis": "unit_metadata",
      "source_id": "erddap-udorris",
-     "comment": "From the ud_orris unit metadata."
+     "comment": "From the ud_orris unit metadata.",
+     "canon": "depth_rating"
     },
     {
      "label": "Slocum OS version",
@@ -1760,11 +1792,13 @@
      "unit": null,
      "basis": "unit_metadata",
      "source_id": "erddap-udorris",
-     "comment": "As of the 2026 deployment metadata."
+     "comment": "As of the 2026 deployment metadata.",
+     "canon": "slocum_os_version"
     }
    ],
    "sensors": [
     {
+     "kind": "CTD",
      "name": "CTD",
      "maker": "RBR",
      "model": "RBR Legato3 CTD",
@@ -1774,6 +1808,7 @@
      "source_id": "erddap-udorris"
     },
     {
+     "kind": "fluorometer",
      "name": "Fluorometer and backscatter",
      "maker": "WET Labs / Sea-Bird Scientific",
      "model": "FLBBBBv1",
@@ -1783,6 +1818,7 @@
      "source_id": "erddap-udorris"
     },
     {
+     "kind": "irradiance",
      "name": "Irradiance radiometer",
      "maker": "Satlantic / Sea-Bird Scientific",
      "model": "OCR-504",
@@ -1792,6 +1828,7 @@
      "source_id": "erddap-udorris"
     },
     {
+     "kind": "radiance",
      "name": "Radiance radiometer",
      "maker": "Satlantic / Sea-Bird Scientific",
      "model": "OCR-504",
@@ -1801,6 +1838,7 @@
      "source_id": "erddap-udorris"
     },
     {
+     "kind": "echosounder",
      "name": "Echosounder",
      "maker": "Kongsberg Maritime",
      "model": "Simrad EK80",
@@ -1810,6 +1848,7 @@
      "source_id": "erddap-udorris"
     },
     {
+     "kind": "shadowgraph",
      "name": "Shadowgraph imager",
      "maker": "Wassoc",
      "model": "Shadowgraph V3",
@@ -1959,7 +1998,19 @@
    "collection": "UD RDL",
    "countries": [
     "US"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Underwater glider: follows a programmed path and is supervised from shore.",
+   "other_specs": [],
+   "depth_rating_m": {
+    "value": 350,
+    "unit": "m",
+    "basis": "unit_metadata",
+    "source_id": "erddap-udorris",
+    "comment": "From the ud_orris unit metadata."
+   },
+   "endurance": null,
+   "survey_speed_kn": null
   },
   {
    "platform_id": "ud_134",
@@ -2008,7 +2059,8 @@
      "unit": "m",
      "basis": "unit_metadata",
      "source_id": "erddap-ud134-2015",
-     "comment": "From the 2015 dataset attributes."
+     "comment": "From the 2015 dataset attributes.",
+     "canon": "depth_rating"
     },
     {
      "label": "Length",
@@ -2016,7 +2068,8 @@
      "unit": "m",
      "basis": "register",
      "source_id": "ices-33x9",
-     "comment": "Length in the ICES platform record."
+     "comment": "Length in the ICES platform record.",
+     "canon": "length"
     }
    ],
    "sensors": [],
@@ -2366,7 +2419,19 @@
    "collection": "UD RDL",
    "countries": [
     "US"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Underwater glider: follows a programmed path and is supervised from shore.",
+   "other_specs": [],
+   "depth_rating_m": {
+    "value": 200,
+    "unit": "m",
+    "basis": "unit_metadata",
+    "source_id": "erddap-ud134-2015",
+    "comment": "From the 2015 dataset attributes."
+   },
+   "endurance": null,
+   "survey_speed_kn": null
   },
   {
    "platform_id": "ud_275",
@@ -2421,11 +2486,13 @@
      "unit": "m",
      "basis": "register",
      "source_id": "ices-33k7",
-     "comment": "Length in the ICES platform record; commissioned 2012-10-05."
+     "comment": "Length in the ICES platform record; commissioned 2012-10-05.",
+     "canon": "length"
     }
    ],
    "sensors": [
     {
+     "kind": "animal telemetry",
      "name": "Acoustic telemetry receivers (tagged-animal detection)",
      "maker": null,
      "model": null,
@@ -2571,7 +2638,13 @@
    "collection": "UD RDL",
    "countries": [
     "US"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Underwater glider: follows a programmed path and is supervised from shore.",
+   "other_specs": [],
+   "depth_rating_m": null,
+   "endurance": null,
+   "survey_speed_kn": null
   },
   {
    "platform_id": "ud-gavia",
@@ -2611,7 +2684,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "udmag-p49",
-     "comment": "UD Research magazine, c.2015."
+     "comment": "UD Research magazine, c.2015.",
+     "canon": "length"
     },
     {
      "label": "Diameter",
@@ -2619,7 +2693,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "udmag-p49",
-     "comment": null
+     "comment": null,
+     "canon": "diameter"
     },
     {
      "label": "Depth rating",
@@ -2627,7 +2702,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "udmag-p49",
-     "comment": null
+     "comment": null,
+     "canon": "depth_rating"
     },
     {
      "label": "Endurance",
@@ -2638,7 +2714,8 @@
      "unit": "hours",
      "basis": "operator_published",
      "source_id": "udmag-p49",
-     "comment": null
+     "comment": null,
+     "canon": "endurance"
     },
     {
      "label": "Range",
@@ -2649,11 +2726,13 @@
      "unit": "km",
      "basis": "operator_published",
      "source_id": "udmag-p49",
-     "comment": null
+     "comment": null,
+     "canon": "range"
     }
    ],
    "sensors": [
     {
+     "kind": "sidescan",
      "name": "Phase-measuring bathymetric (interferometric) sonar",
      "maker": null,
      "model": null,
@@ -2663,6 +2742,7 @@
      "source_id": "udmag-p49"
     },
     {
+     "kind": "camera",
      "name": "Optical cameras",
      "maker": null,
      "model": null,
@@ -2672,6 +2752,7 @@
      "source_id": "udmag-p49"
     },
     {
+     "kind": "acoustic modem",
      "name": "Acoustic modem",
      "maker": null,
      "model": null,
@@ -2681,6 +2762,7 @@
      "source_id": "udmag-p49"
     },
     {
+     "kind": "satellite comms",
      "name": "Iridium / satellite text messaging",
      "maker": null,
      "model": null,
@@ -2746,7 +2828,29 @@
    "collection": "UD RDL",
    "countries": [
     "US"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Autonomous underwater vehicle: typically pre-programmed and supervised during the mission.",
+   "other_specs": [],
+   "depth_rating_m": {
+    "value": 500,
+    "unit": "m",
+    "basis": "operator_published",
+    "source_id": "udmag-p49",
+    "comment": null
+   },
+   "endurance": {
+    "value": [
+     3,
+     4
+    ],
+    "unit": "hours",
+    "basis": "operator_published",
+    "source_id": "udmag-p49",
+    "comment": null,
+    "text": null
+   },
+   "survey_speed_kn": null
   },
   {
    "platform_id": "ud-remus-600",
@@ -2786,7 +2890,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "udmag-p48",
-     "comment": null
+     "comment": null,
+     "canon": "diameter"
     },
     {
      "label": "Depth rating",
@@ -2794,7 +2899,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "udmag-p48",
-     "comment": null
+     "comment": null,
+     "canon": "depth_rating"
     },
     {
      "label": "Endurance",
@@ -2805,7 +2911,8 @@
      "unit": "hours",
      "basis": "operator_published",
      "source_id": "udmag-p48",
-     "comment": null
+     "comment": null,
+     "canon": "endurance"
     },
     {
      "label": "Range",
@@ -2816,7 +2923,8 @@
      "unit": "km",
      "basis": "operator_published",
      "source_id": "udmag-p48",
-     "comment": null
+     "comment": null,
+     "canon": "range"
     },
     {
      "label": "Length",
@@ -2824,11 +2932,13 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "udmag-p48",
-     "comment": "Left blank on purpose: UD's magazine prints 6.096 m but Delaware Public Media says \"a little more than three meters\". The conflict is unresolved."
+     "comment": "Left blank on purpose: UD's magazine prints 6.096 m but Delaware Public Media says \"a little more than three meters\". The conflict is unresolved.",
+     "canon": "length"
     }
    ],
    "sensors": [
     {
+     "kind": "echosounder",
      "name": "Custom dual-frequency down-looking echosounder (to about 4,000 ft)",
      "maker": null,
      "model": null,
@@ -2890,7 +3000,29 @@
    "collection": "UD RDL",
    "countries": [
     "US"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Autonomous underwater vehicle: typically pre-programmed and supervised during the mission.",
+   "other_specs": [],
+   "depth_rating_m": {
+    "value": 600,
+    "unit": "m",
+    "basis": "operator_published",
+    "source_id": "udmag-p48",
+    "comment": null
+   },
+   "endurance": {
+    "value": [
+     8,
+     60
+    ],
+    "unit": "hours",
+    "basis": "operator_published",
+    "source_id": "udmag-p48",
+    "comment": null,
+    "text": null
+   },
+   "survey_speed_kn": null
   },
   {
    "platform_id": "ud-remus-100",
@@ -2930,7 +3062,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "udmag-p48",
-     "comment": null
+     "comment": null,
+     "canon": "length"
     },
     {
      "label": "Diameter",
@@ -2938,7 +3071,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "udmag-p48",
-     "comment": null
+     "comment": null,
+     "canon": "diameter"
     },
     {
      "label": "Depth rating",
@@ -2946,7 +3080,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "udmag-p48",
-     "comment": null
+     "comment": null,
+     "canon": "depth_rating"
     },
     {
      "label": "Endurance",
@@ -2957,7 +3092,8 @@
      "unit": "hours",
      "basis": "operator_published",
      "source_id": "udmag-p48",
-     "comment": null
+     "comment": null,
+     "canon": "endurance"
     },
     {
      "label": "Range",
@@ -2968,11 +3104,13 @@
      "unit": "km",
      "basis": "operator_published",
      "source_id": "udmag-p48",
-     "comment": null
+     "comment": null,
+     "canon": "range"
     }
    ],
    "sensors": [
     {
+     "kind": "sidescan",
      "name": "Sidescan sonar",
      "maker": null,
      "model": null,
@@ -2982,6 +3120,7 @@
      "source_id": "udmag-p48"
     },
     {
+     "kind": "acoustic modem",
      "name": "Acoustic modem",
      "maker": null,
      "model": null,
@@ -2991,6 +3130,7 @@
      "source_id": "udmag-p48"
     },
     {
+     "kind": "spectral radiometer",
      "name": "Spectral radiometer",
      "maker": null,
      "model": null,
@@ -3053,7 +3193,29 @@
    "collection": "UD RDL",
    "countries": [
     "US"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Autonomous underwater vehicle: typically pre-programmed and supervised during the mission.",
+   "other_specs": [],
+   "depth_rating_m": {
+    "value": 100,
+    "unit": "m",
+    "basis": "operator_published",
+    "source_id": "udmag-p48",
+    "comment": null
+   },
+   "endurance": {
+    "value": [
+     5,
+     8
+    ],
+    "unit": "hours",
+    "basis": "operator_published",
+    "source_id": "udmag-p48",
+    "comment": null,
+    "text": null
+   },
+   "survey_speed_kn": null
   },
   {
    "platform_id": "ud-iver3",
@@ -3086,11 +3248,13 @@
      "unit": "m/s",
      "basis": "report",
      "source_id": "noaa-oer-2021",
-     "comment": "An operating parameter from the report, not a rating."
+     "comment": "An operating parameter from the report, not a rating.",
+     "canon": "survey_speed"
     }
    ],
    "sensors": [
     {
+     "kind": "sidescan",
      "name": "Phase-measuring bathymetric side-scan sonar, 600/1600 kHz",
      "maker": "EdgeTech",
      "model": "2205",
@@ -3100,6 +3264,7 @@
      "source_id": "noaa-oer-2021"
     },
     {
+     "kind": "camera",
      "name": "Integrated color camera",
      "maker": null,
      "model": null,
@@ -3162,7 +3327,21 @@
    "collection": "UD RDL",
    "countries": [
     "US"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Autonomous underwater vehicle: typically pre-programmed and supervised during the mission.",
+   "other_specs": [],
+   "depth_rating_m": null,
+   "endurance": null,
+   "survey_speed_kn": {
+    "value": 3.98,
+    "unit": "kn",
+    "text": null,
+    "original_unit": "m/s",
+    "basis": "report",
+    "source_id": "noaa-oer-2021",
+    "comment": "An operating parameter from the report, not a rating."
+   }
   },
   {
    "platform_id": "ud-ecomapper",
@@ -3236,7 +3415,13 @@
    "collection": "UD RDL",
    "countries": [
     "US"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Autonomous underwater vehicle: typically pre-programmed and supervised during the mission.",
+   "other_specs": [],
+   "depth_rating_m": null,
+   "endurance": null,
+   "survey_speed_kn": null
   },
   {
    "platform_id": "ud-otis-rov",
@@ -3276,6 +3461,7 @@
    "specs": [],
    "sensors": [
     {
+     "kind": "camera",
      "name": "HD cinematic camera",
      "maker": null,
      "model": null,
@@ -3285,6 +3471,7 @@
      "source_id": "udaily-2025-otis-rov"
     },
     {
+     "kind": "manipulator",
      "name": "Multi-function manipulator (grab; seabed core sampling)",
      "maker": null,
      "model": null,
@@ -3294,6 +3481,7 @@
      "source_id": "udaily-2025-otis-rov"
     },
     {
+     "kind": "lights",
      "name": "Lights",
      "maker": null,
      "model": null,
@@ -3303,6 +3491,7 @@
      "source_id": "udaily-2025-otis-rov"
     },
     {
+     "kind": "multibeam",
      "name": "Multibeam imaging sonar",
      "maker": null,
      "model": null,
@@ -3370,7 +3559,13 @@
    "collection": "UD RDL",
    "countries": [
     "US"
-   ]
+   ],
+   "autonomy": "remotely operated",
+   "autonomy_basis": "Remotely operated vehicle, piloted from a support ship or from shore.",
+   "other_specs": [],
+   "depth_rating_m": null,
+   "endurance": null,
+   "survey_speed_kn": null
   },
   {
    "platform_id": "ud-outland-1000",
@@ -3403,7 +3598,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "udmag-p50",
-     "comment": null
+     "comment": null,
+     "canon": "length"
     },
     {
      "label": "Width",
@@ -3411,7 +3607,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "udmag-p50",
-     "comment": null
+     "comment": null,
+     "canon": "width"
     },
     {
      "label": "Height",
@@ -3419,7 +3616,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "udmag-p50",
-     "comment": null
+     "comment": null,
+     "canon": "height"
     },
     {
      "label": "Depth rating",
@@ -3427,11 +3625,13 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "udmag-p50",
-     "comment": null
+     "comment": null,
+     "canon": "depth_rating"
     }
    ],
    "sensors": [
     {
+     "kind": "video",
      "name": "Real-time video",
      "maker": null,
      "model": null,
@@ -3441,6 +3641,7 @@
      "source_id": "udmag-p50"
     },
     {
+     "kind": "scanning sonar",
      "name": "Scanning / imaging sonar",
      "maker": null,
      "model": null,
@@ -3450,6 +3651,7 @@
      "source_id": "udmag-p50"
     },
     {
+     "kind": "manipulator",
      "name": "Manipulator",
      "maker": null,
      "model": null,
@@ -3513,7 +3715,19 @@
    "collection": "UD RDL",
    "countries": [
     "US"
-   ]
+   ],
+   "autonomy": "remotely operated",
+   "autonomy_basis": "Remotely operated vehicle, piloted from a support ship or from shore.",
+   "other_specs": [],
+   "depth_rating_m": {
+    "value": 300,
+    "unit": "m",
+    "basis": "operator_published",
+    "source_id": "udmag-p50",
+    "comment": null
+   },
+   "endurance": null,
+   "survey_speed_kn": null
   },
   {
    "platform_id": "ud-z-boat",
@@ -3583,7 +3797,13 @@
    "collection": "UD RDL",
    "countries": [
     "US"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Uncrewed surface vehicle: typically supervised from shore or a support ship.",
+   "other_specs": [],
+   "depth_rating_m": null,
+   "endurance": null,
+   "survey_speed_kn": null
   },
   {
    "platform_id": "ud-emily",
@@ -3619,7 +3839,8 @@
      "unit": "m/s",
      "basis": "report",
      "source_id": "noaa-oer-2021",
-     "comment": "Operating parameter, not a rating."
+     "comment": "Operating parameter, not a rating.",
+     "canon": "survey_speed"
     },
     {
      "label": "Maximum survey depth",
@@ -3627,11 +3848,13 @@
      "unit": "m",
      "basis": "report",
      "source_id": "noaa-oer-2021",
-     "comment": "Operating parameter, not a rating."
+     "comment": "Operating parameter, not a rating.",
+     "canon": "max_survey_depth"
     }
    ],
    "sensors": [
     {
+     "kind": "sidescan",
      "name": "Side-scan sonar, 1200 kHz",
      "maker": "Humminbird",
      "model": "Helix 10",
@@ -3690,7 +3913,30 @@
    "collection": "UD RDL",
    "countries": [
     "US"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Uncrewed surface vehicle: typically supervised from shore or a support ship.",
+   "other_specs": [],
+   "depth_rating_m": {
+    "value": 6.5,
+    "unit": "m",
+    "basis": "report",
+    "source_id": "noaa-oer-2021",
+    "comment": "Operating parameter, not a rating."
+   },
+   "endurance": null,
+   "survey_speed_kn": {
+    "value": [
+     3.89,
+     4.86
+    ],
+    "unit": "kn",
+    "text": null,
+    "original_unit": "m/s",
+    "basis": "report",
+    "source_id": "noaa-oer-2021",
+    "comment": "Operating parameter, not a rating."
+   }
   },
   {
    "platform_id": "ud-echoboat-160",
@@ -3726,7 +3972,8 @@
      "unit": "m/s",
      "basis": "report",
      "source_id": "noaa-oer-2021",
-     "comment": "Operating parameter, not a rating."
+     "comment": "Operating parameter, not a rating.",
+     "canon": "survey_speed"
     },
     {
      "label": "Maximum survey depth",
@@ -3734,11 +3981,13 @@
      "unit": "m",
      "basis": "report",
      "source_id": "noaa-oer-2021",
-     "comment": "Operating parameter, not a rating."
+     "comment": "Operating parameter, not a rating.",
+     "canon": "max_survey_depth"
     }
    ],
    "sensors": [
     {
+     "kind": "sidescan",
      "name": "Side-scan sonar, 455/1200 kHz",
      "maker": "Humminbird",
      "model": "Solix 10",
@@ -3794,7 +4043,30 @@
    "collection": "UD RDL",
    "countries": [
     "US"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Uncrewed surface vehicle: typically supervised from shore or a support ship.",
+   "other_specs": [],
+   "depth_rating_m": {
+    "value": 6.5,
+    "unit": "m",
+    "basis": "report",
+    "source_id": "noaa-oer-2021",
+    "comment": "Operating parameter, not a rating."
+   },
+   "endurance": null,
+   "survey_speed_kn": {
+    "value": [
+     3.89,
+     4.86
+    ],
+    "unit": "kn",
+    "text": null,
+    "original_unit": "m/s",
+    "basis": "report",
+    "source_id": "noaa-oer-2021",
+    "comment": "Operating parameter, not a rating."
+   }
   },
   {
    "platform_id": "ud-echoboat-240",
@@ -3830,11 +4102,13 @@
      "unit": "m/s",
      "basis": "report",
      "source_id": "noaa-oer-2021",
-     "comment": "Operating parameter, not a rating."
+     "comment": "Operating parameter, not a rating.",
+     "canon": "survey_speed"
     }
    ],
    "sensors": [
     {
+     "kind": "multibeam",
      "name": "Multibeam echosounder, 500 kHz",
      "maker": "RESON",
      "model": "T50",
@@ -3889,7 +4163,24 @@
    "collection": "UD RDL",
    "countries": [
     "US"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Uncrewed surface vehicle: typically supervised from shore or a support ship.",
+   "other_specs": [],
+   "depth_rating_m": null,
+   "endurance": null,
+   "survey_speed_kn": {
+    "value": [
+     2.92,
+     3.89
+    ],
+    "unit": "kn",
+    "text": null,
+    "original_unit": "m/s",
+    "basis": "report",
+    "source_id": "noaa-oer-2021",
+    "comment": "Operating parameter, not a rating."
+   }
   },
   {
    "platform_id": "ud-scout-kayaks",
@@ -3960,7 +4251,13 @@
    "collection": "UD RDL",
    "countries": [
     "US"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Uncrewed surface vehicle: typically supervised from shore or a support ship.",
+   "other_specs": [],
+   "depth_rating_m": null,
+   "endurance": null,
+   "survey_speed_kn": null
   },
   {
    "platform_id": "ud-phantom-2",
@@ -3993,19 +4290,23 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "udmag-p50",
-     "comment": null
+     "comment": null,
+     "canon": "size_diagonal"
     },
     {
-     "label": "Flight time",
+     "label": "Endurance",
      "value": 20,
      "unit": "min",
      "basis": "operator_published",
      "source_id": "udmag-p50",
-     "comment": null
+     "comment": null,
+     "canon": "endurance",
+     "original_label": "Flight time"
     }
    ],
    "sensors": [
     {
+     "kind": "camera",
      "name": "HD camera",
      "maker": null,
      "model": null,
@@ -4015,6 +4316,7 @@
      "source_id": "udmag-p50"
     },
     {
+     "kind": "GPS",
      "name": "GPS",
      "maker": null,
      "model": null,
@@ -4071,7 +4373,20 @@
    "collection": "UD RDL",
    "countries": [
     "US"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Uncrewed aerial vehicle: typically supervised in flight.",
+   "other_specs": [],
+   "depth_rating_m": null,
+   "endurance": {
+    "value": 20,
+    "unit": "min",
+    "basis": "operator_published",
+    "source_id": "udmag-p50",
+    "comment": null,
+    "text": null
+   },
+   "survey_speed_kn": null
   },
   {
    "platform_id": "ud-phantom-3",
@@ -4142,7 +4457,13 @@
    "collection": "UD RDL",
    "countries": [
     "US"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Uncrewed aerial vehicle: typically supervised in flight.",
+   "other_specs": [],
+   "depth_rating_m": null,
+   "endurance": null,
+   "survey_speed_kn": null
   },
   {
    "platform_id": "ud-ebee",
@@ -4213,7 +4534,13 @@
    "collection": "UD RDL",
    "countries": [
     "US"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Uncrewed aerial vehicle: typically supervised in flight.",
+   "other_specs": [],
+   "depth_rating_m": null,
+   "endurance": null,
+   "survey_speed_kn": null
   },
   {
    "platform_id": "ud-wingtra",
@@ -4292,7 +4619,13 @@
    "collection": "UD RDL",
    "countries": [
     "US"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Uncrewed aerial vehicle: typically supervised in flight.",
+   "other_specs": [],
+   "depth_rating_m": null,
+   "endurance": null,
+   "survey_speed_kn": null
   },
   {
    "platform_id": "ud-snoop-vision60",
@@ -4330,6 +4663,7 @@
    "specs": [],
    "sensors": [
     {
+     "kind": "LIDAR",
      "name": "LiDAR (mount used in 2024 mapping class)",
      "maker": null,
      "model": null,
@@ -4339,6 +4673,7 @@
      "source_id": "udaily-2025-feb"
     },
     {
+     "kind": "camera",
      "name": "GoPro camera (mount used in 2024 mapping class)",
      "maker": null,
      "model": null,
@@ -4394,7 +4729,13 @@
    "collection": "UD RDL",
    "countries": [
     "US"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Uncrewed ground vehicle: typically supervised in use.",
+   "other_specs": [],
+   "depth_rating_m": null,
+   "endurance": null,
+   "survey_speed_kn": null
   },
   {
    "platform_id": "whoi-alvin",
@@ -4429,7 +4770,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "ndsf-alvin-spec",
-     "comment": null
+     "comment": null,
+     "canon": "depth_rating"
     },
     {
      "label": "Length",
@@ -4437,7 +4779,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "ndsf-alvin-spec",
-     "comment": null
+     "comment": null,
+     "canon": "length"
     },
     {
      "label": "Beam",
@@ -4445,7 +4788,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "ndsf-alvin-spec",
-     "comment": null
+     "comment": null,
+     "canon": "beam"
     },
     {
      "label": "Height",
@@ -4453,7 +4797,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "ndsf-alvin-spec",
-     "comment": null
+     "comment": null,
+     "canon": "height"
     },
     {
      "label": "Mass in air",
@@ -4461,7 +4806,8 @@
      "unit": "t",
      "basis": "operator_published",
      "source_id": "ndsf-alvin-spec",
-     "comment": "Gross weight 20 metric tons."
+     "comment": "Gross weight 20 metric tons.",
+     "canon": "mass_in_air"
     },
     {
      "label": "Speed",
@@ -4472,10 +4818,11 @@
      "unit": "kn",
      "basis": "operator_published",
      "source_id": "ndsf-alvin-spec",
-     "comment": null
+     "comment": null,
+     "canon": "speed"
     },
     {
-     "label": "Normal dive duration",
+     "label": "Endurance",
      "value": [
       6,
       10
@@ -4483,7 +4830,9 @@
      "unit": "h",
      "basis": "operator_published",
      "source_id": "ndsf-alvin-spec",
-     "comment": "NDSF overview page says dives last up to twelve hours."
+     "comment": "NDSF overview page says dives last up to twelve hours.",
+     "canon": "endurance",
+     "original_label": "Normal dive duration"
     },
     {
      "label": "Crew",
@@ -4491,15 +4840,18 @@
      "unit": "people",
      "basis": "operator_published",
      "source_id": "ndsf-alvin-spec",
-     "comment": "1 pilot, 2 observers."
+     "comment": "1 pilot, 2 observers.",
+     "canon": "crew"
     },
     {
-     "label": "Science basket payload",
+     "label": "Payload",
      "value": 181.4,
      "unit": "kg",
      "basis": "operator_published",
      "source_id": "ndsf-alvin-spec",
-     "comment": null
+     "comment": null,
+     "canon": "payload",
+     "original_label": "Science basket payload"
     },
     {
      "label": "Manipulators",
@@ -4507,7 +4859,8 @@
      "unit": null,
      "basis": "operator_published",
      "source_id": "ndsf-alvin-spec",
-     "comment": null
+     "comment": null,
+     "canon": "manipulators"
     },
     {
      "label": "Power",
@@ -4515,11 +4868,13 @@
      "unit": null,
      "basis": "operator_published",
      "source_id": "ndsf-alvin-spec",
-     "comment": null
+     "comment": null,
+     "canon": "power"
     }
    ],
    "sensors": [
     {
+     "kind": "CTD",
      "name": "CTD",
      "maker": "Sea-Bird",
      "model": "SBE49",
@@ -4529,6 +4884,7 @@
      "source_id": "ndsf-alvin-spec"
     },
     {
+     "kind": "DVL",
      "name": "Doppler velocity log (600 kHz)",
      "maker": "Teledyne RDI",
      "model": "Workhorse",
@@ -4538,6 +4894,7 @@
      "source_id": "ndsf-alvin-spec"
     },
     {
+     "kind": "USBL",
      "name": "USBL transceiver",
      "maker": "Sonardyne",
      "model": "AvTrak",
@@ -4547,6 +4904,7 @@
      "source_id": "ndsf-alvin-spec"
     },
     {
+     "kind": "gyrocompass",
      "name": "Gyrocompass / INS",
      "maker": null,
      "model": "PHINS (fibre-optic)",
@@ -4556,6 +4914,7 @@
      "source_id": "ndsf-alvin-spec"
     },
     {
+     "kind": "obstacle avoidance sonar",
      "name": "Obstacle-avoidance sonar (forward-looking)",
      "maker": "Kongsberg",
      "model": null,
@@ -4565,6 +4924,7 @@
      "source_id": "ndsf-alvin-spec"
     },
     {
+     "kind": "video",
      "name": "4K UHD video cameras (×2, pan/tilt)",
      "maker": "Optim",
      "model": "Premium 4K",
@@ -4637,7 +4997,29 @@
    },
    "countries": [
     "US"
-   ]
+   ],
+   "autonomy": "crewed",
+   "autonomy_basis": "Human-occupied vehicle: a person is on board during the dive.",
+   "other_specs": [],
+   "depth_rating_m": {
+    "value": 6500,
+    "unit": "m",
+    "basis": "operator_published",
+    "source_id": "ndsf-alvin-spec",
+    "comment": null
+   },
+   "endurance": {
+    "value": [
+     6,
+     10
+    ],
+    "unit": "h",
+    "basis": "operator_published",
+    "source_id": "ndsf-alvin-spec",
+    "comment": "NDSF overview page says dives last up to twelve hours.",
+    "text": null
+   },
+   "survey_speed_kn": null
   },
   {
    "platform_id": "whoi-jason",
@@ -4674,7 +5056,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "ndsf-jason-spec",
-     "comment": "Two-body mode; 4,500 m in single-body mode."
+     "comment": "Two-body mode; 4,500 m in single-body mode.",
+     "canon": "depth_rating"
     },
     {
      "label": "Length",
@@ -4682,7 +5065,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "ndsf-jason-spec",
-     "comment": null
+     "comment": null,
+     "canon": "length"
     },
     {
      "label": "Height",
@@ -4690,7 +5074,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "ndsf-jason-spec",
-     "comment": null
+     "comment": null,
+     "canon": "height"
     },
     {
      "label": "Width",
@@ -4698,7 +5083,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "ndsf-jason-spec",
-     "comment": null
+     "comment": null,
+     "canon": "width"
     },
     {
      "label": "Mass in air",
@@ -4706,7 +5092,8 @@
      "unit": "kg",
      "basis": "operator_published",
      "source_id": "ndsf-jason-spec",
-     "comment": "Approximate."
+     "comment": "Approximate.",
+     "canon": "mass_in_air"
     },
     {
      "label": "Speed",
@@ -4714,7 +5101,8 @@
      "unit": "kn",
      "basis": "operator_published",
      "source_id": "ndsf-jason-spec",
-     "comment": "Up to 1 kn two-body; 0.5 kn single-body."
+     "comment": "Up to 1 kn two-body; 0.5 kn single-body.",
+     "canon": "speed"
     },
     {
      "label": "Tether",
@@ -4722,10 +5110,11 @@
      "unit": null,
      "basis": "operator_published",
      "source_id": "ndsf-jason-spec",
-     "comment": null
+     "comment": null,
+     "canon": "tether"
     },
     {
-     "label": "Typical dive",
+     "label": "Endurance",
      "value": [
       1,
       2
@@ -4733,7 +5122,9 @@
      "unit": "days",
      "basis": "operator_published",
      "source_id": "ndsf-jason",
-     "comment": "Operators have kept it down for as long as seven days."
+     "comment": "Operators have kept it down for as long as seven days.",
+     "canon": "endurance",
+     "original_label": "Typical dive"
     },
     {
      "label": "Medea depth rating",
@@ -4741,7 +5132,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "ndsf-jason-spec",
-     "comment": null
+     "comment": null,
+     "canon": "depth_rating_medea"
     },
     {
      "label": "Medea mass in air",
@@ -4749,7 +5141,8 @@
      "unit": "kg",
      "basis": "operator_published",
      "source_id": "ndsf-jason-spec",
-     "comment": null
+     "comment": null,
+     "canon": "mass_in_air_medea"
     }
    ],
    "sensors": [],
@@ -4813,7 +5206,29 @@
    },
    "countries": [
     "US"
-   ]
+   ],
+   "autonomy": "remotely operated",
+   "autonomy_basis": "Remotely operated vehicle, piloted from a support ship or from shore.",
+   "other_specs": [],
+   "depth_rating_m": {
+    "value": 6500,
+    "unit": "m",
+    "basis": "operator_published",
+    "source_id": "ndsf-jason-spec",
+    "comment": "Two-body mode; 4,500 m in single-body mode."
+   },
+   "endurance": {
+    "value": [
+     1,
+     2
+    ],
+    "unit": "days",
+    "basis": "operator_published",
+    "source_id": "ndsf-jason",
+    "comment": "Operators have kept it down for as long as seven days.",
+    "text": null
+   },
+   "survey_speed_kn": null
   },
   {
    "platform_id": "whoi-sentry",
@@ -4846,7 +5261,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "ndsf-sentry-spec",
-     "comment": null
+     "comment": null,
+     "canon": "depth_rating"
     },
     {
      "label": "Length",
@@ -4854,15 +5270,18 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "ndsf-sentry-spec",
-     "comment": null
+     "comment": null,
+     "canon": "length"
     },
     {
-     "label": "Width (fins extended)",
+     "label": "Width",
      "value": 2.2,
      "unit": "m",
      "basis": "operator_published",
      "source_id": "ndsf-sentry-spec",
-     "comment": null
+     "comment": null,
+     "canon": "width",
+     "original_label": "Width (fins extended)"
     },
     {
      "label": "Height",
@@ -4870,7 +5289,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "ndsf-sentry-spec",
-     "comment": null
+     "comment": null,
+     "canon": "height"
     },
     {
      "label": "Mass in air",
@@ -4878,7 +5298,8 @@
      "unit": "kg",
      "basis": "operator_published",
      "source_id": "ndsf-sentry-spec",
-     "comment": "Without extra science gear."
+     "comment": "Without extra science gear.",
+     "canon": "mass_in_air"
     },
     {
      "label": "Range",
@@ -4889,7 +5310,8 @@
      "unit": "km",
      "basis": "operator_published",
      "source_id": "ndsf-sentry-spec",
-     "comment": "Depends on speed, terrain and payload."
+     "comment": "Depends on speed, terrain and payload.",
+     "canon": "range"
     },
     {
      "label": "Speed",
@@ -4900,7 +5322,8 @@
      "unit": "m/s",
      "basis": "operator_published",
      "source_id": "ndsf-sentry-spec",
-     "comment": null
+     "comment": null,
+     "canon": "speed"
     },
     {
      "label": "Endurance",
@@ -4908,7 +5331,8 @@
      "unit": null,
      "basis": "operator_published",
      "source_id": "ndsf-sentry-spec",
-     "comment": null
+     "comment": null,
+     "canon": "endurance"
     },
     {
      "label": "Power",
@@ -4916,7 +5340,8 @@
      "unit": null,
      "basis": "operator_published",
      "source_id": "ndsf-sentry-spec",
-     "comment": null
+     "comment": null,
+     "canon": "power"
     },
     {
      "label": "Recharge time",
@@ -4924,7 +5349,8 @@
      "unit": "h",
      "basis": "operator_published",
      "source_id": "ndsf-sentry-spec",
-     "comment": null
+     "comment": null,
+     "canon": "recharge_time"
     },
     {
      "label": "Navigation",
@@ -4932,11 +5358,13 @@
      "unit": null,
      "basis": "operator_published",
      "source_id": "ndsf-sentry-spec",
-     "comment": null
+     "comment": null,
+     "canon": "navigation"
     }
    ],
    "sensors": [
     {
+     "kind": "multibeam",
      "name": "Multibeam sonar (200/400 kHz)",
      "maker": "Kongsberg",
      "model": "EM2040",
@@ -4946,6 +5374,7 @@
      "source_id": "ndsf-sentry-sys"
     },
     {
+     "kind": "sidescan",
      "name": "Side-scan sonar (120/230/540 kHz)",
      "maker": "EdgeTech",
      "model": null,
@@ -4955,6 +5384,7 @@
      "source_id": "ndsf-sentry-sys"
     },
     {
+     "kind": "sub-bottom profiler",
      "name": "Chirp sub-bottom profiler (4-24 kHz)",
      "maker": "EdgeTech",
      "model": null,
@@ -4964,6 +5394,7 @@
      "source_id": "ndsf-sentry-sys"
     },
     {
+     "kind": "magnetometer",
      "name": "3-axis fluxgate magnetometers (×3)",
      "maker": "APS",
      "model": null,
@@ -4973,6 +5404,7 @@
      "source_id": "ndsf-sentry-sys"
     },
     {
+     "kind": "CTD",
      "name": "CTD",
      "maker": "Sea-Bird",
      "model": "SBE49",
@@ -4982,6 +5414,7 @@
      "source_id": "ndsf-sentry-sys"
     },
     {
+     "kind": "turbidity",
      "name": "Turbidity (OBS)",
      "maker": "Seapoint",
      "model": null,
@@ -4991,6 +5424,7 @@
      "source_id": "ndsf-sentry-sys"
     },
     {
+     "kind": "oxygen",
      "name": "Oxygen optode",
      "maker": "Aanderaa",
      "model": null,
@@ -5000,6 +5434,7 @@
      "source_id": "ndsf-sentry-sys"
     },
     {
+     "kind": "ORP",
      "name": "ORP sensor",
      "maker": "NOAA",
      "model": null,
@@ -5009,6 +5444,7 @@
      "source_id": "ndsf-sentry-sys"
     },
     {
+     "kind": "camera",
      "name": "Still camera (6,000 m)",
      "maker": "Prosilica",
      "model": "GE4000C",
@@ -5018,6 +5454,7 @@
      "source_id": "ndsf-sentry-sys"
     },
     {
+     "kind": "INS",
      "name": "INS",
      "maker": "iXblue",
      "model": "PHINS III",
@@ -5027,6 +5464,7 @@
      "source_id": "ndsf-sentry-sys"
     },
     {
+     "kind": "DVL",
      "name": "DVL",
      "maker": "Nortek",
      "model": "DVL500",
@@ -5090,7 +5528,26 @@
    },
    "countries": [
     "US"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Autonomous underwater vehicle: typically pre-programmed and supervised during the mission.",
+   "other_specs": [],
+   "depth_rating_m": {
+    "value": 6000,
+    "unit": "m",
+    "basis": "operator_published",
+    "source_id": "ndsf-sentry-spec",
+    "comment": null
+   },
+   "endurance": {
+    "value": null,
+    "unit": null,
+    "basis": "operator_published",
+    "source_id": "ndsf-sentry-spec",
+    "comment": null,
+    "text": "~23 h multibeam at 1 m/s; >30 h camera survey at 0.6 m/s"
+   },
+   "survey_speed_kn": null
   },
   {
    "platform_id": "whoi-ndsf-waveglider",
@@ -5118,12 +5575,14 @@
    "status_basis": "Listed as a current vehicle on the operator's own pages (checked 2026-11-26); no dated use was checked for this record.",
    "specs": [
     {
-     "label": "Average speed",
+     "label": "Speed",
      "value": 1.5,
      "unit": "kn",
      "basis": "operator_published",
      "source_id": "ndsf-waveglider",
-     "comment": null
+     "comment": null,
+     "canon": "speed",
+     "original_label": "Average speed"
     },
     {
      "label": "Propulsion",
@@ -5131,7 +5590,8 @@
      "unit": null,
      "basis": "operator_published",
      "source_id": "ndsf-waveglider",
-     "comment": null
+     "comment": null,
+     "canon": "propulsion"
     },
     {
      "label": "Power",
@@ -5139,7 +5599,8 @@
      "unit": null,
      "basis": "operator_published",
      "source_id": "ndsf-waveglider",
-     "comment": null
+     "comment": null,
+     "canon": "power"
     },
     {
      "label": "Comms",
@@ -5147,7 +5608,8 @@
      "unit": null,
      "basis": "operator_published",
      "source_id": "ndsf-waveglider",
-     "comment": null
+     "comment": null,
+     "canon": "comms"
     }
    ],
    "sensors": [],
@@ -5190,7 +5652,13 @@
    },
    "countries": [
     "US"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Uncrewed surface vehicle: typically supervised from shore or a support ship.",
+   "other_specs": [],
+   "depth_rating_m": null,
+   "endurance": null,
+   "survey_speed_kn": null
   },
   {
    "platform_id": "whoi-remus-100",
@@ -5223,7 +5691,8 @@
      "unit": "m",
      "basis": "operator_published_class_level",
      "source_id": "whoi-remus",
-     "comment": null
+     "comment": null,
+     "canon": "depth_rating"
     },
     {
      "label": "Diameter",
@@ -5231,7 +5700,8 @@
      "unit": "m",
      "basis": "operator_published_class_level",
      "source_id": "whoi-remus",
-     "comment": null
+     "comment": null,
+     "canon": "diameter"
     },
     {
      "label": "Mass in air",
@@ -5239,7 +5709,8 @@
      "unit": "kg",
      "basis": "operator_published_class_level",
      "source_id": "whoi-remus",
-     "comment": "About 37 kg; varies with payload."
+     "comment": "About 37 kg; varies with payload.",
+     "canon": "mass_in_air"
     },
     {
      "label": "Length",
@@ -5247,7 +5718,8 @@
      "unit": "m",
      "basis": "operator_published_class_level",
      "source_id": "whoi-remus",
-     "comment": "Starts at 160 cm; varies with payload."
+     "comment": "Starts at 160 cm; varies with payload.",
+     "canon": "length"
     },
     {
      "label": "Range",
@@ -5255,7 +5727,8 @@
      "unit": "km",
      "basis": "operator_published_class_level",
      "source_id": "whoi-remus",
-     "comment": "At 3 kn."
+     "comment": "At 3 kn.",
+     "canon": "range"
     }
    ],
    "sensors": [],
@@ -5300,7 +5773,19 @@
    },
    "countries": [
     "US"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Autonomous underwater vehicle: typically pre-programmed and supervised during the mission.",
+   "other_specs": [],
+   "depth_rating_m": {
+    "value": 100,
+    "unit": "m",
+    "basis": "operator_published_class_level",
+    "source_id": "whoi-remus",
+    "comment": null
+   },
+   "endurance": null,
+   "survey_speed_kn": null
   },
   {
    "platform_id": "whoi-remus-600",
@@ -5333,7 +5818,8 @@
      "unit": "m",
      "basis": "operator_published_class_level",
      "source_id": "whoi-remus",
-     "comment": null
+     "comment": null,
+     "canon": "depth_rating"
     },
     {
      "label": "Endurance",
@@ -5341,7 +5827,8 @@
      "unit": "h",
      "basis": "operator_published_class_level",
      "source_id": "whoi-remus",
-     "comment": "\"Nearly 70 hours\"."
+     "comment": "\"Nearly 70 hours\".",
+     "canon": "endurance"
     },
     {
      "label": "Speed",
@@ -5349,7 +5836,8 @@
      "unit": "kn",
      "basis": "operator_published_class_level",
      "source_id": "whoi-remus",
-     "comment": "Up to 5 kn."
+     "comment": "Up to 5 kn.",
+     "canon": "speed"
     },
     {
      "label": "Range",
@@ -5357,7 +5845,8 @@
      "unit": "nmi",
      "basis": "operator_published_class_level",
      "source_id": "whoi-remus",
-     "comment": null
+     "comment": null,
+     "canon": "range"
     }
    ],
    "sensors": [],
@@ -5402,7 +5891,26 @@
    },
    "countries": [
     "US"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Autonomous underwater vehicle: typically pre-programmed and supervised during the mission.",
+   "other_specs": [],
+   "depth_rating_m": {
+    "value": 600,
+    "unit": "m",
+    "basis": "operator_published_class_level",
+    "source_id": "whoi-remus",
+    "comment": null
+   },
+   "endurance": {
+    "value": 70,
+    "unit": "h",
+    "basis": "operator_published_class_level",
+    "source_id": "whoi-remus",
+    "comment": "\"Nearly 70 hours\".",
+    "text": null
+   },
+   "survey_speed_kn": null
   },
   {
    "platform_id": "whoi-remus-6000",
@@ -5438,7 +5946,8 @@
      "unit": "m",
      "basis": "operator_published_class_level",
      "source_id": "whoi-remus",
-     "comment": "Operating range 25 m to 6,000 m."
+     "comment": "Operating range 25 m to 6,000 m.",
+     "canon": "depth_rating"
     }
    ],
    "sensors": [],
@@ -5483,7 +5992,22 @@
    },
    "countries": [
     "US"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Autonomous underwater vehicle: typically pre-programmed and supervised during the mission.",
+   "other_specs": [],
+   "depth_rating_m": {
+    "value": [
+     25,
+     6000
+    ],
+    "unit": "m",
+    "basis": "operator_published_class_level",
+    "source_id": "whoi-remus",
+    "comment": "Operating range 25 m to 6,000 m."
+   },
+   "endurance": null,
+   "survey_speed_kn": null
   },
   {
    "platform_id": "whoi-mesobot",
@@ -5516,7 +6040,8 @@
      "unit": "h",
      "basis": "operator_published",
      "source_id": "whoi-mesobot",
-     "comment": "\"Greater than 24 hours using lithium-ion batteries\"."
+     "comment": "\"Greater than 24 hours using lithium-ion batteries\".",
+     "canon": "endurance"
     },
     {
      "label": "Length",
@@ -5524,7 +6049,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "whoi-mesobot",
-     "comment": null
+     "comment": null,
+     "canon": "length"
     },
     {
      "label": "Height",
@@ -5532,7 +6058,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "whoi-mesobot",
-     "comment": null
+     "comment": null,
+     "canon": "height"
     },
     {
      "label": "Width",
@@ -5540,7 +6067,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "whoi-mesobot",
-     "comment": null
+     "comment": null,
+     "canon": "width"
     },
     {
      "label": "Mass in air",
@@ -5548,15 +6076,18 @@
      "unit": "kg",
      "basis": "operator_published",
      "source_id": "whoi-mesobot",
-     "comment": null
+     "comment": null,
+     "canon": "mass_in_air"
     },
     {
-     "label": "Added payload",
+     "label": "Payload",
      "value": 20,
      "unit": "kg",
      "basis": "operator_published",
      "source_id": "whoi-mesobot",
-     "comment": null
+     "comment": null,
+     "canon": "payload",
+     "original_label": "Added payload"
     },
     {
      "label": "Modes",
@@ -5564,11 +6095,13 @@
      "unit": null,
      "basis": "operator_published",
      "source_id": "whoi-mesobot",
-     "comment": null
+     "comment": null,
+     "canon": "modes"
     }
    ],
    "sensors": [
     {
+     "kind": "camera",
      "name": "Stereo monochrome cameras (×2)",
      "maker": null,
      "model": null,
@@ -5578,6 +6111,7 @@
      "source_id": "whoi-mesobot"
     },
     {
+     "kind": "video",
      "name": "4K colour video/still camera",
      "maker": null,
      "model": null,
@@ -5587,6 +6121,7 @@
      "source_id": "whoi-mesobot"
     },
     {
+     "kind": "eDNA sampler",
      "name": "eDNA sampling",
      "maker": null,
      "model": null,
@@ -5639,7 +6174,20 @@
    },
    "countries": [
     "US"
-   ]
+   ],
+   "autonomy": "remotely operated",
+   "autonomy_basis": "Hybrid ROV/AUV: typically ship-piloted, with a documented autonomous mode. Recorded as remotely operated, the usual working mode.",
+   "other_specs": [],
+   "depth_rating_m": null,
+   "endurance": {
+    "value": 24,
+    "unit": "h",
+    "basis": "operator_published",
+    "source_id": "whoi-mesobot",
+    "comment": "\"Greater than 24 hours using lithium-ion batteries\".",
+    "text": null
+   },
+   "survey_speed_kn": null
   },
   {
    "platform_id": "whoi-nui",
@@ -5674,7 +6222,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "whoi-nui-spec",
-     "comment": null
+     "comment": null,
+     "canon": "depth_rating"
     },
     {
      "label": "Mass in air",
@@ -5682,7 +6231,8 @@
      "unit": "kg",
      "basis": "operator_published",
      "source_id": "whoi-nui-spec",
-     "comment": null
+     "comment": null,
+     "canon": "mass_in_air"
     },
     {
      "label": "Energy",
@@ -5690,7 +6240,8 @@
      "unit": null,
      "basis": "operator_published",
      "source_id": "whoi-nui-spec",
-     "comment": null
+     "comment": null,
+     "canon": "energy"
     },
     {
      "label": "Range",
@@ -5701,7 +6252,8 @@
      "unit": "km",
      "basis": "operator_published",
      "source_id": "whoi-nui-spec",
-     "comment": "Depends on activity."
+     "comment": "Depends on activity.",
+     "canon": "range"
     },
     {
      "label": "Speed",
@@ -5712,7 +6264,8 @@
      "unit": "m/s",
      "basis": "operator_published",
      "source_id": "whoi-nui-spec",
-     "comment": "Typical survey/transit."
+     "comment": "Typical survey/transit.",
+     "canon": "speed"
     },
     {
      "label": "Tether",
@@ -5720,19 +6273,23 @@
      "unit": null,
      "basis": "operator_published",
      "source_id": "whoi-nui-spec",
-     "comment": null
+     "comment": null,
+     "canon": "tether"
     },
     {
-     "label": "Manipulator",
+     "label": "Manipulators",
      "value": "Kraft 7-function",
      "unit": null,
      "basis": "operator_published",
      "source_id": "whoi-nui-spec",
-     "comment": null
+     "comment": null,
+     "canon": "manipulators",
+     "original_label": "Manipulator"
     }
    ],
    "sensors": [
     {
+     "kind": "multibeam",
      "name": "Multibeam (200-700 kHz)",
      "maker": "Nortek",
      "model": "WBMS Long Range",
@@ -5742,6 +6299,7 @@
      "source_id": "whoi-nui-spec"
     },
     {
+     "kind": "sub-bottom profiler",
      "name": "Sub-bottom profiler",
      "maker": "EdgeTech",
      "model": "2205",
@@ -5751,6 +6309,7 @@
      "source_id": "whoi-nui-spec"
     },
     {
+     "kind": "CTD",
      "name": "Pumped CTD",
      "maker": "Sea-Bird",
      "model": "FastCAT 49",
@@ -5760,6 +6319,7 @@
      "source_id": "whoi-nui-spec"
     },
     {
+     "kind": "fluorometer",
      "name": "Chl/backscatter fluorometer",
      "maker": "WET Labs",
      "model": "FLNTURTD",
@@ -5769,6 +6329,7 @@
      "source_id": "whoi-nui-spec"
     },
     {
+     "kind": "methane",
      "name": "Methane sensor",
      "maker": null,
      "model": "METS",
@@ -5778,6 +6339,7 @@
      "source_id": "whoi-nui-spec"
     },
     {
+     "kind": "ORP",
      "name": "Redox probe",
      "maker": "AMT",
      "model": null,
@@ -5787,6 +6349,7 @@
      "source_id": "whoi-nui-spec"
     },
     {
+     "kind": "INS",
      "name": "INS",
      "maker": "iXsea",
      "model": "PHINS",
@@ -5829,7 +6392,19 @@
    },
    "countries": [
     "US"
-   ]
+   ],
+   "autonomy": "remotely operated",
+   "autonomy_basis": "Hybrid ROV/AUV: typically ship-piloted, with a documented autonomous mode. Recorded as remotely operated, the usual working mode.",
+   "other_specs": [],
+   "depth_rating_m": {
+    "value": 5000,
+    "unit": "m",
+    "basis": "operator_published",
+    "source_id": "whoi-nui-spec",
+    "comment": null
+   },
+   "endurance": null,
+   "survey_speed_kn": null
   },
   {
    "platform_id": "whoi-deep-venture",
@@ -5864,7 +6439,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "whoi-deepventure",
-     "comment": null
+     "comment": null,
+     "canon": "depth_rating"
     },
     {
      "label": "Mass in air",
@@ -5872,7 +6448,8 @@
      "unit": "kg",
      "basis": "operator_published",
      "source_id": "whoi-deepventure",
-     "comment": null
+     "comment": null,
+     "canon": "mass_in_air"
     },
     {
      "label": "Length",
@@ -5880,7 +6457,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "whoi-deepventure",
-     "comment": "Page says \"8m x 1.0m x 1.3m (70.9 x 39 x 51 inches)\"; 70.9 in is 1.8 m, so \"8m\" looks like a typo. Flag for WHOI."
+     "comment": "Page says \"8m x 1.0m x 1.3m (70.9 x 39 x 51 inches)\"; 70.9 in is 1.8 m, so \"8m\" looks like a typo. Flag for WHOI.",
+     "canon": "length"
     },
     {
      "label": "Width",
@@ -5888,7 +6466,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "whoi-deepventure",
-     "comment": null
+     "comment": null,
+     "canon": "width"
     },
     {
      "label": "Height",
@@ -5896,7 +6475,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "whoi-deepventure",
-     "comment": null
+     "comment": null,
+     "canon": "height"
     }
    ],
    "sensors": [],
@@ -5933,7 +6513,19 @@
     "confidence": "medium",
     "gaps": []
    },
-   "countries": []
+   "countries": [],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Autonomous underwater vehicle: typically pre-programmed and supervised during the mission.",
+   "other_specs": [],
+   "depth_rating_m": {
+    "value": 11000,
+    "unit": "m",
+    "basis": "operator_published",
+    "source_id": "whoi-deepventure",
+    "comment": null
+   },
+   "endurance": null,
+   "survey_speed_kn": null
   },
   {
    "platform_id": "whoi-spray",
@@ -5966,7 +6558,8 @@
      "unit": "m",
      "basis": "operator_published_class_level",
      "source_id": "whoi-olh-uv",
-     "comment": "\"Can dive to depths of over 1,000 meters\"."
+     "comment": "\"Can dive to depths of over 1,000 meters\".",
+     "canon": "depth_rating"
     },
     {
      "label": "Endurance",
@@ -5974,11 +6567,13 @@
      "unit": null,
      "basis": "operator_published_class_level",
      "source_id": "whoi-spray",
-     "comment": null
+     "comment": null,
+     "canon": "endurance"
     }
    ],
    "sensors": [
     {
+     "kind": "CTD",
      "name": "CTD",
      "maker": null,
      "model": null,
@@ -5988,6 +6583,7 @@
      "source_id": "whoi-spray"
     },
     {
+     "kind": "fluorometer",
      "name": "Chlorophyll fluorometer (optional)",
      "maker": null,
      "model": null,
@@ -5997,6 +6593,7 @@
      "source_id": "whoi-spray"
     },
     {
+     "kind": "oxygen",
      "name": "Oxygen (optional)",
      "maker": null,
      "model": null,
@@ -6006,6 +6603,7 @@
      "source_id": "whoi-spray"
     },
     {
+     "kind": "ADCP",
      "name": "ADCP (optional)",
      "maker": null,
      "model": null,
@@ -6050,7 +6648,26 @@
    },
    "countries": [
     "US"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Underwater glider: follows a programmed path and is supervised from shore.",
+   "other_specs": [],
+   "depth_rating_m": {
+    "value": 1000,
+    "unit": "m",
+    "basis": "operator_published_class_level",
+    "source_id": "whoi-olh-uv",
+    "comment": "\"Can dive to depths of over 1,000 meters\"."
+   },
+   "endurance": {
+    "value": null,
+    "unit": null,
+    "basis": "operator_published_class_level",
+    "source_id": "whoi-spray",
+    "comment": null,
+    "text": "up to six months"
+   },
+   "survey_speed_kn": null
   },
   {
    "platform_id": "whoi-slocum",
@@ -6112,7 +6729,13 @@
    },
    "countries": [
     "US"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Underwater glider: follows a programmed path and is supervised from shore.",
+   "other_specs": [],
+   "depth_rating_m": null,
+   "endurance": null,
+   "survey_speed_kn": null
   },
   {
    "platform_id": "whoi-dsl120a",
@@ -6145,7 +6768,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "whoi-dsl120a-spec",
-     "comment": null
+     "comment": null,
+     "canon": "depth_rating"
     },
     {
      "label": "Towfish mass in air",
@@ -6153,7 +6777,8 @@
      "unit": "kg",
      "basis": "operator_published",
      "source_id": "whoi-dsl120a-spec",
-     "comment": "Approximate."
+     "comment": "Approximate.",
+     "canon": "mass_in_air_towfish"
     },
     {
      "label": "Sonar frequency",
@@ -6161,7 +6786,8 @@
      "unit": "kHz",
      "basis": "operator_published",
      "source_id": "whoi-dsl120a-spec",
-     "comment": null
+     "comment": null,
+     "canon": "sonar_frequency"
     }
    ],
    "sensors": [],
@@ -6200,7 +6826,19 @@
    },
    "countries": [
     "US"
-   ]
+   ],
+   "autonomy": "remotely operated",
+   "autonomy_basis": "Towed vehicle or sled, controlled from the towing ship.",
+   "other_specs": [],
+   "depth_rating_m": {
+    "value": 6000,
+    "unit": "m",
+    "basis": "operator_published",
+    "source_id": "whoi-dsl120a-spec",
+    "comment": null
+   },
+   "endurance": null,
+   "survey_speed_kn": null
   },
   {
    "platform_id": "whoi-towcam",
@@ -6233,15 +6871,18 @@
      "unit": "lb",
      "basis": "operator_published",
      "source_id": "whoi-towcam",
-     "comment": "System weight in water, roughly."
+     "comment": "System weight in water, roughly.",
+     "canon": "wet_weight"
     },
     {
-     "label": "Cable",
+     "label": "Tether",
      "value": "Standard 0.322 in coaxial CTD cable (any UNOLS ship)",
      "unit": null,
      "basis": "operator_published",
      "source_id": "whoi-towcam",
-     "comment": null
+     "comment": null,
+     "canon": "tether",
+     "original_label": "Cable"
     },
     {
      "label": "Samplers",
@@ -6249,11 +6890,13 @@
      "unit": null,
      "basis": "operator_published",
      "source_id": "whoi-towcam",
-     "comment": null
+     "comment": null,
+     "canon": "samplers"
     }
    ],
    "sensors": [
     {
+     "kind": "CTD",
      "name": "CTD",
      "maker": "Sea-Bird",
      "model": "SBE25",
@@ -6297,7 +6940,13 @@
    },
    "countries": [
     "US"
-   ]
+   ],
+   "autonomy": "remotely operated",
+   "autonomy_basis": "Towed vehicle or sled, controlled from the towing ship.",
+   "other_specs": [],
+   "depth_rating_m": null,
+   "endurance": null,
+   "survey_speed_kn": null
   },
   {
    "platform_id": "rucool-codar",
@@ -6369,7 +7018,13 @@
    },
    "countries": [
     "US"
-   ]
+   ],
+   "autonomy": "fully autonomous",
+   "autonomy_basis": "Shore-based HF radar network; operates unattended. This is infrastructure, not a vehicle — flagged for review.",
+   "other_specs": [],
+   "depth_rating_m": null,
+   "endurance": null,
+   "survey_speed_kn": null
   },
   {
    "platform_id": "rucool-uas",
@@ -6431,7 +7086,13 @@
    },
    "countries": [
     "US"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Uncrewed aerial vehicle: typically supervised in flight.",
+   "other_specs": [],
+   "depth_rating_m": null,
+   "endurance": null,
+   "survey_speed_kn": null
   },
   {
    "platform_id": "ifremer-nautile",
@@ -6464,7 +7125,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "fof-nautile",
-     "comment": null
+     "comment": null,
+     "canon": "depth_rating"
     },
     {
      "label": "Crew",
@@ -6472,15 +7134,18 @@
      "unit": "people",
      "basis": "operator_published",
      "source_id": "fof-nautile",
-     "comment": null
+     "comment": null,
+     "canon": "crew"
     },
     {
-     "label": "Dive duration",
+     "label": "Endurance",
      "value": 8,
      "unit": "h",
      "basis": "operator_published",
      "source_id": "fof-nautile",
-     "comment": "Up to 8 h, of which 6 h working on the bottom."
+     "comment": "Up to 8 h, of which 6 h working on the bottom.",
+     "canon": "endurance",
+     "original_label": "Dive duration"
     },
     {
      "label": "Mass in air",
@@ -6488,7 +7153,8 @@
      "unit": "t",
      "basis": "secondary_published",
      "source_id": "onisep-ifr-table",
-     "comment": null
+     "comment": null,
+     "canon": "mass_in_air"
     },
     {
      "label": "Length",
@@ -6496,7 +7162,8 @@
      "unit": "m",
      "basis": "secondary_published",
      "source_id": "onisep-ifr-table",
-     "comment": null
+     "comment": null,
+     "canon": "length"
     },
     {
      "label": "Speed",
@@ -6504,7 +7171,8 @@
      "unit": "kn",
      "basis": "secondary_published",
      "source_id": "onisep-ifr-table",
-     "comment": null
+     "comment": null,
+     "canon": "speed"
     },
     {
      "label": "Energy",
@@ -6512,7 +7180,8 @@
      "unit": null,
      "basis": "secondary_published",
      "source_id": "onisep-ifr-table",
-     "comment": null
+     "comment": null,
+     "canon": "energy"
     },
     {
      "label": "Support-ship requirement",
@@ -6520,7 +7189,8 @@
      "unit": null,
      "basis": "operator_published",
      "source_id": "fof-nautile",
-     "comment": null
+     "comment": null,
+     "canon": "support_ship_requirement"
     }
    ],
    "sensors": [],
@@ -6574,7 +7244,26 @@
    },
    "countries": [
     "FR"
-   ]
+   ],
+   "autonomy": "crewed",
+   "autonomy_basis": "Human-occupied vehicle: a person is on board during the dive.",
+   "other_specs": [],
+   "depth_rating_m": {
+    "value": 6000,
+    "unit": "m",
+    "basis": "operator_published",
+    "source_id": "fof-nautile",
+    "comment": null
+   },
+   "endurance": {
+    "value": 8,
+    "unit": "h",
+    "basis": "operator_published",
+    "source_id": "fof-nautile",
+    "comment": "Up to 8 h, of which 6 h working on the bottom.",
+    "text": null
+   },
+   "survey_speed_kn": null
   },
   {
    "platform_id": "ifremer-victor6000",
@@ -6607,7 +7296,8 @@
      "unit": "m",
      "basis": "secondary_published",
      "source_id": "onisep-ifr-table",
-     "comment": null
+     "comment": null,
+     "canon": "depth_rating"
     },
     {
      "label": "Mass in air",
@@ -6615,7 +7305,8 @@
      "unit": "t",
      "basis": "secondary_published",
      "source_id": "onisep-ifr-table",
-     "comment": null
+     "comment": null,
+     "canon": "mass_in_air"
     },
     {
      "label": "Speed",
@@ -6623,7 +7314,8 @@
      "unit": "kn",
      "basis": "secondary_published",
      "source_id": "onisep-ifr-table",
-     "comment": null
+     "comment": null,
+     "canon": "speed"
     },
     {
      "label": "Endurance",
@@ -6631,7 +7323,8 @@
      "unit": null,
      "basis": "secondary_published",
      "source_id": "onisep-ifr-table",
-     "comment": null
+     "comment": null,
+     "canon": "endurance"
     },
     {
      "label": "Tether",
@@ -6639,7 +7332,8 @@
      "unit": null,
      "basis": "secondary_published",
      "source_id": "onisep-ifr-table",
-     "comment": null
+     "comment": null,
+     "canon": "tether"
     },
     {
      "label": "Manipulators",
@@ -6647,7 +7341,8 @@
      "unit": null,
      "basis": "secondary_published",
      "source_id": "onisep-ifr-table",
-     "comment": null
+     "comment": null,
+     "canon": "manipulators"
     }
    ],
    "sensors": [],
@@ -6694,7 +7389,26 @@
    },
    "countries": [
     "FR"
-   ]
+   ],
+   "autonomy": "remotely operated",
+   "autonomy_basis": "Remotely operated vehicle, piloted from a support ship or from shore.",
+   "other_specs": [],
+   "depth_rating_m": {
+    "value": 6000,
+    "unit": "m",
+    "basis": "secondary_published",
+    "source_id": "onisep-ifr-table",
+    "comment": null
+   },
+   "endurance": {
+    "value": null,
+    "unit": null,
+    "basis": "secondary_published",
+    "source_id": "onisep-ifr-table",
+    "comment": null,
+    "text": "up to 100 h"
+   },
+   "survey_speed_kn": null
   },
   {
    "platform_id": "ifremer-ariane",
@@ -6727,7 +7441,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "fof-ariane",
-     "comment": null
+     "comment": null,
+     "canon": "depth_rating"
     },
     {
      "label": "Mass in air",
@@ -6735,7 +7450,8 @@
      "unit": "kg",
      "basis": "secondary_published",
      "source_id": "onisep-ifr-table",
-     "comment": null
+     "comment": null,
+     "canon": "mass_in_air"
     },
     {
      "label": "Speed",
@@ -6746,7 +7462,8 @@
      "unit": "kn",
      "basis": "secondary_published",
      "source_id": "onisep-ifr-table",
-     "comment": null
+     "comment": null,
+     "canon": "speed"
     },
     {
      "label": "Endurance",
@@ -6757,7 +7474,8 @@
      "unit": "h",
      "basis": "secondary_published",
      "source_id": "onisep-ifr-table",
-     "comment": null
+     "comment": null,
+     "canon": "endurance"
     },
     {
      "label": "Energy",
@@ -6765,7 +7483,8 @@
      "unit": null,
      "basis": "secondary_published",
      "source_id": "onisep-ifr-table",
-     "comment": null
+     "comment": null,
+     "canon": "energy"
     },
     {
      "label": "Manipulators",
@@ -6773,7 +7492,8 @@
      "unit": null,
      "basis": "secondary_published",
      "source_id": "onisep-ifr-table",
-     "comment": null
+     "comment": null,
+     "canon": "manipulators"
     }
    ],
    "sensors": [],
@@ -6818,7 +7538,29 @@
    },
    "countries": [
     "FR"
-   ]
+   ],
+   "autonomy": "remotely operated",
+   "autonomy_basis": "Hybrid ROV/AUV: typically ship-piloted, with a documented autonomous mode. Recorded as remotely operated, the usual working mode.",
+   "other_specs": [],
+   "depth_rating_m": {
+    "value": 2500,
+    "unit": "m",
+    "basis": "operator_published",
+    "source_id": "fof-ariane",
+    "comment": null
+   },
+   "endurance": {
+    "value": [
+     4,
+     8
+    ],
+    "unit": "h",
+    "basis": "secondary_published",
+    "source_id": "onisep-ifr-table",
+    "comment": null,
+    "text": null
+   },
+   "survey_speed_kn": null
   },
   {
    "platform_id": "ifremer-ulyx",
@@ -6851,7 +7593,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "fof-ulyx",
-     "comment": null
+     "comment": null,
+     "canon": "depth_rating"
     },
     {
      "label": "Range",
@@ -6859,7 +7602,8 @@
      "unit": null,
      "basis": "operator_published",
      "source_id": "fof-ulyx",
-     "comment": null
+     "comment": null,
+     "canon": "range"
     },
     {
      "label": "Mapping coverage",
@@ -6867,7 +7611,8 @@
      "unit": "km²",
      "basis": "operator_published",
      "source_id": "fof-ulyx",
-     "comment": "Per dive, route mode."
+     "comment": "Per dive, route mode.",
+     "canon": "mapping_coverage"
     },
     {
      "label": "Mass in air",
@@ -6875,7 +7620,8 @@
      "unit": "t",
      "basis": "secondary_published",
      "source_id": "onisep-ifr-table",
-     "comment": null
+     "comment": null,
+     "canon": "mass_in_air"
     },
     {
      "label": "Speed",
@@ -6886,7 +7632,8 @@
      "unit": "kn",
      "basis": "secondary_published",
      "source_id": "onisep-ifr-table",
-     "comment": null
+     "comment": null,
+     "canon": "speed"
     },
     {
      "label": "Energy",
@@ -6894,11 +7641,13 @@
      "unit": null,
      "basis": "secondary_published",
      "source_id": "onisep-ifr-table",
-     "comment": null
+     "comment": null,
+     "canon": "energy"
     }
    ],
    "sensors": [
     {
+     "kind": "multibeam",
      "name": "Multibeam echosounder",
      "maker": null,
      "model": null,
@@ -6908,6 +7657,7 @@
      "source_id": "fof-ulyx"
     },
     {
+     "kind": "synthetic aperture sonar",
      "name": "Synthetic-aperture imaging sonar",
      "maker": null,
      "model": null,
@@ -6961,7 +7711,19 @@
    },
    "countries": [
     "FR"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Autonomous underwater vehicle: typically pre-programmed and supervised during the mission.",
+   "other_specs": [],
+   "depth_rating_m": {
+    "value": 6000,
+    "unit": "m",
+    "basis": "operator_published",
+    "source_id": "fof-ulyx",
+    "comment": null
+   },
+   "endurance": null,
+   "survey_speed_kn": null
   },
   {
    "platform_id": "ifremer-asterx-idefx",
@@ -6994,7 +7756,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "fof-asterx",
-     "comment": "IdefX 2,850 m; AsterX 2,650 m (Ifremer table)."
+     "comment": "IdefX 2,850 m; AsterX 2,650 m (Ifremer table).",
+     "canon": "depth_rating"
     },
     {
      "label": "Profile length",
@@ -7002,7 +7765,8 @@
      "unit": "km",
      "basis": "operator_published",
      "source_id": "fof-asterx",
-     "comment": "Up to."
+     "comment": "Up to.",
+     "canon": "profile_length"
     },
     {
      "label": "Mass in air",
@@ -7010,7 +7774,8 @@
      "unit": "kg",
      "basis": "secondary_published",
      "source_id": "onisep-ifr-table",
-     "comment": null
+     "comment": null,
+     "canon": "mass_in_air"
     },
     {
      "label": "Length",
@@ -7018,7 +7783,8 @@
      "unit": "m",
      "basis": "secondary_published",
      "source_id": "onisep-ifr-table",
-     "comment": null
+     "comment": null,
+     "canon": "length"
     },
     {
      "label": "Diameter",
@@ -7026,7 +7792,8 @@
      "unit": "m",
      "basis": "secondary_published",
      "source_id": "onisep-ifr-table",
-     "comment": null
+     "comment": null,
+     "canon": "diameter"
     },
     {
      "label": "Speed",
@@ -7037,7 +7804,8 @@
      "unit": "kn",
      "basis": "secondary_published",
      "source_id": "onisep-ifr-table",
-     "comment": null
+     "comment": null,
+     "canon": "speed"
     },
     {
      "label": "Endurance",
@@ -7045,7 +7813,8 @@
      "unit": "h",
      "basis": "secondary_published",
      "source_id": "onisep-ifr-table",
-     "comment": null
+     "comment": null,
+     "canon": "endurance"
     },
     {
      "label": "Track record",
@@ -7053,11 +7822,13 @@
      "unit": null,
      "basis": "operator_published",
      "source_id": "fof-asterx",
-     "comment": null
+     "comment": null,
+     "canon": "track_record"
     }
    ],
    "sensors": [
     {
+     "kind": "multibeam",
      "name": "Multibeam echosounder",
      "maker": null,
      "model": null,
@@ -7067,6 +7838,7 @@
      "source_id": "fof-asterx"
     },
     {
+     "kind": "sub-bottom profiler",
      "name": "Sediment sounder",
      "maker": null,
      "model": null,
@@ -7076,6 +7848,7 @@
      "source_id": "fof-asterx"
     },
     {
+     "kind": "ADCP",
      "name": "Current profiler",
      "maker": null,
      "model": null,
@@ -7085,6 +7858,7 @@
      "source_id": "fof-asterx"
     },
     {
+     "kind": "CTD",
      "name": "CTD",
      "maker": null,
      "model": null,
@@ -7094,6 +7868,7 @@
      "source_id": "fof-asterx"
     },
     {
+     "kind": "magnetometer",
      "name": "Magnetometer",
      "maker": null,
      "model": null,
@@ -7144,7 +7919,26 @@
    },
    "countries": [
     "FR"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Autonomous underwater vehicle: typically pre-programmed and supervised during the mission.",
+   "other_specs": [],
+   "depth_rating_m": {
+    "value": 2850,
+    "unit": "m",
+    "basis": "operator_published",
+    "source_id": "fof-asterx",
+    "comment": "IdefX 2,850 m; AsterX 2,650 m (Ifremer table)."
+   },
+   "endurance": {
+    "value": 16,
+    "unit": "h",
+    "basis": "secondary_published",
+    "source_id": "onisep-ifr-table",
+    "comment": null,
+    "text": null
+   },
+   "survey_speed_kn": null
   },
   {
    "platform_id": "noc-alr",
@@ -7180,7 +7974,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "noc-alr",
-     "comment": null
+     "comment": null,
+     "canon": "depth_rating"
     },
     {
      "label": "Range",
@@ -7188,7 +7983,8 @@
      "unit": "km",
      "basis": "operator_published",
      "source_id": "noc-alr",
-     "comment": null
+     "comment": null,
+     "canon": "range"
     },
     {
      "label": "Comms",
@@ -7196,7 +7992,8 @@
      "unit": null,
      "basis": "operator_published",
      "source_id": "noc-alr",
-     "comment": null
+     "comment": null,
+     "canon": "comms"
     }
    ],
    "sensors": [],
@@ -7250,7 +8047,19 @@
    },
    "countries": [
     "GB"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Autonomous underwater vehicle: typically pre-programmed and supervised during the mission.",
+   "other_specs": [],
+   "depth_rating_m": {
+    "value": 6000,
+    "unit": "m",
+    "basis": "operator_published",
+    "source_id": "noc-alr",
+    "comment": null
+   },
+   "endurance": null,
+   "survey_speed_kn": null
   },
   {
    "platform_id": "noc-autosub5",
@@ -7285,7 +8094,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "noc-auv",
-     "comment": "NOC: both Autosub systems can dive to 6,000 m."
+     "comment": "NOC: both Autosub systems can dive to 6,000 m.",
+     "canon": "depth_rating"
     },
     {
      "label": "Data handling",
@@ -7293,11 +8103,13 @@
      "unit": null,
      "basis": "operator_published",
      "source_id": "noc-a5",
-     "comment": null
+     "comment": null,
+     "canon": "data_handling"
     }
    ],
    "sensors": [
     {
+     "kind": "eDNA sampler",
      "name": "RoCSI eDNA sampler",
      "maker": "NOC",
      "model": null,
@@ -7350,7 +8162,19 @@
    },
    "countries": [
     "GB"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Autonomous underwater vehicle: typically pre-programmed and supervised during the mission.",
+   "other_specs": [],
+   "depth_rating_m": {
+    "value": 6000,
+    "unit": "m",
+    "basis": "operator_published",
+    "source_id": "noc-auv",
+    "comment": "NOC: both Autosub systems can dive to 6,000 m."
+   },
+   "endurance": null,
+   "survey_speed_kn": null
   },
   {
    "platform_id": "noc-isis",
@@ -7383,7 +8207,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "noc-rov",
-     "comment": null
+     "comment": null,
+     "canon": "depth_rating"
     },
     {
      "label": "Mass in air",
@@ -7391,7 +8216,8 @@
      "unit": "kg",
      "basis": "operator_published",
      "source_id": "noc-rov",
-     "comment": null
+     "comment": null,
+     "canon": "mass_in_air"
     },
     {
      "label": "Launch and recovery",
@@ -7399,7 +8225,8 @@
      "unit": null,
      "basis": "operator_published",
      "source_id": "noc-rov",
-     "comment": null
+     "comment": null,
+     "canon": "launch_and_recovery"
     }
    ],
    "sensors": [],
@@ -7441,7 +8268,19 @@
    },
    "countries": [
     "GB"
-   ]
+   ],
+   "autonomy": "remotely operated",
+   "autonomy_basis": "Remotely operated vehicle, piloted from a support ship or from shore.",
+   "other_specs": [],
+   "depth_rating_m": {
+    "value": 6500,
+    "unit": "m",
+    "basis": "operator_published",
+    "source_id": "noc-rov",
+    "comment": null
+   },
+   "endurance": null,
+   "survey_speed_kn": null
   },
   {
    "platform_id": "noc-hybis",
@@ -7474,15 +8313,18 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "noc-rov",
-     "comment": null
+     "comment": null,
+     "canon": "depth_rating"
     },
     {
-     "label": "Payload (deploy/recover)",
+     "label": "Payload",
      "value": 700,
      "unit": "kg",
      "basis": "operator_published",
      "source_id": "noc-rov",
-     "comment": null
+     "comment": null,
+     "canon": "payload",
+     "original_label": "Payload (deploy/recover)"
     }
    ],
    "sensors": [],
@@ -7524,7 +8366,19 @@
    },
    "countries": [
     "GB"
-   ]
+   ],
+   "autonomy": "remotely operated",
+   "autonomy_basis": "Remotely operated vehicle, piloted from a support ship or from shore.",
+   "other_specs": [],
+   "depth_rating_m": {
+    "value": 6000,
+    "unit": "m",
+    "basis": "operator_published",
+    "source_id": "noc-rov",
+    "comment": null
+   },
+   "endurance": null,
+   "survey_speed_kn": null
   },
   {
    "platform_id": "noc-gliders",
@@ -7587,7 +8441,13 @@
    },
    "countries": [
     "GB"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Underwater glider: follows a programmed path and is supervised from shore.",
+   "other_specs": [],
+   "depth_rating_m": null,
+   "endurance": null,
+   "survey_speed_kn": null
   },
   {
    "platform_id": "sams-seagliders",
@@ -7620,7 +8480,8 @@
      "unit": null,
      "basis": "operator_published_class_level",
      "source_id": "sams-robotics",
-     "comment": null
+     "comment": null,
+     "canon": "endurance"
     },
     {
      "label": "Depth rating",
@@ -7628,7 +8489,8 @@
      "unit": "m",
      "basis": "operator_published_class_level",
      "source_id": "sams-robotics",
-     "comment": "\"As deep as 1 km\"."
+     "comment": "\"As deep as 1 km\".",
+     "canon": "depth_rating"
     }
    ],
    "sensors": [],
@@ -7675,7 +8537,26 @@
    },
    "countries": [
     "GB"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Underwater glider: follows a programmed path and is supervised from shore.",
+   "other_specs": [],
+   "depth_rating_m": {
+    "value": 1000,
+    "unit": "m",
+    "basis": "operator_published_class_level",
+    "source_id": "sams-robotics",
+    "comment": "\"As deep as 1 km\"."
+   },
+   "endurance": {
+    "value": null,
+    "unit": null,
+    "basis": "operator_published_class_level",
+    "source_id": "sams-robotics",
+    "comment": null,
+    "text": "up to seven months"
+   },
+   "survey_speed_kn": null
   },
   {
    "platform_id": "sams-freya",
@@ -7708,11 +8589,13 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "sams-robotics",
-     "comment": null
+     "comment": null,
+     "canon": "depth_rating"
     }
    ],
    "sensors": [
     {
+     "kind": "sidescan",
      "name": "GeoSwath+ bathymetry",
      "maker": null,
      "model": null,
@@ -7722,6 +8605,7 @@
      "source_id": "sams-robotics"
     },
     {
+     "kind": "sidescan",
      "name": "Side-scan sonar",
      "maker": null,
      "model": null,
@@ -7731,6 +8615,7 @@
      "source_id": "sams-robotics"
     },
     {
+     "kind": "camera",
      "name": "Camera (photo mosaic)",
      "maker": null,
      "model": null,
@@ -7772,7 +8657,19 @@
    },
    "countries": [
     "GB"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Autonomous underwater vehicle: typically pre-programmed and supervised during the mission.",
+   "other_specs": [],
+   "depth_rating_m": {
+    "value": 500,
+    "unit": "m",
+    "basis": "operator_published",
+    "source_id": "sams-robotics",
+    "comment": null
+   },
+   "endurance": null,
+   "survey_speed_kn": null
   },
   {
    "platform_id": "sams-remus",
@@ -7807,7 +8704,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "sams-robotics",
-     "comment": null
+     "comment": null,
+     "canon": "depth_rating"
     },
     {
      "label": "Length",
@@ -7815,7 +8713,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "sams-robotics",
-     "comment": null
+     "comment": null,
+     "canon": "length"
     },
     {
      "label": "Endurance",
@@ -7823,7 +8722,8 @@
      "unit": "h",
      "basis": "operator_published",
      "source_id": "sams-robotics",
-     "comment": "Max."
+     "comment": "Max.",
+     "canon": "endurance"
     },
     {
      "label": "Range",
@@ -7831,11 +8731,13 @@
      "unit": "km",
      "basis": "operator_published",
      "source_id": "sams-robotics",
-     "comment": "Around."
+     "comment": "Around.",
+     "canon": "range"
     }
    ],
    "sensors": [
     {
+     "kind": "turbulence",
      "name": "Turbulence (microstructure)",
      "maker": null,
      "model": null,
@@ -7845,6 +8747,7 @@
      "source_id": "sams-robotics"
     },
     {
+     "kind": "CTD",
      "name": "CTD",
      "maker": null,
      "model": null,
@@ -7854,6 +8757,7 @@
      "source_id": "sams-robotics"
     },
     {
+     "kind": "current meter",
      "name": "Current (water velocity)",
      "maker": null,
      "model": null,
@@ -7863,6 +8767,7 @@
      "source_id": "sams-robotics"
     },
     {
+     "kind": "fluorometer",
      "name": "Chlorophyll fluorescence",
      "maker": null,
      "model": null,
@@ -7910,7 +8815,26 @@
    },
    "countries": [
     "GB"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Autonomous underwater vehicle: typically pre-programmed and supervised during the mission.",
+   "other_specs": [],
+   "depth_rating_m": {
+    "value": 600,
+    "unit": "m",
+    "basis": "operator_published",
+    "source_id": "sams-robotics",
+    "comment": null
+   },
+   "endurance": {
+    "value": 10,
+    "unit": "h",
+    "basis": "operator_published",
+    "source_id": "sams-robotics",
+    "comment": "Max.",
+    "text": null
+   },
+   "survey_speed_kn": null
   },
   {
    "platform_id": "bas-windracers-ultra",
@@ -7943,7 +8867,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "bas-ice-flight",
-     "comment": null
+     "comment": null,
+     "canon": "wingspan"
     },
     {
      "label": "Payload",
@@ -7951,7 +8876,8 @@
      "unit": null,
      "basis": "operator_published",
      "source_id": "bas-ice-flight",
-     "comment": null
+     "comment": null,
+     "canon": "payload"
     },
     {
      "label": "Longest single flight",
@@ -7959,7 +8885,8 @@
      "unit": "km",
      "basis": "operator_published",
      "source_id": "bas-ice-flight",
-     "comment": "Some flights over two hours."
+     "comment": "Some flights over two hours.",
+     "canon": "endurance_longest"
     }
    ],
    "sensors": [],
@@ -7995,7 +8922,13 @@
    },
    "countries": [
     "GB"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Uncrewed aerial vehicle: typically supervised in flight.",
+   "other_specs": [],
+   "depth_rating_m": null,
+   "endurance": null,
+   "survey_speed_kn": null
   },
   {
    "platform_id": "bas-marine-robotics",
@@ -8057,7 +8990,13 @@
    },
    "countries": [
     "GB"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Underwater glider: follows a programmed path and is supervised from shore.",
+   "other_specs": [],
+   "depth_rating_m": null,
+   "endurance": null,
+   "survey_speed_kn": null
   },
   {
    "platform_id": "geomar-kiel6000",
@@ -8090,15 +9029,18 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "geomar-kiel6000",
-     "comment": null
+     "comment": null,
+     "canon": "depth_rating"
     },
     {
-     "label": "Toolskid payload",
+     "label": "Payload",
      "value": 100,
      "unit": "kg",
      "basis": "operator_published",
      "source_id": "geomar-kiel6000",
-     "comment": null
+     "comment": null,
+     "canon": "payload",
+     "original_label": "Toolskid payload"
     },
     {
      "label": "Manipulators",
@@ -8106,7 +9048,8 @@
      "unit": null,
      "basis": "operator_published",
      "source_id": "geomar-kiel6000",
-     "comment": null
+     "comment": null,
+     "canon": "manipulators"
     },
     {
      "label": "Station keeping",
@@ -8114,7 +9057,8 @@
      "unit": null,
      "basis": "operator_published",
      "source_id": "geomar-kiel6000",
-     "comment": null
+     "comment": null,
+     "canon": "station_keeping"
     },
     {
      "label": "Science interfaces",
@@ -8122,7 +9066,8 @@
      "unit": null,
      "basis": "operator_published",
      "source_id": "geomar-kiel6000",
-     "comment": null
+     "comment": null,
+     "canon": "science_interfaces"
     },
     {
      "label": "Tether",
@@ -8130,7 +9075,8 @@
      "unit": null,
      "basis": "operator_published",
      "source_id": "geomar-kiel6000",
-     "comment": null
+     "comment": null,
+     "canon": "tether"
     }
    ],
    "sensors": [],
@@ -8175,7 +9121,19 @@
    },
    "countries": [
     "DE"
-   ]
+   ],
+   "autonomy": "remotely operated",
+   "autonomy_basis": "Remotely operated vehicle, piloted from a support ship or from shore.",
+   "other_specs": [],
+   "depth_rating_m": {
+    "value": 6000,
+    "unit": "m",
+    "basis": "operator_published",
+    "source_id": "geomar-kiel6000",
+    "comment": null
+   },
+   "endurance": null,
+   "survey_speed_kn": null
   },
   {
    "platform_id": "geomar-phoca",
@@ -8208,7 +9166,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "geomar-phoca",
-     "comment": null
+     "comment": null,
+     "canon": "depth_rating"
     },
     {
      "label": "Tether",
@@ -8216,7 +9175,8 @@
      "unit": null,
      "basis": "operator_published",
      "source_id": "geomar-phoca",
-     "comment": null
+     "comment": null,
+     "canon": "tether"
     }
    ],
    "sensors": [],
@@ -8261,7 +9221,19 @@
    },
    "countries": [
     "DE"
-   ]
+   ],
+   "autonomy": "remotely operated",
+   "autonomy_basis": "Remotely operated vehicle, piloted from a support ship or from shore.",
+   "other_specs": [],
+   "depth_rating_m": {
+    "value": 3000,
+    "unit": "m",
+    "basis": "operator_published",
+    "source_id": "geomar-phoca",
+    "comment": null
+   },
+   "endurance": null,
+   "survey_speed_kn": null
   },
   {
    "platform_id": "geomar-abyss",
@@ -8294,15 +9266,18 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "geomar-tlz-pdf",
-     "comment": null
+     "comment": null,
+     "canon": "depth_rating"
     },
     {
-     "label": "Mission duration",
+     "label": "Endurance",
      "value": 20,
      "unit": "h",
      "basis": "operator_published",
      "source_id": "geomar-brochure",
-     "comment": "Up to."
+     "comment": "Up to.",
+     "canon": "endurance",
+     "original_label": "Mission duration"
     },
     {
      "label": "Speed",
@@ -8310,11 +9285,13 @@
      "unit": "mph",
      "basis": "operator_published",
      "source_id": "geomar-brochure",
-     "comment": "Up to."
+     "comment": "Up to.",
+     "canon": "speed"
     }
    ],
    "sensors": [
     {
+     "kind": "multibeam",
      "name": "Multibeam",
      "maker": null,
      "model": null,
@@ -8324,6 +9301,7 @@
      "source_id": "geomar-brochure"
     },
     {
+     "kind": "camera",
      "name": "Camera",
      "maker": null,
      "model": null,
@@ -8374,7 +9352,26 @@
    },
    "countries": [
     "DE"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Autonomous underwater vehicle: typically pre-programmed and supervised during the mission.",
+   "other_specs": [],
+   "depth_rating_m": {
+    "value": 6000,
+    "unit": "m",
+    "basis": "operator_published",
+    "source_id": "geomar-tlz-pdf",
+    "comment": null
+   },
+   "endurance": {
+    "value": 20,
+    "unit": "h",
+    "basis": "operator_published",
+    "source_id": "geomar-brochure",
+    "comment": "Up to.",
+    "text": null
+   },
+   "survey_speed_kn": null
   },
   {
    "platform_id": "marum-quest5000",
@@ -8407,7 +9404,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "marum-quest",
-     "comment": "From the vehicle name; the page does not restate it."
+     "comment": "From the vehicle name; the page does not restate it.",
+     "canon": "depth_rating"
     },
     {
      "label": "Payload",
@@ -8415,7 +9413,8 @@
      "unit": "kg",
      "basis": "operator_published",
      "source_id": "marum-quest",
-     "comment": "Up to."
+     "comment": "Up to.",
+     "canon": "payload"
     },
     {
      "label": "Through-frame lift",
@@ -8423,7 +9422,8 @@
      "unit": "t",
      "basis": "operator_published",
      "source_id": "marum-quest",
-     "comment": null
+     "comment": null,
+     "canon": "through_frame_lift"
     },
     {
      "label": "Propulsion",
@@ -8431,15 +9431,18 @@
      "unit": null,
      "basis": "operator_published",
      "source_id": "marum-quest",
-     "comment": null
+     "comment": null,
+     "canon": "propulsion"
     },
     {
-     "label": "Umbilical",
+     "label": "Tether",
      "value": "Fibron lift umbilical, 24.9 mm, 5,500 m; 27 t SHG electric winch",
      "unit": null,
      "basis": "operator_published",
      "source_id": "marum-quest",
-     "comment": null
+     "comment": null,
+     "canon": "tether",
+     "original_label": "Umbilical"
     },
     {
      "label": "Launch and recovery",
@@ -8447,15 +9450,18 @@
      "unit": null,
      "basis": "operator_published",
      "source_id": "marum-quest",
-     "comment": null
+     "comment": null,
+     "canon": "launch_and_recovery"
     },
     {
-     "label": "System gross weight",
+     "label": "Mass in air",
      "value": 65,
      "unit": "t",
      "basis": "operator_published",
      "source_id": "marum-quest",
-     "comment": null
+     "comment": null,
+     "canon": "mass_in_air",
+     "original_label": "System gross weight"
     },
     {
      "label": "Deck footprint",
@@ -8463,7 +9469,8 @@
      "unit": "m²",
      "basis": "operator_published",
      "source_id": "marum-quest",
-     "comment": null
+     "comment": null,
+     "canon": "deck_footprint"
     },
     {
      "label": "Crew",
@@ -8471,7 +9478,8 @@
      "unit": null,
      "basis": "operator_published",
      "source_id": "marum-quest",
-     "comment": null
+     "comment": null,
+     "canon": "crew"
     },
     {
      "label": "Transport",
@@ -8479,7 +9487,8 @@
      "unit": null,
      "basis": "operator_published",
      "source_id": "marum-quest",
-     "comment": null
+     "comment": null,
+     "canon": "transport"
     }
    ],
    "sensors": [],
@@ -8527,7 +9536,19 @@
    },
    "countries": [
     "DE"
-   ]
+   ],
+   "autonomy": "remotely operated",
+   "autonomy_basis": "Remotely operated vehicle, piloted from a support ship or from shore.",
+   "other_specs": [],
+   "depth_rating_m": {
+    "value": 5000,
+    "unit": "m",
+    "basis": "operator_published",
+    "source_id": "marum-quest",
+    "comment": "From the vehicle name; the page does not restate it."
+   },
+   "endurance": null,
+   "survey_speed_kn": null
   },
   {
    "platform_id": "marum-squid",
@@ -8560,15 +9581,18 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "marum-squid",
-     "comment": null
+     "comment": null,
+     "canon": "depth_rating"
     },
     {
-     "label": "System gross weight",
+     "label": "Mass in air",
      "value": 10,
      "unit": "t",
      "basis": "operator_published",
      "source_id": "marum-squid",
-     "comment": null
+     "comment": null,
+     "canon": "mass_in_air",
+     "original_label": "System gross weight"
     },
     {
      "label": "Deck footprint",
@@ -8576,7 +9600,8 @@
      "unit": "m²",
      "basis": "operator_published",
      "source_id": "marum-squid",
-     "comment": null
+     "comment": null,
+     "canon": "deck_footprint"
     },
     {
      "label": "Crew",
@@ -8584,7 +9609,8 @@
      "unit": null,
      "basis": "operator_published",
      "source_id": "marum-squid",
-     "comment": null
+     "comment": null,
+     "canon": "crew"
     },
     {
      "label": "Transport",
@@ -8592,7 +9618,8 @@
      "unit": null,
      "basis": "operator_published",
      "source_id": "marum-squid",
-     "comment": null
+     "comment": null,
+     "canon": "transport"
     },
     {
      "label": "Current limit",
@@ -8600,15 +9627,18 @@
      "unit": "kn",
      "basis": "operator_published",
      "source_id": "marum-squid",
-     "comment": null
+     "comment": null,
+     "canon": "current_limit"
     },
     {
-     "label": "Manipulator",
+     "label": "Manipulators",
      "value": "7-function proportional",
      "unit": null,
      "basis": "operator_published",
      "source_id": "marum-squid",
-     "comment": null
+     "comment": null,
+     "canon": "manipulators",
+     "original_label": "Manipulator"
     },
     {
      "label": "Navigation",
@@ -8616,11 +9646,13 @@
      "unit": null,
      "basis": "operator_published",
      "source_id": "marum-squid",
-     "comment": null
+     "comment": null,
+     "canon": "navigation"
     }
    ],
    "sensors": [
     {
+     "kind": "video",
      "name": "4K main camera",
      "maker": null,
      "model": null,
@@ -8630,6 +9662,7 @@
      "source_id": "marum-squid"
     },
     {
+     "kind": "echosounder",
      "name": "Sonar",
      "maker": null,
      "model": null,
@@ -8639,6 +9672,7 @@
      "source_id": "marum-squid"
     },
     {
+     "kind": "lights",
      "name": "Line lasers (×2)",
      "maker": null,
      "model": null,
@@ -8682,7 +9716,19 @@
    },
    "countries": [
     "DE"
-   ]
+   ],
+   "autonomy": "remotely operated",
+   "autonomy_basis": "Remotely operated vehicle, piloted from a support ship or from shore.",
+   "other_specs": [],
+   "depth_rating_m": {
+    "value": 2000,
+    "unit": "m",
+    "basis": "operator_published",
+    "source_id": "marum-squid",
+    "comment": null
+   },
+   "endurance": null,
+   "survey_speed_kn": null
   },
   {
    "platform_id": "marum-seal",
@@ -8715,7 +9761,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "marum-seal",
-     "comment": null
+     "comment": null,
+     "canon": "depth_rating"
     },
     {
      "label": "Endurance",
@@ -8723,7 +9770,8 @@
      "unit": "h",
      "basis": "operator_published",
      "source_id": "marum-seal",
-     "comment": null
+     "comment": null,
+     "canon": "endurance"
     },
     {
      "label": "Range",
@@ -8731,7 +9779,8 @@
      "unit": "km",
      "basis": "operator_published",
      "source_id": "marum-seal",
-     "comment": null
+     "comment": null,
+     "canon": "range"
     },
     {
      "label": "Power",
@@ -8739,7 +9788,8 @@
      "unit": null,
      "basis": "operator_published",
      "source_id": "marum-seal",
-     "comment": null
+     "comment": null,
+     "canon": "power"
     },
     {
      "label": "Navigation",
@@ -8747,15 +9797,18 @@
      "unit": null,
      "basis": "operator_published",
      "source_id": "marum-seal",
-     "comment": null
+     "comment": null,
+     "canon": "navigation"
     },
     {
-     "label": "System gross weight",
+     "label": "Mass in air",
      "value": 16,
      "unit": "t",
      "basis": "operator_published",
      "source_id": "marum-seal",
-     "comment": null
+     "comment": null,
+     "canon": "mass_in_air",
+     "original_label": "System gross weight"
     },
     {
      "label": "Crew",
@@ -8766,11 +9819,13 @@
      "unit": "people",
      "basis": "operator_published",
      "source_id": "marum-seal",
-     "comment": null
+     "comment": null,
+     "canon": "crew"
     }
    ],
    "sensors": [
     {
+     "kind": "multibeam",
      "name": "Multibeam echosounder",
      "maker": null,
      "model": null,
@@ -8780,6 +9835,7 @@
      "source_id": "marum-seal"
     },
     {
+     "kind": "sidescan",
      "name": "Side-scan sonar",
      "maker": null,
      "model": null,
@@ -8789,6 +9845,7 @@
      "source_id": "marum-seal"
     },
     {
+     "kind": "sub-bottom profiler",
      "name": "Sub-bottom profiler",
      "maker": null,
      "model": null,
@@ -8832,7 +9889,26 @@
    },
    "countries": [
     "DE"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Autonomous underwater vehicle: typically pre-programmed and supervised during the mission.",
+   "other_specs": [],
+   "depth_rating_m": {
+    "value": 5000,
+    "unit": "m",
+    "basis": "operator_published",
+    "source_id": "marum-seal",
+    "comment": null
+   },
+   "endurance": {
+    "value": 19,
+    "unit": "h",
+    "basis": "operator_published",
+    "source_id": "marum-seal",
+    "comment": null,
+    "text": null
+   },
+   "survey_speed_kn": null
   },
   {
    "platform_id": "imr-frigg",
@@ -8865,7 +9941,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "imr-sogn-2024",
-     "comment": null
+     "comment": null,
+     "canon": "depth_rating"
     },
     {
      "label": "Ballast pump volume",
@@ -8873,7 +9950,8 @@
      "unit": "cc",
      "basis": "operator_published",
      "source_id": "imr-sogn-2024",
-     "comment": null
+     "comment": null,
+     "canon": "ballast_pump_volume"
     },
     {
      "label": "Comms",
@@ -8881,7 +9959,8 @@
      "unit": null,
      "basis": "operator_published",
      "source_id": "imr-sogn-2024",
-     "comment": null
+     "comment": null,
+     "canon": "comms"
     }
    ],
    "sensors": [],
@@ -8923,7 +10002,19 @@
    },
    "countries": [
     "NO"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Underwater glider: follows a programmed path and is supervised from shore.",
+   "other_specs": [],
+   "depth_rating_m": {
+    "value": 200,
+    "unit": "m",
+    "basis": "operator_published",
+    "source_id": "imr-sogn-2024",
+    "comment": null
+   },
+   "endurance": null,
+   "survey_speed_kn": null
   },
   {
    "platform_id": "imr-seaglider",
@@ -8985,7 +10076,13 @@
    },
    "countries": [
     "NO"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Underwater glider: follows a programmed path and is supervised from shore.",
+   "other_specs": [],
+   "depth_rating_m": null,
+   "endurance": null,
+   "survey_speed_kn": null
   },
   {
    "platform_id": "imr-kayak-drone",
@@ -9014,6 +10111,7 @@
    "specs": [],
    "sensors": [
     {
+     "kind": "echosounder",
      "name": "Echo sounder",
      "maker": null,
      "model": null,
@@ -9064,7 +10162,13 @@
    },
    "countries": [
     "NO"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Uncrewed surface vehicle: typically supervised from shore or a support ship.",
+   "other_specs": [],
+   "depth_rating_m": null,
+   "endurance": null,
+   "survey_speed_kn": null
   },
   {
    "platform_id": "imos-sirius",
@@ -9097,7 +10201,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "imos-auv-review",
-     "comment": null
+     "comment": null,
+     "canon": "depth_rating"
     },
     {
      "label": "Mass in air",
@@ -9105,7 +10210,8 @@
      "unit": "kg",
      "basis": "operator_published",
      "source_id": "imos-auv-review",
-     "comment": null
+     "comment": null,
+     "canon": "mass_in_air"
     },
     {
      "label": "Launch and recovery",
@@ -9113,11 +10219,13 @@
      "unit": null,
      "basis": "operator_published",
      "source_id": "imos-auv-review",
-     "comment": null
+     "comment": null,
+     "canon": "launch_and_recovery"
     }
    ],
    "sensors": [
     {
+     "kind": "camera",
      "name": "Stereo camera pair and strobes",
      "maker": null,
      "model": null,
@@ -9127,6 +10235,7 @@
      "source_id": "imos-auv"
     },
     {
+     "kind": "multibeam",
      "name": "Multibeam sonar (330 kHz)",
      "maker": null,
      "model": null,
@@ -9136,6 +10245,7 @@
      "source_id": "imos-auv"
     },
     {
+     "kind": "CTD",
      "name": "CTD",
      "maker": null,
      "model": null,
@@ -9188,7 +10298,19 @@
    },
    "countries": [
     "AU"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Autonomous underwater vehicle: typically pre-programmed and supervised during the mission.",
+   "other_specs": [],
+   "depth_rating_m": {
+    "value": 700,
+    "unit": "m",
+    "basis": "operator_published",
+    "source_id": "imos-auv-review",
+    "comment": null
+   },
+   "endurance": null,
+   "survey_speed_kn": null
   },
   {
    "platform_id": "anfog-slocum",
@@ -9221,7 +10343,8 @@
      "unit": "m",
      "basis": "operator_published_class_level",
      "source_id": "anfog-slocum",
-     "comment": null
+     "comment": null,
+     "canon": "length"
     },
     {
      "label": "Diameter",
@@ -9229,7 +10352,8 @@
      "unit": "m",
      "basis": "operator_published_class_level",
      "source_id": "anfog-slocum",
-     "comment": null
+     "comment": null,
+     "canon": "diameter"
     },
     {
      "label": "Mass in air",
@@ -9237,7 +10361,8 @@
      "unit": "kg",
      "basis": "operator_published_class_level",
      "source_id": "anfog-slocum",
-     "comment": null
+     "comment": null,
+     "canon": "mass_in_air"
     },
     {
      "label": "Depth range",
@@ -9248,7 +10373,8 @@
      "unit": "m",
      "basis": "operator_published_class_level",
      "source_id": "anfog-slocum",
-     "comment": null
+     "comment": null,
+     "canon": "depth_range"
     },
     {
      "label": "Speed",
@@ -9259,7 +10385,8 @@
      "unit": "m/s",
      "basis": "operator_published_class_level",
      "source_id": "anfog-slocum",
-     "comment": null
+     "comment": null,
+     "canon": "speed"
     },
     {
      "label": "Range",
@@ -9267,7 +10394,8 @@
      "unit": "km",
      "basis": "operator_published_class_level",
      "source_id": "anfog-slocum",
-     "comment": "Typical, on alkaline C cells."
+     "comment": "Typical, on alkaline C cells.",
+     "canon": "range"
     },
     {
      "label": "Endurance",
@@ -9275,7 +10403,8 @@
      "unit": "days",
      "basis": "operator_published_class_level",
      "source_id": "anfog-slocum",
-     "comment": "Around."
+     "comment": "Around.",
+     "canon": "endurance"
     }
    ],
    "sensors": [],
@@ -9318,7 +10447,29 @@
    },
    "countries": [
     "AU"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Underwater glider: follows a programmed path and is supervised from shore.",
+   "other_specs": [],
+   "depth_rating_m": {
+    "value": [
+     4,
+     200
+    ],
+    "unit": "m",
+    "basis": "operator_published_class_level",
+    "source_id": "anfog-slocum",
+    "comment": null
+   },
+   "endurance": {
+    "value": 30,
+    "unit": "days",
+    "basis": "operator_published_class_level",
+    "source_id": "anfog-slocum",
+    "comment": "Around.",
+    "text": null
+   },
+   "survey_speed_kn": null
   },
   {
    "platform_id": "anfog-seaglider",
@@ -9380,7 +10531,13 @@
    },
    "countries": [
     "AU"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Underwater glider: follows a programmed path and is supervised from shore.",
+   "other_specs": [],
+   "depth_rating_m": null,
+   "endurance": null,
+   "survey_speed_kn": null
   },
   {
    "platform_id": "csiro-seagliders",
@@ -9413,7 +10570,8 @@
      "unit": "m",
      "basis": "operator_published_class_level",
      "source_id": "csiro-gliders-2024",
-     "comment": null
+     "comment": null,
+     "canon": "depth_rating"
     },
     {
      "label": "Mass in air",
@@ -9421,11 +10579,13 @@
      "unit": "kg",
      "basis": "operator_published_class_level",
      "source_id": "csiro-gliders-2024",
-     "comment": "\"About 60 kilograms\"."
+     "comment": "\"About 60 kilograms\".",
+     "canon": "mass_in_air"
     }
    ],
    "sensors": [
     {
+     "kind": "CTD",
      "name": "CTD",
      "maker": null,
      "model": null,
@@ -9435,6 +10595,7 @@
      "source_id": "csiro-gliders-2024"
     },
     {
+     "kind": "oxygen",
      "name": "Dissolved oxygen",
      "maker": null,
      "model": null,
@@ -9478,7 +10639,19 @@
    },
    "countries": [
     "AU"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Underwater glider: follows a programmed path and is supervised from shore.",
+   "other_specs": [],
+   "depth_rating_m": {
+    "value": 1000,
+    "unit": "m",
+    "basis": "operator_published_class_level",
+    "source_id": "csiro-gliders-2024",
+    "comment": null
+   },
+   "endurance": null,
+   "survey_speed_kn": null
   },
   {
    "platform_id": "jamstec-shinkai6500",
@@ -9511,7 +10684,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "jamstec-deep",
-     "comment": null
+     "comment": null,
+     "canon": "depth_rating"
     },
     {
      "label": "Length",
@@ -9519,7 +10693,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "jamstec-deep",
-     "comment": null
+     "comment": null,
+     "canon": "length"
     },
     {
      "label": "Beam",
@@ -9527,7 +10702,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "jamstec-deep",
-     "comment": null
+     "comment": null,
+     "canon": "beam"
     },
     {
      "label": "Height",
@@ -9535,7 +10711,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "jamstec-deep",
-     "comment": null
+     "comment": null,
+     "canon": "height"
     },
     {
      "label": "Mass in air",
@@ -9543,7 +10720,8 @@
      "unit": "t",
      "basis": "operator_published",
      "source_id": "jamstec-deep",
-     "comment": null
+     "comment": null,
+     "canon": "mass_in_air"
     },
     {
      "label": "Speed",
@@ -9551,15 +10729,18 @@
      "unit": "kn",
      "basis": "operator_published",
      "source_id": "jamstec-deep",
-     "comment": null
+     "comment": null,
+     "canon": "speed"
     },
     {
-     "label": "Normal dive duration",
+     "label": "Endurance",
      "value": 8,
      "unit": "h",
      "basis": "operator_published",
      "source_id": "jamstec-deep",
-     "comment": null
+     "comment": null,
+     "canon": "endurance",
+     "original_label": "Normal dive duration"
     },
     {
      "label": "Life support",
@@ -9567,7 +10748,8 @@
      "unit": "h",
      "basis": "operator_published",
      "source_id": "jamstec-deep",
-     "comment": null
+     "comment": null,
+     "canon": "life_support"
     },
     {
      "label": "Payload",
@@ -9575,7 +10757,8 @@
      "unit": "kg",
      "basis": "operator_published",
      "source_id": "jamstec-deep",
-     "comment": "In air."
+     "comment": "In air.",
+     "canon": "payload"
     },
     {
      "label": "Power",
@@ -9583,7 +10766,8 @@
      "unit": null,
      "basis": "operator_published",
      "source_id": "jamstec-shinkai",
-     "comment": null
+     "comment": null,
+     "canon": "power"
     }
    ],
    "sensors": [],
@@ -9632,7 +10816,26 @@
    },
    "countries": [
     "JP"
-   ]
+   ],
+   "autonomy": "crewed",
+   "autonomy_basis": "Human-occupied vehicle: a person is on board during the dive.",
+   "other_specs": [],
+   "depth_rating_m": {
+    "value": 6500,
+    "unit": "m",
+    "basis": "operator_published",
+    "source_id": "jamstec-deep",
+    "comment": null
+   },
+   "endurance": {
+    "value": 8,
+    "unit": "h",
+    "basis": "operator_published",
+    "source_id": "jamstec-deep",
+    "comment": null,
+    "text": null
+   },
+   "survey_speed_kn": null
   },
   {
    "platform_id": "jamstec-kaiko",
@@ -9667,7 +10870,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "jamstec-deep",
-     "comment": null
+     "comment": null,
+     "canon": "depth_rating"
     },
     {
      "label": "Length",
@@ -9675,7 +10879,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "jamstec-deep",
-     "comment": null
+     "comment": null,
+     "canon": "length"
     },
     {
      "label": "Beam",
@@ -9683,7 +10888,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "jamstec-deep",
-     "comment": null
+     "comment": null,
+     "canon": "beam"
     },
     {
      "label": "Height",
@@ -9691,7 +10897,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "jamstec-deep",
-     "comment": null
+     "comment": null,
+     "canon": "height"
     },
     {
      "label": "Mass in air",
@@ -9699,7 +10906,8 @@
      "unit": "t",
      "basis": "operator_published",
      "source_id": "jamstec-deep",
-     "comment": null
+     "comment": null,
+     "canon": "mass_in_air"
     },
     {
      "label": "Tether",
@@ -9707,7 +10915,8 @@
      "unit": null,
      "basis": "operator_published",
      "source_id": "jamstec-kaiko",
-     "comment": null
+     "comment": null,
+     "canon": "tether"
     }
    ],
    "sensors": [],
@@ -9752,7 +10961,19 @@
    },
    "countries": [
     "JP"
-   ]
+   ],
+   "autonomy": "remotely operated",
+   "autonomy_basis": "Remotely operated vehicle, piloted from a support ship or from shore.",
+   "other_specs": [],
+   "depth_rating_m": {
+    "value": 4500,
+    "unit": "m",
+    "basis": "operator_published",
+    "source_id": "jamstec-deep",
+    "comment": null
+   },
+   "endurance": null,
+   "survey_speed_kn": null
   },
   {
    "platform_id": "jamstec-urashima8000",
@@ -9787,7 +11008,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "jamstec-deep",
-     "comment": null
+     "comment": null,
+     "canon": "depth_rating"
     },
     {
      "label": "Length",
@@ -9795,7 +11017,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "jamstec-deep",
-     "comment": null
+     "comment": null,
+     "canon": "length"
     },
     {
      "label": "Beam",
@@ -9803,7 +11026,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "jamstec-deep",
-     "comment": null
+     "comment": null,
+     "canon": "beam"
     },
     {
      "label": "Height",
@@ -9811,7 +11035,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "jamstec-deep",
-     "comment": null
+     "comment": null,
+     "canon": "height"
     },
     {
      "label": "Mass in air",
@@ -9819,7 +11044,8 @@
      "unit": "t",
      "basis": "operator_published",
      "source_id": "jamstec-deep",
-     "comment": null
+     "comment": null,
+     "canon": "mass_in_air"
     },
     {
      "label": "Speed",
@@ -9827,15 +11053,18 @@
      "unit": "kn",
      "basis": "operator_published",
      "source_id": "jamstec-deep",
-     "comment": null
+     "comment": null,
+     "canon": "speed"
     },
     {
-     "label": "Observation time",
+     "label": "Endurance",
      "value": 24,
      "unit": "h",
      "basis": "operator_published",
      "source_id": "jamstec-deep",
-     "comment": "At 8,000 m while cruising at 3 kn."
+     "comment": "At 8,000 m while cruising at 3 kn.",
+     "canon": "endurance",
+     "original_label": "Observation time"
     },
     {
      "label": "Front payload volume",
@@ -9843,7 +11072,8 @@
      "unit": "L",
      "basis": "operator_published",
      "source_id": "jamstec-urashima",
-     "comment": "Nearly 750 L."
+     "comment": "Nearly 750 L.",
+     "canon": "payload_volume"
     },
     {
      "label": "Comms",
@@ -9851,7 +11081,8 @@
      "unit": null,
      "basis": "operator_published",
      "source_id": "jamstec-urashima",
-     "comment": null
+     "comment": null,
+     "canon": "comms"
     }
    ],
    "sensors": [],
@@ -9900,7 +11131,26 @@
    },
    "countries": [
     "JP"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Autonomous underwater vehicle: typically pre-programmed and supervised during the mission.",
+   "other_specs": [],
+   "depth_rating_m": {
+    "value": 8000,
+    "unit": "m",
+    "basis": "operator_published",
+    "source_id": "jamstec-deep",
+    "comment": null
+   },
+   "endurance": {
+    "value": 24,
+    "unit": "h",
+    "basis": "operator_published",
+    "source_id": "jamstec-deep",
+    "comment": "At 8,000 m while cruising at 3 kn.",
+    "text": null
+   },
+   "survey_speed_kn": null
   },
   {
    "platform_id": "jamstec-jinbei",
@@ -9933,7 +11183,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "jamstec-deep",
-     "comment": null
+     "comment": null,
+     "canon": "depth_rating"
     },
     {
      "label": "Length",
@@ -9941,7 +11192,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "jamstec-deep",
-     "comment": null
+     "comment": null,
+     "canon": "length"
     },
     {
      "label": "Beam",
@@ -9949,7 +11201,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "jamstec-deep",
-     "comment": null
+     "comment": null,
+     "canon": "beam"
     },
     {
      "label": "Height",
@@ -9957,7 +11210,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "jamstec-deep",
-     "comment": null
+     "comment": null,
+     "canon": "height"
     },
     {
      "label": "Mass in air",
@@ -9965,7 +11219,8 @@
      "unit": "t",
      "basis": "operator_published",
      "source_id": "jamstec-deep",
-     "comment": null
+     "comment": null,
+     "canon": "mass_in_air"
     },
     {
      "label": "Speed",
@@ -9973,7 +11228,8 @@
      "unit": "kn",
      "basis": "operator_published",
      "source_id": "jamstec-deep",
-     "comment": null
+     "comment": null,
+     "canon": "speed"
     }
    ],
    "sensors": [],
@@ -10015,7 +11271,19 @@
    },
    "countries": [
     "JP"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Autonomous underwater vehicle: typically pre-programmed and supervised during the mission.",
+   "other_specs": [],
+   "depth_rating_m": {
+    "value": 3000,
+    "unit": "m",
+    "basis": "operator_published",
+    "source_id": "jamstec-deep",
+    "comment": null
+   },
+   "endurance": null,
+   "survey_speed_kn": null
   },
   {
    "platform_id": "jamstec-km-rov",
@@ -10048,7 +11316,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "jamstec-deep",
-     "comment": null
+     "comment": null,
+     "canon": "depth_rating"
     },
     {
      "label": "Length",
@@ -10056,7 +11325,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "jamstec-deep",
-     "comment": null
+     "comment": null,
+     "canon": "length"
     },
     {
      "label": "Beam",
@@ -10064,7 +11334,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "jamstec-deep",
-     "comment": null
+     "comment": null,
+     "canon": "beam"
     },
     {
      "label": "Height",
@@ -10072,7 +11343,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "jamstec-deep",
-     "comment": null
+     "comment": null,
+     "canon": "height"
     },
     {
      "label": "Mass in air",
@@ -10080,7 +11352,8 @@
      "unit": "t",
      "basis": "operator_published",
      "source_id": "jamstec-deep",
-     "comment": null
+     "comment": null,
+     "canon": "mass_in_air"
     }
    ],
    "sensors": [],
@@ -10122,7 +11395,19 @@
    },
    "countries": [
     "JP"
-   ]
+   ],
+   "autonomy": "remotely operated",
+   "autonomy_basis": "Remotely operated vehicle, piloted from a support ship or from shore.",
+   "other_specs": [],
+   "depth_rating_m": {
+    "value": 3000,
+    "unit": "m",
+    "basis": "operator_published",
+    "source_id": "jamstec-deep",
+    "comment": null
+   },
+   "endurance": null,
+   "survey_speed_kn": null
   },
   {
    "platform_id": "noaa-deep-discoverer",
@@ -10157,7 +11442,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "noaa-d2",
-     "comment": null
+     "comment": null,
+     "canon": "depth_rating"
     },
     {
      "label": "Length",
@@ -10165,7 +11451,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "noaa-d2",
-     "comment": null
+     "comment": null,
+     "canon": "length"
     },
     {
      "label": "Width",
@@ -10173,7 +11460,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "noaa-d2",
-     "comment": null
+     "comment": null,
+     "canon": "width"
     },
     {
      "label": "Height",
@@ -10181,7 +11469,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "noaa-d2",
-     "comment": null
+     "comment": null,
+     "canon": "height"
     },
     {
      "label": "Mass in air",
@@ -10189,7 +11478,8 @@
      "unit": "kg",
      "basis": "operator_published",
      "source_id": "noaa-d2",
-     "comment": null
+     "comment": null,
+     "canon": "mass_in_air"
     },
     {
      "label": "Ascent/descent rate",
@@ -10197,7 +11487,8 @@
      "unit": "m/min",
      "basis": "operator_published",
      "source_id": "noaa-d2",
-     "comment": null
+     "comment": null,
+     "canon": "ascent_descent_rate"
     },
     {
      "label": "Tether",
@@ -10205,7 +11496,8 @@
      "unit": null,
      "basis": "operator_published",
      "source_id": "noaa-rov-factsheet",
-     "comment": null
+     "comment": null,
+     "canon": "tether"
     },
     {
      "label": "Manipulators",
@@ -10213,7 +11505,8 @@
      "unit": null,
      "basis": "operator_published",
      "source_id": "noaa-rov-factsheet",
-     "comment": null
+     "comment": null,
+     "canon": "manipulators"
     },
     {
      "label": "Samples per dive",
@@ -10221,11 +11514,13 @@
      "unit": null,
      "basis": "operator_published",
      "source_id": "noaa-rov-factsheet",
-     "comment": null
+     "comment": null,
+     "canon": "samples_per_dive"
     }
    ],
    "sensors": [
     {
+     "kind": "CTD",
      "name": "CTD",
      "maker": "Sea-Bird",
      "model": "SBE 911plus",
@@ -10235,6 +11530,7 @@
      "source_id": "noaa-rov-factsheet"
     },
     {
+     "kind": "INS",
      "name": "INS",
      "maker": "iXSea",
      "model": "PHINS",
@@ -10244,6 +11540,7 @@
      "source_id": "noaa-rov-factsheet"
     },
     {
+     "kind": "DVL",
      "name": "DVL (600 kHz)",
      "maker": "Teledyne RDI",
      "model": "Workhorse Navigator",
@@ -10253,6 +11550,7 @@
      "source_id": "noaa-rov-factsheet"
     },
     {
+     "kind": "USBL",
      "name": "USBL",
      "maker": null,
      "model": "TrackLink 10000HA",
@@ -10305,7 +11603,19 @@
    },
    "countries": [
     "US"
-   ]
+   ],
+   "autonomy": "remotely operated",
+   "autonomy_basis": "Remotely operated vehicle, piloted from a support ship or from shore.",
+   "other_specs": [],
+   "depth_rating_m": {
+    "value": 6000,
+    "unit": "m",
+    "basis": "operator_published",
+    "source_id": "noaa-d2",
+    "comment": null
+   },
+   "endurance": null,
+   "survey_speed_kn": null
   },
   {
    "platform_id": "noaa-seirios",
@@ -10338,7 +11648,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "noaa-seirios",
-     "comment": null
+     "comment": null,
+     "canon": "depth_rating"
     },
     {
      "label": "Length",
@@ -10346,7 +11657,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "noaa-seirios",
-     "comment": null
+     "comment": null,
+     "canon": "length"
     },
     {
      "label": "Width",
@@ -10354,7 +11666,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "noaa-seirios",
-     "comment": null
+     "comment": null,
+     "canon": "width"
     },
     {
      "label": "Height",
@@ -10362,7 +11675,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "noaa-seirios",
-     "comment": null
+     "comment": null,
+     "canon": "height"
     },
     {
      "label": "Mass in air",
@@ -10370,7 +11684,8 @@
      "unit": "kg",
      "basis": "operator_published",
      "source_id": "noaa-seirios",
-     "comment": null
+     "comment": null,
+     "canon": "mass_in_air"
     },
     {
      "label": "Ascent/descent rate",
@@ -10378,11 +11693,13 @@
      "unit": "m/min",
      "basis": "operator_published",
      "source_id": "noaa-seirios",
-     "comment": null
+     "comment": null,
+     "canon": "ascent_descent_rate"
     }
    ],
    "sensors": [
     {
+     "kind": "scanning sonar",
      "name": "360° scanning sonar",
      "maker": null,
      "model": null,
@@ -10392,6 +11709,7 @@
      "source_id": "noaa-seirios"
     },
     {
+     "kind": "oxygen",
      "name": "CTD and dissolved oxygen",
      "maker": null,
      "model": null,
@@ -10442,7 +11760,19 @@
    },
    "countries": [
     "US"
-   ]
+   ],
+   "autonomy": "remotely operated",
+   "autonomy_basis": "Remotely operated vehicle, piloted from a support ship or from shore.",
+   "other_specs": [],
+   "depth_rating_m": {
+    "value": 6000,
+    "unit": "m",
+    "basis": "operator_published",
+    "source_id": "noaa-seirios",
+    "comment": null
+   },
+   "endurance": null,
+   "survey_speed_kn": null
   },
   {
    "platform_id": "noaa-uxsoc-drix",
@@ -10471,6 +11801,7 @@
    "specs": [],
    "sensors": [
     {
+     "kind": "multibeam",
      "name": "Multibeam echosounder",
      "maker": null,
      "model": null,
@@ -10522,7 +11853,13 @@
    },
    "countries": [
     "US"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Uncrewed surface vehicle: typically supervised from shore or a support ship.",
+   "other_specs": [],
+   "depth_rating_m": null,
+   "endurance": null,
+   "survey_speed_kn": null
   },
   {
    "platform_id": "noaa-uxsoc-kelpie",
@@ -10555,7 +11892,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "omao-kelpie",
-     "comment": null
+     "comment": null,
+     "canon": "depth_rating"
     },
     {
      "label": "Comms",
@@ -10563,7 +11901,8 @@
      "unit": null,
      "basis": "operator_published",
      "source_id": "omao-kelpie",
-     "comment": null
+     "comment": null,
+     "canon": "comms"
     }
    ],
    "sensors": [],
@@ -10602,7 +11941,19 @@
    },
    "countries": [
     "US"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Underwater glider: follows a programmed path and is supervised from shore.",
+   "other_specs": [],
+   "depth_rating_m": {
+    "value": 1000,
+    "unit": "m",
+    "basis": "operator_published",
+    "source_id": "omao-kelpie",
+    "comment": null
+   },
+   "endurance": null,
+   "survey_speed_kn": null
   },
   {
    "platform_id": "noaa-saildrone",
@@ -10667,7 +12018,13 @@
    },
    "countries": [
     "US"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Uncrewed surface vehicle: typically supervised from shore or a support ship.",
+   "other_specs": [],
+   "depth_rating_m": null,
+   "endurance": null,
+   "survey_speed_kn": null
   },
   {
    "platform_id": "noaa-aoml-hurricane-gliders",
@@ -10700,19 +12057,23 @@
      "unit": "m",
      "basis": "operator_published_class_level",
      "source_id": "aoml-10yr",
-     "comment": null
+     "comment": null,
+     "canon": "dive_depth"
     },
     {
-     "label": "Mission length",
+     "label": "Endurance",
      "value": "up to four months",
      "unit": null,
      "basis": "operator_published_class_level",
      "source_id": "aoml-hg-2025",
-     "comment": null
+     "comment": null,
+     "canon": "endurance",
+     "original_label": "Mission length"
     }
    ],
    "sensors": [
     {
+     "kind": "CTD",
      "name": "CTD",
      "maker": null,
      "model": null,
@@ -10722,6 +12083,7 @@
      "source_id": "aoml-hg"
     },
     {
+     "kind": "oxygen",
      "name": "Dissolved oxygen",
      "maker": null,
      "model": null,
@@ -10731,6 +12093,7 @@
      "source_id": "aoml-hg"
     },
     {
+     "kind": "fluorometer",
      "name": "Chlorophyll",
      "maker": null,
      "model": null,
@@ -10740,6 +12103,7 @@
      "source_id": "aoml-hg"
     },
     {
+     "kind": "CDOM",
      "name": "CDOM",
      "maker": null,
      "model": null,
@@ -10794,7 +12158,26 @@
    },
    "countries": [
     "US"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Underwater glider: follows a programmed path and is supervised from shore.",
+   "other_specs": [],
+   "depth_rating_m": {
+    "value": 900,
+    "unit": "m",
+    "basis": "operator_published_class_level",
+    "source_id": "aoml-10yr",
+    "comment": null
+   },
+   "endurance": {
+    "value": null,
+    "unit": null,
+    "basis": "operator_published_class_level",
+    "source_id": "aoml-hg-2025",
+    "comment": null,
+    "text": "up to four months"
+   },
+   "survey_speed_kn": null
   },
   {
    "platform_id": "noaa-ocs-remus600",
@@ -10856,7 +12239,13 @@
    },
    "countries": [
     "US"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Autonomous underwater vehicle: typically pre-programmed and supervised during the mission.",
+   "other_specs": [],
+   "depth_rating_m": null,
+   "endurance": null,
+   "survey_speed_kn": null
   },
   {
    "platform_id": "noaa-nccos-auv",
@@ -10885,6 +12274,7 @@
    "specs": [],
    "sensors": [
     {
+     "kind": "laser scanner",
      "name": "Laser scanner and optical imager",
      "maker": "Voyis",
      "model": null,
@@ -10928,7 +12318,13 @@
    },
    "countries": [
     "US"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Autonomous underwater vehicle: typically pre-programmed and supervised during the mission.",
+   "other_specs": [],
+   "depth_rating_m": null,
+   "endurance": null,
+   "survey_speed_kn": null
   },
   {
    "platform_id": "navoceano-lbs-g",
@@ -11006,7 +12402,13 @@
    },
    "countries": [
     "US"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Underwater glider: follows a programmed path and is supervised from shore.",
+   "other_specs": [],
+   "depth_rating_m": null,
+   "endurance": null,
+   "survey_speed_kn": null
   },
   {
    "platform_id": "navy-mk18-mod1",
@@ -11041,7 +12443,8 @@
      "unit": "lb",
      "basis": "operator_published",
      "source_id": "usni-2018-mcm",
-     "comment": null
+     "comment": null,
+     "canon": "mass_in_air"
     },
     {
      "label": "Length",
@@ -11049,7 +12452,8 @@
      "unit": "ft",
      "basis": "operator_published",
      "source_id": "usni-2018-mcm",
-     "comment": null
+     "comment": null,
+     "canon": "length"
     },
     {
      "label": "Endurance",
@@ -11060,11 +12464,13 @@
      "unit": "h",
      "basis": "operator_published",
      "source_id": "usni-2018-mcm",
-     "comment": null
+     "comment": null,
+     "canon": "endurance"
     }
    ],
    "sensors": [
     {
+     "kind": "sidescan",
      "name": "Side-scan sonar (900 kHz and 1,800 kHz)",
      "maker": null,
      "model": null,
@@ -11108,7 +12514,23 @@
    },
    "countries": [
     "US"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Autonomous underwater vehicle: typically pre-programmed and supervised during the mission.",
+   "other_specs": [],
+   "depth_rating_m": null,
+   "endurance": {
+    "value": [
+     6,
+     8
+    ],
+    "unit": "h",
+    "basis": "operator_published",
+    "source_id": "usni-2018-mcm",
+    "comment": null,
+    "text": null
+   },
+   "survey_speed_kn": null
   },
   {
    "platform_id": "navy-mk18-mod2",
@@ -11143,7 +12565,8 @@
      "unit": "lb",
      "basis": "operator_published",
      "source_id": "usni-2018-mcm",
-     "comment": null
+     "comment": null,
+     "canon": "mass_in_air"
     },
     {
      "label": "Length",
@@ -11151,7 +12574,8 @@
      "unit": null,
      "basis": "operator_published",
      "source_id": "usni-2018-mcm",
-     "comment": null
+     "comment": null,
+     "canon": "length"
     },
     {
      "label": "Endurance",
@@ -11159,11 +12583,13 @@
      "unit": null,
      "basis": "operator_published",
      "source_id": "usni-2018-mcm",
-     "comment": null
+     "comment": null,
+     "canon": "endurance"
     }
    ],
    "sensors": [
     {
+     "kind": "sidescan",
      "name": "Side-scan sonar (850 kHz)",
      "maker": null,
      "model": null,
@@ -11214,7 +12640,20 @@
    },
    "countries": [
     "US"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Autonomous underwater vehicle: typically pre-programmed and supervised during the mission.",
+   "other_specs": [],
+   "depth_rating_m": null,
+   "endurance": {
+    "value": null,
+    "unit": null,
+    "basis": "operator_published",
+    "source_id": "usni-2018-mcm",
+    "comment": null,
+    "text": "more than 20 h"
+   },
+   "survey_speed_kn": null
   },
   {
    "platform_id": "navy-knifefish",
@@ -11277,7 +12716,13 @@
    },
    "countries": [
     "US"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Autonomous underwater vehicle: typically pre-programmed and supervised during the mission.",
+   "other_specs": [],
+   "depth_rating_m": null,
+   "endurance": null,
+   "survey_speed_kn": null
   },
   {
    "platform_id": "navy-orca-xluuv",
@@ -11310,7 +12755,8 @@
      "unit": null,
      "basis": "operator_published",
      "source_id": "crs-r45757",
-     "comment": null
+     "comment": null,
+     "canon": "diameter"
     }
    ],
    "sensors": [],
@@ -11348,7 +12794,13 @@
    },
    "countries": [
     "US"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Autonomous underwater vehicle: typically pre-programmed and supervised during the mission.",
+   "other_specs": [],
+   "depth_rating_m": null,
+   "endurance": null,
+   "survey_speed_kn": null
   },
   {
    "platform_id": "nrl-reliant",
@@ -11410,7 +12862,13 @@
    },
    "countries": [
     "US"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Autonomous underwater vehicle: typically pre-programmed and supervised during the mission.",
+   "other_specs": [],
+   "depth_rating_m": null,
+   "endurance": null,
+   "survey_speed_kn": null
   },
   {
    "platform_id": "nrl-wanda",
@@ -11470,7 +12928,13 @@
     "confidence": "low",
     "gaps": []
    },
-   "countries": []
+   "countries": [],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Autonomous underwater vehicle: typically pre-programmed and supervised during the mission.",
+   "other_specs": [],
+   "depth_rating_m": null,
+   "endurance": null,
+   "survey_speed_kn": null
   },
   {
    "platform_id": "rutgers-ru29",
@@ -11505,11 +12969,13 @@
      "unit": "m",
      "basis": "operator_published_class_level",
      "source_id": "rucool-gliders",
-     "comment": "RUCOOL: Slocum \"designed to operate in the ocean up to a 1000m depth\"; this unit's pump may be shallower."
+     "comment": "RUCOOL: Slocum \"designed to operate in the ocean up to a 1000m depth\"; this unit's pump may be shallower.",
+     "canon": "depth_rating"
     }
    ],
    "sensors": [
     {
+     "kind": "ADCP",
      "name": "Nortek Glider1000 AD2CP",
      "maker": null,
      "model": null,
@@ -11519,6 +12985,7 @@
      "source_id": "ioos-dac-ru"
     },
     {
+     "kind": "CTD",
      "name": "CTD",
      "maker": null,
      "model": null,
@@ -11528,6 +12995,7 @@
      "source_id": "ioos-dac-ru"
     },
     {
+     "kind": "oxygen",
      "name": "AA Optode 5013W",
      "maker": null,
      "model": null,
@@ -11697,7 +13165,19 @@
    },
    "countries": [
     "US"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Underwater glider: follows a programmed path and is supervised from shore.",
+   "other_specs": [],
+   "depth_rating_m": {
+    "value": 1000,
+    "unit": "m",
+    "basis": "operator_published_class_level",
+    "source_id": "rucool-gliders",
+    "comment": "RUCOOL: Slocum \"designed to operate in the ocean up to a 1000m depth\"; this unit's pump may be shallower."
+   },
+   "endurance": null,
+   "survey_speed_kn": null
   },
   {
    "platform_id": "rutgers-ru43",
@@ -11732,11 +13212,13 @@
      "unit": "m",
      "basis": "operator_published_class_level",
      "source_id": "rucool-gliders",
-     "comment": "RUCOOL: Slocum \"designed to operate in the ocean up to a 1000m depth\"; this unit's pump may be shallower."
+     "comment": "RUCOOL: Slocum \"designed to operate in the ocean up to a 1000m depth\"; this unit's pump may be shallower.",
+     "canon": "depth_rating"
     }
    ],
    "sensors": [
     {
+     "kind": "CTD",
      "name": "CTD",
      "maker": null,
      "model": null,
@@ -11746,6 +13228,7 @@
      "source_id": "ioos-dac-ru"
     },
     {
+     "kind": "passive acoustic",
      "name": "WHOI Digital Acoustic Monitoring Instrument DMON",
      "maker": null,
      "model": null,
@@ -11755,6 +13238,7 @@
      "source_id": "ioos-dac-ru"
     },
     {
+     "kind": "fluorometer",
      "name": "ECO Puck Triplet FLBBCD-SLC",
      "maker": null,
      "model": null,
@@ -11764,6 +13248,7 @@
      "source_id": "ioos-dac-ru"
     },
     {
+     "kind": "oxygen",
      "name": "AA Optode 4831",
      "maker": null,
      "model": null,
@@ -11773,6 +13258,7 @@
      "source_id": "ioos-dac-ru"
     },
     {
+     "kind": "animal telemetry",
      "name": "Rx-LIVE Cabled Receiver",
      "maker": null,
      "model": null,
@@ -11941,7 +13427,19 @@
    },
    "countries": [
     "US"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Underwater glider: follows a programmed path and is supervised from shore.",
+   "other_specs": [],
+   "depth_rating_m": {
+    "value": 1000,
+    "unit": "m",
+    "basis": "operator_published_class_level",
+    "source_id": "rucool-gliders",
+    "comment": "RUCOOL: Slocum \"designed to operate in the ocean up to a 1000m depth\"; this unit's pump may be shallower."
+   },
+   "endurance": null,
+   "survey_speed_kn": null
   },
   {
    "platform_id": "rutgers-ru40",
@@ -11976,11 +13474,13 @@
      "unit": "m",
      "basis": "operator_published_class_level",
      "source_id": "rucool-gliders",
-     "comment": "RUCOOL: Slocum \"designed to operate in the ocean up to a 1000m depth\"; this unit's pump may be shallower."
+     "comment": "RUCOOL: Slocum \"designed to operate in the ocean up to a 1000m depth\"; this unit's pump may be shallower.",
+     "canon": "depth_rating"
     }
    ],
    "sensors": [
     {
+     "kind": "passive acoustic",
      "name": "ASL AZFP",
      "maker": null,
      "model": null,
@@ -11990,6 +13490,7 @@
      "source_id": "ioos-dac-ru"
     },
     {
+     "kind": "CTD",
      "name": "CTD",
      "maker": null,
      "model": null,
@@ -11999,6 +13500,7 @@
      "source_id": "ioos-dac-ru"
     },
     {
+     "kind": "fluorometer",
      "name": "ECO Puck Triplet FLBBCD-SLC",
      "maker": null,
      "model": null,
@@ -12008,6 +13510,7 @@
      "source_id": "ioos-dac-ru"
     },
     {
+     "kind": "animal telemetry",
      "name": "Vemco Mobile Transceiver (VMT)",
      "maker": null,
      "model": null,
@@ -12176,7 +13679,19 @@
    },
    "countries": [
     "US"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Underwater glider: follows a programmed path and is supervised from shore.",
+   "other_specs": [],
+   "depth_rating_m": {
+    "value": 1000,
+    "unit": "m",
+    "basis": "operator_published_class_level",
+    "source_id": "rucool-gliders",
+    "comment": "RUCOOL: Slocum \"designed to operate in the ocean up to a 1000m depth\"; this unit's pump may be shallower."
+   },
+   "endurance": null,
+   "survey_speed_kn": null
   },
   {
    "platform_id": "rutgers-ru33",
@@ -12211,11 +13726,13 @@
      "unit": "m",
      "basis": "operator_published_class_level",
      "source_id": "rucool-gliders",
-     "comment": "RUCOOL: Slocum \"designed to operate in the ocean up to a 1000m depth\"; this unit's pump may be shallower."
+     "comment": "RUCOOL: Slocum \"designed to operate in the ocean up to a 1000m depth\"; this unit's pump may be shallower.",
+     "canon": "depth_rating"
     }
    ],
    "sensors": [
     {
+     "kind": "CTD",
      "name": "CTD",
      "maker": null,
      "model": null,
@@ -12225,6 +13742,7 @@
      "source_id": "ioos-dac-ru"
     },
     {
+     "kind": "fluorometer",
      "name": "ECO Puck Triplet FLBBCD-SLC",
      "maker": null,
      "model": null,
@@ -12234,6 +13752,7 @@
      "source_id": "ioos-dac-ru"
     },
     {
+     "kind": "passive acoustic",
      "name": "JASCO OceanObserver-Snout acoustic monitoring system",
      "maker": null,
      "model": null,
@@ -12243,6 +13762,7 @@
      "source_id": "ioos-dac-ru"
     },
     {
+     "kind": "oxygen",
      "name": "AA Optode 3835",
      "maker": null,
      "model": null,
@@ -12252,6 +13772,7 @@
      "source_id": "ioos-dac-ru"
     },
     {
+     "kind": "animal telemetry",
      "name": "Rx-LIVE Cabled Receiver",
      "maker": null,
      "model": null,
@@ -12420,7 +13941,19 @@
    },
    "countries": [
     "US"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Underwater glider: follows a programmed path and is supervised from shore.",
+   "other_specs": [],
+   "depth_rating_m": {
+    "value": 1000,
+    "unit": "m",
+    "basis": "operator_published_class_level",
+    "source_id": "rucool-gliders",
+    "comment": "RUCOOL: Slocum \"designed to operate in the ocean up to a 1000m depth\"; this unit's pump may be shallower."
+   },
+   "endurance": null,
+   "survey_speed_kn": null
   },
   {
    "platform_id": "rutgers-ru30",
@@ -12455,11 +13988,13 @@
      "unit": "m",
      "basis": "operator_published_class_level",
      "source_id": "rucool-gliders",
-     "comment": "RUCOOL: Slocum \"designed to operate in the ocean up to a 1000m depth\"; this unit's pump may be shallower."
+     "comment": "RUCOOL: Slocum \"designed to operate in the ocean up to a 1000m depth\"; this unit's pump may be shallower.",
+     "canon": "depth_rating"
     }
    ],
    "sensors": [
     {
+     "kind": "CTD",
      "name": "CTD",
      "maker": null,
      "model": null,
@@ -12469,6 +14004,7 @@
      "source_id": "ioos-dac-ru"
     },
     {
+     "kind": "fluorometer",
      "name": "ECO Puck Triplet FLBBCD-SLC",
      "maker": null,
      "model": null,
@@ -12478,6 +14014,7 @@
      "source_id": "ioos-dac-ru"
     },
     {
+     "kind": "oxygen",
      "name": "AA Optode 4831",
      "maker": null,
      "model": null,
@@ -12487,6 +14024,7 @@
      "source_id": "ioos-dac-ru"
     },
     {
+     "kind": "CTD",
      "name": "RBR Legato3 CTD",
      "maker": null,
      "model": null,
@@ -12655,7 +14193,19 @@
    },
    "countries": [
     "US"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Underwater glider: follows a programmed path and is supervised from shore.",
+   "other_specs": [],
+   "depth_rating_m": {
+    "value": 1000,
+    "unit": "m",
+    "basis": "operator_published_class_level",
+    "source_id": "rucool-gliders",
+    "comment": "RUCOOL: Slocum \"designed to operate in the ocean up to a 1000m depth\"; this unit's pump may be shallower."
+   },
+   "endurance": null,
+   "survey_speed_kn": null
   },
   {
    "platform_id": "rutgers-ru34",
@@ -12690,11 +14240,13 @@
      "unit": "m",
      "basis": "operator_published_class_level",
      "source_id": "rucool-gliders",
-     "comment": "RUCOOL: Slocum \"designed to operate in the ocean up to a 1000m depth\"; this unit's pump may be shallower."
+     "comment": "RUCOOL: Slocum \"designed to operate in the ocean up to a 1000m depth\"; this unit's pump may be shallower.",
+     "canon": "depth_rating"
     }
    ],
    "sensors": [
     {
+     "kind": "CTD",
      "name": "CTD",
      "maker": null,
      "model": null,
@@ -12704,6 +14256,7 @@
      "source_id": "ioos-dac-ru"
     },
     {
+     "kind": "fluorometer",
      "name": "ECO Puck Triplet FLBBCD-SLC",
      "maker": null,
      "model": null,
@@ -12713,6 +14266,7 @@
      "source_id": "ioos-dac-ru"
     },
     {
+     "kind": "passive acoustic",
      "name": "JASCO OceanObserver acoustic monitoring system",
      "maker": null,
      "model": null,
@@ -12722,6 +14276,7 @@
      "source_id": "ioos-dac-ru"
     },
     {
+     "kind": "oxygen",
      "name": "AA Optode 4831",
      "maker": null,
      "model": null,
@@ -12731,6 +14286,7 @@
      "source_id": "ioos-dac-ru"
     },
     {
+     "kind": "animal telemetry",
      "name": "Rx-LIVE Cabled Receiver",
      "maker": null,
      "model": null,
@@ -12899,7 +14455,19 @@
    },
    "countries": [
     "US"
-   ]
+   ],
+   "autonomy": "supervised autonomous",
+   "autonomy_basis": "Underwater glider: follows a programmed path and is supervised from shore.",
+   "other_specs": [],
+   "depth_rating_m": {
+    "value": 1000,
+    "unit": "m",
+    "basis": "operator_published_class_level",
+    "source_id": "rucool-gliders",
+    "comment": "RUCOOL: Slocum \"designed to operate in the ocean up to a 1000m depth\"; this unit's pump may be shallower."
+   },
+   "endurance": null,
+   "survey_speed_kn": null
   },
   {
    "platform_id": "argo-array",
@@ -12937,7 +14505,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "argo-mission",
-     "comment": "Core and BGC missions: official design depth 2,000 m (2,000 dbar)."
+     "comment": "Core and BGC missions: official design depth 2,000 m (2,000 dbar).",
+     "canon": "depth_rating"
     },
     {
      "label": "Depth rating (Deep Argo)",
@@ -12945,7 +14514,8 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "argo-mission",
-     "comment": "Deep Argo mission: official design depth 6,000 m."
+     "comment": "Deep Argo mission: official design depth 6,000 m.",
+     "canon": "depth_rating_deep"
     },
     {
      "label": "Cycle",
@@ -12953,7 +14523,8 @@
      "unit": "days",
      "basis": "operator_published",
      "source_id": "argo-about",
-     "comment": "Typical cycle of about 10 days. The float parks near 1 km, then descends to the profile depth and returns to the surface to transmit, as described on the official About page."
+     "comment": "Typical cycle of about 10 days. The float parks near 1 km, then descends to the profile depth and returns to the surface to transmit, as described on the official About page.",
+     "canon": "cycle"
     },
     {
      "label": "Parking depth",
@@ -12961,11 +14532,13 @@
      "unit": "m",
      "basis": "operator_published",
      "source_id": "argo-about",
-     "comment": "Usual parking level, about 1 km, per the official About page."
+     "comment": "Usual parking level, about 1 km, per the official About page.",
+     "canon": "parking_depth"
     }
    ],
    "sensors": [
     {
+     "kind": "CTD",
      "name": "CTD (temperature, salinity, pressure)",
      "maker": null,
      "model": null,
@@ -12975,6 +14548,7 @@
      "source_id": "argo-float-types"
     },
     {
+     "kind": "oxygen",
      "name": "BGC suite (subset of the array)",
      "maker": null,
      "model": null,
@@ -13113,7 +14687,19 @@
    "vessel_id": null,
    "data_completeness": "partial",
    "collection": "International",
-   "countries": []
+   "countries": [],
+   "autonomy": "fully autonomous",
+   "autonomy_basis": "Profiling floats operate on a pre-set cycle and report by satellite; they are not piloted in real time.",
+   "other_specs": [],
+   "depth_rating_m": {
+    "value": 2000,
+    "unit": "m",
+    "basis": "operator_published",
+    "source_id": "argo-mission",
+    "comment": "Core and BGC missions: official design depth 2,000 m (2,000 dbar)."
+   },
+   "endurance": null,
+   "survey_speed_kn": null
   }
  ],
  "status_labels": {
@@ -13130,5 +14716,81 @@
   "developer": "Developer / builder",
   "host": "Host facility",
   "funder": "Funder"
- }
+ },
+ "autonomy_labels": {
+  "crewed": "Crewed — a person is on board during operations",
+  "minimally crewed": "Minimally crewed — a small caretaker crew, with most of the work automated",
+  "remotely operated": "Remotely operated — piloted from a support ship or from shore",
+  "supervised autonomous": "Supervised autonomous — follows a programme and is monitored from shore or a ship",
+  "fully autonomous": "Fully autonomous — operates on a pre-set cycle without real-time piloting",
+  "unknown": "Unknown — not enough public information to classify"
+ },
+ "autonomy_levels": [
+  "crewed",
+  "minimally crewed",
+  "remotely operated",
+  "supervised autonomous",
+  "fully autonomous",
+  "unknown"
+ ],
+ "sensor_kinds": [
+  "multibeam",
+  "sidescan",
+  "sub-bottom profiler",
+  "ADCP",
+  "CTD",
+  "fluorometer",
+  "backscatter",
+  "oxygen",
+  "nitrate",
+  "pH",
+  "PAR",
+  "irradiance",
+  "radiance",
+  "CDOM",
+  "turbidity",
+  "ORP",
+  "methane",
+  "camera",
+  "video",
+  "manipulator",
+  "lights",
+  "magnetometer",
+  "acoustic modem",
+  "USBL",
+  "DVL",
+  "INS",
+  "GPS",
+  "gyrocompass",
+  "passive acoustic",
+  "echosounder",
+  "forward-looking sonar",
+  "scanning sonar",
+  "synthetic aperture sonar",
+  "LIDAR",
+  "laser scanner",
+  "animal telemetry",
+  "eDNA sampler",
+  "turbulence",
+  "current meter",
+  "obstacle avoidance sonar",
+  "satellite comms",
+  "spectral radiometer",
+  "shadowgraph",
+  "other"
+ ],
+ "vehicle_classes": [
+  "USV",
+  "AUV",
+  "glider",
+  "ROV",
+  "HROV",
+  "HOV",
+  "towed",
+  "profiling float",
+  "UAV",
+  "UGV",
+  "HFR",
+  "ship"
+ ]
 }
