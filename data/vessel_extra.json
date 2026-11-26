@@ -2,7 +2,7 @@
  "license": "CC BY 4.0",
  "attribution": "Data compiled by Doug White / researchvessels.org",
  "note": "Curated extended vessel details (name history, predecessor/successor links, extra specs, equipment, history, photos with licence, port supplements). Hand-maintained; survives regeneration of vessels.json. Every string is rendered as text through the DOM builder; URLs pass RV.safeUrl.",
- "updated": "2026-11-25",
+ "updated": "2026-11-26",
  "aliases": {
   "MV-0192": "MV-0191"
  },
@@ -691,7 +691,81 @@
      "changes": "resized for web"
     }
    ],
-   "photo_note": "Free-licence photos from NASA, NOAA and Wikimedia Commons contributors. WHOI's own photo gallery is licensed separately on request."
+   "photo_note": "Free-licence photos from NASA, NOAA and Wikimedia Commons contributors. WHOI's own photo gallery is licensed separately on request.",
+   "launch_recovery": {
+    "vehicle_classes": [
+     "HOV",
+     "ROV",
+     "AUV"
+    ],
+    "usv_support": false,
+    "lars": {
+     "text": "Stern A-frame Alvin Launch and Recovery System (LARS) with swinging beams and a lift winch; certified by NAVSEA. WHOI describes the ship as specially outfitted to support Alvin and other NDSF vehicles.",
+     "value": null,
+     "unit": null,
+     "source_id": "whoi-atlantis-factsheet",
+     "verified": true
+    },
+    "a_frame_swl": {
+     "text": "Alvin LARS A-frame rated to 50,000 lb after the 2011-2013 Alvin upgrade (it was 40,000 lb before).",
+     "value": 50000,
+     "unit": "lb",
+     "source_id": "whoi-vessels-brochure-2023",
+     "verified": true
+    },
+    "crane_swl": null,
+    "deck_space": {
+     "text": "“Specialized hangars” for Alvin and other NDSF vehicles. No deck area is published.",
+     "value": null,
+     "unit": null,
+     "source_id": "whoi-atlantis",
+     "verified": true
+    },
+    "power": null,
+    "sources": [
+     {
+      "id": "whoi-atlantis",
+      "title": "WHOI: R/V Atlantis",
+      "url": "https://www.whoi.edu/what-we-do/explore/ships/ships-atlantis/",
+      "checked": "2026-11-26"
+     },
+     {
+      "id": "whoi-atlantis-factsheet",
+      "title": "R/V Atlantis fact sheet (WHOI, May 2026)",
+      "url": "https://www.whoi.edu/wp-content/uploads/2026/09/RVAtlantis-fact-sheet.pdf",
+      "checked": "2026-11-26"
+     },
+     {
+      "id": "whoi-suchy-aframe",
+      "title": "Rebuilding Alvin: Al Suchy (Oceanus, 12 July 2013)",
+      "url": "https://www.whoi.edu/oceanus/feature/suchyaframe/",
+      "checked": "2026-11-26"
+     },
+     {
+      "id": "whoi-vessels-brochure-2023",
+      "title": "WHOI Vessels and Vehicles brochure (2023)",
+      "url": "https://www.whoi.edu/wp-content/uploads/2023/03/Vessels-and-Vehicles-Brochure-2023.pdf",
+      "checked": "2026-11-26"
+     },
+     {
+      "id": "unols-ndsf-2018",
+      "title": "NDSF Operator’s Report (UNOLS DESSC, Dec 2018)",
+      "url": "https://www.unols.org/sites/default/files/201812desap_07.pdf",
+      "checked": "2026-11-26"
+     },
+     {
+      "id": "unols-ndsf-2019",
+      "title": "NDSF Operator’s Report (UNOLS DESSC, May 2019)",
+      "url": "https://www.unols.org/sites/default/files/201905des_ap05.pdf",
+      "checked": "2026-11-26"
+     }
+    ],
+    "verified": true,
+    "notes": [
+     "Public sources disagree on the gear count: the WHOI ship page says three winches and three cranes; the 2023 WHOI brochure says four winches and two cranes. Both are quoted as published; crane capacity is not stated in either.",
+     "Jason and Sentry have also been run from Atlantis (UNOLS NDSF operator’s reports, 2018 and 2019). See Vehicles supported."
+    ]
+   }
   },
   "MV-0751": {
    "formerly": [
@@ -1321,6 +1395,38 @@
      "url": "https://oceanexplorer.noaa.gov/wp-content/uploads/2025/04/21greatlakes-final-report.pdf"
     }
    ]
+  },
+  "MV-0139": {
+   "launch_recovery": {
+    "vehicle_classes": [
+     "USV"
+    ],
+    "usv_support": true,
+    "lars": {
+     "text": "GMSO lists “U-frame; A-frame; side boom” plus electromechanical hydraulic, trawling hydraulic, oceanographic and auxiliary davit electric winches, and a tender. It says the ship is suited to “USV deployment, repair and recovery”.",
+     "value": null,
+     "unit": null,
+     "source_id": "gmso-fleet",
+     "verified": true
+    },
+    "a_frame_swl": null,
+    "crane_swl": null,
+    "deck_space": null,
+    "power": null,
+    "sources": [
+     {
+      "id": "gmso-fleet",
+      "title": "GMSO research vessel fleet page",
+      "url": "https://gmsoresearchvessels.com/fleet/",
+      "checked": "2026-11-26"
+     }
+    ],
+    "verified": true,
+    "notes": [
+     "GMSO’s page does not name a specific USV, give a safe working load, or give deck space, so those fields are empty rather than guessed.",
+     "The page lists R/V Bellows as a GMSO partner vessel, 21.5 m. This registry record MV-0139 (21.5 m) names Florida Institute of Oceanography as operator. The match is by name and length only; confirm it is the same hull and who operates it today."
+    ]
+   }
   }
  }
 }

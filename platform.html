@@ -57,7 +57,12 @@ document.addEventListener('DOMContentLoaded',()=>{
    ['Collection',p.collection],
    ['Commissioned',p.commissioned],
    ['Also in vessel directory',p.vessel_id&&own(RV.byId(),String(p.vessel_id))?[h('a',{href:RV.vesselHref(String(p.vessel_id))},RV.byId()[String(p.vessel_id)].name||String(p.vessel_id)),h('span',{class:'small text-body-secondary'},' ('+String(p.vessel_id)+')')]:null],
-   ['Support vessels',(p.support_vessels||[]).map(v=>h('div',null,typeof v==='string'?v:[v.vessel_id&&own(RV.byId(),String(v.vessel_id))?h('a',{href:RV.vesselHref(String(v.vessel_id))},v.name||String(v.vessel_id)):(v.name||''),v.note?h('span',{class:'small text-body-secondary'},' \u2013 '+v.note):null]))],
+   ['Support vessels',RVP.supportList(p).length?h('ul',{class:'list-unstyled mb-0'},RVP.supportList(p).map(e=>{const vid=e.vessel_id!=null?String(e.vessel_id):'',inReg=!!vid&&own(RV.byId(),vid);
+     return h('li',{class:'mb-2','data-support-vessel':vid||null,'data-verified':e.verified?'yes':'no'},inReg?h('a',{href:RV.vesselHref(vid)},e.name||RV.byId()[vid].name||vid):h('span',null,e.name||''),' ',
+       h('span',{class:'badge text-bg-light border text-dark text-wrap'},RVP.roleLabel(e.role)),' ',
+       e.verified?h('span',{class:'badge text-bg-success'},'verified'+(e.date?' '+e.date:'')):h('span',{class:'badge text-bg-warning text-wrap',title:'The source page was not confirmed to say this on the check date.'},'unverified'),
+       e.evidence_period?h('span',{class:'small text-body-secondary ms-1'},'('+e.evidence_period+')'):null,
+       e.evidence?h('div',{class:'small text-body-secondary'},e.evidence):null,e.note?h('div',{class:'small text-body-secondary fst-italic'},e.note):null,cite(e.source_id))})):null],
    ['Public information',own(P.COMPLETENESS,p.data_completeness)?P.COMPLETENESS[p.data_completeness]:null],
    ['Operator',[p.operator_org,p.operating_unit?' \u2013 '+p.operating_unit:'']],
    ['People',(p.contacts||[]).map(c=>h('div',null,h('strong',null,c.name),' \u2013 '+(c.role||''),c.as_of?h('span',{class:'small text-body-secondary'},' (as of '+c.as_of+')'):null,cite(c.source_id)))],
@@ -71,8 +76,11 @@ document.addEventListener('DOMContentLoaded',()=>{
   kids.push(sec('ks-h','Key specifications',h('div',{class:'table-responsive'},h('table',{class:'table table-sm align-middle bg-white border'},h('thead',{class:'table-light'},h('tr',null,h('th',{scope:'col'},'Spec'),h('th',{scope:'col'},'Value'),h('th',{scope:'col'},'Basis'),h('th',{scope:'col'},'Comment'))),kb)),h('p',{class:'small text-body-secondary mt-1'},'Depth, endurance and survey speed are copied from the specifications below into fixed fields, with survey speed converted to knots when the source used another unit.')))}
 
  /* access and lineage */
- const ac=p.access,ln=p.lineage;
- if(ac&&(ac.national_facility!=null||ac.program||ac.request_url||ac.note))kids.push(sec('ac-h','Access',dl([['National facility',ac.national_facility===true?'Yes':ac.national_facility===false?'No':null],['Program',ac.program],['How to request',ac.request_url?h('a',{href:ac.request_url},ac.request_url):null],['Note',ac.note]])));
+ const ac=RVP.accessOf(p),ln=p.lineage;
+ if(ac){const ah=ac.access_how||{},ahu=ah.url&&RV.safeUrl(ah.url)?ah.url:null;
+   kids.push(sec('ac-h','Access',dl([['National facility',RVP.triState(ac.national_facility)],['Contracted service',RVP.triState(ac.contracted_service)],['Program',ac.program],
+     ['How to request',(ah.text||ahu)?[ah.text||'',ahu?h('div',null,h('a',{href:ahu},ahu)):null]:null],
+     ['Check',ac.verified?h('span',{class:'badge text-bg-success'},'verified'+(ac.date?' '+ac.date:'')):h('span',{class:'badge text-bg-warning'},'unverified'+(ac.date?' (checked '+ac.date+')':''))],['Note',ac.note]]),cite(ac.source_id)))}
  if(ln&&(ln.replaces||ln.replaced_by||ln.note)){const lk=x=>{if(!x)return null;const o=P.validId(x)?P.find(x):null;return o?h('a',{href:P.detailHref(x)},o.display_name||o.name):String(x)};
    kids.push(sec('ln-h','Lineage',dl([['Replaces',lk(ln.replaces)],['Replaced by',lk(ln.replaced_by)],['Note',ln.note]])))}
  /* status */
@@ -114,6 +122,7 @@ document.addEventListener('DOMContentLoaded',()=>{
  const ph=p.photos||[];
  if(ph.length)kids.push(sec('ph-h','Photos',h('p',{class:'small text-body-secondary mb-1'},'Links only. We do not copy photos without permission.'),h('ul',{class:'mb-0'},ph.map(x=>h('li',null,h('a',{href:x.url},x.label||'Photo'),x.credit?h('div',{class:'small text-body-secondary'},'Credit: '+x.credit+(x.licence?'. '+x.licence+'.':'')):null,cite(x.source_id))))));
  if((p.notes||[]).length)kids.push(sec('no-h','Notes',h('ul',{class:'mb-0'},p.notes.map(n=>h('li',null,n)))));
+ kids.push(sec('vc-h','Condition form',h('p',{class:'mb-0'},h('a',{href:RVP.VCF_HREF(p.platform_id),'data-vcf':'1'},'Vehicle Condition Form'),' (draft). A printable checklist for inspecting this kind of vehicle. It opens pre-filled with this record and nothing is sent anywhere.')));
  /* provenance */
  const pv=p.provenance||{};
  kids.push(sec('pv-h','Provenance',dl([['Record status',pv.record_status?h('span',{class:'badge text-bg-warning'},pv.record_status):null],['Last verified',pv.last_verified],['Method',pv.verified_by],['Confidence',pv.confidence],['Known gaps',(pv.gaps||[]).join('; ')]]),

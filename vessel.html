@@ -6,7 +6,7 @@
 <link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet" integrity="sha384-MinO0mNliZ3vwppuPOUnGa+iq619pfMhLVUXfC4LHwSCvF9H+6P/KO4Q7qBOYV5V" crossorigin="anonymous">
 <link rel="stylesheet" href="assets/style.css">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/js/bootstrap.bundle.min.js" integrity="sha384-WyOxWvTyr1QaMPfiPJSv76iReVthorl5uWlFtZPyK0IEB0hGzo9y5Bp9mYanr8Bu" crossorigin="anonymous" defer></script>
-<script src="assets/app.js"></script><script src="assets/external-links.js"></script><script src="data/vessels.js"></script><script src="data/cruises.js"></script><script src="data/positions.js"></script><script src="data/r2r.js"></script><script src="data/berths.js"></script><script src="data/ports.js"></script><script src="data/rebuilds.js"></script><script src="data/vessel_links.js"></script><script src="data/vessel_extra.js"></script><script src="assets/i18n/strings.en.js"></script><script src="assets/equipment_vocab.js"></script><script src="data/equipment.js"></script><script src="assets/equipment.js"></script></head>
+<script src="assets/app.js"></script><script src="assets/external-links.js"></script><script src="data/vessels.js"></script><script src="data/cruises.js"></script><script src="data/positions.js"></script><script src="data/r2r.js"></script><script src="data/berths.js"></script><script src="data/ports.js"></script><script src="data/rebuilds.js"></script><script src="data/vessel_links.js"></script><script src="data/vessel_extra.js"></script><script src="data/platforms.js"></script><script src="assets/platforms.js"></script><script src="assets/i18n/strings.en.js"></script><script src="assets/equipment_vocab.js"></script><script src="data/equipment.js"></script><script src="assets/equipment.js"></script></head>
 <body class="d-flex flex-column min-vh-100 bg-body-tertiary">
 <main id="content" class="container py-4 flex-grow-1"><div id="v"><p>Loading…</p></div></main>
 <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js" integrity="sha384-SYKAG6cglRMN0RVvhNeBY0r3FYKNOJtznwA0v7B5Vp9tr31xAHsZC0DqkQ/pZDmj" crossorigin="anonymous"></script>
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   <div class="col-12 col-lg-6"><section class="card h-100"><div class="card-body"><h2 class="h5 card-title">Identity &amp; specs</h2><dl class="row mb-2">${row('IMO',v.imo)}${row('MMSI',v.mmsi)}${row('Call sign',v.cs)}${row('Length',v.len?v.len+' m':'')}${row('Year built',v.built)}${rowHtml('Rebuilt',rebuiltHtml)}${row('Gross tonnage',v.gt)}${row('Science berths',v.berths)}${rowHtml('Website',webHtml)}${rowHtml('Wikipedia',wiki?`<a href="${e(wiki)}"${RV.extAttrs(wiki)}>article</a>`:'')}${row('Legacy ID',v.rvorg?'researchvessels.org shipID '+v.rvorg:'')}${row('Registry ID',v.id)}${row('Autonomy',v.autonomy)}${row('Autonomy basis',v.autonomy_basis)}${row('Vehicle class',v.vehicle_class&&v.vehicle_class!=='ship'?v.vehicle_class:'')}</dl>
    <p class="small text-body-secondary mb-0">Record completeness: <strong>${comp}%</strong> of key fields. Sources: ${e(v.src)}.</p></div></section></div>
  </div>
- <div id="vx-photos"></div><div id="vx-more"></div>
+ <div id="vx-photos"></div><div id="vx-more"></div><div id="vx-uncrewed"></div>
  <div id="r2r-eq"></div>
  <h2 class="h4 mt-5 mb-3">Where it's been</h2>
  ${hasMap?`<div id="map" class="rv-map-sm" role="img" aria-label="Map of historical positions and port calls"></div><div id="maptools" class="d-flex flex-wrap align-items-center gap-3 mt-2 small"></div>`:''}
@@ -87,6 +87,7 @@ document.addEventListener('DOMContentLoaded',()=>{
  */
  if(cr.length){const draw=()=>{const y=document.getElementById('yr').value;document.getElementById('crows').innerHTML=cr.filter(c=>!y||String(c.start).startsWith(y)).slice().reverse().map(c=>{const ncei=RV.nceiHref(v.name,c.start,c.end||c.start);return`<tr><td class="text-nowrap">${e(c.start)}</td><td class="text-nowrap">${e(c.end||'')}</td><td>${e(c.from)}${c.to?' → '+e(c.to):''}</td><td>${e(c.area)}${c.detail?'<br><span class="small text-body-secondary">'+e(c.detail)+'</span>':''}</td><td>${e(c.discipline)}</td><td>${e(c.agency)}</td><td>${e(c.project)}</td><td>${ncei?`<a href="${e(ncei)}"${RV.extAttrs(ncei)}>NCEI</a>`:''}</td></tr>`}).join('')};document.getElementById('yr').addEventListener('input',draw);draw()}
  renderExtra();
+ renderUncrewed();
  /* Operator-maintained equipment + spec provenance (assets/equipment.js; DOM builder only). */
  if(window.RV_EQ){try{RV_EQ.renderPublic(id,v,document.getElementById('r2r-eq'))}catch(err){console.error(err)}}
  if(R2)renderR2R(R2,cr);
@@ -180,6 +181,51 @@ document.addEventListener('DOMContentLoaded',()=>{
    kids.push(h('h3',{class:'h5 mt-4'},'History'),h('div',{class:'table-responsive'},h('table',{class:'table table-sm small bg-white border mb-0'},h('thead',{class:'table-light'},h('tr',{},h('th',{},'Date'),h('th',{},'Event'),h('th',{},'Source'))),tb)))}
   if(arr(X.sources).length)kids.push(h('p',{class:'small text-body-secondary mt-2 mb-0'},'Sources: ',arr(X.sources).map((s,i)=>[i?' · ':'',link(s.url,str(s.title))||str(s.title)])));
   if(kids.length)more.append(h('h2',{class:'h4 mt-5 mb-3'},'Vessel details'),...kids);
+ }
+ /* ---------- Launch and recovery + Vehicles supported (phase 2). Text via DOM builder only; URLs via RV.safeUrl. ---------- */
+ function renderUncrewed(){
+  const host=document.getElementById('vx-uncrewed');if(!host||!window.RVP)return;
+  const str=x=>x==null?'':String(x),arr=x=>Array.isArray(x)?x:[];
+  const LR=X&&X.launch_recovery&&typeof X.launch_recovery==='object'?X.launch_recovery:null;
+  const SUP=RVP.vehiclesFor(id);
+  if(!LR&&!SUP.length)return;
+  const link=(u,t)=>{const s=RV.safeUrl(u);return s?h('a',{href:s,rel:'noopener'},t):null};
+  const SRC=arr(LR&&LR.sources).reduce((m,s)=>{if(s&&s.id)m[s.id]=s;return m},{});
+  const flag=ok=>ok?h('span',{class:'badge text-bg-success ms-1'},'verified'):h('span',{class:'badge text-bg-warning ms-1',title:'Not confirmed against the source page on the check date.'},'unverified');
+  const kids=[];
+  if(LR){
+   const dl=h('dl',{class:'row mb-2 small','data-lr':'1'});
+   const row=(label,fld)=>{
+    if(!fld||typeof fld!=='object'||(fld.text==null&&fld.value==null))return;
+    const s=fld.source_id&&SRC[fld.source_id]?link(SRC[fld.source_id].url,str(SRC[fld.source_id].title)):null;
+    dl.append(h('dt',{class:'col-sm-4 fw-normal text-body-secondary'},label),h('dd',{class:'col-sm-8 mb-1'},fld.value!=null?h('strong',{},RVP.fmtValue(fld.value,fld.unit),' '):null,str(fld.text),flag(!!fld.verified),s?h('div',{class:'text-body-secondary'},'Source: ',s):null));
+   };
+   row('Launch and recovery system',LR.lars);row('A-frame safe working load',LR.a_frame_swl);row('Crane safe working load',LR.crane_swl);row('Deck space',LR.deck_space);row('Power for vehicles',LR.power);
+   const none=[['Crane safe working load',LR.crane_swl],['Deck space',LR.deck_space],['Power for vehicles',LR.power],['A-frame safe working load',LR.a_frame_swl],['Launch and recovery system',LR.lars]].filter(x=>!x[1]).map(x=>x[0]);
+   const classes=arr(LR.vehicle_classes).map(c=>h('span',{class:'badge text-bg-light border text-dark me-1'},str(c)));
+   kids.push(h('section',{class:'card mb-4','aria-labelledby':'lr-h','data-section':'launch-recovery'},h('div',{class:'card-body'},
+    h('h3',{class:'h5 card-title',id:'lr-h'},'Launch and recovery for uncrewed vehicles'),
+    h('p',{class:'small mb-2'},'Vehicle classes this ship is described as handling: ',classes.length?classes:'not stated',LR.usv_support===true?h('span',{class:'badge text-bg-info ms-1'},'USV support'):null),
+    dl,none.length?h('p',{class:'small text-body-secondary mb-2'},'Not published, so left blank: '+none.join(', ')+'.'):null,
+    arr(LR.notes).length?h('ul',{class:'small mb-2'},arr(LR.notes).map(n=>h('li',{},str(n)))):null,
+    arr(LR.sources).length?h('p',{class:'small text-body-secondary mb-0'},'Sources (checked ',str((arr(LR.sources)[0]||{}).checked),'): ',arr(LR.sources).map((s,i)=>[i?' \u00b7 ':'',link(s.url,str(s.title))||str(s.title)])):null)));
+  }
+  if(SUP.length){
+   const tb=h('tbody');
+   SUP.sort((a,b)=>String(a.p.name).localeCompare(String(b.p.name))).forEach(({p,e})=>{
+    const sid=e.source_id,S=sid&&RVP.data().sources&&RVP.own(RVP.data().sources,sid)?RVP.data().sources[sid]:null;
+    tb.append(h('tr',{'data-platform':p.platform_id,'data-verified':e.verified?'yes':'no'},
+     h('td',{},h('a',{href:RVP.detailHref(p.platform_id)},str(p.display_name||p.name))),
+     h('td',{},RVP.classBadge(p.platform_class),' ',RV.autonomyBadge(p.autonomy)),
+     h('td',{},h('span',{class:'badge text-bg-light border text-dark text-wrap'},RVP.roleLabel(e.role)),e.evidence_period?h('div',{class:'small text-body-secondary'},str(e.evidence_period)):null),
+     h('td',{class:'small'},str(e.evidence),e.note?h('div',{class:'text-body-secondary fst-italic'},str(e.note)):null,S?h('div',{},'Source: ',link(S.url,str(S.title))||str(S.title),e.date?' (checked '+str(e.date)+')':''):null),
+     h('td',{},flag(!!e.verified))));
+   });
+   kids.push(h('section',{class:'mb-4','aria-labelledby':'vs-h','data-section':'vehicles-supported'},h('h3',{class:'h5',id:'vs-h'},'Vehicles supported ',h('span',{class:'text-body-secondary small fw-normal'},'(',String(SUP.length),')')),
+    h('p',{class:'small text-body-secondary'},'Derived from the support-ship lists on each vehicle record in the platform registry, so a vehicle and its ships always agree. Rows marked unverified were not confirmed against the source page.'),
+    h('div',{class:'table-responsive'},h('table',{class:'table table-sm align-middle bg-white border'},h('thead',{class:'table-light'},h('tr',{},['Vehicle','Class','Role','Evidence','Check'].map(x=>h('th',{scope:'col'},x)))),tb))));
+  }
+  host.append(h('h2',{class:'h4 mt-5 mb-3'},'Uncrewed vehicles'),...kids);
  }
  function r2rSource(){
   const R=window.RV_R2R||{},f=R.fetched?new Date(String(R.fetched)):null,fd=f&&!isNaN(f)?f.toLocaleDateString(undefined,{year:'numeric',month:'short',day:'numeric'}):'unknown date';

@@ -61,6 +61,15 @@
     d.append(h('strong',null,DRAFT_TEXT),mailLink(subject),'. ',extra||'');
     return d;
   }
-  window.RVP={own,data:D,CLASSES,CLASS_NAME,STATUSES,STATUS_HELP,OWNERSHIP,ROLES,COMPLETENESS,COUNTRY,countryName,validId,find,detailHref,classBadge,statusBadge,fmtValue,basisLabel,depthOf,enduranceOf,surveySpeedOf,autonomyBadge,lastDate,mailLink,draftNotice,DRAFT_TEXT,
+  /* Phase 2: support vessels (two-way linking). Entries are objects {vessel_id,name,role,source_id,date,evidence,verified,note};
+     a legacy plain string is tolerated and shown as unverified free text. */
+  const SUPPORT_ROLES=()=>D().support_roles||{};
+  const roleLabel=r=>{const L=SUPPORT_ROLES();return own(L,r)?L[r]:String(r==null?'':r)};
+  const supportList=p=>(Array.isArray(p&&p.support_vessels)?p.support_vessels:[]).map(e=>typeof e==='string'?{vessel_id:null,name:e,role:'any suitable ship',verified:false,note:'Free text from an older record.'}:e).filter(e=>e&&typeof e==='object');
+  const vehiclesFor=vid=>{const out=[];if(vid==null)return out;D().platforms.forEach(p=>supportList(p).forEach(e=>{if(e.vessel_id!=null&&String(e.vessel_id)===String(vid))out.push({p:p,e:e})}));return out};
+  const accessOf=p=>{const a=p&&p.access;return a&&typeof a==='object'?a:null};
+  const triState=v=>v===true?'Yes':v===false?'No':'Not stated';
+  const VCF_HREF=id=>'vehicle_condition_form.html'+(id?'?platform='+encodeURIComponent(String(id)):'');
+  window.RVP={roleLabel,supportList,vehiclesFor,accessOf,triState,VCF_HREF,own,data:D,CLASSES,CLASS_NAME,STATUSES,STATUS_HELP,OWNERSHIP,ROLES,COMPLETENESS,COUNTRY,countryName,validId,find,detailHref,classBadge,statusBadge,fmtValue,basisLabel,depthOf,enduranceOf,surveySpeedOf,autonomyBadge,lastDate,mailLink,draftNotice,DRAFT_TEXT,
     instData:ID,instMap,findInst,instChildren,instDesc,instRoot,instChain,instHref,instLabel,affs,platInsts,operatorsOf};
 })();

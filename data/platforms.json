@@ -1,7 +1,7 @@
 {
  "license": "CC BY 4.0",
  "attribution": "Data compiled by Doug White / researchvessels.org",
- "schema_version": "0.3-draft",
+ "schema_version": "0.4-draft",
  "generated": "2026-11-26",
  "note": "DRAFT prototype of non-ship research platforms: University of Delaware Robotic Discovery Laboratories, WHOI, Rutgers RU COOL, NOAA, U.S. Navy (public information only) and selected international operators. Compiled from public sources only, with no operator confirmation. Every record is a draft: unknown values are null and every spec carries a basis. Corrections welcome at ships@oceandata.org. platform_id and institution_id values are researchvessels.org slugs, not sourced identifiers.",
  "spec_basis_labels": {
@@ -1301,6 +1301,123 @@
    "published": null,
    "accessed": "2026-11-26",
    "note": null
+  },
+  "whoi-atlantis": {
+   "source_id": "whoi-atlantis",
+   "title": "WHOI: R/V Atlantis",
+   "url": "https://www.whoi.edu/what-we-do/explore/ships/ships-atlantis/",
+   "publisher": "Woods Hole Oceanographic Institution",
+   "source_type": "official",
+   "published": null,
+   "accessed": "2026-11-26"
+  },
+  "whoi-atlantis-factsheet": {
+   "source_id": "whoi-atlantis-factsheet",
+   "title": "R/V Atlantis fact sheet (WHOI, May 2026)",
+   "url": "https://www.whoi.edu/wp-content/uploads/2026/09/RVAtlantis-fact-sheet.pdf",
+   "publisher": "Woods Hole Oceanographic Institution",
+   "source_type": "official",
+   "published": "2026-05",
+   "accessed": "2026-11-26"
+  },
+  "whoi-suchy-aframe": {
+   "source_id": "whoi-suchy-aframe",
+   "title": "Rebuilding Alvin: Al Suchy (Oceanus, 12 July 2013)",
+   "url": "https://www.whoi.edu/oceanus/feature/suchyaframe/",
+   "publisher": "Woods Hole Oceanographic Institution",
+   "source_type": "official",
+   "published": "2013-07-12",
+   "accessed": "2026-11-26"
+  },
+  "whoi-vessels-brochure-2023": {
+   "source_id": "whoi-vessels-brochure-2023",
+   "title": "WHOI Vessels and Vehicles brochure (2023)",
+   "url": "https://www.whoi.edu/wp-content/uploads/2023/03/Vessels-and-Vehicles-Brochure-2023.pdf",
+   "publisher": "Woods Hole Oceanographic Institution",
+   "source_type": "official",
+   "published": "2023",
+   "accessed": "2026-11-26"
+  },
+  "unols-ndsf-2018": {
+   "source_id": "unols-ndsf-2018",
+   "title": "NDSF Operator’s Report (UNOLS DESSC, Dec 2018)",
+   "url": "https://www.unols.org/sites/default/files/201812desap_07.pdf",
+   "publisher": "UNOLS DESSC",
+   "source_type": "official",
+   "published": "2018-12",
+   "accessed": "2026-11-26"
+  },
+  "unols-ndsf-2019": {
+   "source_id": "unols-ndsf-2019",
+   "title": "NDSF Operator’s Report (UNOLS DESSC, May 2019)",
+   "url": "https://www.unols.org/sites/default/files/201905des_ap05.pdf",
+   "publisher": "UNOLS DESSC",
+   "source_type": "official",
+   "published": "2019-05",
+   "accessed": "2026-11-26"
+  },
+  "gmso-fleet": {
+   "source_id": "gmso-fleet",
+   "title": "GMSO research vessel fleet page",
+   "url": "https://gmsoresearchvessels.com/fleet/",
+   "publisher": "GMSO",
+   "source_type": "operator",
+   "published": null,
+   "accessed": "2026-11-26"
+  },
+  "omao-drix-48h": {
+   "source_id": "omao-drix-48h",
+   "title": "48 hours in the life of the DriX (NOAA OMAO, 26 June 2024)",
+   "url": "https://www.omao.noaa.gov/uncrewed-systems/news-media/article/48-hours-life-drix-noaas-newest-uncrewed-surface-vehicle",
+   "publisher": "NOAA Office of Marine and Aviation Operations",
+   "source_type": "official",
+   "published": "2024-06-26",
+   "accessed": "2026-11-26"
+  },
+  "ndsf-plan": {
+   "source_id": "ndsf-plan",
+   "title": "NDSF: Plan an Expedition",
+   "url": "https://ndsf.whoi.edu/plan-an-expedition/",
+   "publisher": "Woods Hole Oceanographic Institution (NDSF)",
+   "source_type": "official",
+   "published": null,
+   "accessed": "2026-11-26"
+  },
+  "saildrone-contact": {
+   "source_id": "saildrone-contact",
+   "title": "Saildrone: contact",
+   "url": "https://www.saildrone.com/contact",
+   "publisher": "Saildrone Inc.",
+   "source_type": "operator",
+   "published": null,
+   "accessed": "2026-11-26"
+  },
+  "geomar-rov-kiel": {
+   "source_id": "geomar-rov-kiel",
+   "title": "GEOMAR: ROV KIEL 6000 overview",
+   "url": "https://www.geomar.de/en/st/rovkiel6000/overview",
+   "publisher": "GEOMAR Helmholtz Centre for Ocean Research Kiel",
+   "source_type": "official",
+   "published": null,
+   "accessed": "2026-11-26"
+  },
+  "imos-auv-page": {
+   "source_id": "imos-auv-page",
+   "title": "IMOS: Autonomous Underwater Vehicles facility",
+   "url": "https://imos.org.au/facility/autonomous-underwater-vehicles",
+   "publisher": "Integrated Marine Observing System",
+   "source_type": "official",
+   "published": null,
+   "accessed": "2026-11-26"
+  },
+  "imos-gliders-page": {
+   "source_id": "imos-gliders-page",
+   "title": "IMOS: Ocean Gliders facility",
+   "url": "https://imos.org.au/facility/ocean-gliders",
+   "publisher": "Integrated Marine Observing System",
+   "source_type": "official",
+   "published": null,
+   "accessed": "2026-11-26"
   }
  },
  "platforms": [
@@ -4980,11 +5097,30 @@
    "lineage": null,
    "access": {
     "national_facility": true,
+    "contracted_service": false,
     "program": "National Deep Submergence Facility (NSF, ONR, NOAA sponsors; UNOLS oversight)",
-    "request_url": "https://ndsf.whoi.edu/plan-an-expedition/",
-    "note": "Scheduled through the UNOLS process; start at the NDSF Plan an Expedition page."
+    "access_how": {
+     "text": "Secure funding, then update Marine Facilities Planning (MFP); if not yet funded, see the NDSF proposal planning guide. Discuss requirements with NDSF staff early. Time is scheduled through the UNOLS process.",
+     "url": "https://ndsf.whoi.edu/plan-an-expedition/"
+    },
+    "source_id": "ndsf-plan",
+    "verified": true,
+    "date": "2026-11-26",
+    "note": null
    },
-   "support_vessels": [],
+   "support_vessels": [
+    {
+     "vessel_id": "MV-0112",
+     "name": "Atlantis",
+     "role": "mother ship",
+     "source_id": "whoi-atlantis",
+     "date": "2026-11-26",
+     "evidence_period": null,
+     "evidence": "WHOI: Atlantis is “specifically outfitted for launching and servicing the Alvin”; WHOI fact sheet (May 2026) calls it the only ship in the Academic Research Fleet able to service and operate Alvin.",
+     "verified": true,
+     "note": null
+    }
+   ],
    "vessel_id": "MV-0054",
    "data_completeness": "detailed",
    "collection": "WHOI",
@@ -5189,11 +5325,74 @@
    "lineage": null,
    "access": {
     "national_facility": true,
+    "contracted_service": false,
     "program": "National Deep Submergence Facility (NSF, ONR, NOAA sponsors; UNOLS oversight)",
-    "request_url": "https://ndsf.whoi.edu/plan-an-expedition/",
-    "note": "Scheduled through the UNOLS process; start at the NDSF Plan an Expedition page."
+    "access_how": {
+     "text": "Secure funding, then update Marine Facilities Planning (MFP); if not yet funded, see the NDSF proposal planning guide. Discuss requirements with NDSF staff early. Time is scheduled through the UNOLS process.",
+     "url": "https://ndsf.whoi.edu/plan-an-expedition/"
+    },
+    "source_id": "ndsf-plan",
+    "verified": true,
+    "date": "2026-11-26",
+    "note": null
    },
-   "support_vessels": [],
+   "support_vessels": [
+    {
+     "vessel_id": "MV-0112",
+     "name": "Atlantis",
+     "role": "usual ship",
+     "source_id": "unols-ndsf-2018",
+     "date": "2026-11-26",
+     "evidence_period": "2018",
+     "evidence": "UNOLS NDSF operator’s report: Jason “Vessels used: Thompson, Revelle, Kilo Moana, and Atlantis”.",
+     "verified": true,
+     "note": null
+    },
+    {
+     "vessel_id": "MV-1063",
+     "name": "Thomas G. Thompson",
+     "role": "usual ship",
+     "source_id": "unols-ndsf-2018",
+     "date": "2026-11-26",
+     "evidence_period": "2018",
+     "evidence": "Same 2018 report lists Thompson as a Jason ship.",
+     "verified": true,
+     "note": null
+    },
+    {
+     "vessel_id": "MV-0893",
+     "name": "Roger Revelle",
+     "role": "usual ship",
+     "source_id": "unols-ndsf-2018",
+     "date": "2026-11-26",
+     "evidence_period": "2018, 2019",
+     "evidence": "Same 2018 report lists Revelle as a Jason ship; the 2019 report lists it again.",
+     "verified": true,
+     "note": null
+    },
+    {
+     "vessel_id": "MV-0524",
+     "name": "Kilo Moana",
+     "role": "usual ship",
+     "source_id": "unols-ndsf-2018",
+     "date": "2026-11-26",
+     "evidence_period": "2018",
+     "evidence": "Same 2018 report lists Kilo Moana as a Jason ship.",
+     "verified": true,
+     "note": null
+    },
+    {
+     "vessel_id": "MV-0894",
+     "name": "Ronald H. Brown",
+     "role": "usual ship",
+     "source_id": "unols-ndsf-2019",
+     "date": "2026-11-26",
+     "evidence_period": "2019",
+     "evidence": "2019 report says only “Vessels used: Revelle, Brown, Atlantis”.",
+     "verified": false,
+     "note": "The report gives only the surname Brown. Matching it to R/V Ronald H. Brown is our inference."
+    }
+   ],
    "vessel_id": "MV-0462",
    "data_completeness": "detailed",
    "collection": "WHOI",
@@ -5511,11 +5710,52 @@
    },
    "access": {
     "national_facility": true,
+    "contracted_service": false,
     "program": "National Deep Submergence Facility (NSF, ONR, NOAA sponsors; UNOLS oversight)",
-    "request_url": "https://ndsf.whoi.edu/plan-an-expedition/",
-    "note": "Scheduled through the UNOLS process; start at the NDSF Plan an Expedition page."
+    "access_how": {
+     "text": "Secure funding, then update Marine Facilities Planning (MFP); if not yet funded, see the NDSF proposal planning guide. Discuss requirements with NDSF staff early. Time is scheduled through the UNOLS process.",
+     "url": "https://ndsf.whoi.edu/plan-an-expedition/"
+    },
+    "source_id": "ndsf-plan",
+    "verified": true,
+    "date": "2026-11-26",
+    "note": null
    },
-   "support_vessels": [],
+   "support_vessels": [
+    {
+     "vessel_id": "MV-0112",
+     "name": "Atlantis",
+     "role": "usual ship",
+     "source_id": "unols-ndsf-2018",
+     "date": "2026-11-26",
+     "evidence_period": "2018",
+     "evidence": "UNOLS NDSF operator’s report: Sentry “Vessels used: Atlantis, Atlantic Explorer”.",
+     "verified": true,
+     "note": null
+    },
+    {
+     "vessel_id": "MV-0110",
+     "name": "Atlantic Explorer",
+     "role": "usual ship",
+     "source_id": "unols-ndsf-2018",
+     "date": "2026-11-26",
+     "evidence_period": "2018",
+     "evidence": "Same 2018 report lists Atlantic Explorer as a Sentry ship.",
+     "verified": true,
+     "note": null
+    },
+    {
+     "vessel_id": "MV-1063",
+     "name": "Thomas G. Thompson",
+     "role": "usual ship",
+     "source_id": "unols-ndsf-2019",
+     "date": "2026-11-26",
+     "evidence_period": "2019",
+     "evidence": "2019 report: Sentry “Vessels used: R/V Thompson”.",
+     "verified": true,
+     "note": null
+    }
+   ],
    "vessel_id": "MV-1092",
    "data_completeness": "detailed",
    "collection": "WHOI",
@@ -5635,9 +5875,16 @@
    "lineage": null,
    "access": {
     "national_facility": true,
+    "contracted_service": false,
     "program": "National Deep Submergence Facility (NSF, ONR, NOAA sponsors; UNOLS oversight)",
-    "request_url": "https://ndsf.whoi.edu/plan-an-expedition/",
-    "note": "Scheduled through the UNOLS process; start at the NDSF Plan an Expedition page."
+    "access_how": {
+     "text": "Secure funding, then update Marine Facilities Planning (MFP); if not yet funded, see the NDSF proposal planning guide. Discuss requirements with NDSF staff early. Time is scheduled through the UNOLS process.",
+     "url": "https://ndsf.whoi.edu/plan-an-expedition/"
+    },
+    "source_id": "ndsf-plan",
+    "verified": true,
+    "date": "2026-11-26",
+    "note": "Listed by NDSF as a Waveglider data service; the Plan an Expedition page does not name the Waveglider separately."
    },
    "support_vessels": [],
    "vessel_id": null,
@@ -6926,7 +7173,17 @@
    "lineage": null,
    "access": null,
    "support_vessels": [
-    "Any UNOLS ship with a standard CTD winch and 0.322 in coax cable"
+    {
+     "vessel_id": null,
+     "name": "Any UNOLS ship with a standard CTD winch and 0.322 in coax cable",
+     "role": "any suitable ship",
+     "source_id": "whoi-towcam",
+     "date": "2026-11-26",
+     "evidence_period": null,
+     "evidence": "Supporting wording “any University-National Oceanographic Laboratory System (UNOLS) ship” found on the cited page (re-checked 2026-11-26).",
+     "verified": true,
+     "note": null
+    }
    ],
    "vessel_id": null,
    "data_completeness": "partial",
@@ -7224,13 +7481,40 @@
    "lineage": null,
    "access": {
     "national_facility": true,
+    "contracted_service": null,
     "program": "French Oceanographic Fleet",
-    "request_url": "https://www.flotteoceanographique.fr/",
-    "note": null
+    "access_how": {
+     "text": "See the linked page.",
+     "url": "https://www.flotteoceanographique.fr/"
+    },
+    "source_id": "fof-nautile",
+    "verified": true,
+    "date": "2026-11-26",
+    "note": "Carried over from the phase-0 record; request page re-fetched OK."
    },
    "support_vessels": [
-    "Pourquoi pas ?",
-    "L'Atalante"
+    {
+     "vessel_id": "MV-0826",
+     "name": "Pourquoi pas ?",
+     "role": "usual ship",
+     "source_id": "fof-nautile",
+     "date": "2026-11-26",
+     "evidence_period": null,
+     "evidence": "Supporting wording “Pourquoi pas” found on the cited page (re-checked 2026-11-26).",
+     "verified": true,
+     "note": null
+    },
+    {
+     "vessel_id": "MV-0544",
+     "name": "L'Atalante",
+     "role": "usual ship",
+     "source_id": "fof-nautile",
+     "date": "2026-11-26",
+     "evidence_period": null,
+     "evidence": "Supporting wording “Atalante” found on the cited page (re-checked 2026-11-26).",
+     "verified": true,
+     "note": null
+    }
    ],
    "vessel_id": null,
    "data_completeness": "detailed",
@@ -7374,8 +7658,28 @@
    "lineage": null,
    "access": null,
    "support_vessels": [
-    "Pourquoi pas ?",
-    "L'Atalante"
+    {
+     "vessel_id": "MV-0826",
+     "name": "Pourquoi pas ?",
+     "role": "usual ship",
+     "source_id": "fof-victor",
+     "date": "2026-11-26",
+     "evidence_period": null,
+     "evidence": "Supporting wording “Pourquoi pas” found on the cited page (re-checked 2026-11-26).",
+     "verified": true,
+     "note": null
+    },
+    {
+     "vessel_id": "MV-0544",
+     "name": "L'Atalante",
+     "role": "usual ship",
+     "source_id": "fof-victor",
+     "date": "2026-11-26",
+     "evidence_period": null,
+     "evidence": "Carried over from the phase-0 record; the wording was not found on the cited pages that loaded (1 other cited page(s) did not load: HTTP 000) on 2026-11-26.",
+     "verified": false,
+     "note": "Unverified in phase 2."
+    }
    ],
    "vessel_id": null,
    "data_completeness": "detailed",
@@ -7524,7 +7828,17 @@
    "lineage": null,
    "access": null,
    "support_vessels": [
-    "Any vessel (per Ifremer table)"
+    {
+     "vessel_id": null,
+     "name": "Any vessel (per Ifremer table)",
+     "role": "any suitable ship",
+     "source_id": "fof-ariane",
+     "date": "2026-11-26",
+     "evidence_period": null,
+     "evidence": "Carried over from the phase-0 record; the wording was not found on the cited pages that loaded (1 other cited page(s) did not load: HTTP 000) on 2026-11-26.",
+     "verified": false,
+     "note": "Unverified in phase 2."
+    }
    ],
    "vessel_id": null,
    "data_completeness": "detailed",
@@ -7694,10 +8008,50 @@
    "lineage": null,
    "access": null,
    "support_vessels": [
-    "Pourquoi pas ?",
-    "L'Atalante",
-    "Thalassa",
-    "Antea"
+    {
+     "vessel_id": "MV-0826",
+     "name": "Pourquoi pas ?",
+     "role": "usual ship",
+     "source_id": "fof-ulyx",
+     "date": "2026-11-26",
+     "evidence_period": null,
+     "evidence": "Carried over from the phase-0 record; the wording was not found on the cited pages that loaded (1 other cited page(s) did not load: HTTP 000) on 2026-11-26.",
+     "verified": false,
+     "note": "Unverified in phase 2."
+    },
+    {
+     "vessel_id": "MV-0544",
+     "name": "L'Atalante",
+     "role": "usual ship",
+     "source_id": "fof-ulyx",
+     "date": "2026-11-26",
+     "evidence_period": null,
+     "evidence": "Carried over from the phase-0 record; the wording was not found on the cited pages that loaded (1 other cited page(s) did not load: HTTP 000) on 2026-11-26.",
+     "verified": false,
+     "note": "Unverified in phase 2."
+    },
+    {
+     "vessel_id": "MV-1060",
+     "name": "Thalassa",
+     "role": "usual ship",
+     "source_id": "fof-ulyx",
+     "date": "2026-11-26",
+     "evidence_period": null,
+     "evidence": "Carried over from the phase-0 record; the wording was not found on the cited pages that loaded (1 other cited page(s) did not load: HTTP 000) on 2026-11-26.",
+     "verified": false,
+     "note": "Unverified in phase 2."
+    },
+    {
+     "vessel_id": "MV-0066",
+     "name": "Antea",
+     "role": "usual ship",
+     "source_id": "fof-ulyx",
+     "date": "2026-11-26",
+     "evidence_period": null,
+     "evidence": "Carried over from the phase-0 record; the wording was not found on the cited pages that loaded (1 other cited page(s) did not load: HTTP 000) on 2026-11-26.",
+     "verified": false,
+     "note": "Unverified in phase 2."
+    }
    ],
    "vessel_id": null,
    "data_completeness": "detailed",
@@ -7905,7 +8259,17 @@
    "lineage": null,
    "access": null,
    "support_vessels": [
-    "Any vessel, including coastal ships"
+    {
+     "vessel_id": null,
+     "name": "Any vessel, including coastal ships",
+     "role": "any suitable ship",
+     "source_id": "fof-asterx",
+     "date": "2026-11-26",
+     "evidence_period": null,
+     "evidence": "Carried over from the phase-0 record; the wording was not found on the cited pages that loaded (1 other cited page(s) did not load: HTTP 000) on 2026-11-26.",
+     "verified": false,
+     "note": "Unverified in phase 2."
+    }
    ],
    "vessel_id": null,
    "data_completeness": "detailed",
@@ -8520,9 +8884,16 @@
    "lineage": null,
    "access": {
     "national_facility": true,
+    "contracted_service": null,
     "program": "NOC MARS delivery partner (NERC National Capability)",
-    "request_url": "https://www.sams.ac.uk/facilities/robotics/",
-    "note": "Free at point of use for NERC applicants; costed for others."
+    "access_how": {
+     "text": "Free at point of use for NERC applicants; costed for others.",
+     "url": "https://www.sams.ac.uk/facilities/robotics/"
+    },
+    "source_id": "sams-robotics",
+    "verified": true,
+    "date": "2026-11-26",
+    "note": "Carried over from the phase-0 record; request page re-fetched OK."
    },
    "support_vessels": [],
    "vessel_id": null,
@@ -9105,9 +9476,31 @@
    ],
    "commissioned": null,
    "lineage": null,
-   "access": null,
+   "access": {
+    "national_facility": null,
+    "contracted_service": null,
+    "program": "GEOMAR Technology and Logistics Centre",
+    "access_how": {
+     "text": "GEOMAR says to contact the scientific head of the ROV group for information on use of its ROVs. No public request form is listed.",
+     "url": "https://www.geomar.de/en/st/rovkiel6000/overview"
+    },
+    "source_id": "geomar-rov-kiel",
+    "verified": true,
+    "date": "2026-11-26",
+    "note": "Whether this counts as a national facility is not stated on the page."
+   },
    "support_vessels": [
-    "Ships of opportunity with dynamic positioning, deck space, power and crane/winch capacity"
+    {
+     "vessel_id": null,
+     "name": "Ships of opportunity with dynamic positioning, deck space, power and crane/winch capacity",
+     "role": "any suitable ship",
+     "source_id": "geomar-kiel6000",
+     "date": "2026-11-26",
+     "evidence_period": null,
+     "evidence": "Supporting wording “ships of opportunity which fulfil certain requirements” found on the cited page (re-checked 2026-11-26).",
+     "verified": true,
+     "note": null
+    }
    ],
    "vessel_id": null,
    "data_completeness": "detailed",
@@ -9205,9 +9598,31 @@
    ],
    "commissioned": 2011,
    "lineage": null,
-   "access": null,
+   "access": {
+    "national_facility": null,
+    "contracted_service": null,
+    "program": "GEOMAR Technology and Logistics Centre",
+    "access_how": {
+     "text": "GEOMAR says to contact the scientific head of the ROV group for information on use of its ROVs. No public request form is listed.",
+     "url": "https://www.geomar.de/en/st/rovkiel6000/overview"
+    },
+    "source_id": "geomar-rov-kiel",
+    "verified": true,
+    "date": "2026-11-26",
+    "note": "Whether this counts as a national facility is not stated on the page. PHOCA is covered by the same GEOMAR contact; its own page was not re-read."
+   },
    "support_vessels": [
-    "Medium-sized research vessels"
+    {
+     "vessel_id": null,
+     "name": "Medium-sized research vessels",
+     "role": "any suitable ship",
+     "source_id": "geomar-phoca",
+     "date": "2026-11-26",
+     "evidence_period": null,
+     "evidence": "Carried over from the phase-0 record; the wording was not found on the cited pages that loaded on 2026-11-26.",
+     "verified": false,
+     "note": "Unverified in phase 2."
+    }
    ],
    "vessel_id": null,
    "data_completeness": "partial",
@@ -9702,7 +10117,17 @@
    "lineage": null,
    "access": null,
    "support_vessels": [
-    "Smaller vessels with a crane and a control lab"
+    {
+     "vessel_id": null,
+     "name": "Smaller vessels with a crane and a control lab",
+     "role": "any suitable ship",
+     "source_id": "marum-squid",
+     "date": "2026-11-26",
+     "evidence_period": null,
+     "evidence": "Supporting wording “deployed even from smaller vessels” found on the cited page (re-checked 2026-11-26).",
+     "verified": true,
+     "note": null
+    }
    ],
    "vessel_id": null,
    "data_completeness": "detailed",
@@ -9875,7 +10300,17 @@
    "lineage": null,
    "access": null,
    "support_vessels": [
-    "Medium and larger research vessels; crane with ~10 m outreach or stern A-frame; no dedicated LARS"
+    {
+     "vessel_id": null,
+     "name": "Medium and larger research vessels; crane with ~10 m outreach or stern A-frame; no dedicated LARS",
+     "role": "any suitable ship",
+     "source_id": "marum-seal",
+     "date": "2026-11-26",
+     "evidence_period": null,
+     "evidence": "Supporting wording “Medium and larger research vessels” found on the cited page (re-checked 2026-11-26).",
+     "verified": true,
+     "note": null
+    }
    ],
    "vessel_id": null,
    "data_completeness": "detailed",
@@ -10284,7 +10719,19 @@
     "replaced_by": [],
     "note": "Review figure caption calls Sirius a WHOI SeaBED-class design; IMOS facility ended June 2023."
    },
-   "access": null,
+   "access": {
+    "national_facility": true,
+    "contracted_service": false,
+    "program": "IMOS Autonomous Underwater Vehicles facility (NCRIS)",
+    "access_how": {
+     "text": "The IMOS facility page gives an IMOS office contact. It lists no request form or call for proposals.",
+     "url": "https://imos.org.au/facility/autonomous-underwater-vehicles"
+    },
+    "source_id": "imos-auv-page",
+    "verified": true,
+    "date": "2026-11-26",
+    "note": "National status: IMOS is enabled by Australia’s National Collaborative Research Infrastructure Strategy (NCRIS), per the facility page."
+   },
    "support_vessels": [],
    "vessel_id": null,
    "data_completeness": "partial",
@@ -10433,7 +10880,19 @@
    ],
    "commissioned": null,
    "lineage": null,
-   "access": null,
+   "access": {
+    "national_facility": true,
+    "contracted_service": false,
+    "program": "IMOS Ocean Gliders facility (ANFOG; NCRIS)",
+    "access_how": {
+     "text": "The IMOS facility page gives a contact at the operating institution (University of Western Australia). It lists no request form.",
+     "url": "https://imos.org.au/facility/ocean-gliders"
+    },
+    "source_id": "imos-gliders-page",
+    "verified": true,
+    "date": "2026-11-26",
+    "note": "National status: IMOS is enabled by NCRIS, per the facility page."
+   },
    "support_vessels": [],
    "vessel_id": null,
    "data_completeness": "detailed",
@@ -10517,7 +10976,19 @@
    ],
    "commissioned": null,
    "lineage": null,
-   "access": null,
+   "access": {
+    "national_facility": true,
+    "contracted_service": false,
+    "program": "IMOS Ocean Gliders facility (ANFOG; NCRIS)",
+    "access_how": {
+     "text": "The IMOS facility page gives a contact at the operating institution (University of Western Australia). It lists no request form.",
+     "url": "https://imos.org.au/facility/ocean-gliders"
+    },
+    "source_id": "imos-gliders-page",
+    "verified": true,
+    "date": "2026-11-26",
+    "note": "National status: IMOS is enabled by NCRIS, per the facility page."
+   },
    "support_vessels": [],
    "vessel_id": null,
    "data_completeness": "limited",
@@ -10625,7 +11096,17 @@
    "lineage": null,
    "access": null,
    "support_vessels": [
-    "RV Investigator"
+    {
+     "vessel_id": "MV-0437",
+     "name": "Investigator",
+     "role": "usual ship",
+     "source_id": "csiro-gliders-2024",
+     "date": "2026-11-26",
+     "evidence_period": null,
+     "evidence": "Supporting wording “Investigator” found on the cited page (re-checked 2026-11-26).",
+     "verified": true,
+     "note": null
+    }
    ],
    "vessel_id": null,
    "data_completeness": "partial",
@@ -11589,7 +12070,17 @@
    "lineage": null,
    "access": null,
    "support_vessels": [
-    "NOAA Ship Okeanos Explorer"
+    {
+     "vessel_id": "MV-0751",
+     "name": "Okeanos Explorer",
+     "role": "usual ship",
+     "source_id": "noaa-d2",
+     "date": "2026-11-26",
+     "evidence_period": null,
+     "evidence": "Supporting wording “Okeanos Explorer” found on the cited page (re-checked 2026-11-26).",
+     "verified": true,
+     "note": null
+    }
    ],
    "vessel_id": null,
    "data_completeness": "detailed",
@@ -11746,7 +12237,17 @@
    "lineage": null,
    "access": null,
    "support_vessels": [
-    "NOAA Ship Okeanos Explorer"
+    {
+     "vessel_id": "MV-0751",
+     "name": "Okeanos Explorer",
+     "role": "usual ship",
+     "source_id": "noaa-seirios",
+     "date": "2026-11-26",
+     "evidence_period": null,
+     "evidence": "Supporting wording “Okeanos Explorer” found on the cited page (re-checked 2026-11-26).",
+     "verified": true,
+     "note": null
+    }
    ],
    "vessel_id": null,
    "data_completeness": "detailed",
@@ -11839,7 +12340,17 @@
    "lineage": null,
    "access": null,
    "support_vessels": [
-    "NOAA Ship Thomas Jefferson"
+    {
+     "vessel_id": "MV-1064",
+     "name": "Thomas Jefferson",
+     "role": "mother ship",
+     "source_id": "omao-drix-48h",
+     "date": "2026-11-26",
+     "evidence_period": null,
+     "evidence": "NOAA OMAO: in 2024 the DriX “was integrated with NOAA Ship Thomas Jefferson” and returned to the ship between 48-hour survey runs.",
+     "verified": true,
+     "note": null
+    }
    ],
    "vessel_id": null,
    "data_completeness": "limited",
@@ -12004,7 +12515,19 @@
    ],
    "commissioned": null,
    "lineage": null,
-   "access": null,
+   "access": {
+    "national_facility": false,
+    "contracted_service": true,
+    "program": "Commercial service (Saildrone Inc.)",
+    "access_how": {
+     "text": "Commercial data and services. NOAA buys data from Saildrone Inc.; the vehicles are not NOAA-owned. Other users contact Saildrone Inc.",
+     "url": "https://www.saildrone.com/contact"
+    },
+    "source_id": "saildrone-contact",
+    "verified": true,
+    "date": "2026-11-26",
+    "note": "Contracted status is from the NOAA UxSOC 2024 report already cited on this record."
+   },
    "support_vessels": [],
    "vessel_id": null,
    "data_completeness": "limited",
@@ -14679,9 +15202,16 @@
    "lineage": null,
    "access": {
     "national_facility": null,
+    "contracted_service": false,
     "program": "International Argo program (GOOS / WMO-IOC)",
-    "request_url": "https://argo.ucsd.edu/data/",
-    "note": "Argo data are freely available from the two GDACs without a proposal process. Access to deploy a national float is through the relevant national programme, not a single global facility."
+    "access_how": {
+     "text": "Argo data are freely available from the two GDACs without a proposal process. Access to deploy a national float is through the relevant national programme, not a single global facility.",
+     "url": "https://argo.ucsd.edu/data/"
+    },
+    "source_id": "argo-ucsd",
+    "verified": true,
+    "date": "2026-11-26",
+    "note": "Carried over from the phase-0 record; request page re-fetched OK."
    },
    "support_vessels": [],
    "vessel_id": null,
@@ -14792,5 +15322,12 @@
   "UGV",
   "HFR",
   "ship"
- ]
+ ],
+ "support_roles": {
+  "mother ship": "Mother ship (dedicated or primary support ship)",
+  "usual ship": "Usual support ship (named in a source)",
+  "usv support": "USV launch and recovery support",
+  "any suitable ship": "Any suitable ship (generic requirement, no ship named)"
+ },
+ "access_fields_note": "access.national_facility: true when the source describes a nationally funded facility; null when not stated. access.contracted_service: true when the vehicle is a commercial service bought by the user or the agency. access.access_how.text/url: how to ask for time or data, copied from the source. access.verified: the source page was fetched and the claim found on it on access.date."
 }
