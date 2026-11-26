@@ -1,0 +1,73 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' blob: https://unpkg.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdn.jsdelivr.net; img-src 'self' data: blob: https://tiles.openfreemap.org; worker-src blob:; child-src blob:; connect-src 'self' https://tiles.openfreemap.org https://unpkg.com; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'">
+<title>Institutions (draft) · ResearchVessels.org</title><link rel="canonical" href="https://researchvessels.org/institution.html"><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32"><link rel="apple-touch-icon" href="assets/apple-touch-icon.png" sizes="180x180">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/css/bootstrap.min.css" integrity="sha384-yEPZ7jP9S0QKiUQ0m3jjsO4ProIW7wvR9gXkI7JOGa2XVsw53Yke2bsdkBbjmmiX" crossorigin="anonymous">
+<link rel="stylesheet" href="assets/style.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/js/bootstrap.bundle.min.js" integrity="sha384-WyOxWvTyr1QaMPfiPJSv76iReVthorl5uWlFtZPyK0IEB0hGzo9y5Bp9mYanr8Bu" crossorigin="anonymous" defer></script>
+<script src="assets/app.js"></script><script src="assets/external-links.js"></script><script src="data/vessels.js"></script><script src="data/platforms.js"></script><script src="data/institutions.js"></script><script src="data/manufacturers.js"></script><script src="assets/platforms.js"></script></head>
+<body class="d-flex flex-column min-vh-100 bg-body-tertiary">
+<main id="content" class="container py-4 flex-grow-1"><div id="p"><p>Loading&hellip;</p></div></main>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+ const el=document.getElementById('p'),h=RV.h,P=RVP,D=P.data(),own=P.own,ID=P.instData(),L=D.platforms,vb=RV.byId();
+ const sec=(id,title,...kids)=>h('section',{class:'mb-4','aria-labelledby':id},h('h2',{class:'h5',id},title),...kids);
+ const dl=rows=>{const d=h('dl',{class:'row mb-0'});rows.forEach(([k,v])=>{if(v==null||v===''||(Array.isArray(v)&&!v.length))return;d.append(h('dt',{class:'col-sm-4 col-lg-3 fw-semibold'},k),h('dd',{class:'col-sm-8 col-lg-9'},v))});return d};
+ const platsUnder=id=>{const ids=new Set(P.instDesc(id));return L.filter(p=>P.affs(p).some(a=>ids.has(a.institution_id)))};
+ const back=()=>h('p',null,h('a',{href:'institution.html'},'\u2190 All institutions'),' \u00b7 ',h('a',{href:'platforms.html'},'All platforms'));
+ const fail=(title,...msg)=>{document.title=title+' \u00b7 ResearchVessels.org';el.replaceChildren(h('h1',null,title),h('p',null,...msg),back())};
+ const raw=RV.qs('id');
+ /* no id: index of all institutions, nested, grouped by country */
+ if(raw==null||raw===''){
+  document.title='Institutions and groups (draft) \u00b7 ResearchVessels.org';
+  const kids=[h('h1',{class:'mb-2'},'Institutions and groups'),
+   h('p',{class:'lead text-body-secondary'},'Universities, agencies, labs and facilities that own, operate, develop, host or fund the platforms in this registry. Groups are nested inside their institution.'),
+   P.draftNotice('Institution records come from public sources and have not been checked by the institutions.','Correction: institutions')];
+  const tops=ID.institutions.filter(i=>!i.parent_id||!P.findInst(i.parent_id));
+  const byC=new Map();tops.forEach(i=>{const c=i.country||'';if(!byC.has(c))byC.set(c,[]);byC.get(c).push(i)});
+  const tree=i=>{const n=platsUnder(i.institution_id).length,ch=P.instChildren(i.institution_id).sort((a,b)=>a.name.localeCompare(b.name));
+    return h('li',{'data-inst':i.institution_id},h('a',{href:P.instHref(i.institution_id)},i.name),i.short_name&&i.short_name!==i.name?' ('+i.short_name+')':'',h('span',{class:'small text-body-secondary ms-1'},'\u2013 '+n+' platform'+(n===1?'':'s')),
+      ch.length?h('ul',null,ch.map(tree)):null)};
+  [...byC.keys()].sort((a,b)=>P.countryName(a).localeCompare(P.countryName(b))).forEach(c=>{
+    kids.push(sec('c-'+(c||'none'),P.countryName(c)||'Country not set',h('ul',{class:'mb-0'},byC.get(c).sort((a,b)=>a.name.localeCompare(b.name)).map(tree))))});
+  kids.push(h('p',{class:'small'},'Machine-readable list: ',h('a',{href:'data/institutions.json'},'data/institutions.json'),' (CC BY 4.0, "Data compiled by Doug White / researchvessels.org").'));
+  el.replaceChildren(...kids);return}
+ if(!P.validId(raw)){fail('Not a valid institution ID','Institution IDs use only letters, digits, hyphens and underscores, up to 64 characters.');return}
+ const i=P.findInst(raw);
+ if(!i){fail('Institution not found','No institution with ID ',h('code',null,raw),' is in the registry yet.');return}
+ document.title=i.name+' \u00b7 ResearchVessels.org';
+ const chain=P.instChain(i.institution_id),kids=[];
+ kids.push(h('nav',{'aria-label':'Breadcrumb',class:'small mb-2'},h('a',{href:'institution.html'},'Institutions'),chain.slice(0,-1).map(x=>[' / ',h('a',{href:P.instHref(x.institution_id)},P.instLabel(x))])));
+ kids.push(h('h1',{class:'mb-1'},i.name));
+ kids.push(h('p',{class:'mb-2'},i.short_name&&i.short_name!==i.name?h('span',{class:'badge text-bg-light border text-dark me-1'},i.short_name):null,h('span',{class:'badge text-bg-secondary me-1'},String(i.type||'')),i.country?h('span',{class:'badge text-bg-light border text-dark'},P.countryName(i.country)):null));
+ kids.push(P.draftNotice('This record comes from public sources only and has not been checked by '+(chain[0]?chain[0].name:'the institution')+'.','Correction: '+i.name));
+ const sources=D.sources||{};
+ const ch=P.instChildren(i.institution_id);
+ kids.push(sec('id-h','About',dl([
+   ['Part of',chain.length>1?chain.slice(0,-1).reverse().map((x,k)=>[k?', ':'',h('a',{href:P.instHref(x.institution_id)},x.name)]):null],
+   ['Groups inside',ch.length?ch.map((x,k)=>[k?', ':'',h('a',{href:P.instHref(x.institution_id)},x.name)]):null],
+   ['Also called',(i.aliases||[]).join(', ')],
+   ['Website',i.url?h('a',{href:i.url},i.url):null],
+   ['Contact page',i.contact_url?h('a',{href:i.contact_url},i.contact_url):null],
+   ['ROR ID',(()=>{const m=/^(?:https:\/\/ror\.org\/)?(0[a-z0-9]{8})$/.exec(String(i.ror_id||''));return m?h('a',{href:'https://ror.org/'+m[1]},m[1]):h('span',{class:'text-body-secondary'},'none recorded')})()],
+   ['Status',i.status],['Note',i.note]])));
+ /* platforms: this institution and its groups */
+ const desc=new Set(P.instDesc(i.institution_id)),ps=platsUnder(i.institution_id);
+ if(ps.length){const tb=h('tbody');
+  ps.forEach(p=>{const mine=P.affs(p).filter(a=>desc.has(a.institution_id));
+   tb.append(h('tr',{'data-id':p.platform_id},h('td',null,h('a',{href:P.detailHref(p.platform_id),class:'fw-semibold'},p.display_name||p.name),p.quantity>1?h('span',{class:'small text-body-secondary'},' \u00d7'+p.quantity):null),
+    h('td',null,P.classBadge(p.platform_class)),h('td',null,P.statusBadge(p.status)),
+    h('td',{class:'small'},mine.map(a=>h('div',null,(own(P.ROLES,a.role)?P.ROLES[a.role]:String(a.role||''))+(a.institution_id!==i.institution_id?' (via '+P.instLabel(P.findInst(a.institution_id))+')':''))))))});
+  kids.push(sec('pl-h','Platforms ('+ps.length+')',h('div',{class:'table-responsive'},h('table',{class:'table table-sm table-striped align-top bg-white border',id:'itable'},h('thead',{class:'table-light'},h('tr',null,['Platform','Class','Status','Role'].map(t=>h('th',{scope:'col'},t)))),tb)),
+   h('p',{class:'small'},h('a',{href:'platforms.html?inst='+encodeURIComponent(i.institution_id)},'Open these in the platform list with filters'),'.')))}
+ else kids.push(sec('pl-h','Platforms',h('p',{class:'text-body-secondary mb-0'},'No platforms are linked to this institution yet.')));
+ /* vessels: from exact operator/owner name matches, this institution and its groups */
+ const vids=[...new Set([...desc].flatMap(x=>(P.findInst(x)||{}).vessel_ids||[]))].filter(v=>own(vb,String(v)));
+ if(vids.length)kids.push(sec('vs-h','Vessels ('+vids.length+')',h('ul',{class:'mb-1'},vids.map(v=>h('li',null,h('a',{href:RV.vesselHref(String(v))},vb[v].name||String(v)),vb[v].operator?h('span',{class:'small text-body-secondary'},' \u2013 '+vb[v].operator):null))),
+   h('p',{class:'small text-body-secondary'},'Matched to the vessel directory by the exact operator or owner name. Check the vessel page for the full record.')));
+ const ol=h('ol',{class:'small mb-0'});(i.source_ids||[]).filter(s=>own(sources,s)).forEach(sid=>{const s=sources[sid];ol.append(h('li',null,h('a',{href:s.url},s.title||s.url),' \u2013 '+[s.publisher,s.published].filter(Boolean).join(', ')))});
+ if(ol.children.length)kids.push(sec('src-h','Sources',ol));
+ kids.push(back());
+ el.replaceChildren(...kids);
+});
+</script></body></html>

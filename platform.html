@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/css/bootstrap.min.css" integrity="sha384-yEPZ7jP9S0QKiUQ0m3jjsO4ProIW7wvR9gXkI7JOGa2XVsw53Yke2bsdkBbjmmiX" crossorigin="anonymous">
 <link rel="stylesheet" href="assets/style.css">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/js/bootstrap.bundle.min.js" integrity="sha384-WyOxWvTyr1QaMPfiPJSv76iReVthorl5uWlFtZPyK0IEB0hGzo9y5Bp9mYanr8Bu" crossorigin="anonymous" defer></script>
-<script src="assets/app.js"></script><script src="assets/external-links.js"></script><script src="data/vessels.js"></script><script src="data/platforms.js"></script><script src="data/manufacturers.js"></script><script src="assets/platforms.js"></script></head>
+<script src="assets/app.js"></script><script src="assets/external-links.js"></script><script src="data/vessels.js"></script><script src="data/platforms.js"></script><script src="data/institutions.js"></script><script src="data/manufacturers.js"></script><script src="assets/platforms.js"></script></head>
 <body class="d-flex flex-column min-vh-100 bg-body-tertiary">
 <main id="content" class="container py-4 flex-grow-1"><div id="p"><p>Loading&hellip;</p></div></main>
 <script>
@@ -26,11 +26,14 @@ document.addEventListener('DOMContentLoaded',()=>{
  const sec=(id,title,...kids)=>h('section',{class:'mb-4','aria-labelledby':id},h('h2',{class:'h5',id},title),...kids);
  const dl=rows=>{const d=h('dl',{class:'row mb-0'});rows.forEach(([k,v])=>{if(v==null||v===''||(Array.isArray(v)&&!v.length))return;d.append(h('dt',{class:'col-sm-4 col-lg-3 fw-semibold'},k),h('dd',{class:'col-sm-8 col-lg-9'},v))});return d};
  const kids=[];
- kids.push(h('nav',{'aria-label':'Breadcrumb',class:'small mb-2'},h('a',{href:'platforms.html'},'Platforms'),' / ',p.platform_class||''));
+ const op0=P.operatorsOf(p)[0],chain=op0?P.instChain(op0.institution_id):[];
+ kids.push(h('nav',{'aria-label':'Breadcrumb',class:'small mb-2'},h('a',{href:'platforms.html'},'Platforms'),chain.map(i=>[' / ',h('a',{href:P.instHref(i.institution_id)},P.instLabel(i))]),' / ',p.platform_class||''));
  kids.push(h('h1',{class:'mb-1'},name));
  kids.push(h('p',{class:'mb-2'},P.classBadge(p.platform_class),' ',P.statusBadge(p.status),p.status_date?h('span',{class:'small text-body-secondary ms-2'},'as of '+p.status_date):null,
    p.aliases&&p.aliases.length?h('span',{class:'ms-3'},h('span',{class:'small text-body-secondary'},'Also called: '),p.aliases.map(a=>h('span',{class:'badge text-bg-light border text-dark me-1'},a))):null));
- kids.push(P.draftNotice('This record comes from public sources only and has not been checked by the University of Delaware.','Correction: '+name));
+ const opNames=[...new Set(P.operatorsOf(p).map(a=>{const r=P.instRoot(a.institution_id);return r?r.name:null}).filter(Boolean))];
+ kids.push(P.draftNotice('This record comes from public sources only and has not been checked by '+(opNames.length?opNames.join(' or '):'the operator')+'.','Correction: '+name));
+ if(p.data_completeness==='limited')kids.push(h('div',{class:'alert alert-secondary py-2',role:'note'},h('strong',null,'Limited public information. '),'Only openly published facts are recorded here'+(p.collection==='Navy'?' for this military platform; many specifications are not released':'')+'. Blank fields are not published, not zero.'));
  (p.distinct_from||[]).forEach(did=>{const o=P.find(did);if(!o)return;
   kids.push(h('div',{class:'alert alert-info py-2',role:'note'},h('strong',null,'Not the same vehicle as '),h('a',{href:P.detailHref(did)},o.display_name||o.name),' ('+(o.platform_class||'')+'). They share only a nickname; keep the two records apart.'))});
  /* identity */
@@ -46,9 +49,23 @@ document.addEventListener('DOMContentLoaded',()=>{
    ['Identifiers',Object.keys(ids).filter(k=>ids[k]!=null).map(k=>h('div',null,(own(idLabels,k)?idLabels[k]:k)+': ',h('code',null,String(ids[k]))))],
    ['Owner',p.owner_org?[p.owner_org,' ',h('span',{class:'badge text-bg-light border text-dark'},own(P.OWNERSHIP,p.ownership_type)?P.OWNERSHIP[p.ownership_type]:String(p.ownership_type||''))]:[h('span',{class:'badge text-bg-light border text-dark'},own(P.OWNERSHIP,p.ownership_type)?P.OWNERSHIP[p.ownership_type]:'Not stated')]],
    ['Ownership note',p.ownership_note],
+   ['Institutions',P.affs(p).length?h('ul',{class:'list-unstyled mb-0'},P.affs(p).map(a=>{const i=P.findInst(a.institution_id),ch=P.instChain(a.institution_id);
+     return h('li',null,h('span',{class:'badge text-bg-light border text-dark me-1'},own(P.ROLES,a.role)?P.ROLES[a.role]:String(a.role||'')),h('a',{href:P.instHref(i.institution_id)},i.name),
+       ch.length>1?h('span',{class:'small text-body-secondary'},' (part of '+ch.slice(0,-1).reverse().map(P.instLabel).join(', ')+')'):null,a.note?h('div',{class:'small text-body-secondary'},a.note):null,cite(a.source_id))})):null],
+   ['Countries',(p.countries||[]).map(P.countryName).join(', ')],
+   ['Collection',p.collection],
+   ['Commissioned',p.commissioned],
+   ['Also in vessel directory',p.vessel_id&&own(RV.byId(),String(p.vessel_id))?[h('a',{href:RV.vesselHref(String(p.vessel_id))},RV.byId()[String(p.vessel_id)].name||String(p.vessel_id)),h('span',{class:'small text-body-secondary'},' ('+String(p.vessel_id)+')')]:null],
+   ['Support vessels',(p.support_vessels||[]).map(v=>h('div',null,typeof v==='string'?v:[v.vessel_id&&own(RV.byId(),String(v.vessel_id))?h('a',{href:RV.vesselHref(String(v.vessel_id))},v.name||String(v.vessel_id)):(v.name||''),v.note?h('span',{class:'small text-body-secondary'},' \u2013 '+v.note):null]))],
+   ['Public information',own(P.COMPLETENESS,p.data_completeness)?P.COMPLETENESS[p.data_completeness]:null],
    ['Operator',[p.operator_org,p.operating_unit?' \u2013 '+p.operating_unit:'']],
    ['People',(p.contacts||[]).map(c=>h('div',null,h('strong',null,c.name),' \u2013 '+(c.role||''),c.as_of?h('span',{class:'small text-body-secondary'},' (as of '+c.as_of+')'):null,cite(c.source_id)))],
    ['Based at',p.home_site]])));
+ /* access and lineage */
+ const ac=p.access,ln=p.lineage;
+ if(ac&&(ac.national_facility!=null||ac.program||ac.request_url||ac.note))kids.push(sec('ac-h','Access',dl([['National facility',ac.national_facility===true?'Yes':ac.national_facility===false?'No':null],['Program',ac.program],['How to request',ac.request_url?h('a',{href:ac.request_url},ac.request_url):null],['Note',ac.note]])));
+ if(ln&&(ln.replaces||ln.replaced_by||ln.note)){const lk=x=>{if(!x)return null;const o=P.validId(x)?P.find(x):null;return o?h('a',{href:P.detailHref(x)},o.display_name||o.name):String(x)};
+   kids.push(sec('ln-h','Lineage',dl([['Replaces',lk(ln.replaces)],['Replaced by',lk(ln.replaced_by)],['Note',ln.note]])))}
  /* status */
  kids.push(sec('st-h','Status',h('p',{class:'mb-1'},P.statusBadge(p.status),' ',p.status_date?'as of '+p.status_date:''),h('p',{class:'mb-0 text-body-secondary'},p.status_basis||'No basis recorded.')));
  /* specs */
@@ -82,7 +99,7 @@ document.addEventListener('DOMContentLoaded',()=>{
  const de=p.data_endpoints||[];
  if(de.length)kids.push(sec('de-h','Data and catalog links',h('ul',{class:'mb-0'},de.map(x=>h('li',null,h('a',{href:x.url},x.label||x.type))))));
  const ph=p.photos||[];
- if(ph.length)kids.push(sec('ph-h','Photos',h('p',{class:'small text-body-secondary mb-1'},'Links only. We do not copy photos without permission.'),h('ul',{class:'mb-0'},ph.map(x=>h('li',null,h('a',{href:x.url},x.label||'Photo'))))));
+ if(ph.length)kids.push(sec('ph-h','Photos',h('p',{class:'small text-body-secondary mb-1'},'Links only. We do not copy photos without permission.'),h('ul',{class:'mb-0'},ph.map(x=>h('li',null,h('a',{href:x.url},x.label||'Photo'),x.credit?h('div',{class:'small text-body-secondary'},'Credit: '+x.credit+(x.licence?'. '+x.licence+'.':'')):null,cite(x.source_id))))));
  if((p.notes||[]).length)kids.push(sec('no-h','Notes',h('ul',{class:'mb-0'},p.notes.map(n=>h('li',null,n)))));
  /* provenance */
  const pv=p.provenance||{};
