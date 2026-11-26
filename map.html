@@ -1,12 +1,12 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' blob: https://unpkg.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdn.jsdelivr.net; img-src 'self' data: blob: https://tiles.openfreemap.org; worker-src blob:; child-src blob:; connect-src 'self' https://tiles.openfreemap.org https://unpkg.com; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' blob: https://unpkg.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdn.jsdelivr.net; img-src 'self' data: blob: https://tiles.openfreemap.org; worker-src blob:; child-src blob:; connect-src 'self' https://tiles.openfreemap.org https://unpkg.com https://gliders.ioos.us; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'">
 <title>Where were ships? · ResearchVessels.org</title><link rel="canonical" href="https://researchvessels.org/map.html"><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32"><link rel="apple-touch-icon" href="assets/apple-touch-icon.png" sizes="180x180">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/css/bootstrap.min.css" integrity="sha384-yEPZ7jP9S0QKiUQ0m3jjsO4ProIW7wvR9gXkI7JOGa2XVsw53Yke2bsdkBbjmmiX" crossorigin="anonymous">
 <link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet" integrity="sha384-MinO0mNliZ3vwppuPOUnGa+iq619pfMhLVUXfC4LHwSCvF9H+6P/KO4Q7qBOYV5V" crossorigin="anonymous">
 <link rel="stylesheet" href="assets/style.css">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/js/bootstrap.bundle.min.js" integrity="sha384-WyOxWvTyr1QaMPfiPJSv76iReVthorl5uWlFtZPyK0IEB0hGzo9y5Bp9mYanr8Bu" crossorigin="anonymous" defer></script>
-<script src="assets/app.js"></script><script src="assets/external-links.js"></script><script src="data/vessels.js"></script><script src="data/cruises.js"></script><script src="data/positions.js"></script></head>
+<script src="assets/app.js"></script><script src="assets/external-links.js"></script><script src="data/vessels.js"></script><script src="data/cruises.js"></script><script src="data/positions.js"></script><script src="data/uncrewed_deployments.js"></script></head>
 <body class="d-flex flex-column min-vh-100 bg-body-tertiary">
 <main id="content" class="container py-4 flex-grow-1">
 <h1 class="mb-2">Where were ships?</h1>
@@ -18,6 +18,16 @@
  <div class="col-auto"><button id="draw" type="button" class="btn btn-primary" aria-pressed="false">Draw an area</button></div><div class="col-auto"><button id="clear" type="button" class="btn btn-outline-secondary">Clear area</button></div>
  <div class="col-12 col-lg legend pb-2"><span><i class="dot" style="background:#c0392b"></i>VOS weather report</span><span><i class="dot" style="background:#0b5fa5"></i>AIS-like</span></div>
 </div>
+<div class="card mb-3" id="dep-panel" aria-labelledby="dep-h"><div class="card-body py-2">
+ <div class="d-flex flex-wrap align-items-center gap-3">
+  <div class="form-check form-switch mb-0"><input class="form-check-input" type="checkbox" role="switch" id="dep-on"><label class="form-check-label fw-semibold" for="dep-on" id="dep-h">Active uncrewed deployments</label></div>
+  <div class="form-check mb-0"><input class="form-check-input" type="checkbox" id="dep-gl" checked disabled><label class="form-check-label small" for="dep-gl">Gliders (IOOS Glider DAC)</label></div>
+  <div class="form-check mb-0"><input class="form-check-input" type="checkbox" id="dep-ar" checked disabled><label class="form-check-label small" for="dep-ar">Argo floats</label></div>
+  <div class="legend small"><span><i class="dot" style="background:#e8710a"></i>Glider</span><span><i class="dot" style="background:#0f9d8a"></i>Argo float</span></div>
+ </div>
+ <p class="small text-body-secondary mb-0 mt-1" id="dep-status" aria-live="polite">Off. This layer is separate from the historical ship positions above. Turn it on to load the latest glider and Argo float positions.</p>
+ <p class="small text-body-secondary mb-0" id="dep-attr" hidden></p>
+</div></div>
 <div class="row g-3"><div class="col-12 col-lg-8"><div id="map" role="application" aria-label="Map of historical research vessel positions. Use the Draw an area button, then drag on the map."></div></div>
 <div class="col-12 col-lg-4"><aside class="card rv-side" aria-live="polite"><div class="card-body" id="results"><h2 class="h5">Results</h2><p class="text-body-secondary">Click <strong>Draw an area</strong>, then drag a box on the map. Or try a preset:</p>
 <p class="d-flex flex-wrap gap-2 mb-0"><button type="button" class="btn btn-sm btn-outline-primary" data-bbox="-76,36,-72,40">Mid-Atlantic Bight</button> <button type="button" class="btn btn-sm btn-outline-primary" data-bbox="5,53.5,9,56">German Bight</button> <button type="button" class="btn btn-sm btn-outline-primary" data-bbox="-160,18,-154,23">Hawaii</button></p></div></aside></div></div>
@@ -36,7 +46,7 @@ document.addEventListener('DOMContentLoaded',()=>{
  const filt=()=>{const y0=$('y0').value,y1=$('y1').value,k=$('kind').value;return P.filter(p=>{const y=String(p[3]).slice(0,4);return y>=y0&&y<=y1&&(!k||p[4]===k)})};
  const gj=pts=>({type:'FeatureCollection',features:pts.map(p=>({type:'Feature',properties:{id:p[0],d:p[3],k:p[4]},geometry:{type:'Point',coordinates:[p[2],p[1]]}}))});
  const boxgj=b=>({type:'FeatureCollection',features:b?[{type:'Feature',geometry:{type:'Polygon',coordinates:[[[b[0],b[1]],[b[2],b[1]],[b[2],b[3]],[b[0],b[3]],[b[0],b[1]]]]}}]:[]});
- function refresh(){const pts=filt();if(map&&map.getSource('p')){map.getSource('p').setData(gj(pts));map.getSource('box').setData(boxgj(bbox))}if(bbox)results(pts)}
+ function refresh(){const pts=filt();if(map&&map.getSource('p')){map.getSource('p').setData(gj(pts));map.getSource('box').setData(boxgj(bbox))}if(bbox){results(pts);depResults()}}
  function results(pts){
   const [x0,y0,x1,y1]=bbox,inb=pts.filter(p=>p[2]>=x0&&p[2]<=x1&&p[1]>=y0&&p[1]<=y1),g={};
   inb.forEach(p=>{(g[p[0]]=g[p[0]]||{n:0,a:p[3],b:p[3]});const r=g[p[0]];r.n++;if(p[3]<r.a)r.a=p[3];if(p[3]>r.b)r.b=p[3]});
@@ -63,6 +73,84 @@ document.addEventListener('DOMContentLoaded',()=>{
  document.addEventListener('click',ev=>{const b=ev.target.closest('[data-bbox]');if(!b)return;bbox=b.dataset.bbox.split(',').map(Number);if(map)map.fitBounds([[bbox[0],bbox[1]],[bbox[2],bbox[3]]],{padding:40});refresh()});
  $('clear').addEventListener('click',()=>{bbox=null;refresh();$('results').replaceChildren();const h=document.createElement('h2');h.className='h5';h.textContent='Results';const p=document.createElement('p');p.className='text-body-secondary';p.textContent='Area cleared. Draw a new one.';$('results').append(h,p)});
  ['y0','y1','kind'].forEach(id=>$(id).addEventListener('input',refresh));
- const qb=RV.qs('bbox');if(qb){bbox=qb.split(',').map(Number);results(filt());if(map)map.on('load',()=>{map.fitBounds([[bbox[0],bbox[1]],[bbox[2],bbox[3]]],{padding:40,duration:0});refresh()})}
+ /* ---------- Active uncrewed deployments: a separate, toggleable layer (public feeds only) ----------
+    Gliders: fetched live from the IOOS Glider DAC ERDDAP (it sends CORS headers); if that fails, the checked-in snapshot is used.
+    Argo: the Ifremer ERDDAP sends no CORS header, so Argo positions always come from the checked-in snapshot
+    (data/uncrewed_deployments.js, refreshed by hand with tools/refresh_uncrewed_deployments.py).
+    Everything from a feed is untrusted: validated, and shown only through textContent / DOM nodes. */
+ const DEP={gl:[],ar:[],glNote:'',arNote:'',on:false,loaded:false,busy:false};
+ const num=v=>typeof v==='number'&&isFinite(v),okPos=(la,lo)=>num(la)&&num(lo)&&Math.abs(la)<=90&&Math.abs(lo)<=180;
+ const ISO=/^\d{4}-\d{2}-\d{2}(T\d{2}:\d{2}(:\d{2})?Z?)?$/,IDRE=/^[A-Za-z0-9_.-]{1,80}$/;
+ const txt=(v,n)=>v==null?'':String(v).replace(/[\u0000-\u001f]/g,' ').slice(0,n||200);
+ const utc=d=>d.toISOString().slice(0,16).replace('T',' ')+' UTC';
+ const snapOf=()=>{const S=window.RV_DEPLOYMENTS;return S&&typeof S==='object'?S:null};
+ const cleanGl=a=>(Array.isArray(a)?a:[]).filter(x=>x&&typeof x==='object'&&IDRE.test(String(x.id))&&okPos(x.lat,x.lon)).slice(0,300).map(x=>({id:String(x.id),title:txt(x.title,120),institution:txt(x.institution,160),start:ISO.test(String(x.start))?String(x.start):'',time:ISO.test(String(x.time))?String(x.time):'',lat:x.lat,lon:x.lon}));
+ const cleanAr=a=>(Array.isArray(a)?a:[]).filter(r=>Array.isArray(r)&&/^[0-9A-Za-z]{4,12}$/.test(String(r[0]))&&okPos(r[1],r[2])).slice(0,20000).map(r=>({wmo:String(r[0]),lat:r[1],lon:r[2],date:ISO.test(String(r[3]))?String(r[3]):''}));
+ async function getJson(url,ms){const c=new AbortController(),t=setTimeout(()=>c.abort(),ms||15000);try{const r=await fetch(url,{signal:c.signal,credentials:'omit',referrerPolicy:'no-referrer'});if(!r.ok)throw new Error('HTTP '+r.status);return await r.json()}finally{clearTimeout(t)}}
+ async function liveGliders(){
+  const base='https://gliders.ioos.us/erddap/tabledap/';
+  const j=await getJson(base+'allDatasets.json?datasetID,title,institution,minTime,maxTime&maxTime%3E=now-3days');
+  const rows=j&&j.table&&Array.isArray(j.table.rows)?j.table.rows:null;if(!rows)throw new Error('unexpected response');
+  const list=rows.filter(r=>Array.isArray(r)&&IDRE.test(String(r[0]))).slice(0,80),out=[];let i=0,fail=0;
+  const work=async()=>{while(i<list.length){const r=list[i++];try{
+    const q=await getJson(base+encodeURIComponent(String(r[0]))+'.json?time,latitude,longitude&orderByMax(%22time%22)',15000);
+    const row=q&&q.table&&Array.isArray(q.table.rows)&&q.table.rows[0];if(!row)continue;
+    out.push({id:String(r[0]),title:r[1],institution:r[2],start:r[3],time:row[0],lat:row[1],lon:row[2]})}catch(e){fail++}}};
+  await Promise.all([work(),work(),work(),work(),work(),work()]);
+  const clean=cleanGl(out);if(list.length&&!clean.length)throw new Error('no usable positions');
+  return {items:clean,failed:fail,asked:list.length};
+ }
+ async function loadDeployments(){
+  if(DEP.loaded||DEP.busy)return;DEP.busy=true;setStatus('Loading the latest positions\u2026');
+  const S=snapOf(),sg=S&&S.gliders,sa=S&&S.argo;
+  try{const g=await liveGliders();DEP.gl=g.items;DEP.glNote='Gliders: live from the IOOS Glider DAC at '+utc(new Date())+' ('+g.items.length+' with data in the last 3 days'+(g.failed?'; '+g.failed+' of '+g.asked+' position lookups failed':'')+').'}
+  catch(err){DEP.gl=cleanGl(sg&&sg.items);DEP.glNote='Gliders: the live IOOS Glider DAC feed could not be read ('+txt(err&&err.message,60)+'), so this shows the saved snapshot'+(sg&&sg.as_of?' from '+txt(sg.as_of,30).replace('T',' ')+' (UTC)':'')+(DEP.gl.length?'':'. No snapshot is available either')+'.'}
+  DEP.ar=cleanAr(sa&&sa.items);
+  DEP.arNote=DEP.ar.length?'Argo floats: saved snapshot from '+txt(sa.as_of,30).replace('T',' ')+' (UTC), '+DEP.ar.length.toLocaleString()+' floats with a profile in the last '+(num(sa.window_days)?sa.window_days:12)+' days. Argo\u2019s data server does not allow browser access, so this is refreshed by hand.':'Argo floats: no snapshot is available.';
+  DEP.loaded=true;DEP.busy=false;draw();
+ }
+ function setStatus(t){$('dep-status').textContent=t}
+ function attribution(){const a=$('dep-attr');a.replaceChildren('Sources: ',Object.assign(document.createElement('a'),{href:'https://gliders.ioos.us/',rel:'noopener',textContent:'IOOS Glider Data Assembly Center'}),' (NOAA IOOS) and the ',Object.assign(document.createElement('a'),{href:'https://argo.ucsd.edu/',rel:'noopener',textContent:'Argo Program'}),' (data from the Ifremer Argo ERDDAP). Positions are the latest reported and are not a navigation aid.');a.hidden=false}
+ const depGj=(rows,kind)=>({type:'FeatureCollection',features:rows.map((r,ix)=>({type:'Feature',properties:{k:kind,ix},geometry:{type:'Point',coordinates:[r.lon,r.lat]}}))});
+ function depFill(){const sg=DEP.on&&$('dep-gl').checked?DEP.gl.length:0,sa=DEP.on&&$('dep-ar').checked?DEP.ar.length:0;$('dep-panel').setAttribute('data-gliders',String(sg));$('dep-panel').setAttribute('data-argo',String(sa));if(!map||!map.getSource('dg'))return;map.getSource('dg').setData(depGj(DEP.on&&$('dep-gl').checked?DEP.gl:[],'g'));map.getSource('da').setData(depGj(DEP.on&&$('dep-ar').checked?DEP.ar:[],'a'))}
+ function draw(){
+  $('dep-gl').disabled=!DEP.on;$('dep-ar').disabled=!DEP.on;
+  if(!DEP.on){setStatus('Off. This layer is separate from the historical ship positions above. Turn it on to load the latest glider and Argo float positions.');$('dep-attr').hidden=true;depFill();return}
+  if(!DEP.loaded){loadDeployments().then(()=>{});return}
+  const sh=[$('dep-gl').checked?DEP.glNote:'',$('dep-ar').checked?DEP.arNote:''].filter(Boolean);
+  setStatus((map?'':'The map library could not load, so only counts are shown. ')+sh.join(' ')+(sh.length?'':'Both groups are hidden.'));attribution();depFill();if(bbox)depResults();
+ }
+ function depResults(){
+  const old=document.getElementById('dep-results');if(old)old.remove();if(!DEP.on||!DEP.loaded||!bbox)return;
+  const [x0,y0,x1,y1]=bbox,inb=r=>r.lon>=x0&&r.lon<=x1&&r.lat>=y0&&r.lat<=y1;
+  const g=$('dep-gl').checked?DEP.gl.filter(inb):[],a=$('dep-ar').checked?DEP.ar.filter(inb):[];
+  const d=document.createElement('div');d.id='dep-results';d.className='border-top pt-2 mt-3';
+  const h3=document.createElement('h3');h3.className='h6';h3.textContent='Active uncrewed deployments in this area';
+  const p=document.createElement('p');p.className='small mb-1';p.textContent=g.length+' glider'+(g.length===1?'':'s')+' and '+a.length.toLocaleString()+' Argo float'+(a.length===1?'':'s')+' (separate from the ship count above).';
+  d.append(h3,p);
+  if(g.length){const ul=document.createElement('ul');ul.className='small mb-0';g.slice(0,8).forEach(r=>{const li=document.createElement('li');li.textContent=r.id+(r.institution?' \u00b7 '+r.institution:'');ul.append(li)});d.append(ul)}
+  $('results').append(d);
+ }
+ function depPopup(ev){
+  const f=ev.features&&ev.features[0];if(!f)return;const ix=f.properties.ix,k=f.properties.k,r=k==='g'?DEP.gl[ix]:DEP.ar[ix];if(!r)return;
+  const box=document.createElement('div');box.className='small';
+  const line=(t,b)=>{const e=document.createElement(b?'strong':'div');e.textContent=t;box.append(e);if(b)box.append(document.createElement('br'))};
+  const lk=(href,t)=>{const a=document.createElement('a');a.setAttribute('href',RV.safeUrl(href));a.setAttribute('rel','noopener noreferrer');a.setAttribute('target','_blank');a.textContent=t;const d=document.createElement('div');d.append(a);box.append(d)};
+  if(k==='g'){line('Glider '+r.id,true);if(r.title&&r.title!==r.id)line(r.title);if(r.institution)line(r.institution);line('Last position '+r.lat.toFixed(2)+'\u00b0, '+r.lon.toFixed(2)+'\u00b0'+(r.time?' at '+r.time:''));lk('https://gliders.ioos.us/erddap/tabledap/'+encodeURIComponent(r.id)+'.html','Open in the Glider DAC')}
+  else{line('Argo float '+r.wmo,true);line('Last profile position '+r.lat.toFixed(2)+'\u00b0, '+r.lon.toFixed(2)+'\u00b0'+(r.date?' on '+r.date:''));lk('https://fleetmonitoring.euro-argo.eu/float/'+encodeURIComponent(r.wmo),'Open in Euro-Argo fleet monitoring')}
+  new maplibregl.Popup().setLngLat(ev.lngLat).setDOMContent(box).addTo(map);
+ }
+ $('dep-on').addEventListener('change',()=>{DEP.on=$('dep-on').checked;draw()});
+ ['dep-gl','dep-ar'].forEach(id=>$(id).addEventListener('change',draw));
+ if(map)map.on('load',()=>{
+  map.addSource('dg',{type:'geojson',data:depGj([],'g')});map.addSource('da',{type:'geojson',data:depGj([],'a')});
+  map.addLayer({id:'da',type:'circle',source:'da',paint:{'circle-radius':['interpolate',['linear'],['zoom'],1,2,6,4],'circle-color':'#0f9d8a','circle-opacity':.75,'circle-stroke-color':'#fff','circle-stroke-width':.5}});
+  map.addLayer({id:'dg',type:'circle',source:'dg',paint:{'circle-radius':['interpolate',['linear'],['zoom'],1,3.5,6,6],'circle-color':'#e8710a','circle-opacity':.95,'circle-stroke-color':'#fff','circle-stroke-width':1}});
+  ['dg','da'].forEach(l=>{map.on('click',l,depPopup);map.on('mouseenter',l,()=>map.getCanvas().style.cursor='pointer');map.on('mouseleave',l,()=>map.getCanvas().style.cursor='')});
+  depFill();
+ });
+ if(RV.qs('layer')==='uncrewed'){$('dep-on').checked=true;DEP.on=true;draw()}
+
+ const qb=RV.qs('bbox');if(qb){bbox=qb.split(',').map(Number);results(filt());depResults();if(map)map.on('load',()=>{map.fitBounds([[bbox[0],bbox[1]],[bbox[2],bbox[3]]],{padding:40,duration:0});refresh()})}
 });
 </script></body></html>
