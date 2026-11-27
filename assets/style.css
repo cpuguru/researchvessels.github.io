@@ -82,4 +82,5 @@ tr.rv-trk-row{cursor:pointer}
 .badge.rv-unverified{font-weight:500}
 .rv-raw-id{font-size:.75rem}
 /* Year bar chart: never wider than the screen (375px) */
+@media(min-width:992px) and (max-width:1199.98px){#mainNav .navbar-nav{--bs-navbar-nav-link-padding-x:.22rem}#mainNav .nav-link{font-size:.8rem}} /* 11 nav items (Institutions added) still fit one row at 992-1199px */
 .table-responsive,.overflow-x-auto,.overflow-auto{position:relative} /* keep visually-hidden (position:absolute) hints inside scrolling tables from widening the page on phones */
