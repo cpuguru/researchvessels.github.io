@@ -2791,7 +2791,7 @@
     }
    ],
    "home_site": "Lewes, Delaware (UD Robotic Discovery Laboratories)",
-   "status": "Unknown",
+   "status": "Unconfirmed",
    "status_date": "2016-08",
    "status_basis": "Last public evidence is the 2016 Autonomous Systems Bootcamp (launched from R/V Joanne Daiber); no later UD Gavia deployment found.",
    "specs": [
@@ -2997,7 +2997,7 @@
     }
    ],
    "home_site": "Lewes, Delaware (UD Robotic Discovery Laboratories)",
-   "status": "Unknown",
+   "status": "Unconfirmed",
    "status_date": "2015",
    "status_basis": "Last public evidence is a 2015 California whale-prey mission; none found for 2023-2025.",
    "specs": [
@@ -3169,7 +3169,7 @@
     }
    ],
    "home_site": "Lewes, Delaware (UD Robotic Discovery Laboratories)",
-   "status": "Unknown",
+   "status": "Unconfirmed",
    "status_date": "2016-08",
    "status_basis": "Last public evidence is the 2016 bootcamp listing.",
    "specs": [
@@ -3481,7 +3481,7 @@
    "operating_unit": null,
    "contacts": [],
    "home_site": "Lewes, Delaware (UD Robotic Discovery Laboratories)",
-   "status": "Unknown",
+   "status": "Unconfirmed",
    "status_date": "2016-08",
    "status_basis": "Named only on the 2016 bootcamp equipment list.",
    "specs": [],
@@ -3705,7 +3705,7 @@
    "operating_unit": null,
    "contacts": [],
    "home_site": "Lewes, Delaware (UD Robotic Discovery Laboratories)",
-   "status": "Unknown",
+   "status": "Unconfirmed",
    "status_date": "2015",
    "status_basis": "Last public evidence is 2015 (Delaware artificial reefs; AUV recovery in the Cayman Islands).",
    "specs": [
@@ -3867,7 +3867,7 @@
    "operating_unit": null,
    "contacts": [],
    "home_site": "Lewes, Delaware (UD Robotic Discovery Laboratories)",
-   "status": "Unknown",
+   "status": "Unconfirmed",
    "status_date": "2016-08",
    "status_basis": "Named only on the 2016 bootcamp equipment list.",
    "specs": [],
@@ -4320,7 +4320,7 @@
    "operating_unit": null,
    "contacts": [],
    "home_site": "Lewes, Delaware (UD Robotic Discovery Laboratories)",
-   "status": "Unknown",
+   "status": "Unconfirmed",
    "status_date": "2016-08",
    "status_basis": "Named only on the 2016 bootcamp equipment list.",
    "specs": [],
@@ -4397,7 +4397,7 @@
    "operating_unit": null,
    "contacts": [],
    "home_site": "Lewes, Delaware (UD Robotic Discovery Laboratories)",
-   "status": "Unknown",
+   "status": "Unconfirmed",
    "status_date": "2015",
    "status_basis": "Only 2015 evidence; likely retired but not confirmed.",
    "specs": [
@@ -4526,7 +4526,7 @@
    "operating_unit": null,
    "contacts": [],
    "home_site": "Lewes, Delaware (UD Robotic Discovery Laboratories)",
-   "status": "Unknown",
+   "status": "Unconfirmed",
    "status_date": "2016-08",
    "status_basis": "Named only on the 2016 bootcamp equipment list.",
    "specs": [],
@@ -4603,7 +4603,7 @@
    "operating_unit": null,
    "contacts": [],
    "home_site": "Lewes, Delaware (UD Robotic Discovery Laboratories)",
-   "status": "Unknown",
+   "status": "Unconfirmed",
    "status_date": "2016-08",
    "status_basis": "Named only on the 2016 bootcamp equipment list.",
    "specs": [],
@@ -4859,7 +4859,8 @@
    "name": "Alvin",
    "display_name": "HOV Alvin",
    "aliases": [
-    "DSV Alvin"
+    "DSV Alvin",
+    "Alvin (DSV)"
    ],
    "distinct_from": [],
    "platform_class": "HOV",
@@ -5064,7 +5065,7 @@
     }
    ],
    "notes": [
-    "Also listed in the vessel directory as MV-0054 \"Alvin (DSV)\"; this record is the platform-registry view of the same submersible."
+    "Merged 2026-11-27: the vessel directory entry MV-0054 (\"Alvin (DSV)\") was the same vehicle. This platform record is canonical; MV-0054 is kept as an alias and its old links open this page."
    ],
    "source_ids": [
     "ndsf-alvin",
@@ -5155,7 +5156,22 @@
     "comment": "NDSF overview page says dives last up to twelve hours.",
     "text": null
    },
-   "survey_speed_kn": null
+   "survey_speed_kn": null,
+   "legacy_ids": [
+    "MV-0054",
+    "researchvessels.org shipID 739"
+   ],
+   "legacy_vessel_record": {
+    "id": "MV-0054",
+    "name": "Alvin (DSV)",
+    "type": "Submersible/ROV/AUV",
+    "owner": "US Navy",
+    "operator": "Woods Hole Oceanographic Institution (WHOI)",
+    "country": "United States",
+    "rvorg": "739",
+    "url": "https://vesselconnect.org/vessels/739",
+    "src": "VesselConnect; ResearchVessels.org"
+   }
   },
   {
    "platform_id": "whoi-jason",
@@ -5164,7 +5180,8 @@
    "aliases": [
     "Jason",
     "Jason II",
-    "Medea"
+    "Medea",
+    "Jason II/ Medea (ROV)"
    ],
    "distinct_from": [],
    "platform_class": "ROV",
@@ -5288,7 +5305,7 @@
    "photos": [],
    "notes": [
     "Designed and built by WHOI's Deep Submergence Laboratory, funded by NSF.",
-    "Also listed in the vessel directory as MV-0462 \"Jason II/ Medea (ROV)\"."
+    "Merged 2026-11-27: the vessel directory entry MV-0462 (\"Jason II/ Medea (ROV)\") was the same vehicle. This platform record is canonical; MV-0462 is kept as an alias and its old links open this page."
    ],
    "source_ids": [
     "ndsf-jason",
@@ -5427,13 +5444,29 @@
     "comment": "Operators have kept it down for as long as seven days.",
     "text": null
    },
-   "survey_speed_kn": null
+   "survey_speed_kn": null,
+   "legacy_ids": [
+    "MV-0462",
+    "researchvessels.org shipID 740"
+   ],
+   "legacy_vessel_record": {
+    "id": "MV-0462",
+    "name": "Jason II/ Medea (ROV)",
+    "type": "Submersible/ROV/AUV",
+    "operator": "Woods Hole Oceanographic Institution (WHOI)",
+    "country": "United States",
+    "rvorg": "740",
+    "url": "https://vesselconnect.org/vessels/740",
+    "src": "VesselConnect; ResearchVessels.org"
+   }
   },
   {
    "platform_id": "whoi-sentry",
    "name": "Sentry",
    "display_name": "AUV Sentry",
-   "aliases": [],
+   "aliases": [
+    "UAV Sentry"
+   ],
    "distinct_from": [],
    "platform_class": "AUV",
    "model": null,
@@ -5678,7 +5711,7 @@
    "data_endpoints": [],
    "photos": [],
    "notes": [
-    "The vessel directory lists this vehicle as MV-1092 \"UAV Sentry\"; it is an AUV. Suggest correcting that label."
+    "Merged 2026-11-27: the vessel directory entry MV-1092 (\"UAV Sentry\") was the same vehicle. This platform record is canonical; MV-1092 is kept as an alias and its old links open this page."
    ],
    "source_ids": [
     "ndsf-sentry",
@@ -5787,7 +5820,19 @@
     "comment": null,
     "text": "~23 h multibeam at 1 m/s; >30 h camera survey at 0.6 m/s"
    },
-   "survey_speed_kn": null
+   "survey_speed_kn": null,
+   "legacy_ids": [
+    "MV-1092"
+   ],
+   "legacy_vessel_record": {
+    "id": "MV-1092",
+    "name": "UAV Sentry",
+    "type": "Vessel",
+    "operator": "Woods Hole Oceanographic Institution (WHOI)",
+    "country": "United States",
+    "url": "https://vesselconnect.org/vessels/1009",
+    "src": "VesselConnect"
+   }
   },
   {
    "platform_id": "whoi-ndsf-waveglider",
@@ -6988,7 +7033,9 @@
    "platform_id": "whoi-dsl120a",
    "name": "DSL-120A sonar",
    "display_name": "DSL-120A sonar",
-   "aliases": [],
+   "aliases": [
+    "DSL-120A (ROV)"
+   ],
    "distinct_from": [],
    "platform_class": "towed",
    "model": null,
@@ -7043,7 +7090,7 @@
    "data_endpoints": [],
    "photos": [],
    "notes": [
-    "Also in the vessel directory as MV-0280 \"DSL-120A (ROV)\"; it is a towed sonar."
+    "Merged 2026-11-27: the vessel directory entry MV-0280 (\"DSL-120A (ROV)\") was the same vehicle. This platform record is canonical; MV-0280 is kept as an alias and its old links open this page."
    ],
    "source_ids": [
     "whoi-dsl120a-spec",
@@ -7085,7 +7132,21 @@
     "comment": null
    },
    "endurance": null,
-   "survey_speed_kn": null
+   "survey_speed_kn": null,
+   "legacy_ids": [
+    "MV-0280",
+    "researchvessels.org shipID 742"
+   ],
+   "legacy_vessel_record": {
+    "id": "MV-0280",
+    "name": "DSL-120A (ROV)",
+    "type": "Submersible/ROV/AUV",
+    "operator": "Woods Hole Oceanographic Institution (WHOI)",
+    "country": "United States",
+    "rvorg": "742",
+    "url": "https://vesselconnect.org/vessels/742",
+    "src": "VesselConnect; ResearchVessels.org"
+   }
   },
   {
    "platform_id": "whoi-towcam",
@@ -7304,7 +7365,7 @@
    "operating_unit": "RU COOL",
    "contacts": [],
    "home_site": null,
-   "status": "Unknown",
+   "status": "Unconfirmed",
    "status_date": "2026-11-26",
    "status_basis": "RUCOOL facilities page says the Center \"currently maintains a fleet of four vehicles\"; the page is undated and models are not named.",
    "specs": [],
@@ -10626,7 +10687,7 @@
    "operating_unit": null,
    "contacts": [],
    "home_site": null,
-   "status": "Unknown",
+   "status": "Unconfirmed",
    "status_date": "2023-06",
    "status_basis": "IMOS AUV Facility finished June 2023; the vehicle's status at ACFR after that is not stated.",
    "specs": [
@@ -11138,7 +11199,9 @@
    "platform_id": "jamstec-shinkai6500",
    "name": "SHINKAI 6500",
    "display_name": "SHINKAI 6500",
-   "aliases": [],
+   "aliases": [
+    "Shinkai 6500 (DSV)"
+   ],
    "distinct_from": [],
    "platform_class": "HOV",
    "model": null,
@@ -11256,7 +11319,9 @@
    "deployments": [],
    "data_endpoints": [],
    "photos": [],
-   "notes": [],
+   "notes": [
+    "Merged 2026-11-27: the vessel directory entry MV-0974 (\"Shinkai 6500 (DSV)\") was the same vehicle. This platform record is canonical; MV-0974 is kept as an alias and its old links open this page."
+   ],
    "source_ids": [
     "jamstec-deep",
     "jamstec-shinkai"
@@ -11285,7 +11350,7 @@
    },
    "access": null,
    "support_vessels": [],
-   "vessel_id": null,
+   "vessel_id": "MV-0974",
    "data_completeness": "detailed",
    "collection": "International",
    "provenance": {
@@ -11316,7 +11381,22 @@
     "comment": null,
     "text": null
    },
-   "survey_speed_kn": null
+   "survey_speed_kn": null,
+   "legacy_ids": [
+    "MV-0974",
+    "researchvessels.org shipID 725"
+   ],
+   "legacy_vessel_record": {
+    "id": "MV-0974",
+    "name": "Shinkai 6500 (DSV)",
+    "type": "Submersible/ROV/AUV",
+    "owner": "JAMSTEC",
+    "operator": "JAMSTEC",
+    "country": "Japan",
+    "rvorg": "725",
+    "url": "https://vesselconnect.org/vessels/725",
+    "src": "VesselConnect; ResearchVessels.org"
+   }
   },
   {
    "platform_id": "jamstec-kaiko",
@@ -11461,7 +11541,8 @@
    "name": "URASHIMA8000",
    "display_name": "URASHIMA8000",
    "aliases": [
-    "URASHIMA"
+    "URASHIMA",
+    "Urashima (AUV)"
    ],
    "distinct_from": [],
    "platform_class": "AUV",
@@ -11571,7 +11652,9 @@
    "deployments": [],
    "data_endpoints": [],
    "photos": [],
-   "notes": [],
+   "notes": [
+    "Merged 2026-11-27: the vessel directory entry MV-1099 (\"Urashima (AUV)\") was the same vehicle. This platform record is canonical; MV-1099 is kept as an alias and its old links open this page."
+   ],
    "source_ids": [
     "jamstec-deep",
     "jamstec-urashima"
@@ -11600,7 +11683,7 @@
    },
    "access": null,
    "support_vessels": [],
-   "vessel_id": null,
+   "vessel_id": "MV-1099",
    "data_completeness": "detailed",
    "collection": "International",
    "provenance": {
@@ -11631,7 +11714,22 @@
     "comment": "At 8,000 m while cruising at 3 kn.",
     "text": null
    },
-   "survey_speed_kn": null
+   "survey_speed_kn": null,
+   "legacy_ids": [
+    "MV-1099",
+    "researchvessels.org shipID 730"
+   ],
+   "legacy_vessel_record": {
+    "id": "MV-1099",
+    "name": "Urashima (AUV)",
+    "type": "Submersible/ROV/AUV",
+    "owner": "JAMSTEC",
+    "operator": "JAMSTEC",
+    "country": "Japan",
+    "rvorg": "730",
+    "url": "https://vesselconnect.org/vessels/730",
+    "src": "VesselConnect; ResearchVessels.org"
+   }
   },
   {
    "platform_id": "jamstec-jinbei",
@@ -12791,7 +12889,7 @@
    "operating_unit": null,
    "contacts": [],
    "home_site": null,
-   "status": "Unknown",
+   "status": "Unconfirmed",
    "status_date": "2026-11-26",
    "status_basis": "NCCOS news item (undated in the text read) shows NCCOS scientists deploying the AUV with a Voyis laser scanner.",
    "specs": [],
@@ -12956,7 +13054,7 @@
    "operating_unit": null,
    "contacts": [],
    "home_site": null,
-   "status": "Unknown",
+   "status": "Unconfirmed",
    "status_date": "2026-11-26",
    "status_basis": "USNI 2018 describes it in service; no newer public status read.",
    "specs": [
@@ -13199,7 +13297,7 @@
    "operating_unit": null,
    "contacts": [],
    "home_site": null,
-   "status": "Unknown",
+   "status": "Unconfirmed",
    "status_date": "2026-11-26",
    "status_basis": "Milestone C (low-rate production) in Aug 2019; no newer public status read.",
    "specs": [],
@@ -13268,7 +13366,7 @@
    "operating_unit": null,
    "contacts": [],
    "home_site": null,
-   "status": "Unknown",
+   "status": "Unconfirmed",
    "status_date": "2026-11-26",
    "status_basis": "CRS (2025): five funded FY2019 plus a test and training asset; pier-launched.",
    "specs": [
@@ -13346,7 +13444,7 @@
    "operating_unit": null,
    "contacts": [],
    "home_site": null,
-   "status": "Unknown",
+   "status": "Unconfirmed",
    "status_date": "2026-11-26",
    "status_basis": "NRL news item reports a mission-endurance record supporting Knifefish development; date not read.",
    "specs": [],
@@ -13414,7 +13512,7 @@
    "operating_unit": null,
    "contacts": [],
    "home_site": null,
-   "status": "Unknown",
+   "status": "Unconfirmed",
    "status_date": "2026-11-26",
    "status_basis": "NRL news item on bio-inspired littoral vehicles; date not read.",
    "specs": [],
@@ -15234,11 +15332,11 @@
  ],
  "status_labels": {
   "Active": "Used or published within about 12 months of the last check",
-  "Listed": "Listed as current on the operator's own site; no dated use checked",
+  "Listed": "Listed as current on the operator's own site or a fleet register; no dated use checked",
   "Probable": "Seen in use 2021-2025, nothing newer found",
   "Dormant": "Data trail stopped; no use found for several years",
-  "Retired": "Operator reports it retired, lost, replaced or its program ended",
-  "Unknown": "Only old evidence, or no evidence of use"
+  "Unconfirmed": "Not yet verified: a legacy record, only old evidence, or no evidence of use",
+  "Retired": "Reported retired, lost, replaced or out of service, or its program ended"
  },
  "affiliation_roles": {
   "owner": "Owner",
@@ -15329,5 +15427,6 @@
   "usv support": "USV launch and recovery support",
   "any suitable ship": "Any suitable ship (generic requirement, no ship named)"
  },
- "access_fields_note": "access.national_facility: true when the source describes a nationally funded facility; null when not stated. access.contracted_service: true when the vehicle is a commercial service bought by the user or the agency. access.access_how.text/url: how to ask for time or data, copied from the source. access.verified: the source page was fetched and the claim found on it on access.date."
+ "access_fields_note": "access.national_facility: true when the source describes a nationally funded facility; null when not stated. access.contracted_service: true when the vehicle is a commercial service bought by the user or the agency. access.access_how.text/url: how to ask for time or data, copied from the source. access.verified: the source page was fetched and the claim found on it on access.date.",
+ "status_note": "One vocabulary for ships and platforms (2026-11-27). \"Unknown\" was renamed \"Unconfirmed\". Ship statuses live in data/vessel_status.json."
 }

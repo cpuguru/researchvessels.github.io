@@ -2,7 +2,7 @@
  "license": "CC BY 4.0",
  "attribution": "Data compiled by Doug White / researchvessels.org",
  "note": "Curated extended vessel details (name history, predecessor/successor links, extra specs, equipment, history, photos with licence, port supplements). Hand-maintained; survives regeneration of vessels.json. Every string is rendered as text through the DOM builder; URLs pass RV.safeUrl.",
- "updated": "2026-11-26",
+ "updated": "2026-11-27",
  "aliases": {
   "MV-0192": "MV-0191"
  },
@@ -1428,5 +1428,21 @@
     ]
    }
   }
+ },
+ "platform_aliases": {
+  "MV-0054": "whoi-alvin",
+  "MV-0462": "whoi-jason",
+  "MV-1092": "whoi-sentry",
+  "MV-0280": "whoi-dsl120a",
+  "MV-0974": "jamstec-shinkai6500",
+  "MV-1099": "jamstec-urashima8000"
+ },
+ "platform_alias_notes": {
+  "MV-0054": "Same submersible: HOV Alvin (WHOI / NDSF). The platform record is the canonical one. Old links to vessel.html?id=MV-0054 open the platform page.",
+  "MV-0462": "Same vehicle: ROV Jason (II) with Medea (WHOI / NDSF). Old links to vessel.html?id=MV-0462 open the platform page.",
+  "MV-1092": "Same vehicle: AUV Sentry (WHOI / NDSF). The old vessel entry mislabelled it \"UAV Sentry\". Old links to vessel.html?id=MV-1092 open the platform page.",
+  "MV-0280": "Same system: DSL-120A towed sonar (WHOI). The old vessel entry called it an ROV. Old links to vessel.html?id=MV-0280 open the platform page.",
+  "MV-0974": "Same submersible: SHINKAI 6500 (JAMSTEC). Old links to vessel.html?id=MV-0974 open the platform page.",
+  "MV-1099": "Same vehicle: URASHIMA (JAMSTEC), upgraded to an 8,000 m rating in the 2022 project. Old links to vessel.html?id=MV-1099 open the platform page."
  }
 }
