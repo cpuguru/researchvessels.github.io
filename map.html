@@ -6,17 +6,16 @@
 <link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet" integrity="sha384-MinO0mNliZ3vwppuPOUnGa+iq619pfMhLVUXfC4LHwSCvF9H+6P/KO4Q7qBOYV5V" crossorigin="anonymous">
 <link rel="stylesheet" href="assets/style.css">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/js/bootstrap.bundle.min.js" integrity="sha384-WyOxWvTyr1QaMPfiPJSv76iReVthorl5uWlFtZPyK0IEB0hGzo9y5Bp9mYanr8Bu" crossorigin="anonymous" defer></script>
-<script src="assets/app.js"></script><script src="assets/external-links.js"></script><script src="data/vessels.js"></script><script src="data/vessel_extra.js"></script><script src="data/vessel_status.js"></script><script src="data/cruises.js"></script><script src="data/positions.js"></script><script src="data/uncrewed_deployments.js"></script><script src="data/track_index.js"></script></head>
+<script src="assets/app.js"></script><script src="assets/external-links.js"></script><script src="data/vessels.js"></script><script src="data/vessel_extra.js"></script><script src="data/vessel_status.js"></script><script src="data/uncrewed_deployments.js"></script><script src="data/track_index.js"></script></head>
 <body class="d-flex flex-column min-vh-100 bg-body-tertiary">
 <main id="content" class="container py-4 flex-grow-1">
 <h1 class="mb-2">Where were ships?</h1>
-<p class="lead text-body-secondary">Draw an area and choose years to see which research ships were there, what cruises they ran, and where to look for the data.</p>
-<div class="alert alert-warning small" role="note"><strong>Historical coarse positions.</strong> No live or modern AIS tracks are loaded yet. These dots are one position per ship per day for 2008-2014, from the Sailwx.info export. <span style="color:#c0392b">Red</span> = ship weather (VOS) reports, rounded to a 0.1° grid (about 6 nm). <span style="color:#0b5fa5">Blue</span> = AIS-like positions (shown at 0.01°). Good for "was it here?", not for survey lines.</div>
+<p class="lead text-body-secondary">Draw an area and choose years to see which research ships crossed it on an imported cruise track, which cruises they ran, and where to look for the data.</p>
+<div class="alert alert-info small" role="note" id="trk-about"><strong>Cruise tracks, not positions.</strong> Lines are imported cruise navigation: R2R (Rolling Deck to Repository, CC0) for U.S. academic ships and NCEI / NOAA Ocean Exploration for NOAA Ship Okeanos Explorer. Only ships listed in the track index have them; every other ship has no track data yet, and nothing is estimated or drawn from schedules.</div>
 <div class="row g-2 align-items-end mb-3">
- <div class="col-6 col-sm-3 col-lg-auto"><label class="form-label fw-semibold small mb-1" for="y0">From year</label><select class="form-select" id="y0"></select></div><div class="col-6 col-sm-3 col-lg-auto"><label class="form-label fw-semibold small mb-1" for="y1">To year</label><select class="form-select" id="y1"></select></div>
- <div class="col-12 col-sm-6 col-lg-auto"><label class="form-label fw-semibold small mb-1" for="kind">Position type</label><select class="form-select" id="kind"><option value="">Both</option><option value="v">Weather reports (0.1°)</option><option value="a">AIS-like</option></select></div>
+ <div class="col-6 col-sm-3 col-lg-auto"><label class="form-label fw-semibold small mb-1" for="y0">From year</label><select class="form-select" id="y0" disabled><option value="">Any</option></select></div><div class="col-6 col-sm-3 col-lg-auto"><label class="form-label fw-semibold small mb-1" for="y1">To year</label><select class="form-select" id="y1" disabled><option value="">Any</option></select></div>
  <div class="col-auto"><button id="draw" type="button" class="btn btn-primary" aria-pressed="false">Draw an area</button></div><div class="col-auto"><button id="clear" type="button" class="btn btn-outline-secondary">Clear area</button></div>
- <div class="col-12 col-lg legend pb-2"><span><i class="dot" style="background:#c0392b"></i>VOS weather report</span><span><i class="dot" style="background:#0b5fa5"></i>AIS-like</span></div>
+ <div class="col-12 col-lg legend pb-2"><span><i class="dot" style="background:#7b2cbf"></i>Imported cruise track</span><span><i class="dot" style="background:#e8710a"></i>Glider</span><span><i class="dot" style="background:#0f9d8a"></i>Argo float</span></div>
 </div>
 <div class="card mb-3" id="dep-panel" aria-labelledby="dep-h"><div class="card-body py-2">
  <div class="d-flex flex-wrap align-items-center gap-3">
@@ -25,18 +24,19 @@
   <div class="form-check mb-0"><input class="form-check-input" type="checkbox" id="dep-ar" checked disabled><label class="form-check-label small" for="dep-ar">Argo floats</label></div>
   <div class="legend small"><span><i class="dot" style="background:#e8710a"></i>Glider</span><span><i class="dot" style="background:#0f9d8a"></i>Argo float</span></div>
  </div>
- <p class="small text-body-secondary mb-0 mt-1" id="dep-status" aria-live="polite">Off. This layer is separate from the historical ship positions above. Turn it on to load the latest glider and Argo float positions.</p>
+ <p class="small text-body-secondary mb-0 mt-1" id="dep-status" aria-live="polite">Off. This layer is separate from the ship cruise tracks. Turn it on to load the latest glider and Argo float positions.</p>
  <p class="small text-body-secondary mb-0" id="dep-attr" hidden></p>
 </div></div>
 <div class="card mb-3" id="trk-panel" aria-labelledby="trk-h"><div class="card-body py-2">
  <div class="d-flex flex-wrap align-items-center gap-3">
-  <div class="form-check form-switch mb-0"><input class="form-check-input" type="checkbox" role="switch" id="trk-on"><label class="form-check-label fw-semibold" for="trk-on" id="trk-h">Cruise tracks (R2R / NCEI)</label></div>
+  <div class="form-check form-switch mb-0"><input class="form-check-input" type="checkbox" role="switch" id="trk-on" checked><label class="form-check-label fw-semibold" for="trk-on" id="trk-h">Cruise tracks (R2R / NCEI)</label></div>
   <div class="legend small"><span><i class="dot" style="background:#7b2cbf"></i>Imported cruise track</span></div>
  </div>
  <p class="small text-body-secondary mb-0 mt-1" id="trk-status" aria-live="polite"></p>
+ <div class="small mb-0" id="trk-recent" hidden></div>
  <p class="small text-body-secondary mb-0" id="trk-none" data-state="no-track-data"></p>
 </div></div>
-<div class="row g-3"><div class="col-12 col-lg-8"><div id="map" role="application" aria-label="Map of historical research vessel positions. Use the Draw an area button, then drag on the map."></div></div>
+<div class="row g-3"><div class="col-12 col-lg-8"><div id="map" role="application" aria-label="Map of imported research cruise tracks and optional uncrewed deployments. Use the Draw an area button, then drag on the map."></div></div>
 <div class="col-12 col-lg-4"><aside class="card rv-side" aria-live="polite"><div class="card-body" id="results"><h2 class="h5">Results</h2><p class="text-body-secondary">Click <strong>Draw an area</strong>, then drag a box on the map. Or try a preset:</p>
 <p class="d-flex flex-wrap gap-2 mb-0"><button type="button" class="btn btn-sm btn-outline-primary" data-bbox="-76,36,-72,40">Mid-Atlantic Bight</button> <button type="button" class="btn btn-sm btn-outline-primary" data-bbox="5,53.5,9,56">German Bight</button> <button type="button" class="btn btn-sm btn-outline-primary" data-bbox="-160,18,-154,23">Hawaii</button></p></div></aside></div></div>
 <p class="small text-body-secondary mt-3">A full version runs this as a PostGIS spatial query (<code>ST_Intersects(track_lines.geom, :polygon)</code>) and links cruises to dataset DOIs at NCEI, R2R, BCO-DMO, and ERDDAP.</p>
@@ -44,33 +44,22 @@
 <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js" integrity="sha384-SYKAG6cglRMN0RVvhNeBY0r3FYKNOJtznwA0v7B5Vp9tr31xAHsZC0DqkQ/pZDmj" crossorigin="anonymous"></script>
 <script>
 document.addEventListener('DOMContentLoaded',()=>{
- const $=id=>document.getElementById(id),e=RV.esc,VB=RV.byId(),P=window.RV_POSITIONS?RV_POSITIONS.points:[];
- const years=[...new Set(P.map(p=>String(p[3]).slice(0,4)))].sort();
- years.forEach(y=>{$('y0').insertAdjacentHTML('beforeend',`<option value="${e(y)}">${e(y)}</option>`);$('y1').insertAdjacentHTML('beforeend',`<option value="${e(y)}">${e(y)}</option>`)});
- $('y0').value=years[0];$('y1').value=years[years.length-1];
+ const $=id=>document.getElementById(id),VB=RV.byId();
  let bbox=null;
  if(!window.maplibregl){$('map').textContent='';const p=document.createElement('p');p.className='p-3';p.textContent='The map library could not load (no internet?). Area search still works from the presets.';$('map').append(p)}
  const map=window.maplibregl?new maplibregl.Map({container:'map',style:'https://tiles.openfreemap.org/styles/liberty',center:[-30,30],zoom:1.6}):null;
- const filt=()=>{const y0=$('y0').value,y1=$('y1').value,k=$('kind').value;return P.filter(p=>{const y=String(p[3]).slice(0,4);return y>=y0&&y<=y1&&(!k||p[4]===k)})};
- const gj=pts=>({type:'FeatureCollection',features:pts.map(p=>({type:'Feature',properties:{id:p[0],d:p[3],k:p[4]},geometry:{type:'Point',coordinates:[p[2],p[1]]}}))});
  const boxgj=b=>({type:'FeatureCollection',features:b?[{type:'Feature',geometry:{type:'Polygon',coordinates:[[[b[0],b[1]],[b[2],b[1]],[b[2],b[3]],[b[0],b[3]],[b[0],b[1]]]]}}]:[]});
- function refresh(){const pts=filt();if(map&&map.getSource('p')){map.getSource('p').setData(gj(pts));map.getSource('box').setData(boxgj(bbox))}if(bbox){results(pts);depResults();trkResults()}}
- function results(pts){
-  const [x0,y0,x1,y1]=bbox,inb=pts.filter(p=>p[2]>=x0&&p[2]<=x1&&p[1]>=y0&&p[1]<=y1),g={};
-  inb.forEach(p=>{(g[p[0]]=g[p[0]]||{n:0,a:p[3],b:p[3]});const r=g[p[0]];r.n++;if(p[3]<r.a)r.a=p[3];if(p[3]>r.b)r.b=p[3]});
-  const ships=Object.entries(g).sort((a,b)=>b[1].n-a[1].n);
-  $('results').innerHTML=`<h2 class="h5">${ships.length} ship${ships.length===1?'':'s'} in this area</h2><p class="small text-body-secondary">${x0.toFixed(1)}°, ${y0.toFixed(1)}° to ${x1.toFixed(1)}°, ${y1.toFixed(1)}° · ${e($('y0').value)}-${e($('y1').value)} · ${inb.length.toLocaleString()} ship-days</p>`+
-  (ships.length?ships.map(([id,r])=>{const v=VB[id]||{name:id};const cr=RV.cruisesFor(id).filter(c=>(c.end||c.start)>=r.a&&c.start<=r.b);
-   const ncei=RV.nceiHref(v.name,r.a,r.b,`${y1},${x0},${y0},${x1}`);
-   return `<div class="border-top py-2"><a href="${e(RV.vesselHref(id))}"><strong>${e(v.name)}</strong></a> <span class="small text-body-secondary">${e(v.country||'')}</span><br><span class="small">${r.n} days here · ${e(r.a)} to ${e(r.b)}</span>${v.operator?`<br><span class="small text-body-secondary">${e(v.operator)}</span>`:''}
-   ${cr.length?`<details><summary class="small">${cr.length} scheduled cruise${cr.length>1?'s':''} in that period</summary><ul class="small mb-1">${cr.slice(0,8).map(c=>`<li>${e(c.start)}${c.end?' to '+e(c.end):''}: ${e(c.area||'')} ${c.discipline?'· '+e(c.discipline):''} ${c.agency?'· '+e(c.agency):''}</li>`).join('')}${cr.length>8?'<li>…</li>':''}</ul></details>`:''}
-   ${ncei?`<div class="small"><a href="${e(ncei)}"${RV.extAttrs(ncei)}>Search NCEI for data</a></div>`:''}</div>`}).join(''):'<p class="text-body-secondary">No historical positions in this box for those years.</p>');
+ function refresh(){if(map&&map.getSource('box'))map.getSource('box').setData(boxgj(bbox));if(bbox){areaHead();trkResults();depResults()}}
+ /* Area header (DOM/text only). The ship list comes from the imported cruise tracks (trkResults) and the
+    optional uncrewed layer (depResults); there are no position dots on this page any more. */
+ function areaHead(){
+  const [x0,y0,x1,y1]=bbox,r=$('results');r.replaceChildren();
+  const h=document.createElement('h2');h.className='h5';h.textContent='This area';
+  const p=document.createElement('p');p.className='small text-body-secondary mb-1';p.textContent=x0.toFixed(1)+'\u00b0, '+y0.toFixed(1)+'\u00b0 to '+x1.toFixed(1)+'\u00b0, '+y1.toFixed(1)+'\u00b0 \u00b7 '+yearLabel();
+  r.append(h,p);
  }
- if(map){map.on('load',()=>{map.addSource('p',{type:'geojson',data:gj(filt())});
-  map.addLayer({id:'p',type:'circle',source:'p',paint:{'circle-radius':['interpolate',['linear'],['zoom'],1,1.5,6,3.5],'circle-color':['match',['get','k'],'v','#c0392b','#0b5fa5'],'circle-opacity':.6}});
+ if(map){map.on('load',()=>{
   map.addSource('box',{type:'geojson',data:boxgj(null)});map.addLayer({id:'box',type:'fill',source:'box',paint:{'fill-color':'#f59e0b','fill-opacity':.15}});map.addLayer({id:'boxl',type:'line',source:'box',paint:{'line-color':'#b45309','line-width':2}});
-  map.on('click','p',ev=>{const f=ev.features[0];const v=VB[f.properties.id]||{name:f.properties.id};new maplibregl.Popup().setLngLat(ev.lngLat).setHTML(RV.positionPopupHtml(v,f.properties)).addTo(map)});
-  map.on('mouseenter','p',()=>map.getCanvas().style.cursor='pointer');map.on('mouseleave','p',()=>map.getCanvas().style.cursor='');
  });
  let drawing=false,start=null;
  $('draw').addEventListener('click',()=>{drawing=!drawing;$('draw').setAttribute('aria-pressed',drawing);$('draw').classList.toggle('active',drawing);$('draw').textContent=drawing?'Drag on the map…':'Draw an area';drawing?map.dragPan.disable():map.dragPan.enable();map.getCanvas().style.cursor=drawing?'crosshair':''});
@@ -80,7 +69,7 @@ document.addEventListener('DOMContentLoaded',()=>{
  }
  document.addEventListener('click',ev=>{const b=ev.target.closest('[data-bbox]');if(!b)return;bbox=b.dataset.bbox.split(',').map(Number);if(map)map.fitBounds([[bbox[0],bbox[1]],[bbox[2],bbox[3]]],{padding:40});refresh()});
  $('clear').addEventListener('click',()=>{bbox=null;refresh();$('results').replaceChildren();const h=document.createElement('h2');h.className='h5';h.textContent='Results';const p=document.createElement('p');p.className='text-body-secondary';p.textContent='Area cleared. Draw a new one.';$('results').append(h,p)});
- ['y0','y1','kind'].forEach(id=>$(id).addEventListener('input',refresh));
+ ['y0','y1'].forEach(id=>$(id).addEventListener('input',()=>{trkDraw();refresh()}));
  /* ---------- Active uncrewed deployments: a separate, toggleable layer (public feeds only) ----------
     Gliders: fetched live from the IOOS Glider DAC ERDDAP (it sends CORS headers); if that fails, the checked-in snapshot is used.
     Argo: the Ifremer ERDDAP sends no CORS header, so Argo positions always come from the checked-in snapshot
@@ -123,7 +112,7 @@ document.addEventListener('DOMContentLoaded',()=>{
  function depFill(){const sg=DEP.on&&$('dep-gl').checked?DEP.gl.length:0,sa=DEP.on&&$('dep-ar').checked?DEP.ar.length:0;$('dep-panel').setAttribute('data-gliders',String(sg));$('dep-panel').setAttribute('data-argo',String(sa));if(!map||!map.getSource('dg'))return;map.getSource('dg').setData(depGj(DEP.on&&$('dep-gl').checked?DEP.gl:[],'g'));map.getSource('da').setData(depGj(DEP.on&&$('dep-ar').checked?DEP.ar:[],'a'))}
  function draw(){
   $('dep-gl').disabled=!DEP.on;$('dep-ar').disabled=!DEP.on;
-  if(!DEP.on){setStatus('Off. This layer is separate from the historical ship positions above. Turn it on to load the latest glider and Argo float positions.');$('dep-attr').hidden=true;depFill();return}
+  if(!DEP.on){setStatus('Off. This layer is separate from the ship cruise tracks. Turn it on to load the latest glider and Argo float positions.');$('dep-attr').hidden=true;depFill();return}
   if(!DEP.loaded){loadDeployments().then(()=>{});return}
   const sh=[$('dep-gl').checked?DEP.glNote:'',$('dep-ar').checked?DEP.arNote:''].filter(Boolean);
   setStatus((map?'':'The map library could not load, so only counts are shown. ')+sh.join(' ')+(sh.length?'':'Both groups are hidden.'));attribution();depFill();if(bbox)depResults();
@@ -161,7 +150,8 @@ document.addEventListener('DOMContentLoaded',()=>{
  /* ---------- Cruise tracks: hybrid. Ships listed in data/track_index.js get their imported R2R (or NCEI) tracks;
     every other ship has no track data yet, and none is drawn or estimated. Track files are loaded only when the
     layer is turned on; geometry and properties are cleaned by RV.tracksFor (untrusted). DOM/text only. ---------- */
- const TRK={on:false,loaded:false,busy:false,fc:{type:'FeatureCollection',features:[]},ships:[]};
+ const TRACKS_OFF=/^(off|0|no|false|hide)$/i.test(String(RV.qs('tracks')||''));
+ const TRK={on:!TRACKS_OFF,loaded:false,busy:false,fc:{type:'FeatureCollection',features:[]},ships:[]};
  const TIDS=RV.trackIds(),shipName=id=>(VB[id]&&VB[id].name)||id;
  const trkStatus=t=>{$('trk-status').textContent=t};
  const nTracked=TIDS.length,nAll=RV.vessels().length;
@@ -173,31 +163,65 @@ document.addEventListener('DOMContentLoaded',()=>{
   const feats=[];let fid=0;
   for(const id of TIDS){const t=RV.trackIndex(id);if(!t)continue;const ok=await loadScript(t.file);if(!ok)continue;const fc=RV.tracksFor(id);if(!fc)continue;
    TRK.ships.push({id,n:fc.features.length,label:t.label});
-   fc.features.forEach(f=>feats.push({type:'Feature',id:fid++,geometry:f.geometry,properties:{vid:id,cid:f.properties.cruise_id,year:f.properties.year==null?'':String(f.properties.year)}}))}
-  TRK.fc={type:'FeatureCollection',features:feats};TRK.loaded=true;TRK.busy=false;trkDraw();
+   fc.features.forEach(f=>feats.push({type:'Feature',id:fid++,geometry:f.geometry,properties:{vid:id,cid:f.properties.cruise_id,year:f.properties.year==null?'':String(f.properties.year),dates:f.properties.dates}}))}
+  TRK.fc={type:'FeatureCollection',features:feats};TRK.loaded=true;TRK.busy=false;fillYears();trkDraw();
+ }
+ /* Years come from the imported tracks (whole years; a track with no year is kept for any range). */
+ const yOf=f=>/^\d{4}$/.test(String(f.properties.year))?+f.properties.year:null;
+ const inYears=f=>{const y=yOf(f),a=+$('y0').value||0,b=+$('y1').value||9999;return y==null||(y>=a&&y<=b)};
+ const shown=()=>TRK.fc.features.filter(inYears);
+ function yearLabel(){const a=$('y0').value,b=$('y1').value;return a||b?'cruise years '+(a||'any')+' to '+(b||'any'):'any year'}
+ function fillYears(){
+  const ys=[...new Set(TRK.fc.features.map(yOf).filter(y=>y!=null))].sort((a,b)=>a-b);if(!ys.length)return;
+  for(const id of ['y0','y1']){const s=$(id);s.replaceChildren();ys.forEach(y=>{const o=document.createElement('option');o.value=String(y);o.textContent=String(y);s.append(o)});s.disabled=false}
+  const q0=+RV.qs('y0'),q1=+RV.qs('y1');
+  $('y0').value=String(ys.includes(q0)?q0:ys[0]);$('y1').value=String(ys.includes(q1)?q1:ys[ys.length-1]);
+ }
+ /* Most recent cruise per tracked ship, from the imported track data only (not a live position). */
+ function trkRecent(){
+  const box=$('trk-recent');box.replaceChildren();if(!TRK.on||!TRK.loaded){box.hidden=true;return}
+  const last={};TRK.fc.features.forEach(f=>{const k=f.properties.vid,y=yOf(f)||0,d=String(f.properties.dates||'');const c=last[k];if(!c||y>c.y||(y===c.y&&d>c.d))last[k]={y,d,f}});
+  const ks=Object.keys(last);if(!ks.length){box.hidden=true;return}
+  const h=document.createElement('div');h.className='fw-semibold mt-1';h.textContent='Most recent imported cruise per ship';box.append(h);
+  const ul=document.createElement('ul');ul.className='mb-1';
+  ks.forEach(k=>{const r=last[k],pr=r.f.properties,li=document.createElement('li'),a=document.createElement('a');a.setAttribute('href',RV.vesselHref(k));a.textContent=shipName(k);li.append(a);
+   const st=RV.vessels().find(v=>v.id===k);if(st&&RV.statusBadge){li.append(' ',RV.statusBadge(st.status))}
+   li.append(' \u00b7 cruise '+String(pr.cid||'')+(pr.dates?' ('+String(pr.dates).slice(0,60)+')':(r.y?' ('+r.y+')':'')));
+   const cid=String(pr.cid||'');if(k!=='MV-0751'&&/^[A-Za-z0-9_-]{1,40}$/.test(cid)){const l=document.createElement('a');l.setAttribute('href','https://www.rvdata.us/search/cruise/'+encodeURIComponent(cid));l.setAttribute('rel','noopener');l.setAttribute('target','_blank');l.textContent='R2R cruise page';li.append(' \u00b7 ',l)}
+   ul.append(li)});
+  box.append(ul);const n=document.createElement('div');n.className='text-body-secondary';n.textContent='From the imported cruise data, not a live position. Current schedules: see each vessel page.';box.append(n);box.hidden=false;
  }
  function trkDraw(){
-  $('trk-panel').setAttribute('data-tracks',String(TRK.on&&TRK.loaded?TRK.fc.features.length:0));
-  if(map&&map.getSource('trk'))map.getSource('trk').setData(TRK.on?TRK.fc:{type:'FeatureCollection',features:[]});
+  const S=TRK.on&&TRK.loaded?shown():[];
+  $('trk-panel').setAttribute('data-tracks',String(S.length));$('trk-panel').setAttribute('data-on',TRK.on?'1':'0');
+  $('y0').disabled=$('y1').disabled=!(TRK.on&&TRK.loaded);
+  if(map&&map.getSource('trk'))map.getSource('trk').setData({type:'FeatureCollection',features:S});
+  trkRecent();
   if(!TRK.on){trkOff();trkResults();return}
   if(!TRK.loaded){loadTracks();return}
-  trkStatus(TRK.fc.features.length.toLocaleString()+' cruise tracks drawn for '+TRK.ships.map(s=>shipName(s.id)+' ('+s.n+')').join(', ')+'. Sources: R2R cruise navigation (CC0) and NCEI / NOAA Ocean Exploration (public domain). Click a track for its cruise.'+(map?'':' The map library could not load, so only counts are shown.'));
+  if(!TRK.ships.length){trkStatus('The cruise-track files could not be loaded, so no tracks are drawn.');trkResults();return}
+  trkStatus(S.length.toLocaleString()+' of '+TRK.fc.features.length.toLocaleString()+' imported cruise tracks drawn ('+yearLabel()+') for '+TRK.ships.map(s=>shipName(s.id)+' ('+s.n+')').join(', ')+'. Sources: R2R cruise navigation (CC0) and NCEI / NOAA Ocean Exploration (public domain). Click a track for its cruise.'+(map?'':' The map library could not load, so only counts are shown.'));
   trkResults();
  }
  function trkResults(){
-  const old=document.getElementById('trk-results');if(old)old.remove();if(!TRK.on||!TRK.loaded||!bbox)return;
-  const [x0,y0,x1,y1]=bbox,hit={};
-  TRK.fc.features.forEach(f=>{if(f.geometry.coordinates.some(l=>l.some(p=>p[0]>=x0&&p[0]<=x1&&p[1]>=y0&&p[1]<=y1)))hit[f.properties.vid]=(hit[f.properties.vid]||0)+1});
+  const old=document.getElementById('trk-results');if(old)old.remove();if(!bbox)return;
+  if(!TRK.on){const d=document.createElement('div');d.id='trk-results';d.className='border-top pt-2 mt-3';const p=document.createElement('p');p.className='small mb-0';p.textContent='Cruise tracks are off. Turn them on to see which ships crossed this area.';d.append(p);$('results').append(d);return}
+  if(!TRK.loaded)return;
+  const [x0,y0,x1,y1]=bbox,hit={},yr={};
+  shown().forEach(f=>{if(f.geometry.coordinates.some(l=>l.some(p=>p[0]>=x0&&p[0]<=x1&&p[1]>=y0&&p[1]<=y1))){const k=f.properties.vid;hit[k]=(hit[k]||0)+1;const y=yOf(f);if(y!=null){yr[k]=yr[k]||[y,y];yr[k][0]=Math.min(yr[k][0],y);yr[k][1]=Math.max(yr[k][1],y)}}});
   const d=document.createElement('div');d.id='trk-results';d.className='border-top pt-2 mt-3';
   const h3=document.createElement('h3');h3.className='h6';h3.textContent='Imported cruise tracks crossing this area';d.append(h3);
-  const ks=Object.keys(hit);const p=document.createElement('p');p.className='small mb-1';p.textContent=ks.length?'':'None of the imported tracks cross this box. Other ships have no track data yet.';d.append(p);
-  if(ks.length){const ul=document.createElement('ul');ul.className='small mb-0';ks.forEach(k=>{const li=document.createElement('li'),a=document.createElement('a');a.setAttribute('href',RV.vesselHref(k));a.textContent=shipName(k);li.append(a,' · '+hit[k]+' cruise'+(hit[k]===1?'':'s'));ul.append(li)});d.append(ul)}
+  const ks=Object.keys(hit);const p=document.createElement('p');p.className='small mb-1';p.textContent=ks.length?'':'None of the imported tracks cross this box for '+yearLabel()+'. Other ships have no track data yet, so this does not mean no ship was here.';d.append(p);
+  if(ks.length){const ul=document.createElement('ul');ul.className='small mb-0';ks.forEach(k=>{const li=document.createElement('li'),a=document.createElement('a');a.setAttribute('href',RV.vesselHref(k));a.textContent=shipName(k);li.append(a,' · '+hit[k]+' cruise'+(hit[k]===1?'':'s')+(yr[k]?' ('+yr[k][0]+(yr[k][1]!==yr[k][0]?'-'+yr[k][1]:'')+')':''));
+   const ncei=yr[k]?RV.nceiHref(shipName(k),yr[k][0]+'-01-01',yr[k][1]+'-12-31',y1+','+x0+','+y0+','+x1):'';if(ncei){const l=document.createElement('a');l.setAttribute('href',ncei);l.setAttribute('rel','noopener');l.setAttribute('target','_blank');l.textContent='Search NCEI for data';li.append(' · ',l)}
+   ul.append(li)});d.append(ul)}
   $('results').append(d);
  }
- $('trk-on').addEventListener('change',()=>{TRK.on=$('trk-on').checked;trkDraw()});
+ $('trk-on').addEventListener('change',()=>{TRK.on=$('trk-on').checked;trkDraw();if(bbox)refresh();
+  try{const u=new URL(location.href);if(TRK.on)u.searchParams.delete('tracks');else u.searchParams.set('tracks','off');history.replaceState(null,'',u.pathname+u.search+u.hash)}catch(err){}});
  if(map)map.on('load',()=>{
   map.addSource('trk',{type:'geojson',data:{type:'FeatureCollection',features:[]}});
-  map.addLayer({id:'trk',type:'line',source:'trk',paint:{'line-color':'#7b2cbf','line-width':1.4,'line-opacity':.7}},'p');
+  map.addLayer({id:'trk',type:'line',source:'trk',paint:{'line-color':'#7b2cbf','line-width':1.4,'line-opacity':.7}},map.getLayer('da')?'da':undefined);
   map.on('click','trk',ev=>{const f=ev.features&&ev.features[0];if(!f)return;const pr=f.properties||{},box=document.createElement('div');box.className='small';
    const s=document.createElement('strong'),a=document.createElement('a');a.setAttribute('href',RV.vesselHref(String(pr.vid)));a.textContent=shipName(String(pr.vid));s.append(a);
    const c=document.createElement('div');c.textContent='Cruise '+String(pr.cid||'')+(pr.year?' ('+String(pr.year)+')':'');box.append(s,c);
@@ -206,8 +230,9 @@ document.addEventListener('DOMContentLoaded',()=>{
   map.on('mouseenter','trk',()=>map.getCanvas().style.cursor='pointer');map.on('mouseleave','trk',()=>map.getCanvas().style.cursor='');
   trkDraw();
  });
- if(RV.qs('layer')==='tracks'){$('trk-on').checked=true;TRK.on=true;trkDraw()}
+ /* Tracks are on by default (?layer=tracks still works); ?tracks=off starts with them off. */
+ $('trk-on').checked=TRK.on;trkDraw();
 
- const qb=RV.qs('bbox');if(qb){bbox=qb.split(',').map(Number);results(filt());depResults();if(map)map.on('load',()=>{map.fitBounds([[bbox[0],bbox[1]],[bbox[2],bbox[3]]],{padding:40,duration:0});refresh()})}
+ const qb=RV.qs('bbox');if(qb){bbox=qb.split(',').map(Number);areaHead();trkResults();depResults();if(map)map.on('load',()=>{map.fitBounds([[bbox[0],bbox[1]],[bbox[2],bbox[3]]],{padding:40,duration:0});refresh()})}
 });
 </script></body></html>
