@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/css/bootstrap.min.css" integrity="sha384-yEPZ7jP9S0QKiUQ0m3jjsO4ProIW7wvR9gXkI7JOGa2XVsw53Yke2bsdkBbjmmiX" crossorigin="anonymous">
 <link rel="stylesheet" href="assets/style.css">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/js/bootstrap.bundle.min.js" integrity="sha384-WyOxWvTyr1QaMPfiPJSv76iReVthorl5uWlFtZPyK0IEB0hGzo9y5Bp9mYanr8Bu" crossorigin="anonymous" defer></script>
-<script src="assets/app.js"></script><script src="assets/external-links.js"></script><script src="data/vessels.js"></script><script src="data/vessel_extra.js"></script><script src="data/platforms.js"></script><script src="data/institutions.js"></script><script src="data/manufacturers.js"></script><script src="data/resources.js"></script><script src="assets/platforms.js"></script></head>
+<script src="assets/app.js"></script><script src="assets/external-links.js"></script><script src="data/vessels.js"></script><script src="data/vessel_status.js"></script><script src="data/vessel_extra.js"></script><script src="data/platforms.js"></script><script src="data/institutions.js"></script><script src="data/manufacturers.js"></script><script src="data/resources.js"></script><script src="assets/platforms.js"></script></head>
 <body class="d-flex flex-column min-vh-100 bg-body-tertiary">
 <main id="content" class="container py-4 flex-grow-1">
 <h1 class="mb-2">Uncrewed platforms</h1>
@@ -15,7 +15,7 @@
 </main>
 <script>
 document.addEventListener('DOMContentLoaded',()=>{
- const h=RV.h,P=RVP,own=P.own,root=document.getElementById('u-root'),D=P.data(),PL=D.platforms||[],VS=RV.vessels().filter(v=>v.status!=='out of service');
+ const h=RV.h,P=RVP,own=P.own,root=document.getElementById('u-root'),D=P.data(),PL=D.platforms||[],VS=RV.vessels().filter(v=>v.status!=='Retired');
  const grp=r=>RV.autonomyGroup(r),lvl=r=>RV.autonomyOf(r);
  const nPlatUn=PL.filter(p=>grp(p)==='uncrewed').length,nVesUn=VS.filter(v=>grp(v)==='uncrewed').length;
  const nCrewedVes=VS.filter(v=>grp(v)==='crewed').length,nCrewedPl=PL.filter(p=>grp(p)==='crewed').length;
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   card(suppVes.size,'Ships linked to vehicles',null),
   card(nat.length,'National-facility vehicles',null),
   card(con.length,'Contracted services',null)),
-  h('p',{class:'small text-body-secondary mt-2 mb-0'},'Uncrewed = remotely operated, supervised autonomous or fully autonomous. Crewed = crewed or minimally crewed. Vessels marked out of service are left out, as on the vessels page. Records with no stated autonomy are counted as unknown and left out of both. Vessels with an uncrewed autonomy value: '+nVesUn+'. Crewed submersibles (HOV) count as crewed.')));
+  h('p',{class:'small text-body-secondary mt-2 mb-0'},'Uncrewed = remotely operated, supervised autonomous or fully autonomous. Crewed = crewed or minimally crewed. Vessels marked retired are left out, as on the vessels page. Records with no stated autonomy are counted as unknown and left out of both. Vessels with an uncrewed autonomy value: '+nVesUn+'. Crewed submersibles (HOV) count as crewed.')));
  /* by class */
  const clsRows=RV.VEHICLE_CLASSES.filter(c=>c!=='ship').map(c=>{const pl=PL.filter(p=>p.platform_class===c),ve=VS.filter(v=>v.vehicle_class===c);return {c,pl:pl.length,ve:ve.length,un:pl.filter(p=>grp(p)==='uncrewed').length+ve.filter(v=>grp(v)==='uncrewed').length}}).filter(r=>r.pl+r.ve>0);
  const tb=h('tbody');clsRows.forEach(r=>tb.append(h('tr',{'data-class':r.c},h('th',{scope:'row',class:'fw-normal'},RV.VEHICLE_CLASS_LABELS[r.c]||r.c),h('td',{class:'text-end'},String(r.pl)),h('td',{class:'text-end'},String(r.ve)),h('td',{class:'text-end'},String(r.un)),

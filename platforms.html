@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/css/bootstrap.min.css" integrity="sha384-yEPZ7jP9S0QKiUQ0m3jjsO4ProIW7wvR9gXkI7JOGa2XVsw53Yke2bsdkBbjmmiX" crossorigin="anonymous">
 <link rel="stylesheet" href="assets/style.css">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/js/bootstrap.bundle.min.js" integrity="sha384-WyOxWvTyr1QaMPfiPJSv76iReVthorl5uWlFtZPyK0IEB0hGzo9y5Bp9mYanr8Bu" crossorigin="anonymous" defer></script>
-<script src="assets/app.js"></script><script src="assets/external-links.js"></script><script src="data/vessels.js"></script><script src="data/platforms.js"></script><script src="data/institutions.js"></script><script src="data/manufacturers.js"></script><script src="assets/platforms.js"></script></head>
+<script src="assets/app.js"></script><script src="assets/external-links.js"></script><script src="data/vessels.js"></script><script src="data/vessel_extra.js"></script><script src="data/vessel_status.js"></script><script src="data/platforms.js"></script><script src="data/institutions.js"></script><script src="data/manufacturers.js"></script><script src="assets/platforms.js"></script></head>
 <body class="d-flex flex-column min-vh-100 bg-body-tertiary">
 <main id="content" class="container py-4 flex-grow-1">
 <h1 class="mb-2">Platforms beyond ships</h1>
@@ -28,6 +28,7 @@
  </div>
  <div class="col-6 col-md-3 col-lg-2"><label class="form-label fw-semibold small mb-1" for="cls">Class</label><select class="form-select" id="cls"><option value="">All classes</option></select></div>
  <div class="col-6 col-md-3 col-lg-2"><label class="form-label fw-semibold small mb-1" for="status">Status</label><select class="form-select" id="status"><option value="">All statuses</option></select></div>
+ <div class="col-6 col-md-3 col-lg-2"><label class="form-label fw-semibold small mb-1" for="sort">Sort by</label><select class="form-select" id="sort"></select></div>
  <div class="col-6 col-md-4 col-lg-3"><div class="form-check form-switch mb-2"><input class="form-check-input" type="checkbox" role="switch" id="group"><label class="form-check-label" for="group">Group by institution</label></div></div>
  <div class="col-12 col-md-2 col-lg-2"><button type="button" class="btn btn-outline-secondary w-100" id="reset">Reset</button></div>
 </form>
@@ -42,12 +43,13 @@
 <section class="mt-4" aria-labelledby="notes-h"><h2 class="h5" id="notes-h">Reading this list</h2>
 <ul class="small">
  <li><strong>Status</strong> is our reading of public evidence, dated on each page: <span id="legend"></span></li>
- <li><strong>Institutions and groups</strong> nest: a lab or facility sits inside its institution (for example RDL inside UD CEOE inside UD, or NDSF inside WHOI). Choosing an institution also shows its groups' platforms. Each platform can have several roles: owner, operator, developer, host facility or funder. Browse them all on the <a href="institution.html">institutions page</a>.</li>
+ <li><strong>Institutions and groups</strong> nest: a lab or facility sits inside its institution (for example RDL inside UD CEOE inside UD, or NDSF inside WHOI). Choosing an institution also shows its groups' platforms. Each platform can have several roles: owner, operator, developer, host facility or funder. Browse them all on the <a href="institutions.html">institutions page</a>.</li>
  <li><strong>Grouped view</strong> lists each platform under every top-level institution it is tied to, so a Navy-owned, WHOI-operated vehicle such as Alvin appears under both.</li>
  <li><strong>Two vehicles are called OTIS.</strong> The OTIS glider (ud_275) dates from 2012; the OTIS ROV was donated to UD in 2025. They are separate records.</li>
  <li><strong>Specs show their basis:</strong> unit metadata from a data service, a figure the operator published (often class-level), a register entry, a project report, or a secondary copy of operator figures. Manufacturer brochure values are not used.</li>
  <li><strong>Crewed / Uncrewed</strong> spans this list and the vessel directory. Crewed includes minimally crewed ships; uncrewed covers remotely operated, supervised autonomous and fully autonomous platforms. Unknown autonomy appears only under All. Matching vessels for the same toggle, class and search are listed below the table.</li>
- <li>The ship records are in the <a href="vessels.html">vessel directory</a>. A few deep-sea vehicles (Alvin, Jason, Sentry, DSL-120A) are also listed there; their platform pages link across.</li>
+ <li>The ship records are in the <a href="vessels.html">vessel directory</a>. Six deep-sea vehicles that used to be listed in both places (Alvin, Jason, Sentry, DSL-120A, SHINKAI 6500 and URASHIMA) are now one record each, here; their old vessel IDs still open the platform page.</li>
+ <li><strong>Names</strong>: each platform shows a readable name (for example a glider's model, serial number and owner) with its registry ID underneath in small type. The list is sorted by name; you can sort by status or class instead.</li>
  <li>Data: <a href="data/platforms.json">data/platforms.json</a> and <a href="data/institutions.json">data/institutions.json</a> (CC BY 4.0, credit "Data compiled by Doug White / researchvessels.org" and the source shown on each record).</li>
 </ul></section>
 <section class="mt-3" aria-labelledby="ex-h"><h2 class="h5" id="ex-h">Deliberately not listed</h2><p class="small text-body-secondary mb-1">These turned up in the University of Delaware research but are not shown as UD platforms:</p><ul class="small" id="excluded"></ul></section>
@@ -57,6 +59,7 @@ document.addEventListener('DOMContentLoaded',()=>{
  const $=id=>document.getElementById(id),h=RV.h,P=RVP,D=P.data(),L=D.platforms,I=P.instData().institutions;
  P.CLASSES.forEach(([v,t])=>$('cls').append(h('option',{value:v},t)));$('cls').append(h('option',{value:'ship'},'Ship'));
  P.STATUSES.forEach(s=>$('status').append(h('option',{value:s},s)));
+ Object.entries(P.SORTS).forEach(([k,t])=>$('sort').append(h('option',{value:k},t)));
  /* institution dropdown: top-level institutions sorted by name, each followed by its groups (indented) */
  const used=new Set();L.forEach(p=>P.platInsts(p).forEach(x=>used.add(x)));
  const addTree=(i,depth)=>{if(!used.has(i.institution_id))return;$('inst').append(h('option',{value:i.institution_id},'\u00a0\u00a0'.repeat(depth)+(depth?'\u2514 ':'')+i.name+(i.short_name&&i.short_name!==i.name?' ('+i.short_name+')':'')));
@@ -70,14 +73,15 @@ document.addEventListener('DOMContentLoaded',()=>{
  /* initial filters come from the address; only whitelisted values are accepted */
  const qs=new URLSearchParams(location.search),okC=P.CLASSES.map(c=>c[0]);
  if(okC.includes(qs.get('class')))$('cls').value=qs.get('class');
- if(P.STATUSES.includes(qs.get('status')))$('status').value=qs.get('status');
+ if(P.STATUSES.includes(qs.get('status')))$('status').value=qs.get('status');else if(qs.get('status')==='Unknown')$('status').value='Unconfirmed';
+ if(Object.prototype.hasOwnProperty.call(P.SORTS,qs.get('sort')))$('sort').value=qs.get('sort');
  if(okInst.has(qs.get('inst')))$('inst').value=qs.get('inst');
  if(countries.includes(qs.get('country')))$('country').value=qs.get('country');
  if(qs.get('group')==='1')$('group').checked=true;
  if(qs.get('q'))$('q').value=qs.get('q').slice(0,80);
  if(RV.validAutonomyToggle(qs.get('autonomy'))){const a=document.getElementById('autonomy-'+qs.get('autonomy'));if(a)a.checked=true}
  if(qs.get('class')==='ship')$('cls').value='ship';
- const hay=p=>[p.name,p.display_name,p.model,p.manufacturer,p.serial_number,p.owner_org,p.operator_org,p.operating_unit,...(p.aliases||[]),...Object.values(p.external_ids||{}),
+ const hay=p=>[P.displayName(p),p.platform_id,...(p.legacy_ids||[]),p.name,p.display_name,p.model,p.manufacturer,p.serial_number,p.owner_org,p.operator_org,p.operating_unit,...(p.aliases||[]),...Object.values(p.external_ids||{}),
    ...P.affs(p).flatMap(a=>P.instChain(a.institution_id).flatMap(i=>[i.name,i.short_name,...(i.aliases||[])]))].filter(x=>x!=null).map(x=>String(x).toLowerCase());
  const opCell=p=>{const ops=P.operatorsOf(p),seen=new Set(),out=[];
    ops.forEach(a=>{if(seen.has(a.institution_id))return;seen.add(a.institution_id);const i=P.findInst(a.institution_id),r=P.instRoot(a.institution_id);
@@ -89,9 +93,9 @@ document.addEventListener('DOMContentLoaded',()=>{
    if(p.data_completeness==='limited')out.push(h('span',{class:'badge text-bg-light border text-dark',title:P.COMPLETENESS.limited},'limited info'));
    return h('td',{class:'d-none d-md-table-cell small'},out)};
  const rowOf=p=>{
-   const nameCell=h('td',null,h('a',{href:P.detailHref(p.platform_id),class:'fw-semibold'},p.display_name||p.name),
-     p.aliases&&p.aliases.length?h('div',{class:'small text-body-secondary'},'also: '+p.aliases.slice(0,3).join(', ')):null,
-     p.platform_id?h('div',{class:'small text-body-secondary font-monospace'},p.platform_id):null);
+   const nameCell=h('td',null,h('a',{href:P.detailHref(p.platform_id),class:'fw-semibold'},P.displayName(p)),
+     p.platform_id?h('div',{class:'small text-body-secondary font-monospace rv-raw-id'},p.platform_id):null,
+     p.aliases&&p.aliases.length?h('div',{class:'small text-body-secondary'},'also: '+p.aliases.slice(0,3).join(', ')):null);
    const mm=h('td',{class:'d-none d-md-table-cell'},p.model||'',p.manufacturer?h('div',{class:'small text-body-secondary'},p.manufacturer):null);
    const st=h('td',null,P.statusBadge(p.status),p.status_date?h('div',{class:'small text-body-secondary'},'as of '+p.status_date):null);
    const dp=P.depthOf(p),ld=P.lastDate(p);
@@ -103,7 +107,8 @@ document.addEventListener('DOMContentLoaded',()=>{
  const vhay=v=>[v.name,...(Array.isArray(v.former_names)?v.former_names:[]),v.cs,v.imo,v.mmsi,v.owner,v.operator,v.homeport].filter(x=>x!=null).map(x=>String(x).toLowerCase());
  function draw(){
   const q=$('q').value.trim().toLowerCase(),c=$('cls').value,s=$('status').value,inst=$('inst').value,co=$('country').value,grp=$('group').checked,tog=autVal();
-  const r=L.filter(p=>(!q||hay(p).some(x=>x.includes(q)))&&(!c||p.platform_class===c)&&(!s||p.status===s)&&(!inst||P.platInsts(p).has(inst))&&(!co||(p.countries||[]).includes(co))&&RV.matchesAutonomyToggle(p,tog));
+  const so=$('sort').value||'name';
+  const r=P.sortPlatforms(L,so).filter(p=>(!q||hay(p).some(x=>x.includes(q)))&&(!c||p.platform_class===c)&&(!s||RV.normStatus(p.status)===s)&&(!inst||P.platInsts(p).has(inst))&&(!co||(p.countries||[]).includes(co))&&RV.matchesAutonomyToggle(p,tog));
   const tb=$('rows');tb.replaceChildren();
   if(grp){
    const groups=new Map();
@@ -123,7 +128,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   const vr=showVes?VES.filter(v=>(!q||vhay(v).some(x=>x.includes(q)))&&RV.matchesAutonomyToggle(v,tog)&&RV.matchesVehicleClass(v,c)):[];
   const vb=$('ves-block'),vrows=$('ves-rows');vrows.replaceChildren();
   vr.slice(0,200).forEach(v=>vrows.append(h('tr',{'data-id':v.id},
-    h('td',null,h('a',{href:RV.vesselHref(v.id)},v.name||''),v.status==='out of service'?h('span',{class:'badge text-bg-secondary ms-1'},'OOS'):null),
+    h('td',null,h('a',{href:RV.vesselHref(v.id)},v.name||''),' ',RV.statusBadge(v.status)),
     h('td',null,RV.VEHICLE_CLASS_LABELS[RV.classOf(v)]||RV.classOf(v)||''),
     h('td',null,RV.autonomyBadge(v.autonomy)),
     h('td',{class:'d-none d-md-table-cell'},v.country||''),
@@ -131,13 +136,13 @@ document.addEventListener('DOMContentLoaded',()=>{
   if(vr.length>200)vrows.append(h('tr',null,h('td',{colspan:'5',class:'text-body-secondary'},'Showing the first 200 vessels. See the vessel directory for the rest.')));
   vb.hidden=vr.length===0;
   $('ves-count').textContent=vr.length?vr.length.toLocaleString()+' vessel'+(vr.length===1?'':'s')+' also match. Open the vessel directory to refine ship-only filters.':'';
-  const u=new URLSearchParams();if(q)u.set('q',$('q').value.trim());if(inst)u.set('inst',inst);if(co)u.set('country',co);if(c)u.set('class',c);if(s)u.set('status',s);if(grp)u.set('group','1');if(tog&&tog!=='all')u.set('autonomy',tog);
+  const u=new URLSearchParams();if(q)u.set('q',$('q').value.trim());if(inst)u.set('inst',inst);if(co)u.set('country',co);if(c)u.set('class',c);if(s)u.set('status',s);if(so&&so!=='name')u.set('sort',so);if(grp)u.set('group','1');if(tog&&tog!=='all')u.set('autonomy',tog);
   try{history.replaceState(null,'',location.pathname+(u.toString()?'?'+u.toString():''))}catch(err){}
  }
- ['q','cls','status','inst','country','group'].forEach(id=>$(id).addEventListener('input',draw));
+ ['q','cls','status','sort','inst','country','group'].forEach(id=>$(id).addEventListener('input',draw));
  $('group').addEventListener('change',draw);
  document.querySelectorAll('input[name="autonomy"]').forEach(el=>el.addEventListener('change',draw));
- $('reset').addEventListener('click',()=>{['q','cls','status','inst','country'].forEach(id=>$(id).value='');$('group').checked=false;const a=document.getElementById('autonomy-all');if(a)a.checked=true;draw()});
+ $('reset').addEventListener('click',()=>{['q','cls','status','inst','country'].forEach(id=>$(id).value='');$('sort').value='name';$('group').checked=false;const a=document.getElementById('autonomy-all');if(a)a.checked=true;draw()});
  draw();
 });
 </script></body></html>

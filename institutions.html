@@ -1,0 +1,86 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' blob: https://unpkg.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdn.jsdelivr.net; img-src 'self' data: blob: https://tiles.openfreemap.org; worker-src blob:; child-src blob:; connect-src 'self' https://tiles.openfreemap.org https://unpkg.com; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'">
+<title>Institutions and groups (draft) · ResearchVessels.org</title><link rel="canonical" href="https://researchvessels.org/institutions.html"><meta name="description" content="Universities, agencies, labs and facilities that own or operate research vessels and platforms, with counts."><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32"><link rel="apple-touch-icon" href="assets/apple-touch-icon.png" sizes="180x180">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/css/bootstrap.min.css" integrity="sha384-yEPZ7jP9S0QKiUQ0m3jjsO4ProIW7wvR9gXkI7JOGa2XVsw53Yke2bsdkBbjmmiX" crossorigin="anonymous">
+<link rel="stylesheet" href="assets/style.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/js/bootstrap.bundle.min.js" integrity="sha384-WyOxWvTyr1QaMPfiPJSv76iReVthorl5uWlFtZPyK0IEB0hGzo9y5Bp9mYanr8Bu" crossorigin="anonymous" defer></script>
+<script src="assets/app.js"></script><script src="assets/external-links.js"></script><script src="data/vessels.js"></script><script src="data/vessel_extra.js"></script><script src="data/vessel_status.js"></script><script src="data/platforms.js"></script><script src="data/institutions.js"></script><script src="data/manufacturers.js"></script><script src="assets/platforms.js"></script></head>
+<body class="d-flex flex-column min-vh-100 bg-body-tertiary">
+<main id="content" class="container py-4 flex-grow-1">
+<h1 class="mb-2">Institutions and groups</h1>
+<p class="lead text-body-secondary">Universities, agencies, labs and facilities that own, operate, develop, host or fund the vessels and platforms in this registry. Counts include each institution's own groups.</p>
+<div id="draft"></div>
+<form class="row g-2 align-items-end mb-3" role="search" onsubmit="return false">
+ <div class="col-12 col-md-5"><label class="form-label fw-semibold small mb-1" for="iq">Search</label><input class="form-control" id="iq" type="search" maxlength="80" placeholder="e.g. WHOI, Rutgers, NOAA, JAMSTEC"></div>
+ <div class="col-6 col-md-2"><label class="form-label fw-semibold small mb-1" for="ic">Country</label><select class="form-select" id="ic"><option value="">All countries</option></select></div>
+ <div class="col-6 col-md-2"><label class="form-label fw-semibold small mb-1" for="it">Type</label><select class="form-select" id="it"><option value="">All types</option></select></div>
+ <div class="col-6 col-md-2"><div class="form-check mb-2"><input class="form-check-input" type="checkbox" id="itop"><label class="form-check-label small fw-semibold" for="itop">Top level only</label></div></div>
+ <div class="col-6 col-md-1"><button type="button" class="btn btn-outline-secondary w-100" id="ireset">Reset</button></div>
+</form>
+<p id="icount" class="text-body-secondary mb-2" aria-live="polite"></p>
+<div class="table-responsive border rounded bg-white"><table class="table table-striped table-hover table-sm align-top mb-0" id="instable">
+<thead class="table-light"><tr>
+ <th scope="col" aria-sort="ascending"><button type="button" class="btn btn-link btn-sm p-0 fw-semibold text-dark text-decoration-none" data-sort="name">Institution or group</button></th>
+ <th scope="col" class="d-none d-md-table-cell"><button type="button" class="btn btn-link btn-sm p-0 fw-semibold text-dark text-decoration-none" data-sort="type">Type</button></th>
+ <th scope="col"><button type="button" class="btn btn-link btn-sm p-0 fw-semibold text-dark text-decoration-none" data-sort="country">Country</button></th>
+ <th scope="col" class="text-end"><button type="button" class="btn btn-link btn-sm p-0 fw-semibold text-dark text-decoration-none" data-sort="vessels">Vessels</button></th>
+ <th scope="col" class="text-end"><button type="button" class="btn btn-link btn-sm p-0 fw-semibold text-dark text-decoration-none" data-sort="platforms">Platforms</button></th>
+</tr></thead><tbody id="irows"></tbody></table></div>
+<p id="iempty" class="text-body-secondary mt-3" hidden>No institutions match these filters.</p>
+<section class="mt-4" aria-labelledby="in-h"><h2 class="h5" id="in-h">Reading this list</h2>
+<ul class="small">
+ <li>Click a column heading to sort; click it again to reverse. The address keeps your filters, so a filtered list can be shared.</li>
+ <li><strong>Vessels</strong> are matched to the vessel directory by the exact operator or owner name; <strong>platforms</strong> are linked through each platform's owner, operator, developer, host or funder roles. Both counts include the institution's groups.</li>
+ <li>Institution IDs are not case-sensitive: <code>institution.html?id=WHOI</code> and <code>?id=whoi</code> open the same page.</li>
+ <li>Machine-readable list: <a href="data/institutions.json">data/institutions.json</a> (CC BY 4.0, &ldquo;Data compiled by Doug White / researchvessels.org&rdquo;).</li>
+</ul></section>
+</main>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+ /* Institutions index. Every value from the data goes through RV.h (text nodes / safe attributes); no innerHTML with data. */
+ const $=id=>document.getElementById(id),h=RV.h,P=RVP,ID=P.instData(),I=(ID.institutions||[]).filter(i=>i&&typeof i==='object'&&P.validId(i.institution_id)),L=P.data().platforms||[],vb=RV.byId();
+ $('draft').append(P.draftNotice('Institution records come from public sources and have not been checked by the institutions.','Correction: institutions'));
+ const TYPE=t=>String(t==null?'':t).replace(/_/g,' ');
+ const rows=I.map(i=>{const desc=new Set(P.instDesc(i.institution_id));
+   const nv=new Set([...desc].flatMap(x=>{const r=P.findInst(x);return r&&Array.isArray(r.vessel_ids)?r.vessel_ids.map(String):[]}).filter(v=>Object.prototype.hasOwnProperty.call(vb,v))).size;
+   const np=L.filter(p=>P.affs(p).some(a=>desc.has(a.institution_id))).length;
+   const chain=P.instChain(i.institution_id),parent=chain.length>1?chain[chain.length-2]:null;
+   const hay=[i.institution_id,i.name,i.short_name,...(Array.isArray(i.aliases)?i.aliases:[]),parent&&parent.name].filter(x=>x!=null).map(x=>String(x).toLowerCase());
+   return {i,nv,np,parent,depth:chain.length-1,hay,name:String(i.name||i.institution_id),type:TYPE(i.type),country:P.countryName(i.country)}});
+ [...new Set(rows.map(r=>r.i.country).filter(Boolean))].sort((a,b)=>P.countryName(a).localeCompare(P.countryName(b))).forEach(c=>$('ic').append(h('option',{value:c},P.countryName(c))));
+ [...new Set(rows.map(r=>r.i.type).filter(Boolean))].sort().forEach(t=>$('it').append(h('option',{value:t},TYPE(t))));
+ const SORTS=['name','type','country','vessels','platforms'];
+ let sk='name',dir=1;
+ const qs=new URLSearchParams(location.search);
+ if(qs.get('q'))$('iq').value=qs.get('q').slice(0,80);
+ if([...$('ic').options].some(o=>o.value&&o.value===qs.get('country')))$('ic').value=qs.get('country');
+ if([...$('it').options].some(o=>o.value&&o.value===qs.get('type')))$('it').value=qs.get('type');
+ if(qs.get('top')==='1')$('itop').checked=true;
+ if(SORTS.includes(qs.get('sort')))sk=qs.get('sort');if(qs.get('dir')==='desc')dir=-1;
+ const cmp=(a,b)=>{const n=(x,y)=>x.name.localeCompare(y.name,'en',{sensitivity:'base'});
+   if(sk==='vessels')return (a.nv-b.nv)*dir||n(a,b);if(sk==='platforms')return (a.np-b.np)*dir||n(a,b);
+   if(sk==='type')return a.type.localeCompare(b.type)*dir||n(a,b);if(sk==='country')return a.country.localeCompare(b.country)*dir||n(a,b);return n(a,b)*dir};
+ function draw(){
+  const q=$('iq').value.trim().toLowerCase(),c=$('ic').value,t=$('it').value,top=$('itop').checked;
+  const r=rows.filter(x=>(!q||x.hay.some(s=>s.includes(q)))&&(!c||x.i.country===c)&&(!t||x.i.type===t)&&(!top||!x.parent)).sort(cmp);
+  const tb=$('irows');tb.replaceChildren();
+  r.forEach(x=>tb.append(h('tr',{'data-inst':x.i.institution_id},
+   h('td',null,h('a',{href:P.instHref(x.i.institution_id),class:'fw-semibold'},x.name),x.i.short_name&&x.i.short_name!==x.i.name?h('span',{class:'text-body-secondary'},' ('+String(x.i.short_name)+')'):null,
+     x.parent?h('div',{class:'small text-body-secondary'},'part of ',h('a',{href:P.instHref(x.parent.institution_id)},P.instLabel(x.parent))):null),
+   h('td',{class:'d-none d-md-table-cell small'},x.type),
+   h('td',{class:'small'},x.country||h('span',{class:'text-body-secondary'},'\u2014')),
+   h('td',{class:'text-end','data-col':'vessels'},String(x.nv)),
+   h('td',{class:'text-end','data-col':'platforms'},x.np?h('a',{href:'platforms.html?inst='+encodeURIComponent(x.i.institution_id)},String(x.np)):'0'))));
+  $('icount').textContent=r.length+' of '+rows.length+' institutions and groups';
+  $('iempty').hidden=r.length>0;
+  document.querySelectorAll('#instable th[scope="col"]').forEach(th=>{const b=th.querySelector('[data-sort]');if(!b)return;const k=b.getAttribute('data-sort');if(k===sk)th.setAttribute('aria-sort',dir>0?'ascending':'descending');else th.removeAttribute('aria-sort')});
+  const u=new URLSearchParams();if(q)u.set('q',$('iq').value.trim());if(c)u.set('country',c);if(t)u.set('type',t);if(top)u.set('top','1');if(sk!=='name')u.set('sort',sk);if(dir<0)u.set('dir','desc');
+  try{history.replaceState(null,'',location.pathname+(u.toString()?'?'+u.toString():''))}catch(err){}
+ }
+ document.querySelectorAll('#instable [data-sort]').forEach(b=>b.addEventListener('click',()=>{const k=b.getAttribute('data-sort');if(k===sk)dir=-dir;else{sk=k;dir=(k==='vessels'||k==='platforms')?-1:1}draw()}));
+ ['iq','ic','it','itop'].forEach(id=>$(id).addEventListener('input',draw));
+ $('ireset').addEventListener('click',()=>{$('iq').value='';$('ic').value='';$('it').value='';$('itop').checked=false;sk='name';dir=1;draw()});
+ draw();
+});
+</script></body></html>

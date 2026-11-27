@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/css/bootstrap.min.css" integrity="sha384-yEPZ7jP9S0QKiUQ0m3jjsO4ProIW7wvR9gXkI7JOGa2XVsw53Yke2bsdkBbjmmiX" crossorigin="anonymous">
 <link rel="stylesheet" href="assets/style.css">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/js/bootstrap.bundle.min.js" integrity="sha384-WyOxWvTyr1QaMPfiPJSv76iReVthorl5uWlFtZPyK0IEB0hGzo9y5Bp9mYanr8Bu" crossorigin="anonymous" defer></script>
-<script src="assets/app.js"></script><script src="assets/external-links.js"></script><script src="data/vessels.js"></script><script src="data/cruises.js"></script></head>
+<script src="assets/app.js"></script><script src="assets/external-links.js"></script><script src="data/vessels.js"></script><script src="data/vessel_extra.js"></script><script src="data/vessel_status.js"></script><script src="data/cruises.js"></script></head>
 <body class="d-flex flex-column min-vh-100 bg-body-tertiary">
 <main id="content" class="container py-4 flex-grow-1">
 <h1 class="mb-2">Fleet dashboards</h1><p class="lead text-body-secondary">For program managers: see every ship an organization owns or operates, how old the fleet is, how complete its records are, and its cruise activity by funding agency.</p>
@@ -29,10 +29,10 @@ document.addEventListener('DOMContentLoaded',()=>{
   const a=$('agency').value,k=$('role').value,o=$('org').value;
   const ships=a?V.filter(v=>(C[v.id]||[]).some(r=>r[ai]===a)):V.filter(v=>v[k]===o);
   $('cap').textContent=a?`· cruises funded by ${a}`:`· all legacy cruises for these ships`;
-  const now=2026,ages=ships.map(v=>+v.built).filter(x=>x>1850).map(x=>now-x),act=ships.filter(v=>v.status!=='out of service').length;
+  const now=2026,ages=ships.map(v=>+v.built).filter(x=>x>1850).map(x=>now-x),act=ships.filter(v=>v.status!=='Retired').length,ver=ships.filter(v=>v.status==='Active'||v.status==='Listed').length;
   const avgc=ships.length?Math.round(ships.reduce((s,v)=>s+RV.completeness(v),0)/ships.length):0;
   const rs=ships.flatMap(v=>(C[v.id]||[]).filter(r=>!a||r[ai]===a));
-  $('kpis').innerHTML=[[ships.length,'ships'],[act,'active'],[ages.length?Math.round(ages.reduce((s,x)=>s+x,0)/ages.length)+' yrs':'n/a','average age'],[avgc+'%','average record completeness'],[rs.length.toLocaleString(),'legacy cruises'],[ships.filter(v=>v.ais).length,'AIS-queryable']].map(([n,l])=>`<div class="col-6 col-md-4 col-xl-2"><div class="card h-100"><div class="card-body"><div class="rv-stat">${e(n)}</div><div class="small text-body-secondary">${l}</div></div></div></div>`).join('');
+  $('kpis').innerHTML=[[ships.length,'ships'],[act,'not retired'],[ver,'active or listed (verified)'],[ages.length?Math.round(ages.reduce((s,x)=>s+x,0)/ages.length)+' yrs':'n/a','average age'],[avgc+'%','average record completeness'],[rs.length.toLocaleString(),'legacy cruises'],[ships.filter(v=>v.ais).length,'AIS-queryable']].map(([n,l])=>`<div class="col-6 col-md-4 col-xl-2"><div class="card h-100"><div class="card-body"><div class="rv-stat">${e(n)}</div><div class="small text-body-secondary">${l}</div></div></div></div>`).join('');
   const by={};rs.forEach(r=>{const y=r[0].slice(0,4);by[y]=(by[y]||0)+1});const ys=[];for(let y=1991;y<=2015;y++)ys.push(String(y));const mx=Math.max(1,...ys.map(y=>by[y]||0));
   $('bars').innerHTML=ys.map(y=>`<div style="height:${100*(by[y]||0)/mx}%" title="${e(y)}: ${by[y]||0} cruises"></div>`).join('');$('barlab').innerHTML='<span>1991</span><span>2003</span><span>2015</span>';
   const ag2={};rs.forEach(r=>{const x=r[ai]||'not recorded';ag2[x]=(ag2[x]||0)+1});

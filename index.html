@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="assets/style.css">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/js/bootstrap.bundle.min.js" integrity="sha384-WyOxWvTyr1QaMPfiPJSv76iReVthorl5uWlFtZPyK0IEB0hGzo9y5Bp9mYanr8Bu" crossorigin="anonymous" defer></script>
 <link href="https://unpkg.com/maplibre-gl@5.24.1/dist/maplibre-gl.css" rel="stylesheet" integrity="sha384-uTttxo/aOKbdE5RlD/SPzSDoDmNvGlUYPjONi2MN/b7c9HPSvW07OIuyP7uL6jxK" crossorigin="anonymous">
-<script src="assets/app.js"></script><script src="assets/external-links.js"></script><script src="data/vessels.js"></script><script src="data/cruises.js"></script><script src="data/events.js"></script><script src="assets/resources.js"></script>
+<script src="assets/app.js"></script><script src="assets/external-links.js"></script><script src="data/vessels.js"></script><script src="data/vessel_extra.js"></script><script src="data/vessel_status.js"></script><script src="data/cruises.js"></script><script src="data/events.js"></script><script src="data/platforms.js"></script><script src="assets/resources.js"></script>
 <!-- Home-page globe only: MapLibre 5.x (globe projection). The other map pages stay on 4.7.1. -->
 <script src="https://unpkg.com/maplibre-gl@5.24.1/dist/maplibre-gl.js" integrity="sha384-nXMl9YiLoSG5KBPTFgvxVuIqQQcqIvo0bFrvoEaGJC6r7IibIzF1S36Zbf/sKBtL" crossorigin="anonymous" defer></script>
 <script src="data/globe_tracks.js" defer></script><script src="assets/globe.js?v=20261119b" defer></script></head>
@@ -59,7 +59,7 @@
 
 <h2 class="h3 mt-5 mb-3">What's in the registry today</h2>
 <div class="row g-3" id="stats"></div>
-<p class="small text-body-secondary mt-3">Counts are computed live from the prototype's data files: the 2026 master vessel list (merged from GMSO, VesselConnect, and the legacy researchvessels.org database), the legacy cruise schedule database (1990-2015), and historical Sailwx.info positions (2008-2014).</p>
+<p class="small text-body-secondary mt-3">Counts are computed live from the prototype's data files: research vessels are the ship records in the vessel directory; platforms are the platform registry plus the submersibles, ROVs and other non-ship vehicles still listed in the vessel directory (one Argo record stands for the whole float array); the 2026 master vessel list (merged from GMSO, VesselConnect, and the legacy researchvessels.org database), the legacy cruise schedule database (1990-2015), and historical Sailwx.info positions (2008-2014).</p>
 
 <h2 class="h3 mt-5 mb-3">How it fits together</h2>
 <div class="row g-4">
@@ -73,8 +73,12 @@
 document.addEventListener('DOMContentLoaded',()=>{
  const V=RV.vessels();const C=window.RV_CRUISES?Object.values(RV_CRUISES.cruises).reduce((a,b)=>a+b.length,0):0;
  const countries=new Set(V.map(v=>v.country).filter(Boolean)).size;const ais=V.filter(v=>v.ais).length;
- const s=[[V.length,'vessels &amp; platforms'],[countries,'flag countries'],[C,'legacy cruise records'],[ais,'with an IMO or MMSI for AIS']];
+ /* Research vessels = ship records in the vessel directory (vehicle_class ship or unset); platforms = the platform registry
+    plus any non-ship vehicles still in the vessel directory. Computed from the data files, not hard-coded. */
+ const PL=(window.RV_PLATFORMS&&Array.isArray(RV_PLATFORMS.platforms))?RV_PLATFORMS.platforms:[];
+ const ships=V.filter(v=>v.vehicle_class==='ship'||(!v.vehicle_class&&v.type==='Vessel')),nonShip=V.length-ships.length;
+ const s=[[ships.length,'research vessels','stat-vessels'],[PL.length+nonShip,'platforms (gliders, AUVs, ROVs, floats and more)','stat-platforms'],[countries,'flag countries','stat-countries'],[C,'legacy cruise records','stat-cruises'],[ais,'with an IMO or MMSI for AIS','stat-ais']];
  if(window.RV_RES)RV_RES.renderEvents(document.getElementById('home-events'),{limit:3,compact:true});
- document.getElementById('stats').innerHTML=s.map(([n,l])=>`<div class="col-6 col-lg-3"><div class="card h-100"><div class="card-body"><div class="rv-stat">${RV.fmt(n)}</div><div class="small text-body-secondary">${l}</div></div></div></div>`).join('');
+ document.getElementById('stats').innerHTML=s.map(([n,l,k])=>`<div class="col-6 col-md-4 col-xl"><div class="card h-100" id="${k}"><div class="card-body"><div class="rv-stat">${RV.fmt(n)}</div><div class="small text-body-secondary">${l}</div></div></div></div>`).join('');
 });
 </script></body></html>
