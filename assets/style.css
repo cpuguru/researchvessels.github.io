@@ -72,3 +72,14 @@ tr.rv-trk-row{cursor:pointer}
 /* Nine nav items: tighten the links between 992px and 1399px so the bar stays on one line */
 @media(min-width:992px) and (max-width:1399.98px){#mainNav .navbar-nav{--bs-navbar-nav-link-padding-x:.4rem}#mainNav .nav-link{font-size:.9rem}.navbar-brand span{font-size:1.05rem}}
 @media(min-width:992px) and (max-width:1199.98px){.navbar .container{--bs-gutter-x:1rem}.navbar-brand{margin-right:.5rem}#mainNav .navbar-nav{--bs-navbar-nav-link-padding-x:.3rem}#mainNav .nav-link{font-size:.84rem}.navbar-brand span{font-size:.95rem}}
+
+/* Review fixes 2026-11-27 */
+/* Sticky in-page menu on vessel pages (below the sticky navbar, about 56px tall) */
+.rv-pagemenu{position:sticky;top:56px;z-index:1015;background:rgba(248,249,250,.97);border-bottom:1px solid var(--bs-border-color);margin:0 0 1rem;padding:.25rem 0;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
+.rv-pagemenu .nav-link{white-space:nowrap}
+.rv-anchor,#legacy-cruises,#r2rcr-h{scroll-margin-top:112px}
+/* Unconfirmed = unverified: outlined, not a filled "active" colour */
+.badge.rv-unverified{font-weight:500}
+.rv-raw-id{font-size:.75rem}
+/* Year bar chart: never wider than the screen (375px) */
+.table-responsive,.overflow-x-auto,.overflow-auto{position:relative} /* keep visually-hidden (position:absolute) hints inside scrolling tables from widening the page on phones */

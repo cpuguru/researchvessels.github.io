@@ -11,6 +11,7 @@ window.RV_STRINGS=Object.assign(window.RV_STRINGS||{},{
  'eq.public.specsTitle':'Specifications and contacts: provenance',
  'eq.public.contacts':'Contacts (role mailboxes)',
  'eq.public.transfer':'Ownership transfer',
+ 'eq.public.merged':'This is one list: entries from the operator or compiled from published specifications, plus R2R instrument records. The Source column shows where each row came from.',
  'eq.public.vocab':'Device categories follow SeaDataNet L05; instrument codes link to the NERC L22 vocabulary.',
  'eq.public.coreSource':'Source: {src}',
  'eq.badge.verified':'Operator-verified',

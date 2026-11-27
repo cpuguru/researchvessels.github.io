@@ -88,7 +88,7 @@
      Hosted pages load the local JPEGs. A file:// open cannot fetch those (Chrome CORS),
      so it falls back to WMS with an encoded BBOX and &RV= token that misses the poisoned cache. */
   const GEBCO_TILES='gebcolocal://{z}/{x}/{y}.jpg';
-  const GEBCO_ATTR='Bathymetry: <a href="https://www.gebco.net/" target="_blank" rel="noopener noreferrer">GEBCO_2026 Grid, GEBCO Compilation Group (2026)</a>';
+  const GEBCO_ATTR='Bathymetry: <a href="https://www.gebco.net/" target="_blank" rel="noopener">GEBCO_2026 Grid, GEBCO Compilation Group (2026)</a>';
   const GEBCO_PATH=/^gebcolocal:\/\/(\d+)\/(\d+)\/(\d+)\.jpg(?:[?#].*)?$/;
   const GEBCO_ORIGIN=20037508.342789244;
   const isJpeg=buf=>{const u=new Uint8Array(buf||[]);return u.length>1000&&u[0]===0xff&&u[1]===0xd8};

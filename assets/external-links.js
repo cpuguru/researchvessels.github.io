@@ -2,7 +2,7 @@
    Internal = the host serving the page, or a host that equals one of RV.INTERNAL_DOMAINS (assets/app.js, the single
    source of truth: researchvessels.org, oceandata.org, macrofirm.org, oceanbytes.org) or ends with "." + one of them.
    Exact-or-dot-suffix match only, so evil-oceandata.org and oceandata.org.evil.com are external.
-   External http(s) links get target="_blank" and rel tokens noopener + noreferrer (existing tokens such as "license"
+   External http(s) links get target="_blank" and the rel token noopener (existing tokens such as "license"
    or "nofollow" are kept), plus visually hidden "(opens in new tab)" text for screen readers (or a suffix on an
    existing aria-label). Internal links get none of that; target="_blank" on an internal link is removed, and any
    marks this script added earlier are undone if a link's href turns internal. Relative, #anchor, mailto:, tel:,
@@ -54,7 +54,7 @@
       if(a.hasAttribute(MARK))return;
       var rec=[];
       if(!a.getAttribute('target')){a.setAttribute('target','_blank');rec.push('t')}
-      var t=relTokens(a);['noopener','noreferrer'].forEach(function(x){if(t.indexOf(x)===-1){t.push(x);rec.push(x)}});
+      var t=relTokens(a).filter(function(x){return x!=='noreferrer'});['noopener'].forEach(function(x){if(t.indexOf(x)===-1){t.push(x);rec.push(x)}});
       a.setAttribute('rel',t.join(' '));
       if(a.getAttribute('target')==='_blank')addHint(a);
       a.setAttribute(MARK,rec.join(' '));

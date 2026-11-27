@@ -1,7 +1,7 @@
 /* Shared helpers for the researchvessels.org prototype. No build step; data comes from data/*.js globals. */
 (function(){
-  const NAV=[['index.html','Home'],['vessels.html','Vessels'],['platforms.html','Platforms'],['uncrewed.html','Uncrewed'],['map.html','Where were ships?'],['fleet.html','Fleet dashboards'],['operators.html','For operators'],['equipment-search.html','Equipment'],['resources.html','Resources'],['about.html','About']];
-  const here=(location.pathname.split('/').pop()||'index.html').replace(/^(platform|institution)\.html$/,'platforms.html').replace(/^vehicle_condition_form\.html$/,'operators.html');
+  const NAV=[['index.html','Home'],['vessels.html','Vessels'],['platforms.html','Platforms'],['institutions.html','Institutions'],['uncrewed.html','Uncrewed'],['map.html','Where were ships?'],['fleet.html','Fleet dashboards'],['operators.html','For operators'],['equipment-search.html','Equipment'],['resources.html','Resources'],['about.html','About']];
+  const here=(location.pathname.split('/').pop()||'index.html').replace(/^platform\.html$/,'platforms.html').replace(/^institution\.html$/,'institutions.html').replace(/^vehicle_condition_form\.html$/,'operators.html');
   const logo='<img src="assets/logo-rv.svg" width="32" height="32" alt="ResearchVessels.org">';
   /* Bootstrap 5.3 dark navbar. Built only from the constant NAV list above (no data or URL values), so it is XSS-safe.
      The collapse toggler works through Bootstrap's delegated data-bs-* API, so inserting it at DOMContentLoaded is fine. */
@@ -35,11 +35,21 @@
       return s;
     }catch(err){return ''}
   };
+  /* ---------- One status vocabulary for ships and platforms (2026-11-27) ----------
+     Active / Listed / Probable / Dormant / Unconfirmed, plus Retired for records reported out of service, lost or ended.
+     Legacy values map in: "active" (unverified legacy) -> Unconfirmed, "out of service" -> Retired, "Unknown" -> Unconfirmed. */
+  const STATUS_LEVELS=Object.freeze(['Active','Listed','Probable','Dormant','Unconfirmed','Retired']);
+  const STATUS_HELP=Object.freeze({Active:'Used or published within about 12 months of the last check',Listed:'Listed as current on the operator\u2019s own site or a fleet register; no dated use checked',Probable:'Seen in use 2021-2025, nothing newer found',Dormant:'Data trail stopped; no use found for several years',Unconfirmed:'Not yet verified: a legacy record, only old evidence, or no evidence of use',Retired:'Reported retired, lost, replaced or out of service, or its program ended'});
+  const STATUS_TEXT=Object.freeze({Active:'Active',Listed:'Listed',Probable:'Probable',Dormant:'Dormant',Unconfirmed:'Unconfirmed',Retired:'Retired'});
+  const STATUS_CLASS=Object.freeze({Active:'text-bg-success',Listed:'text-bg-info',Probable:'text-bg-primary',Dormant:'text-bg-warning',Unconfirmed:'text-bg-light border border-secondary text-dark rv-unverified',Retired:'text-bg-dark'});
+  const normStatus=s=>{const t=s==null?'':String(s).trim();if(STATUS_LEVELS.includes(t))return t;const l=t.toLowerCase();if(l==='out of service'||l==='retired'||l==='scrapped'||l==='lost')return 'Retired';return 'Unconfirmed'};
+  const isRetired=r=>normStatus(r&&r.status)==='Retired';
   /* External links open in a new tab. INTERNAL_DOMAINS is the single source of truth (assets/external-links.js reads
      RV.INTERNAL_DOMAINS): a host is internal when it equals one of these domains or ends with "." + domain (any
      subdomain), or equals the host serving the page. No substring matching: evil-oceandata.org and
-     oceandata.org.evil.com stay external. Every other http/https link gets target="_blank" and rel noopener noreferrer
-     (existing rel tokens are kept). Internal links get no target and no added rel. extAttrs() returns a constant string. */
+     oceandata.org.evil.com stay external. Every other http/https link gets target="_blank" and rel="noopener"
+     (existing rel tokens are kept, except noreferrer, which is dropped since 2026-11-27 so linked sites can see the visit
+     came from researchvessels.org; the page's referrer policy (strict-origin-when-cross-origin) sends only the origin). Internal links get no target and no added rel. extAttrs() returns a constant string. */
   const INTERNAL_DOMAINS=Object.freeze(['researchvessels.org','oceandata.org','macrofirm.org','oceanbytes.org']);
   const isInternalHost=host=>{
     const h=String(host||'').toLowerCase().replace(/\.$/,'');
@@ -55,14 +65,14 @@
       return !isInternalHost(p.hostname);
     }catch(err){return false}
   };
-  const mergeRel=r=>{const t=String(r||'').split(/\s+/).filter(Boolean);for(const x of ['noopener','noreferrer'])if(!t.includes(x))t.push(x);return t.join(' ')};
+  const mergeRel=r=>{const t=String(r||'').split(/\s+/).filter(x=>x&&x!=='noreferrer');for(const x of ['noopener'])if(!t.includes(x))t.push(x);return t.join(' ')};
   const markExternal=a=>{
     if(!a||a.tagName!=='A')return a;
     if(isExternalHref(a.getAttribute('href'))){if(!a.getAttribute('target'))a.setAttribute('target','_blank');a.setAttribute('rel',mergeRel(a.getAttribute('rel')))}
     else if(a.getAttribute('target')==='_blank'&&!a.hasAttribute('data-rv-new-tab'))a.removeAttribute('target');/* owned domains open in the same tab */
     return a;
   };
-  const extAttrs=u=>isExternalHref(u)?' target="_blank" rel="noopener noreferrer"':'';
+  const extAttrs=u=>isExternalHref(u)?' target="_blank" rel="noopener"':'';
   const vesselHref=id=>'vessel.html?id='+encodeURIComponent(id==null?'':String(id));
   const operatorsHref=id=>'operators.html?id='+encodeURIComponent(id==null?'':String(id));
   const nceiHref=(text,start,end,bbox)=>{
@@ -91,8 +101,21 @@
   const vessels=()=>{
     if(merged&&merged.src===window.RV_VESSELS)return merged.list;
     const RB=(window.RV_REBUILDS&&window.RV_REBUILDS.rebuilds)||{},LK=(window.RV_LINKS&&window.RV_LINKS.links)||{};
-    const list=(window.RV_VESSELS||[]).map(v=>{
+    const VS=(window.RV_VSTATUS&&window.RV_VSTATUS.vessels&&typeof window.RV_VSTATUS.vessels==='object')?window.RV_VSTATUS.vessels:{};
+    const list=(window.RV_VESSELS||[]).filter(v=>v&&!platformAlias(v.id)).map(v=>{
       const o={...v};
+      /* One status vocabulary (Active / Listed / Probable / Dormant / Unconfirmed / Retired). The overlay
+         (data/vessel_status.js) holds the checked status; without it a legacy record is Unconfirmed, never Active. */
+      o.legacy_status=v.status==null?null:String(v.status);
+      const st=own(VS,v.id)&&VS[v.id]&&typeof VS[v.id]==='object'?VS[v.id]:null;
+      o.status=normStatus(st&&st.status!=null?st.status:v.status);
+      o.status_basis=st&&st.status_basis!=null?String(st.status_basis):(o.status==='Retired'?'The legacy registry marks it out of service.':'Legacy record: not yet verified against a current source.');
+      o.status_date=st&&/^\d{4}-\d{2}-\d{2}$/.test(String(st.status_date))?String(st.status_date):'';
+      o.status_source=st&&st.status_source!=null?String(st.status_source):'';
+      o.status_url=st?safeUrl(st.status_url):'';
+      if(st&&typeof st.unols_class==='string'&&/^[A-Z]$/.test(st.unols_class))o.unols_class=st.unols_class;
+      if(st&&typeof st.r2r_url==='string'&&/^https:\/\/www\.rvdata\.us\//.test(st.r2r_url))o.r2r_url=st.r2r_url;
+      if(st&&st.schedule&&typeof st.schedule==='object'){const u=safeUrl(st.schedule.url);if(u&&/^https:\/\//.test(u))o.schedule={kind:st.schedule.kind==='unols'?'unols':'operator',label:String(st.schedule.label==null?'':st.schedule.label).slice(0,120),url:u}}
       if(own(RB,v.id)){const r=RB[v.id];const y=Number(r.rebuilt_year);
         if(/^\d{4}$/.test(String(r.rebuilt_year))&&!(v.built&&/^\d{4}/.test(String(v.built))&&y<Number(String(v.built).slice(0,4)))){
           o.rebuilt_year=y;o.rebuilt_note=r.rebuilt_note==null?'':String(r.rebuilt_note);o.rebuilt_source=r.rebuilt_source==null?'':String(r.rebuilt_source);o.rebuilt_source_url=r.rebuilt_source_url==null?'':String(r.rebuilt_source_url)}}
@@ -208,13 +231,22 @@
      Own properties only; ids are plain strings. */
   const extraRoot=()=>{const X=window.RV_EXTRA;return X&&typeof X==='object'?X:null};
   const extraFor=id=>{const X=extraRoot();if(!X||!X.vessels||typeof X.vessels!=='object'||!own(X.vessels,String(id)))return null;const r=X.vessels[String(id)];return r&&typeof r==='object'?r:null};
+  /* Merged vessel/platform pairs (e.g. MV-0054 is the same submersible as platform whoi-alvin): the platform record is
+     canonical. Returns the platform id, or '' when the vessel id is not merged. Ids are validated. */
+  const platformAlias=id=>{const X=extraRoot(),k=id==null?'':String(id);if(!X||!X.platform_aliases||typeof X.platform_aliases!=='object'||!own(X.platform_aliases,k))return '';const t=X.platform_aliases[k];return typeof t==='string'&&/^[A-Za-z0-9_-]{1,64}$/.test(t)?t:''};
+  /* Cruise-track files (data/track_index.js). Returns {file,source,label,list} with validated same-site paths, or null. */
+  const trackIndex=id=>{const T=window.RV_TRACK_INDEX,k=id==null?'':String(id);if(!T||!T.tracks||typeof T.tracks!=='object'||!own(T.tracks,k))return null;const t=T.tracks[k];if(!t||typeof t!=='object')return null;
+    const p=x=>typeof x==='string'&&/^data\/[A-Za-z0-9_.-]{1,80}\.js$/.test(x)?x:'';const file=p(t.file);if(!file)return null;
+    return {file,source:t.source==='ncei'?'ncei':'r2r',label:String(t.label==null?'':t.label).slice(0,160),list:p(t.list)}};
+  const trackIds=()=>{const T=window.RV_TRACK_INDEX;return T&&T.tracks&&typeof T.tracks==='object'?Object.keys(T.tracks).filter(k=>trackIndex(k)):[]};
   /* Merged ids (e.g. MV-0192 into MV-0191) resolve to the canonical id; one hop only. */
   const resolveAlias=id=>{const X=extraRoot(),k=id==null?'':String(id);if(!X||!X.aliases||typeof X.aliases!=='object'||!own(X.aliases,k))return k;const t=X.aliases[k];return typeof t==='string'&&/^[A-Za-z0-9_-]{1,40}$/.test(t)?t:k};
   const byIdRaw=()=>{const m={};(window.RV_VESSELS||[]).forEach(v=>m[v.id]=v);return m};
   const byId=()=>{const m={};vessels().forEach(v=>m[v.id]=v);return m};
   const cruisesFor=id=>{const C=window.RV_CRUISES;if(!C)return[];return(C.cruises[id]||[]).map(r=>Object.fromEntries(C.fields.map((f,i)=>[f,r[i]])))};
   /* Badges replace the old pills: ok = success (green), off = secondary (grey), warn = warning (amber). */
-  const statusPill=v=>v.status==='out of service'?'<span class="badge text-bg-secondary">Out of service</span>':(v.status?'<span class="badge text-bg-success">Active</span>':'<span class="badge text-bg-secondary">Status unknown</span>');
+  /* Status badge for a vessel record: constant HTML only (label and help text come from the frozen tables below). */
+  const statusPill=v=>{const s=normStatus(v&&v.status);return '<span class="badge '+STATUS_CLASS[s]+'" data-status="'+s+'" title="'+esc(STATUS_HELP[s])+'">'+esc(STATUS_TEXT[s])+'</span>'};
   const qs=k=>new URLSearchParams(location.search).get(k);
   const fmt=n=>n==null?'':Number(n).toLocaleString();
   const TIER2=['imo','mmsi','cs','owner','operator','homeport','len','built','gt','berths','url'];/* rebuilt_year is optional context, not a completeness field */
@@ -284,6 +316,7 @@
   const AUTONOMY_TOGGLES=Object.freeze(['all','crewed','uncrewed']);
   const AUTONOMY_LABELS=Object.freeze({'crewed':'Crewed \u2014 a person is on board during operations','minimally crewed':'Minimally crewed \u2014 a small caretaker crew, with most of the work automated','remotely operated':'Remotely operated \u2014 piloted from a support ship or from shore','supervised autonomous':'Supervised autonomous \u2014 follows a programme and is monitored from shore or a ship','fully autonomous':'Fully autonomous \u2014 operates on a pre-set cycle without real-time piloting','unknown':'Unknown \u2014 not enough public information to classify'});
   const VEHICLE_CLASSES=Object.freeze(['USV','AUV','glider','ROV','HROV','HOV','towed','profiling float','UAV','UGV','HFR','ship']);
+  const statusBadge=s=>{const k=normStatus(s);return h('span',{class:'badge '+STATUS_CLASS[k],title:STATUS_HELP[k],'data-status':k},STATUS_TEXT[k],k==='Unconfirmed'?h('span',{class:'visually-hidden'},' (unverified)'):null)};
   const VEHICLE_CLASS_LABELS=Object.freeze({USV:'USV',AUV:'AUV',glider:'Glider',ROV:'ROV',HROV:'HROV',HOV:'HOV',towed:'Towed','profiling float':'Profiling float',UAV:'UAV',UGV:'UGV',HFR:'HF radar',ship:'Ship'});
   const validAutonomyToggle=s=>AUTONOMY_TOGGLES.includes(s);
   const validVehicleClass=s=>VEHICLE_CLASSES.includes(s);
@@ -299,5 +332,5 @@
     return h('span',{class:'badge '+cls,title:own(AUTONOMY_LABELS,lvl)?AUTONOMY_LABELS[lvl]:lvl},lvl);
   };
 
-  window.RV={INTERNAL_DOMAINS,isInternalHost,isExternalHref,extAttrs,markExternal,extraFor,resolveAlias,rebuiltText,resolvePort,resolveHome,berthList,byIdRaw,esc,safeUrl,vesselHref,operatorsHref,nceiHref,positionPopupHtml,vessels,byId,cruisesFor,statusPill,qs,fmt,completeness,h,r2rFor,tracksFor,expeditionsFor,doiHref,r2rCruiseHref,wpiForR2r,wpiForHome,wpiByNumber,wpiCaption,own,AUTONOMY_LEVELS,AUTONOMY_GROUP,AUTONOMY_TOGGLES,AUTONOMY_LABELS,VEHICLE_CLASSES,VEHICLE_CLASS_LABELS,validAutonomyToggle,validVehicleClass,autonomyOf,autonomyGroup,matchesAutonomyToggle,classOf,matchesVehicleClass,autonomyBadge};
+  window.RV={STATUS_LEVELS,STATUS_HELP,STATUS_TEXT,STATUS_CLASS,normStatus,isRetired,platformAlias,trackIndex,trackIds,INTERNAL_DOMAINS,isInternalHost,isExternalHref,extAttrs,markExternal,extraFor,resolveAlias,rebuiltText,resolvePort,resolveHome,berthList,byIdRaw,esc,safeUrl,vesselHref,operatorsHref,nceiHref,positionPopupHtml,vessels,byId,cruisesFor,statusPill,qs,fmt,completeness,h,r2rFor,tracksFor,expeditionsFor,doiHref,r2rCruiseHref,wpiForR2r,wpiForHome,wpiByNumber,wpiCaption,own,AUTONOMY_LEVELS,AUTONOMY_GROUP,AUTONOMY_TOGGLES,AUTONOMY_LABELS,VEHICLE_CLASSES,VEHICLE_CLASS_LABELS,validAutonomyToggle,validVehicleClass,autonomyOf,autonomyGroup,matchesAutonomyToggle,classOf,matchesVehicleClass,autonomyBadge,statusBadge};
 })();
