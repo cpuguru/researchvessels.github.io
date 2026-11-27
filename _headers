@@ -8,6 +8,10 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
 
+# Developer-only test files (tests/) are not site pages
+/tests/*
+  X-Robots-Tag: noindex, nofollow
+
 # GEBCO shaded-relief tiles are static; cache them at the edge and in browsers.
 /assets/gebco/*
   Cache-Control: public, max-age=2592000

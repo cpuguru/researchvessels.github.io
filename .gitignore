@@ -25,3 +25,8 @@ desktop.ini
 *~
 PRIVATE_*
 _backup*/
+
+# Dev-only tests: output logs, screenshots and any local node install
+tests/out/
+node_modules/
+*.log
