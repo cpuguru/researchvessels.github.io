@@ -11,7 +11,7 @@
   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
   <div class="collapse navbar-collapse" id="mainNav"><ul class="navbar-nav ms-auto">${NAV.map(([h,t])=>`<li class="nav-item"><a class="nav-link${h===here?' active" aria-current="page':''}" href="${h}">${t}</a></li>`).join('')}</ul></div>
   </div></nav>
-  <div class="alert alert-warning rounded-0 border-0 border-bottom small text-center py-1 mb-0" role="note">Prototype. The vessel registry, legacy cruise schedules, and Sailwx positions shown here are real historical data; forms, accounts, and API endpoints are mockups.</div>`;
+  <div class="alert alert-warning rounded-0 border-0 border-bottom small text-center py-1 mb-0" role="note">Prototype. The vessel registry, legacy cruise schedules, imported cruise tracks, and the Sailwx positions on vessel pages are real historical data; forms, accounts, and API endpoints are mockups.</div>`;
   const footer=`<footer class="bg-dark text-white-50 py-4 mt-auto"><div class="container">
   <div class="row gy-2 align-items-center">
    <div class="col-12"><p class="small mb-2" id="rv-beta-note">Beta — feedback welcome: <a class="link-light" href="mailto:ships@oceandata.org">ships@oceandata.org</a>. (Static footer line; remove this paragraph from assets/app.js when you no longer want the notice.)</p></div>
@@ -88,10 +88,6 @@
     if(start)href+='&startDate='+q(stamp(start,'T00:00:00'));
     if(end)href+='&endDate='+q(stamp(end,'T23:59:59'));
     return href;
-  };
-  const positionPopupHtml=(v,props)=>{
-    const id=props&&props.id,name=(v&&v.name!=null)?v.name:id,d=props&&props.d,k=props&&props.k;
-    return `<strong><a href="${esc(vesselHref(id))}">${esc(name)}</a></strong><br>${esc(d)}<br>${k==='v'?'VOS weather report (0.1°)':'AIS-like position'}`;
   };
   /* Curated overlays (data/rebuilds.js, data/vessel_links.js) are merged onto the registry records here, so every page,
      the directory, and the JSON snippet see the same fields. The overlay files are hand-curated and survive regeneration
@@ -332,5 +328,5 @@
     return h('span',{class:'badge '+cls,title:own(AUTONOMY_LABELS,lvl)?AUTONOMY_LABELS[lvl]:lvl},lvl);
   };
 
-  window.RV={STATUS_LEVELS,STATUS_HELP,STATUS_TEXT,STATUS_CLASS,normStatus,isRetired,platformAlias,trackIndex,trackIds,INTERNAL_DOMAINS,isInternalHost,isExternalHref,extAttrs,markExternal,extraFor,resolveAlias,rebuiltText,resolvePort,resolveHome,berthList,byIdRaw,esc,safeUrl,vesselHref,operatorsHref,nceiHref,positionPopupHtml,vessels,byId,cruisesFor,statusPill,qs,fmt,completeness,h,r2rFor,tracksFor,expeditionsFor,doiHref,r2rCruiseHref,wpiForR2r,wpiForHome,wpiByNumber,wpiCaption,own,AUTONOMY_LEVELS,AUTONOMY_GROUP,AUTONOMY_TOGGLES,AUTONOMY_LABELS,VEHICLE_CLASSES,VEHICLE_CLASS_LABELS,validAutonomyToggle,validVehicleClass,autonomyOf,autonomyGroup,matchesAutonomyToggle,classOf,matchesVehicleClass,autonomyBadge,statusBadge};
+  window.RV={STATUS_LEVELS,STATUS_HELP,STATUS_TEXT,STATUS_CLASS,normStatus,isRetired,platformAlias,trackIndex,trackIds,INTERNAL_DOMAINS,isInternalHost,isExternalHref,extAttrs,markExternal,extraFor,resolveAlias,rebuiltText,resolvePort,resolveHome,berthList,byIdRaw,esc,safeUrl,vesselHref,operatorsHref,nceiHref,vessels,byId,cruisesFor,statusPill,qs,fmt,completeness,h,r2rFor,tracksFor,expeditionsFor,doiHref,r2rCruiseHref,wpiForR2r,wpiForHome,wpiByNumber,wpiCaption,own,AUTONOMY_LEVELS,AUTONOMY_GROUP,AUTONOMY_TOGGLES,AUTONOMY_LABELS,VEHICLE_CLASSES,VEHICLE_CLASS_LABELS,validAutonomyToggle,validVehicleClass,autonomyOf,autonomyGroup,matchesAutonomyToggle,classOf,matchesVehicleClass,autonomyBadge,statusBadge};
 })();
