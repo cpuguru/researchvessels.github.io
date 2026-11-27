@@ -221,7 +221,9 @@ document.addEventListener('DOMContentLoaded',()=>{
  if(map)map.on('load',()=>{
   map.addSource('trk',{type:'geojson',data:{type:'FeatureCollection',features:[]}});
   map.addLayer({id:'trk',type:'line',source:'trk',paint:{'line-color':'#7b2cbf','line-width':1.4,'line-opacity':.7}},map.getLayer('da')?'da':undefined);
-  map.on('click','trk',ev=>{const f=ev.features&&ev.features[0];if(!f)return;const pr=f.properties||{},box=document.createElement('div');box.className='small';
+  map.on('click','trk',ev=>{const f=ev.features&&ev.features[0];if(!f)return;
+   /* a glider or Argo point drawn on top of a track gets the click (one popup, not two) */
+   const dl=['dg','da'].filter(l=>map.getLayer(l));if(dl.length&&map.queryRenderedFeatures(ev.point,{layers:dl}).length)return;const pr=f.properties||{},box=document.createElement('div');box.className='small';
    const s=document.createElement('strong'),a=document.createElement('a');a.setAttribute('href',RV.vesselHref(String(pr.vid)));a.textContent=shipName(String(pr.vid));s.append(a);
    const c=document.createElement('div');c.textContent='Cruise '+String(pr.cid||'')+(pr.year?' ('+String(pr.year)+')':'');box.append(s,c);
    const u=String(pr.vid)==='MV-0751'||!/^[A-Za-z0-9_-]{1,40}$/.test(String(pr.cid||''))?'':'https://www.rvdata.us/search/cruise/'+encodeURIComponent(String(pr.cid));if(u){const d=document.createElement('div'),l=document.createElement('a');l.setAttribute('href',u);l.setAttribute('rel','noopener');l.setAttribute('target','_blank');l.textContent='R2R cruise page';d.append(l);box.append(d)}
