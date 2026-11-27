@@ -6,13 +6,17 @@
 <link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet" integrity="sha384-MinO0mNliZ3vwppuPOUnGa+iq619pfMhLVUXfC4LHwSCvF9H+6P/KO4Q7qBOYV5V" crossorigin="anonymous">
 <link rel="stylesheet" href="assets/style.css">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/js/bootstrap.bundle.min.js" integrity="sha384-WyOxWvTyr1QaMPfiPJSv76iReVthorl5uWlFtZPyK0IEB0hGzo9y5Bp9mYanr8Bu" crossorigin="anonymous" defer></script>
-<script src="assets/app.js"></script><script src="assets/external-links.js"></script><script src="data/vessels.js"></script><script src="data/cruises.js"></script><script src="data/positions.js"></script><script src="data/r2r.js"></script><script src="data/berths.js"></script><script src="data/ports.js"></script><script src="data/rebuilds.js"></script><script src="data/vessel_links.js"></script><script src="data/vessel_extra.js"></script><script src="data/platforms.js"></script><script src="assets/platforms.js"></script><script src="assets/i18n/strings.en.js"></script><script src="assets/equipment_vocab.js"></script><script src="data/equipment.js"></script><script src="assets/equipment.js"></script></head>
+<script src="assets/app.js"></script><script src="assets/external-links.js"></script><script src="data/vessels.js"></script><script src="data/cruises.js"></script><script src="data/positions.js"></script><script src="data/r2r.js"></script><script src="data/berths.js"></script><script src="data/ports.js"></script><script src="data/rebuilds.js"></script><script src="data/vessel_links.js"></script><script src="data/vessel_extra.js"></script><script src="data/vessel_status.js"></script><script src="data/track_index.js"></script><script src="data/platforms.js"></script><script src="assets/platforms.js"></script><script src="assets/i18n/strings.en.js"></script><script src="assets/equipment_vocab.js"></script><script src="data/equipment.js"></script><script src="assets/equipment.js"></script></head>
 <body class="d-flex flex-column min-vh-100 bg-body-tertiary">
 <main id="content" class="container py-4 flex-grow-1"><div id="v"><p>Loading…</p></div></main>
 <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js" integrity="sha384-SYKAG6cglRMN0RVvhNeBY0r3FYKNOJtznwA0v7B5Vp9tr31xAHsZC0DqkQ/pZDmj" crossorigin="anonymous"></script>
 <script>
 document.addEventListener('DOMContentLoaded',()=>{
- const reqId=RV.qs('id')||'MV-0423',id=RV.resolveAlias(reqId),v=RV.byId()[id],el=document.getElementById('v'),e=RV.esc;
+ const reqId=RV.qs('id')||'MV-0423';
+ /* Merged vessel/platform pairs (data/vessel_extra.js platform_aliases): the platform record is canonical, so old links go there. */
+ const palias=RV.platformAlias(reqId)||RV.platformAlias(RV.resolveAlias(reqId));
+ if(palias){const t='platform.html?id='+encodeURIComponent(palias)+'&from='+encodeURIComponent(String(reqId).slice(0,40));try{location.replace(t)}catch(err){location.href=t}return}
+ const id=RV.resolveAlias(reqId),v=RV.byId()[id],el=document.getElementById('v'),e=RV.esc;
  /* Merged record: old links (e.g. ?id=MV-0192) land on the canonical id; the address bar is updated without a reload. */
  const aliased=id!==reqId&&!!v;if(aliased&&history.replaceState){try{history.replaceState(null,'',RV.vesselHref(id))}catch(err){}}
  const X=RV.extraFor(id);
@@ -32,9 +36,8 @@ document.addEventListener('DOMContentLoaded',()=>{
  const HOME=RV.resolveHome(v,R2P);
  /* Cruise tracks: per-ship file, loaded only on that ship's page (file:// cannot fetch(), so a script tag sets window.RV_TRACKS).
     R2R track files need the ship's R2R record; NCEI track files (NOAA ships) come with their own expedition list. */
- const TRACK_FILES={'MV-0423':{file:'data/tracks_MV-0423.js',src:'r2r'},'MV-0112':{file:'data/tracks_MV-0112.js',src:'r2r'},
-  'MV-0751':{file:'data/tracks_MV-0751.js',src:'ncei',list:'data/expeditions_MV-0751.js'}};
- const TMETA=Object.prototype.hasOwnProperty.call(TRACK_FILES,id)?TRACK_FILES[id]:null;
+ /* Which ships have track files: data/track_index.js (RV.trackIndex). Everyone else gets the "No track data yet" state. */
+ const TI=RV.trackIndex(id),TMETA=TI?{file:TI.file,src:TI.source,list:TI.list,label:TI.label}:null;
  const trackSrc=TMETA?TMETA.src:'',trackFile=TMETA&&(trackSrc!=='r2r'||R2)?TMETA.file:null;
  const loadScript=(src,done)=>new Promise(res=>{if(!src)return res(null);const s=document.createElement('script');s.src=src;s.addEventListener('load',()=>res(done()));s.addEventListener('error',()=>res(null));document.head.append(s)});
  const tracksReady=loadScript(trackFile,()=>RV.tracksFor(id));
@@ -57,28 +60,34 @@ document.addEventListener('DOMContentLoaded',()=>{
  const homeCap=HOME?RV.wpiCaption(HOME):RV.wpiCaption(RV.wpiForHome(id));
  const homeWpiName=HOME&&HOME.wpi_name?HOME.wpi_name:((RV.wpiForHome(id)||{}).name||'');
  const homeExtra=homeCap?(homeWpiName&&v.homeport&&!String(v.homeport).toLowerCase().includes(String(homeWpiName).toLowerCase())?e(homeWpiName)+' · ':'')+e(homeCap):(HOME&&HOME.supplement?'Project supplement (not in the World Port Index)':'');
+ const stSrc=v.status_url?`<a href="${e(v.status_url)}"${RV.extAttrs(v.status_url)}>${e(v.status_source||'source')}</a>`:e(v.status_source||'');
+ const statusHtml=`${RV.statusPill(v)} <span class="small">${e(v.status_basis)}</span>${v.status_date?` <span class="small text-body-secondary">Checked ${e(v.status_date)}.</span>`:''}${stSrc?` <span class="small text-body-secondary">Source: ${stSrc}.</span>`:''}${RV.normStatus(v.status)==='Unconfirmed'?' <span class="small text-body-secondary">Shown as unverified, not as active.</span>':''}`;
+ const sch=v.schedule,schedHtml=sch&&sch.url?`<a href="${e(sch.url)}"${RV.extAttrs(sch.url)} data-schedule="${sch.kind==='unols'?'unols':'operator'}">see ${sch.kind==='unols'?'UNOLS vessel schedules':'operator page'}</a>${sch.kind==='unols'?` <span class="small text-body-secondary">(U.S. Academic Research Fleet${v.unols_class?', UNOLS class '+e(v.unols_class):''}; current schedules are in Marine Facilities Planning, which replaced the retired UNOLS STRS)</span>`:''}`:'';
+ const r2rLink=v.r2r_url?`<a href="${e(v.r2r_url)}"${RV.extAttrs(v.r2r_url)}>R2R vessel record</a>`:'';
  const homeHtml=v.homeport?(e(v.homeport)+(homeExtra?`<br><span class="small text-body-secondary">${homeExtra}</span>`:'')):'';
  el.innerHTML=`<nav aria-label="breadcrumb"><ol class="breadcrumb small mb-2"><li class="breadcrumb-item"><a href="vessels.html">Vessel directory</a></li><li class="breadcrumb-item active" aria-current="page">${e(v.name)}</li></ol></nav>
  <h1 class="mb-2">${e(v.name)}</h1><div id="vx-head"></div><p class="d-flex flex-wrap gap-1">${RV.statusPill(v)} <span class="badge bg-primary-subtle text-primary-emphasis">${e(v.type||'Vessel')}</span> ${v.autonomy?`<span class="badge ${v.autonomy==='crewed'||v.autonomy==='minimally crewed'?'text-bg-primary':v.autonomy==='unknown'?'text-bg-secondary':'text-bg-info'}">${e(v.autonomy)}</span>`:''} ${v.vehicle_class&&v.vehicle_class!=='ship'?`<span class="badge bg-primary-subtle text-primary-emphasis">${e(v.vehicle_class)}</span>`:''} ${v.country?`<span class="badge bg-primary-subtle text-primary-emphasis">${e(v.country)}</span>`:''} ${v.ais?'<span class="badge text-bg-success">AIS-queryable</span>':'<span class="badge text-bg-warning">No IMO/MMSI yet</span>'}</p>
- <div class="row g-4">
-  <div class="col-12 col-lg-6"><section class="card h-100"><div class="card-body"><h2 class="h5 card-title">Who and where</h2><dl class="row mb-2">${row('Owner',v.owner)}${row('Operator',v.operator)}${rowHtml('Homeport',homeHtml)}${row('Flag / country',v.country)}</dl>
+ <nav id="rv-pagemenu" class="rv-pagemenu" aria-label="On this page" hidden></nav>
+ <div class="row g-4 rv-anchor" id="specs" data-rv-menu="specs">
+  <div class="col-12 col-lg-6"><section class="card h-100"><div class="card-body"><h2 class="h5 card-title">Who and where</h2><dl class="row mb-2">${rowHtml('Status',statusHtml)}${row('Owner',v.owner)}${row('Operator',v.operator)}${rowHtml('Homeport',homeHtml)}${row('Flag / country',v.country)}${rowHtml('Schedule',schedHtml)}${rowHtml('R2R',r2rLink)}</dl>
    <p class="small text-body-secondary mb-0">The new schema keeps owner, operator, homeport, and flag as separate dated relationships, each with a source.</p></div></section></div>
   <div class="col-12 col-lg-6"><section class="card h-100"><div class="card-body"><h2 class="h5 card-title">Identity &amp; specs</h2><dl class="row mb-2">${row('IMO',v.imo)}${row('MMSI',v.mmsi)}${row('Call sign',v.cs)}${row('Length',v.len?v.len+' m':'')}${row('Year built',v.built)}${rowHtml('Rebuilt',rebuiltHtml)}${row('Gross tonnage',v.gt)}${row('Science berths',v.berths)}${rowHtml('Website',webHtml)}${rowHtml('Wikipedia',wiki?`<a href="${e(wiki)}"${RV.extAttrs(wiki)}>article</a>`:'')}${row('Legacy ID',v.rvorg?'researchvessels.org shipID '+v.rvorg:'')}${row('Registry ID',v.id)}${row('Autonomy',v.autonomy)}${row('Autonomy basis',v.autonomy_basis)}${row('Vehicle class',v.vehicle_class&&v.vehicle_class!=='ship'?v.vehicle_class:'')}</dl>
    <p class="small text-body-secondary mb-0">Record completeness: <strong>${comp}%</strong> of key fields. Sources: ${e(v.src)}.</p></div></section></div>
  </div>
- <div id="vx-photos"></div><div id="vx-more"></div><div id="vx-uncrewed"></div>
+ <div id="vx-photos"></div><div id="vx-more"></div><div id="vx-uncrewed" class="rv-anchor"></div>
  <div id="r2r-eq"></div>
- <h2 class="h4 mt-5 mb-3">Where it's been</h2>
+ <h2 class="h4 mt-5 mb-3 rv-anchor" id="map-section" data-rv-menu="map">Where it's been</h2>
+ ${trackFile?'':`<div class="alert alert-light border small mb-2" role="status" id="no-track" data-state="no-track-data"><strong>No track data yet.</strong> ${R2?`R2R lists ${R2.cr.length.toLocaleString()} cruises for this ship, but their tracks have not been imported here yet.`:'No R2R or NCEI cruise tracks have been imported for this vessel.'} Tracks are drawn only from imported R2R cruise navigation (or NCEI for NOAA ships); ${RV.trackIds().length} ship${RV.trackIds().length===1?' has':'s have'} them so far. Nothing is estimated or drawn by hand.</div>`}
  ${hasMap?`<div id="map" class="rv-map-sm" role="img" aria-label="Map of historical positions and port calls"></div><div id="maptools" class="d-flex flex-wrap align-items-center gap-3 mt-2 small"></div>`:''}
  ${P.length?`<div class="alert alert-warning small mt-2 mb-0" role="note">${P.length.toLocaleString()} daily positions, ${e(P[0][3])} to ${e(P[P.length-1][3])}, from Sailwx.info (historical coarse positions; weather-report fixes are only 0.1° precise, about 6 nm). Off the map until you turn on <strong>Sailwx daily positions</strong>.</div>`:`<div class="alert alert-secondary${hasMap?' small mt-2 mb-0':''}" role="note">No daily position tracks loaded for this vessel yet. ${v.ais?'It has an IMO/MMSI, so historical AIS tracks can be pulled from NOAA Marine Cadastre.':'It needs an IMO or MMSI before AIS tracks can be matched.'}</div>`}
  ${(HOME||PC.length)?`<p class="small text-body-secondary mt-2 mb-0">Port locations from the World Port Index (Pub. 150), National Geospatial-Intelligence Agency. U.S. government work, public domain. Ports not in the WPI, including Lewes, Delaware, keep a project or R2R coordinate and are labelled as a project supplement; no WPI number is invented.</p>`:''}
- <div id="r2r-cr"></div>
- <h2 class="h4 mt-5 mb-3" id="legacy-cruises">Cruises: legacy schedule database <span class="text-body-secondary small fw-normal">(${cr.length.toLocaleString()})</span></h2>
+ <div id="cruises" class="rv-anchor"><div id="r2r-cr"></div></div>
+ <h2 class="h4 mt-5 mb-3 rv-anchor" id="legacy-cruises">Cruises: legacy schedule database <span class="text-body-secondary small fw-normal">(${cr.length.toLocaleString()})</span></h2>
  ${cr.length?`<div class="row g-2 mb-3"><div class="col-auto"><label class="form-label fw-semibold small mb-1" for="yr">Year</label><select class="form-select" id="yr"><option value="">All years</option>${[...new Set(cr.map(c=>String(c.start).slice(0,4)))].reverse().map(y=>`<option value="${e(y)}">${e(y)}</option>`).join('')}</select></div></div>
  <div class="table-responsive rv-scroll border rounded bg-white" style="max-height:50vh"><table class="table table-striped table-hover table-sm align-top mb-0"><thead class="table-light"><tr><th>Start</th><th>End</th><th>From → To</th><th>Area</th><th>Discipline</th><th>Agency</th><th>Project</th><th>Data</th></tr></thead><tbody id="crows"></tbody></table></div>
  <div class="alert alert-info small mt-2" role="note">Source: legacy researchvessels.org schedule database (1990-2015). Principal investigator names are held back in this prototype. "Data" links search public archives by ship and date; future versions link dataset DOIs.${R2?' R2R cruise records are listed separately above and are not merged with these.':''}</div>`:'<div class="alert alert-secondary" role="note">No cruises on record yet. Operators will be able to add schedules through the operator portal.</div>'}
- <h2 class="h4 mt-5 mb-3">Use this record</h2><div class="row g-4"><div class="col-12 col-lg-6"><div class="card h-100"><div class="card-body"><h3 class="h5 card-title">JSON (proposed API)</h3><pre class="rv-code">GET /api/v1/vessels/${e(id)}</pre><pre class="rv-code mb-0">${e(JSON.stringify(v,['id','name','former_names','imo','mmsi','mmsi_former','cs','cs_former','ices','vc','merged_ids','country','status','type','owner','operator','homeport','len','built','rebuilt_year','rebuilt_note','rebuilt_source','rebuilt_source_url','gt','berths','institution_url','url','wiki','src'],1))}</pre></div></div></div>
- <div class="col-12 col-lg-6"><div class="card h-100"><div class="card-body"><h3 class="h5 card-title">Update this vessel</h3><p>Operators can submit corrections through the operator portal.</p><a class="btn btn-outline-primary" href="${e(RV.operatorsHref(id))}">Update this vessel (operator portal)</a></div></div></div></div>`;
+ <h2 class="h4 mt-5 mb-3">Use this record</h2><div class="row g-4"><div class="col-12 col-lg-6"><div class="card h-100"><div class="card-body"><h3 class="h5 card-title">JSON (proposed API)</h3><pre class="rv-code">GET /api/v1/vessels/${e(id)}</pre><pre class="rv-code mb-0">${e(JSON.stringify(v,['id','name','former_names','imo','mmsi','mmsi_former','cs','cs_former','ices','vc','merged_ids','country','status','legacy_status','status_date','type','owner','operator','homeport','len','built','rebuilt_year','rebuilt_note','rebuilt_source','rebuilt_source_url','gt','berths','institution_url','url','wiki','src'],1))}</pre></div></div></div>
+ <div class="col-12 col-lg-6 rv-anchor" id="update" data-rv-menu="update"><div class="card h-100"><div class="card-body"><h3 class="h5 card-title">Update this vessel</h3><p>Operators can submit corrections through the operator portal.</p><a class="btn btn-outline-primary" href="${e(RV.operatorsHref(id))}">Update this vessel (operator portal)</a><p class="small text-body-secondary mt-2 mb-0">Or email corrections to <a href="mailto:ships@oceandata.org">ships@oceandata.org</a>. Every change is reviewed before it appears; see <a href="about.html#governance">how corrections and verification work</a>.</p></div></div></div></div>`;
  /* embed.js is not in this build. To re-enable the sample, restore this card body (and keep the Update button):
     <h3>Embed on your site</h3>
     <p>Operators can paste this snippet to show a live, auto-updating ship card:</p>
@@ -89,9 +98,23 @@ document.addEventListener('DOMContentLoaded',()=>{
  renderExtra();
  renderUncrewed();
  /* Operator-maintained equipment + spec provenance (assets/equipment.js; DOM builder only). */
- if(window.RV_EQ){try{RV_EQ.renderPublic(id,v,document.getElementById('r2r-eq'))}catch(err){console.error(err)}}
+ const R2TYPE={adcp:'ADCP (current profiler)',ctd:'CTD',gnss:'GNSS receiver',ins:'Inertial navigation (INS)',tsg:'Thermosalinograph (TSG)',multibeam:'Multibeam sonar',singlebeam:'Single-beam echosounder',splitbeam:'Split-beam echosounder',usbl:'USBL positioning',metstation:'Met station',timeserver:'Time server',expendableprobe:'Expendable probe (XBT)',tempprobe_water:'Water temperature probe',speedlog:'Speed log',acqsys:'Data acquisition system',oxygen:'Oxygen sensor',fluorometer:'Fluorometer',radiometer:'Radiometer',anemometer:'Anemometer',barometer:'Barometer',hygrometer:'Hygrometer',gravimeter:'Gravimeter',magnetometer:'Magnetometer',transmissometer:'Transmissometer',flowmeter:'Flow meter',winch:'Winch'};
+ if(window.RV_EQ){try{RV_EQ.renderPublic(id,v,document.getElementById('r2r-eq'),{r2r:R2?R2.eq:[],r2rLabel:t=>R2TYPE[String(t).toLowerCase()]||String(t||'Other'),r2rUrl:v.r2r_url||'',r2rFetched:window.RV_R2R&&RV_R2R.fetched})}catch(err){console.error(err)}}
  if(R2)renderR2R(R2,cr);
- expReady.then(EX=>{try{if(EX&&EX.rows.length&&!R2)renderExpeditions(EX)}catch(err){console.error('expeditions',err)}});
+ expReady.then(EX=>{try{if(EX&&EX.rows.length&&!R2)renderExpeditions(EX)}catch(err){console.error('expeditions',err)}buildMenu()});
+ buildMenu();
+ /* ---------- Sticky in-page menu: Specs · Equipment · Vehicles · Cruises · Map · Update. Only sections that exist and
+    have content get an entry. Built from constant labels and fixed ids only. ---------- */
+ function buildMenu(){
+  const nav=document.getElementById('rv-pagemenu');if(!nav)return;
+  const has=id=>{const x=document.getElementById(id);return !!(x&&(x.children.length||x.textContent.trim()))};
+  const items=[['specs','Specs',has('specs')],['eq-public','Equipment',has('eq-public')&&(document.getElementById('eq-public').getAttribute('data-items')||'0')!=='0'],['vx-uncrewed','Vehicles',has('vx-uncrewed')],
+   ['cruises','Cruises',has('r2r-cr')||cr.length>0],['map-section','Map',!!document.getElementById('map-section')],['update','Update',has('update')]];
+  const target=id=>id==='cruises'&&!has('r2r-cr')?'legacy-cruises':id;
+  const ul=h('ul',{class:'nav nav-pills small flex-nowrap'});
+  items.filter(x=>x[2]).forEach(([id,label])=>ul.append(h('li',{class:'nav-item'},h('a',{class:'nav-link py-1 px-2',href:'#'+target(id),'data-menu':label.toLowerCase()},label))));
+  nav.replaceChildren(ul);nav.hidden=!ul.children.length;
+ }
  if(hasMap&&window.maplibregl)drawMap();
  /* ---------- Expedition list for NOAA ships (NCEI / NOAA Ocean Exploration; untrusted: DOM builder + textContent + safeUrl only) ---------- */
  function renderExpeditions(EX){
@@ -215,7 +238,7 @@ document.addEventListener('DOMContentLoaded',()=>{
    SUP.sort((a,b)=>String(a.p.name).localeCompare(String(b.p.name))).forEach(({p,e})=>{
     const sid=e.source_id,S=sid&&RVP.data().sources&&RVP.own(RVP.data().sources,sid)?RVP.data().sources[sid]:null;
     tb.append(h('tr',{'data-platform':p.platform_id,'data-verified':e.verified?'yes':'no'},
-     h('td',{},h('a',{href:RVP.detailHref(p.platform_id)},str(p.display_name||p.name))),
+     h('td',{},h('a',{href:RVP.detailHref(p.platform_id)},RVP.displayName(p))),
      h('td',{},RVP.classBadge(p.platform_class),' ',RV.autonomyBadge(p.autonomy)),
      h('td',{},h('span',{class:'badge text-bg-light border text-dark text-wrap'},RVP.roleLabel(e.role)),e.evidence_period?h('div',{class:'small text-body-secondary'},str(e.evidence_period)):null),
      h('td',{class:'small'},str(e.evidence),e.note?h('div',{class:'text-body-secondary fst-italic'},str(e.note)):null,S?h('div',{},'Source: ',link(S.url,str(S.title))||str(S.title),e.date?' (checked '+str(e.date)+')':''):null),
@@ -235,8 +258,9 @@ document.addEventListener('DOMContentLoaded',()=>{
   const TYPE={adcp:'ADCP (current profiler)',ctd:'CTD',gnss:'GNSS receiver',ins:'Inertial navigation (INS)',tsg:'Thermosalinograph (TSG)',multibeam:'Multibeam sonar',singlebeam:'Single-beam echosounder',splitbeam:'Split-beam echosounder',usbl:'USBL positioning',metstation:'Met station',timeserver:'Time server',expendableprobe:'Expendable probe (XBT)',tempprobe_water:'Water temperature probe',speedlog:'Speed log',acqsys:'Data acquisition system',oxygen:'Oxygen sensor',fluorometer:'Fluorometer',radiometer:'Radiometer',anemometer:'Anemometer',barometer:'Barometer',hygrometer:'Hygrometer',gravimeter:'Gravimeter',magnetometer:'Magnetometer',transmissometer:'Transmissometer',flowmeter:'Flow meter',winch:'Winch'};
   const tlabel=t=>TYPE[String(t).toLowerCase()]||String(t||'Other');
   /* a) Onboard equipment, grouped by device type */
+  /* (2026-11-27) R2R instruments are merged into the single equipment table (RV_EQ.renderPublic); no separate table. */
   const eqHost=document.getElementById('r2r-eq');
-  if(R2.eq.length){
+  if(R2.eq.length&&!window.RV_EQ){
    const groups={};R2.eq.forEach(x=>{const k=tlabel(x.type);(groups[k]=groups[k]||[]).push(x)});
    const hasSer=R2.eq.some(x=>x.serial),hasLoc=R2.eq.some(x=>x.location),ncol=2+(hasSer?1:0)+(hasLoc?1:0);
    const body=h('tbody');

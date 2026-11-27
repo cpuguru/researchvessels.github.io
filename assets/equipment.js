@@ -49,9 +49,27 @@
   return o};
 
  /* ---------------- Public vessel page ---------------- */
- function renderPublic(id,v,anchor){
+ /* One equipment table (2026-11-27): operator / compiled items plus any R2R instrument rows not already in them.
+    opts.r2r: [{type,make,model,serial,location}] from data/r2r.js; opts.r2rLabel(type) -> readable device type;
+    opts.r2rUrl: the ship's R2R page. Each row's Source cell says where it came from; R2R is credited (with its link)
+    on every row compiled from R2R, and NERC L22 TOOL codes link to the vocabulary. */
+ const isR2R=it=>/R2R|Rolling Deck/i.test(str(it&&it.prov&&it.prov.source))||/-r2r-\d+$/.test(str(it&&it.id));
+ const mkey=x=>str(x).toLowerCase().replace(/[^a-z0-9]/g,'');
+ function renderPublic(id,v,anchor,opts){
   if(!window.RV||!v)return;
-  const rec=recordFor(id),items=arr(rec&&rec.items).filter(it=>it&&typeof it==='object'&&str(it.name));
+  opts=opts&&typeof opts==='object'?opts:{};
+  const rec=recordFor(id),items=arr(rec&&rec.items).filter(it=>it&&typeof it==='object'&&str(it.name)).slice();
+  const r2rUrl=window.RV.safeUrl(opts.r2rUrl);
+  /* R2R rows whose model is not already an item are added as R2R-sourced rows (category "R2R instruments"). */
+  const have=new Set(items.filter(isR2R).map(it=>mkey(it.model)).filter(Boolean));
+  let r2rOnly=0;
+  arr(opts.r2r).forEach(x=>{if(!x||typeof x!=='object')return;const k=mkey(x.model);if(k&&have.has(k))return;if(k)have.add(k);
+   const lab=typeof opts.r2rLabel==='function'?str(opts.r2rLabel(x.type)):str(x.type);r2rOnly++;
+   items.push({id:'r2r-row-'+r2rOnly,category:'other',category_other:'R2R instruments',name:lab||'Instrument',make:str(x.make),model:str(x.model),l22:null,quantity:null,specs:[x.serial?'Serial '+str(x.serial):'',x.location?'Location: '+str(x.location):''].filter(Boolean).join('; '),measure:null,status:'installed',notes:{},
+    updated_at:okDate(str(opts.r2rFetched).slice(0,10)),updated_by_role:'R2R',prov:{verification:'compiled',source:'Rolling Deck to Repository (R2R) vessel instrument list, CC0',source_url:r2rUrl||'https://www.rvdata.us/',by_role:'R2R'}})});
+  const srcCell=pv=>{const r=/R2R|Rolling Deck/i.test(str(pv.source));
+   return [badge(pv.verification),' ',r?h('span',{class:'badge bg-info-subtle text-info-emphasis fw-normal','data-src':'r2r'},'R2R'):h('span',{class:'badge text-bg-light border fw-normal','data-src':pv.verification==='operator-verified'?'operator':'compiled'},pv.verification==='operator-verified'?'Operator':'Compiled'),' ',
+    link(pv.source_url,r?'R2R record':'source')||(pv.source?h('span',{class:'text-body-secondary'},str(pv.source).slice(0,120)):null)]};
   const lv=okDate(rec&&rec.last_operator_verified);
   /* Last verified by operator: under the vessel name. */
   const head=document.getElementById('vx-head');
@@ -59,12 +77,12 @@
    if(lv){p.append(badge('operator-verified'),' ',S('eq.verified.on',{date:lv}));if(daysSince(lv)>365)p.append(' ',h('span',{class:'text-warning-emphasis'},S('eq.verified.stale')))}
    else p.append(badge('compiled'),' ',S('eq.verified.never'),' ',h('a',{href:window.RV.operatorsHref(id)+'#eq-editor'},S('eq.public.invite')));
    head.append(p)}
-  const sec=h('section',{class:'card mt-4',id:'eq-public','aria-labelledby':'eq-public-h'});
+  const sec=h('section',{class:'card mt-4 rv-anchor',id:'eq-public','aria-labelledby':'eq-public-h','data-rv-menu':'equipment','data-items':String(items.length)});
   const body=h('div',{class:'card-body'},h('h2',{class:'h5 card-title',id:'eq-public-h'},S('eq.public.title'),' ',items.length?h('span',{class:'badge bg-primary-subtle text-primary-emphasis align-middle'},String(items.filter(i=>i.status!=='removed').length)):null));
   sec.append(body);
   if(!items.length){body.append(h('p',{class:'small mb-2'},S('eq.public.none'),' ',h('a',{href:window.RV.operatorsHref(id)+'#eq-editor'},S('eq.public.invite'))))}
   else{
-   body.append(h('p',{class:'small text-body-secondary'},S('eq.public.intro')));
+   body.append(h('p',{class:'small text-body-secondary'},S('eq.public.intro'),' ',S('eq.public.merged')));
    const groups={};items.forEach(it=>{const k=CAT_KEYS.includes(it.category)?(it.category==='other'?'other:'+str(it.category_other).slice(0,LIM.category_other):it.category):'other:';(groups[k]=groups[k]||[]).push(it)});
    const order=k=>{const i=CAT_KEYS.indexOf(k.split(':')[0]);return i<0?99:i};
    const tb=h('tbody');
@@ -79,10 +97,11 @@
       h('td',{},statusBadge(it.status)),
       h('td',{class:'small'},notesNodes(it)),
       h('td',{class:'small text-nowrap'},okDate(it.updated_at),it.updated_by_role?h('div',{class:'text-body-secondary'},str(it.updated_by_role).slice(0,80)):null),
-      h('td',{class:'small'},badge(pv.verification),' ',link(pv.source_url,'source')||(pv.source?h('span',{class:'text-body-secondary'},str(pv.source).slice(0,120)):null))))})});
+      h('td',{class:'small'},srcCell(pv))))})});
    body.append(h('div',{class:'table-responsive rv-scroll border rounded bg-white',style:'max-height:60vh'},h('table',{class:'table table-sm align-top mb-0'},
     h('thead',{class:'table-light'},h('tr',{},['eq.col.item','eq.col.qty','eq.col.status','eq.col.notes','eq.col.updated','eq.col.source'].map(k=>h('th',{scope:'col'},S(k))))),tb)));
    body.append(h('p',{class:'small text-body-secondary mt-2 mb-0'},S('eq.public.vocab'),items.some(i=>i.status==='removed')?' '+S('eq.public.removedNote'):''));
+   if(items.some(isR2R)||r2rOnly){const R=window.RV_R2R||{};body.append(h('p',{class:'small text-body-secondary mt-1 mb-0','data-r2r-credit':''},'Rows marked R2R come from the ',link(R.home||'https://www.rvdata.us/','Rolling Deck to Repository (R2R)'),' instrument list for this ship (CC0)',r2rUrl?[': ',link(r2rUrl,'R2R vessel record')]:null,'. R2R covers underway science instruments; labs, winches and safety gear are mostly not in it.'))}
   }
   /* Specs + contacts with per-field provenance. */
   const MPF=mergedProfile(v,rec),dl=h('dl',{class:'row small mb-0'});
