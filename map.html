@@ -6,7 +6,7 @@
 <link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet" integrity="sha384-MinO0mNliZ3vwppuPOUnGa+iq619pfMhLVUXfC4LHwSCvF9H+6P/KO4Q7qBOYV5V" crossorigin="anonymous">
 <link rel="stylesheet" href="assets/style.css">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/js/bootstrap.bundle.min.js" integrity="sha384-WyOxWvTyr1QaMPfiPJSv76iReVthorl5uWlFtZPyK0IEB0hGzo9y5Bp9mYanr8Bu" crossorigin="anonymous" defer></script>
-<script src="assets/app.js"></script><script src="assets/external-links.js"></script><script src="data/vessels.js"></script><script src="data/cruises.js"></script><script src="data/positions.js"></script><script src="data/uncrewed_deployments.js"></script></head>
+<script src="assets/app.js"></script><script src="assets/external-links.js"></script><script src="data/vessels.js"></script><script src="data/vessel_extra.js"></script><script src="data/vessel_status.js"></script><script src="data/cruises.js"></script><script src="data/positions.js"></script><script src="data/uncrewed_deployments.js"></script><script src="data/track_index.js"></script></head>
 <body class="d-flex flex-column min-vh-100 bg-body-tertiary">
 <main id="content" class="container py-4 flex-grow-1">
 <h1 class="mb-2">Where were ships?</h1>
@@ -28,6 +28,14 @@
  <p class="small text-body-secondary mb-0 mt-1" id="dep-status" aria-live="polite">Off. This layer is separate from the historical ship positions above. Turn it on to load the latest glider and Argo float positions.</p>
  <p class="small text-body-secondary mb-0" id="dep-attr" hidden></p>
 </div></div>
+<div class="card mb-3" id="trk-panel" aria-labelledby="trk-h"><div class="card-body py-2">
+ <div class="d-flex flex-wrap align-items-center gap-3">
+  <div class="form-check form-switch mb-0"><input class="form-check-input" type="checkbox" role="switch" id="trk-on"><label class="form-check-label fw-semibold" for="trk-on" id="trk-h">Cruise tracks (R2R / NCEI)</label></div>
+  <div class="legend small"><span><i class="dot" style="background:#7b2cbf"></i>Imported cruise track</span></div>
+ </div>
+ <p class="small text-body-secondary mb-0 mt-1" id="trk-status" aria-live="polite"></p>
+ <p class="small text-body-secondary mb-0" id="trk-none" data-state="no-track-data"></p>
+</div></div>
 <div class="row g-3"><div class="col-12 col-lg-8"><div id="map" role="application" aria-label="Map of historical research vessel positions. Use the Draw an area button, then drag on the map."></div></div>
 <div class="col-12 col-lg-4"><aside class="card rv-side" aria-live="polite"><div class="card-body" id="results"><h2 class="h5">Results</h2><p class="text-body-secondary">Click <strong>Draw an area</strong>, then drag a box on the map. Or try a preset:</p>
 <p class="d-flex flex-wrap gap-2 mb-0"><button type="button" class="btn btn-sm btn-outline-primary" data-bbox="-76,36,-72,40">Mid-Atlantic Bight</button> <button type="button" class="btn btn-sm btn-outline-primary" data-bbox="5,53.5,9,56">German Bight</button> <button type="button" class="btn btn-sm btn-outline-primary" data-bbox="-160,18,-154,23">Hawaii</button></p></div></aside></div></div>
@@ -46,7 +54,7 @@ document.addEventListener('DOMContentLoaded',()=>{
  const filt=()=>{const y0=$('y0').value,y1=$('y1').value,k=$('kind').value;return P.filter(p=>{const y=String(p[3]).slice(0,4);return y>=y0&&y<=y1&&(!k||p[4]===k)})};
  const gj=pts=>({type:'FeatureCollection',features:pts.map(p=>({type:'Feature',properties:{id:p[0],d:p[3],k:p[4]},geometry:{type:'Point',coordinates:[p[2],p[1]]}}))});
  const boxgj=b=>({type:'FeatureCollection',features:b?[{type:'Feature',geometry:{type:'Polygon',coordinates:[[[b[0],b[1]],[b[2],b[1]],[b[2],b[3]],[b[0],b[3]],[b[0],b[1]]]]}}]:[]});
- function refresh(){const pts=filt();if(map&&map.getSource('p')){map.getSource('p').setData(gj(pts));map.getSource('box').setData(boxgj(bbox))}if(bbox){results(pts);depResults()}}
+ function refresh(){const pts=filt();if(map&&map.getSource('p')){map.getSource('p').setData(gj(pts));map.getSource('box').setData(boxgj(bbox))}if(bbox){results(pts);depResults();trkResults()}}
  function results(pts){
   const [x0,y0,x1,y1]=bbox,inb=pts.filter(p=>p[2]>=x0&&p[2]<=x1&&p[1]>=y0&&p[1]<=y1),g={};
   inb.forEach(p=>{(g[p[0]]=g[p[0]]||{n:0,a:p[3],b:p[3]});const r=g[p[0]];r.n++;if(p[3]<r.a)r.a=p[3];if(p[3]>r.b)r.b=p[3]});
@@ -135,7 +143,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   const f=ev.features&&ev.features[0];if(!f)return;const ix=f.properties.ix,k=f.properties.k,r=k==='g'?DEP.gl[ix]:DEP.ar[ix];if(!r)return;
   const box=document.createElement('div');box.className='small';
   const line=(t,b)=>{const e=document.createElement(b?'strong':'div');e.textContent=t;box.append(e);if(b)box.append(document.createElement('br'))};
-  const lk=(href,t)=>{const a=document.createElement('a');a.setAttribute('href',RV.safeUrl(href));a.setAttribute('rel','noopener noreferrer');a.setAttribute('target','_blank');a.textContent=t;const d=document.createElement('div');d.append(a);box.append(d)};
+  const lk=(href,t)=>{const a=document.createElement('a');a.setAttribute('href',RV.safeUrl(href));a.setAttribute('rel','noopener');a.setAttribute('target','_blank');a.textContent=t;const d=document.createElement('div');d.append(a);box.append(d)};
   if(k==='g'){line('Glider '+r.id,true);if(r.title&&r.title!==r.id)line(r.title);if(r.institution)line(r.institution);line('Last position '+r.lat.toFixed(2)+'\u00b0, '+r.lon.toFixed(2)+'\u00b0'+(r.time?' at '+r.time:''));lk('https://gliders.ioos.us/erddap/tabledap/'+encodeURIComponent(r.id)+'.html','Open in the Glider DAC')}
   else{line('Argo float '+r.wmo,true);line('Last profile position '+r.lat.toFixed(2)+'\u00b0, '+r.lon.toFixed(2)+'\u00b0'+(r.date?' on '+r.date:''));lk('https://fleetmonitoring.euro-argo.eu/float/'+encodeURIComponent(r.wmo),'Open in Euro-Argo fleet monitoring')}
   new maplibregl.Popup().setLngLat(ev.lngLat).setDOMContent(box).addTo(map);
@@ -150,6 +158,55 @@ document.addEventListener('DOMContentLoaded',()=>{
   depFill();
  });
  if(RV.qs('layer')==='uncrewed'){$('dep-on').checked=true;DEP.on=true;draw()}
+ /* ---------- Cruise tracks: hybrid. Ships listed in data/track_index.js get their imported R2R (or NCEI) tracks;
+    every other ship has no track data yet, and none is drawn or estimated. Track files are loaded only when the
+    layer is turned on; geometry and properties are cleaned by RV.tracksFor (untrusted). DOM/text only. ---------- */
+ const TRK={on:false,loaded:false,busy:false,fc:{type:'FeatureCollection',features:[]},ships:[]};
+ const TIDS=RV.trackIds(),shipName=id=>(VB[id]&&VB[id].name)||id;
+ const trkStatus=t=>{$('trk-status').textContent=t};
+ const nTracked=TIDS.length,nAll=RV.vessels().length;
+ $('trk-none').textContent='No track data yet for the other '+(nAll-nTracked).toLocaleString()+' vessels. Tracks appear here only after a ship’s R2R cruise navigation (or NCEI navigation for NOAA ships) is imported.';
+ const trkOff=()=>{trkStatus('Off. Imported cruise tracks are available for '+nTracked+' ship'+(nTracked===1?'':'s')+': '+TIDS.map(shipName).join(', ')+'. Turn this on to draw them.')};trkOff();
+ const loadScript=src=>new Promise(res=>{const s=document.createElement('script');s.src=src;s.addEventListener('load',()=>res(true));s.addEventListener('error',()=>res(false));document.head.append(s)});
+ async function loadTracks(){
+  if(TRK.loaded||TRK.busy)return;TRK.busy=true;trkStatus('Loading cruise tracks…');
+  const feats=[];let fid=0;
+  for(const id of TIDS){const t=RV.trackIndex(id);if(!t)continue;const ok=await loadScript(t.file);if(!ok)continue;const fc=RV.tracksFor(id);if(!fc)continue;
+   TRK.ships.push({id,n:fc.features.length,label:t.label});
+   fc.features.forEach(f=>feats.push({type:'Feature',id:fid++,geometry:f.geometry,properties:{vid:id,cid:f.properties.cruise_id,year:f.properties.year==null?'':String(f.properties.year)}}))}
+  TRK.fc={type:'FeatureCollection',features:feats};TRK.loaded=true;TRK.busy=false;trkDraw();
+ }
+ function trkDraw(){
+  $('trk-panel').setAttribute('data-tracks',String(TRK.on&&TRK.loaded?TRK.fc.features.length:0));
+  if(map&&map.getSource('trk'))map.getSource('trk').setData(TRK.on?TRK.fc:{type:'FeatureCollection',features:[]});
+  if(!TRK.on){trkOff();trkResults();return}
+  if(!TRK.loaded){loadTracks();return}
+  trkStatus(TRK.fc.features.length.toLocaleString()+' cruise tracks drawn for '+TRK.ships.map(s=>shipName(s.id)+' ('+s.n+')').join(', ')+'. Sources: R2R cruise navigation (CC0) and NCEI / NOAA Ocean Exploration (public domain). Click a track for its cruise.'+(map?'':' The map library could not load, so only counts are shown.'));
+  trkResults();
+ }
+ function trkResults(){
+  const old=document.getElementById('trk-results');if(old)old.remove();if(!TRK.on||!TRK.loaded||!bbox)return;
+  const [x0,y0,x1,y1]=bbox,hit={};
+  TRK.fc.features.forEach(f=>{if(f.geometry.coordinates.some(l=>l.some(p=>p[0]>=x0&&p[0]<=x1&&p[1]>=y0&&p[1]<=y1)))hit[f.properties.vid]=(hit[f.properties.vid]||0)+1});
+  const d=document.createElement('div');d.id='trk-results';d.className='border-top pt-2 mt-3';
+  const h3=document.createElement('h3');h3.className='h6';h3.textContent='Imported cruise tracks crossing this area';d.append(h3);
+  const ks=Object.keys(hit);const p=document.createElement('p');p.className='small mb-1';p.textContent=ks.length?'':'None of the imported tracks cross this box. Other ships have no track data yet.';d.append(p);
+  if(ks.length){const ul=document.createElement('ul');ul.className='small mb-0';ks.forEach(k=>{const li=document.createElement('li'),a=document.createElement('a');a.setAttribute('href',RV.vesselHref(k));a.textContent=shipName(k);li.append(a,' · '+hit[k]+' cruise'+(hit[k]===1?'':'s'));ul.append(li)});d.append(ul)}
+  $('results').append(d);
+ }
+ $('trk-on').addEventListener('change',()=>{TRK.on=$('trk-on').checked;trkDraw()});
+ if(map)map.on('load',()=>{
+  map.addSource('trk',{type:'geojson',data:{type:'FeatureCollection',features:[]}});
+  map.addLayer({id:'trk',type:'line',source:'trk',paint:{'line-color':'#7b2cbf','line-width':1.4,'line-opacity':.7}},'p');
+  map.on('click','trk',ev=>{const f=ev.features&&ev.features[0];if(!f)return;const pr=f.properties||{},box=document.createElement('div');box.className='small';
+   const s=document.createElement('strong'),a=document.createElement('a');a.setAttribute('href',RV.vesselHref(String(pr.vid)));a.textContent=shipName(String(pr.vid));s.append(a);
+   const c=document.createElement('div');c.textContent='Cruise '+String(pr.cid||'')+(pr.year?' ('+String(pr.year)+')':'');box.append(s,c);
+   const u=String(pr.vid)==='MV-0751'||!/^[A-Za-z0-9_-]{1,40}$/.test(String(pr.cid||''))?'':'https://www.rvdata.us/search/cruise/'+encodeURIComponent(String(pr.cid));if(u){const d=document.createElement('div'),l=document.createElement('a');l.setAttribute('href',u);l.setAttribute('rel','noopener');l.setAttribute('target','_blank');l.textContent='R2R cruise page';d.append(l);box.append(d)}
+   new maplibregl.Popup().setLngLat(ev.lngLat).setDOMContent(box).addTo(map)});
+  map.on('mouseenter','trk',()=>map.getCanvas().style.cursor='pointer');map.on('mouseleave','trk',()=>map.getCanvas().style.cursor='');
+  trkDraw();
+ });
+ if(RV.qs('layer')==='tracks'){$('trk-on').checked=true;TRK.on=true;trkDraw()}
 
  const qb=RV.qs('bbox');if(qb){bbox=qb.split(',').map(Number);results(filt());depResults();if(map)map.on('load',()=>{map.fitBounds([[bbox[0],bbox[1]],[bbox[2],bbox[3]]],{padding:40,duration:0});refresh()})}
 });
