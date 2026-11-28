@@ -40,7 +40,7 @@ ok('every sensor kind is in the fixed vocabulary',badKind.length===0,badKind.sli
 const VESSELS=JSON.parse(fs.readFileSync(__ROOT+'data/vessels.json','utf8').replace(/\bNaN\b/g,'null'));
 const missingV=VESSELS.filter(v=>!LEVELS.includes(v.autonomy)||!v.autonomy_basis);
 ok('every vessel has an allowlisted autonomy and a basis',missingV.length===0,{n:missingV.length,sample:missingV.slice(0,3)});
-ok('schema_version is 0.4-draft (phase 2 bump from 0.3-draft)',data.schema_version==='0.4-draft',data.schema_version);
+ok('schema_version is 0.5-draft (registry field updates 2026-11-27)',data.schema_version==='0.5-draft',data.schema_version);
 
 await send('Emulation.setDeviceMetricsOverride',{width:1280,height:900,deviceScaleFactor:1,mobile:false});
 
