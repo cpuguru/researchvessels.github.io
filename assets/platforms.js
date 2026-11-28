@@ -64,8 +64,23 @@
     return fmtNum(v)+u;
   }
   const basisLabel=b=>{const L=D().spec_basis_labels||{};return own(L,b)?L[b]:(b==null?'Basis not stated':String(b))};
+  const depthKindLabel=k=>{const L=D().depth_kinds||{};return k&&own(L,k)?L[k]:(k?String(k):'')};
+  const enduranceKindLabel=k=>{const L=D().endurance_kinds||{};return k&&own(L,k)?L[k]:(k?String(k):'')};
   function depthOf(p){const d=p.depth_rating_m;if(d&&d.value!=null)return fmtValue(d.value,'m');const s=(p.specs||[]).find(x=>(x.canon==='depth_rating'||x.label==='Depth rating')&&x.value!=null);return s?fmtValue(s.value,s.unit):null}
-  function enduranceOf(p){const e=p.endurance;if(!e)return null;if(e.value!=null)return fmtValue(e.value,e.unit);return e.text||null}
+  function enduranceOf(p){
+    const e=p.endurance;if(!e)return null;
+    const figs=Array.isArray(e.figures)&&e.figures.length?e.figures:null;
+    if(figs){
+      const parts=figs.map(f=>{
+        const v=f.value!=null?fmtValue(f.value,f.unit):(f.text||'');
+        const k=enduranceKindLabel(f.kind);
+        return v?(v+(k?' ('+k+')':'')):'';
+      }).filter(Boolean);
+      if(parts.length)return parts.join('; ');
+    }
+    if(e.value!=null)return fmtValue(e.value,e.unit)+(e.kind?' ('+enduranceKindLabel(e.kind)+')':'');
+    return e.text||null;
+  }
   function surveySpeedOf(p){const s=p.survey_speed_kn;if(!s)return null;if(s.value!=null)return fmtValue(s.value,'kn');return s.text||null}
   const AUTONOMY=RV.AUTONOMY_LEVELS,autonomyBadge=a=>RV.autonomyBadge(a);
   function lastDate(p){const ds=(p.deployments||[]).map(d=>d.end||d.start).filter(Boolean).sort();return ds.length?ds[ds.length-1]:null}
@@ -89,6 +104,6 @@
   const accessOf=p=>{const a=p&&p.access;return a&&typeof a==='object'?a:null};
   const triState=v=>v===true?'Yes':v===false?'No':'Not stated';
   const VCF_HREF=id=>'vehicle_condition_form.html'+(id?'?platform='+encodeURIComponent(String(id)):'');
-  window.RVP={displayName,ownerShort,sortPlatforms,SORTS,roleLabel,supportList,vehiclesFor,accessOf,triState,VCF_HREF,own,data:D,CLASSES,CLASS_NAME,STATUSES,STATUS_HELP,OWNERSHIP,ROLES,COMPLETENESS,COUNTRY,countryName,validId,find,detailHref,classBadge,statusBadge,fmtValue,basisLabel,depthOf,enduranceOf,surveySpeedOf,autonomyBadge,lastDate,mailLink,draftNotice,DRAFT_TEXT,
+  window.RVP={displayName,ownerShort,sortPlatforms,SORTS,roleLabel,supportList,vehiclesFor,accessOf,triState,VCF_HREF,own,data:D,CLASSES,CLASS_NAME,STATUSES,STATUS_HELP,OWNERSHIP,ROLES,COMPLETENESS,COUNTRY,countryName,validId,find,detailHref,classBadge,statusBadge,fmtValue,basisLabel,depthKindLabel,enduranceKindLabel,depthOf,enduranceOf,surveySpeedOf,autonomyBadge,lastDate,mailLink,draftNotice,DRAFT_TEXT,
     instData:ID,instMap,findInst,instChildren,instDesc,instRoot,instChain,instHref,instLabel,affs,platInsts,operatorsOf};
 })();

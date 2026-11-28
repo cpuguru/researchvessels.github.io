@@ -15,6 +15,8 @@ Source for **https://researchvessels.org/**, an open registry of research vessel
 - `map.html` ("Where were ships?") no longer shows Sailwx positions (2026-11-27); Sailwx daily positions remain on vessel pages (`data/positions.js`). The map layer "Active uncrewed deployments" on `map.html` is still off by default (`?layer=uncrewed` turns it on). It reads IOOS Glider DAC positions live and falls back to `data/uncrewed_deployments.json`/`.js`. Argo positions always come from that snapshot, because the Argo ERDDAP server sends no CORS header.
 - To refresh the snapshot, run `python3 tools/refresh_uncrewed_deployments.py` from the repo root. It writes only the two snapshot files. Review the diff and commit it yourself; nothing is published automatically.
 - Vessel-vehicle links (`support_vessels`), access fields (`access`) and launch-and-recovery fields (`launch_recovery` in `vessel_extra.json`) each carry a source and a `verified` flag. See `Platform_Unified_Schema_2026-11-26.md` in the data notes for the schema.
+- Platform depth and endurance (schema 0.5-draft, 2026-11-27): a depth value is a **rating** or an **observed maximum** (stored separately, never used to overwrite a rating). Endurance figures are labelled **dive duration**, **system**, **mission**, **class-level** or **qualitative**. New values carry a source URL, a short snippet (`evidence`) and an `as_of` date. See `data/schema/Registry_Field_Updates_2026-11-27.md`.
+
 
 ## Statuses, merged records and cruise tracks (review fixes, 2026-11-27)
 
