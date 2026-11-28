@@ -1,9 +1,9 @@
 {
  "license": "CC BY 4.0",
  "attribution": "Data compiled by Doug White / researchvessels.org",
- "schema_version": "0.4-draft",
- "generated": "2026-11-26",
- "note": "DRAFT prototype of non-ship research platforms: University of Delaware Robotic Discovery Laboratories, WHOI, Rutgers RU COOL, NOAA, U.S. Navy (public information only) and selected international operators. Compiled from public sources only, with no operator confirmation. Every record is a draft: unknown values are null and every spec carries a basis. Corrections welcome at ships@oceandata.org. platform_id and institution_id values are researchvessels.org slugs, not sourced identifiers.",
+ "schema_version": "0.5-draft",
+ "generated": "2026-11-27",
+ "note": "DRAFT prototype of non-ship research platforms: University of Delaware Robotic Discovery Laboratories, WHOI, Rutgers RU COOL, NOAA, U.S. Navy (public information only) and selected international operators. Compiled from public sources only, with no operator confirmation. Every record is a draft: unknown values are null and every spec carries a basis. Corrections welcome at ships@oceandata.org. platform_id and institution_id values are researchvessels.org slugs, not sourced identifiers. Schema 0.5-draft (2026-11-27) adds depth_kinds (rated vs observed_max) and endurance_kinds (dive_duration, system, mission, class_level, qualitative). Values may carry evidence (a short source snippet) and as_of. See data/schema/Registry_Field_Updates_2026-11-27.md.",
  "spec_basis_labels": {
   "unit_metadata": "Unit metadata (data service)",
   "operator_published": "Operator-published",
@@ -12,6 +12,18 @@
   "report": "Project report (operating parameter)",
   "secondary_published": "Secondary publication of operator figures"
  },
+ "depth_kinds": {
+  "rated": "Published depth rating (design or operator figure)",
+  "observed_max": "Observed maximum depth (for example a deployment or dataset maximum), not a rating"
+ },
+ "endurance_kinds": {
+  "dive_duration": "Duration of a single dive or sortie",
+  "system": "System-level endurance or autonomy of the vehicle or its support system",
+  "mission": "Mission or deployment endurance",
+  "class_level": "Class-level figure, not measured on this unit",
+  "qualitative": "Qualitative wording (no single number)"
+ },
+ "depth_endurance_note": "depth_rating_m.kind is 'rated' or omitted on older records (treated as rated). An optional depth_rating_m.observed_max object holds a dataset or deployment maximum. endurance.kind labels a single figure. When a vehicle has more than one published figure, endurance.figures[] lists each one with its own kind, source, evidence and as_of; the top-level value/text remains a short display summary. New or updated values also carry evidence (verbatim or numeric snippet) and as_of.",
  "excluded": [
   {
    "name": "Ocean Infinity Seaworker ASVs and HUGIN AUVs",
@@ -1418,6 +1430,60 @@
    "source_type": "official",
    "published": null,
    "accessed": "2026-11-26"
+  },
+  "whoi-mesobot-hybrid": {
+   "source_id": "whoi-mesobot-hybrid",
+   "title": "WHOI: Mesobot (hybrid vehicles page)",
+   "url": "https://www.whoi.edu/what-we-do/explore/underwater-vehicles/hybrid-vehicles/mesobot/",
+   "publisher": "Woods Hole Oceanographic Institution",
+   "source_type": "official",
+   "published": null,
+   "accessed": "2026-11-27"
+  },
+  "imos-conditions": {
+   "source_id": "imos-conditions",
+   "title": "IMOS: Conditions of Use (data licensing)",
+   "url": "https://imos.org.au/conditions-of-use",
+   "publisher": "Integrated Marine Observing System",
+   "source_type": "official",
+   "published": null,
+   "accessed": "2026-11-27"
+  },
+  "aodn-portal": {
+   "source_id": "aodn-portal",
+   "title": "AODN Portal",
+   "url": "https://portal.aodn.org.au/",
+   "publisher": "Australian Ocean Data Network",
+   "source_type": "official",
+   "published": null,
+   "accessed": "2026-11-27"
+  },
+  "aodn-gliders-delayed": {
+   "source_id": "aodn-gliders-delayed",
+   "title": "AODN: IMOS Ocean Gliders — delayed-mode deployments",
+   "url": "https://portal.aodn.org.au/search?uuid=c317b0fe-02e8-4ff9-96c9-563fd58e82ac",
+   "publisher": "Australian Ocean Data Network / IMOS",
+   "source_type": "official",
+   "published": null,
+   "accessed": "2026-11-27"
+  },
+  "aodn-gliders-realtime": {
+   "source_id": "aodn-gliders-realtime",
+   "title": "AODN: IMOS Ocean Gliders — real-time deployments",
+   "url": "https://portal.aodn.org.au/search?uuid=a681fdba-c6d9-44ab-90b9-113b0ed03536",
+   "publisher": "Australian Ocean Data Network / IMOS",
+   "source_type": "official",
+   "published": null,
+   "accessed": "2026-11-27"
+  },
+  "aodn-auv": {
+   "source_id": "aodn-auv",
+   "title": "AODN: IMOS Autonomous Underwater Vehicles Facility",
+   "url": "https://portal.aodn.org.au/search?uuid=af5d0ff9-bb9c-4b7c-a63c-854a630b6984",
+   "publisher": "Australian Ocean Data Network / IMOS",
+   "source_type": "official",
+   "published": null,
+   "accessed": "2026-11-27"
   }
  },
  "platforms": [
@@ -1900,7 +1966,7 @@
      "unit": "m",
      "basis": "unit_metadata",
      "source_id": "erddap-udorris",
-     "comment": "From the ud_orris unit metadata.",
+     "comment": "Rated depth (unit metadata). See depth_rating_m.observed_max for the 307.8 m deployment maximum.",
      "canon": "depth_rating"
     },
     {
@@ -2124,7 +2190,19 @@
     "unit": "m",
     "basis": "unit_metadata",
     "source_id": "erddap-udorris",
-    "comment": "From the ud_orris unit metadata."
+    "comment": "Published unit rating from ud_orris metadata (350 m). A separate observed maximum from ERDDAP geospatial_vertical_max is stored in observed_max; it is not this rating.",
+    "kind": "rated",
+    "as_of": "2026-11-25",
+    "observed_max": {
+     "value": 307.8083,
+     "unit": "m",
+     "kind": "observed_max",
+     "basis": "unit_metadata",
+     "source_id": "erddap-udorris",
+     "evidence": "geospatial_vertical_max double 307.8083",
+     "as_of": "2026-11-27",
+     "comment": "ERDDAP geospatial_vertical_max on ud_orris-20260813T1614 (deployment 13–20 August 2026). This is the deepest depth on that deployment, not the glider's 350 m rating."
+    }
    },
    "endurance": null,
    "survey_speed_kn": null
@@ -2189,7 +2267,80 @@
      "canon": "length"
     }
    ],
-   "sensors": [],
+   "sensors": [
+    {
+     "kind": "CTD",
+     "name": "instrument_ctd",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "erddap-ud134-2015",
+     "evidence": "String instruments \"instrument_ctd,instrument_flbbcdslk,instrument_optode,instrument_vsfslk\";",
+     "as_of": "2026-11-27"
+    },
+    {
+     "kind": "fluorometer",
+     "name": "instrument_flbbcdslk (fluorometer / backscatter / CDOM package)",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "erddap-ud134-2015",
+     "evidence": "String instruments \"instrument_ctd,instrument_flbbcdslk,instrument_optode,instrument_vsfslk\";",
+     "as_of": "2026-11-27"
+    },
+    {
+     "kind": "backscatter",
+     "name": "instrument_flbbcdslk (see fluorometer row)",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "erddap-ud134-2015",
+     "evidence": "String instruments \"instrument_ctd,instrument_flbbcdslk,instrument_optode,instrument_vsfslk\";",
+     "as_of": "2026-11-27"
+    },
+    {
+     "kind": "CDOM",
+     "name": "instrument_flbbcdslk (see fluorometer row)",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "erddap-ud134-2015",
+     "evidence": "String instruments \"instrument_ctd,instrument_flbbcdslk,instrument_optode,instrument_vsfslk\";",
+     "as_of": "2026-11-27"
+    },
+    {
+     "kind": "oxygen",
+     "name": "instrument_optode",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "erddap-ud134-2015",
+     "evidence": "String instruments \"instrument_ctd,instrument_flbbcdslk,instrument_optode,instrument_vsfslk\";",
+     "as_of": "2026-11-27"
+    },
+    {
+     "kind": "backscatter",
+     "name": "instrument_vsfslk (volume scattering)",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "erddap-ud134-2015",
+     "evidence": "String instruments \"instrument_ctd,instrument_flbbcdslk,instrument_optode,instrument_vsfslk\";",
+     "as_of": "2026-11-27"
+    }
+   ],
    "applications": [
     "Deepwater Horizon response (2010)",
     "Penguin foraging and Palmer Deep studies, West Antarctic Peninsula",
@@ -2605,6 +2756,15 @@
      "source_id": "ices-33k7",
      "comment": "Length in the ICES platform record; commissioned 2012-10-05.",
      "canon": "length"
+    },
+    {
+     "label": "Endurance",
+     "value": 28,
+     "unit": "days",
+     "basis": "operator_published",
+     "source_id": "udaily-2012-otis",
+     "comment": "Operator-page wording, about four weeks (~28 days) between battery recharges.",
+     "canon": "endurance"
     }
    ],
    "sensors": [
@@ -2760,7 +2920,17 @@
    "autonomy_basis": "Underwater glider: follows a programmed path and is supervised from shore.",
    "other_specs": [],
    "depth_rating_m": null,
-   "endurance": null,
+   "endurance": {
+    "value": 28,
+    "unit": "days",
+    "text": "about four weeks",
+    "kind": "mission",
+    "basis": "operator_published",
+    "source_id": "udaily-2012-otis",
+    "comment": "Operator-page wording, about four weeks (~28 days) between battery recharges.",
+    "evidence": "The machine can stay out on a mission for about four weeks before needing a battery recharge.",
+    "as_of": "2026-11-27"
+   },
    "survey_speed_kn": null
   },
   {
@@ -3871,7 +4041,20 @@
    "status_date": "2016-08",
    "status_basis": "Named only on the 2016 bootcamp equipment list.",
    "specs": [],
-   "sensors": [],
+   "sensors": [
+    {
+     "kind": "echosounder",
+     "name": "sonar",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": "Page says 'sonar' without a more specific type.",
+     "source_id": "udaily-2016-bootcamp",
+     "evidence": "The Teledyne Oceanscience Z-Boat is an autonomous surface vehicle that uses sonar and radio communication",
+     "as_of": "2026-11-27"
+    }
+   ],
    "applications": [],
    "deployments": [],
    "data_endpoints": [],
@@ -5298,7 +5481,68 @@
      "canon": "mass_in_air_medea"
     }
    ],
-   "sensors": [],
+   "sensors": [
+    {
+     "kind": "echosounder",
+     "name": "sonars",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": "Page says 'sonars' without naming a model.",
+     "source_id": "ndsf-jason",
+     "evidence": "Jason is equipped with sonars, video and still imaging systems, lighting, and numerous sampling systems.",
+     "as_of": "2026-11-27"
+    },
+    {
+     "kind": "video",
+     "name": "video imaging systems",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "ndsf-jason",
+     "evidence": "Jason is equipped with sonars, video and still imaging systems, lighting, and numerous sampling systems.",
+     "as_of": "2026-11-27"
+    },
+    {
+     "kind": "camera",
+     "name": "still imaging systems",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "ndsf-jason",
+     "evidence": "Jason is equipped with sonars, video and still imaging systems, lighting, and numerous sampling systems.",
+     "as_of": "2026-11-27"
+    },
+    {
+     "kind": "lights",
+     "name": "lighting",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "ndsf-jason",
+     "evidence": "Jason is equipped with sonars, video and still imaging systems, lighting, and numerous sampling systems.",
+     "as_of": "2026-11-27"
+    },
+    {
+     "kind": "other",
+     "name": "numerous sampling systems",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": "Not mapped to a more specific sensor_kinds term.",
+     "source_id": "ndsf-jason",
+     "evidence": "Jason is equipped with sonars, video and still imaging systems, lighting, and numerous sampling systems.",
+     "as_of": "2026-11-27"
+    }
+   ],
    "applications": [],
    "deployments": [],
    "data_endpoints": [],
@@ -5895,9 +6139,31 @@
      "source_id": "ndsf-waveglider",
      "comment": null,
      "canon": "comms"
+    },
+    {
+     "label": "Endurance",
+     "value": "theoretically infinite endurance",
+     "unit": null,
+     "basis": "operator_published",
+     "source_id": "ndsf-waveglider",
+     "comment": "Qualitative: solar charging; no numeric endurance.",
+     "canon": "endurance"
     }
    ],
-   "sensors": [],
+   "sensors": [
+    {
+     "kind": "acoustic modem",
+     "name": "custom WHOI micromodem acoustic communications package",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": "Page also says additional sensors can be integrated upon request; that is a capability, not a sensor list.",
+     "source_id": "ndsf-waveglider",
+     "evidence": "It features a custom WHOI micromodem acoustic communications package, enabling over-the-horizon operations",
+     "as_of": "2026-11-27"
+    }
+   ],
    "applications": [
     "Over-the-horizon acoustic relay for Sentry, Jason and Alvin operations"
    ],
@@ -5949,7 +6215,17 @@
    "autonomy_basis": "Uncrewed surface vehicle: typically supervised from shore or a support ship.",
    "other_specs": [],
    "depth_rating_m": null,
-   "endurance": null,
+   "endurance": {
+    "value": null,
+    "unit": null,
+    "text": "theoretically infinite endurance",
+    "kind": "qualitative",
+    "basis": "operator_published",
+    "source_id": "ndsf-waveglider",
+    "comment": "Qualitative: solar charging; no numeric endurance.",
+    "evidence": "The vehicle's batteries, which power all electronics and sensors, are charged via solar panels, providing it with theoretically infinite endurance.",
+    "as_of": "2026-11-27"
+   },
    "survey_speed_kn": null
   },
   {
@@ -6389,6 +6665,15 @@
      "source_id": "whoi-mesobot",
      "comment": null,
      "canon": "modes"
+    },
+    {
+     "label": "Depth rating",
+     "value": 1000,
+     "unit": "m",
+     "basis": "operator_published",
+     "source_id": "whoi-mesobot-hybrid",
+     "comment": "WHOI page: 'Maximum depth 1000m'.",
+     "canon": "depth_rating"
     }
    ],
    "sensors": [
@@ -6434,7 +6719,8 @@
    ],
    "source_ids": [
     "whoi-mesobot",
-    "whoi-hybrid"
+    "whoi-hybrid",
+    "whoi-mesobot-hybrid"
    ],
    "affiliations": [
     {
@@ -6470,7 +6756,16 @@
    "autonomy": "remotely operated",
    "autonomy_basis": "Hybrid ROV/AUV: typically ship-piloted, with a documented autonomous mode. Recorded as remotely operated, the usual working mode.",
    "other_specs": [],
-   "depth_rating_m": null,
+   "depth_rating_m": {
+    "value": 1000,
+    "unit": "m",
+    "kind": "rated",
+    "basis": "operator_published",
+    "source_id": "whoi-mesobot-hybrid",
+    "comment": "WHOI page: 'Maximum depth 1000m'.",
+    "evidence": "Maximum depth 1000m",
+    "as_of": "2026-11-27"
+   },
    "endurance": {
     "value": 24,
     "unit": "h",
@@ -7084,7 +7379,44 @@
      "canon": "sonar_frequency"
     }
    ],
-   "sensors": [],
+   "sensors": [
+    {
+     "kind": "other",
+     "name": "Two-axis clinometer (0.1 degree resolution)",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": "Attitude sensor; no closer sensor_kinds term.",
+     "source_id": "whoi-dsl120a-spec",
+     "evidence": "Attitude: Two-axis clinometer, 0.1 degree resolution Heading: Endeco compass, 0.1 degree resolution Pressure Depth: Bulk semiconductor strain gauge, <1 m resolution",
+     "as_of": "2026-11-27"
+    },
+    {
+     "kind": "gyrocompass",
+     "name": "Endeco compass (0.1 degree resolution)",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": "Mapped to gyrocompass as the closest heading-sensor term.",
+     "source_id": "whoi-dsl120a-spec",
+     "evidence": "Attitude: Two-axis clinometer, 0.1 degree resolution Heading: Endeco compass, 0.1 degree resolution Pressure Depth: Bulk semiconductor strain gauge, <1 m resolution",
+     "as_of": "2026-11-27"
+    },
+    {
+     "kind": "other",
+     "name": "Pressure/depth: bulk semiconductor strain gauge (<1 m resolution)",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "whoi-dsl120a-spec",
+     "evidence": "Attitude: Two-axis clinometer, 0.1 degree resolution Heading: Endeco compass, 0.1 degree resolution Pressure Depth: Bulk semiconductor strain gauge, <1 m resolution",
+     "as_of": "2026-11-27"
+    }
+   ],
    "applications": [],
    "deployments": [],
    "data_endpoints": [],
@@ -7511,7 +7843,92 @@
      "canon": "support_ship_requirement"
     }
    ],
-   "sensors": [],
+   "sensors": [
+    {
+     "kind": "other",
+     "name": "3 viewports (hublots) for direct seafloor observation",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "onisep-ifr-table",
+     "evidence": "3 hublots pour l’observation directe du fond marin, Bras manipulateurs hydrauliques, Caméras 4K et HD, Sonar panoramique, Panier mobile de prélèvement, Téléphone sous-marin acoustique avec option SMS",
+     "as_of": "2026-11-27"
+    },
+    {
+     "kind": "manipulator",
+     "name": "Hydraulic manipulators",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "onisep-ifr-table",
+     "evidence": "3 hublots pour l’observation directe du fond marin, Bras manipulateurs hydrauliques, Caméras 4K et HD, Sonar panoramique, Panier mobile de prélèvement, Téléphone sous-marin acoustique avec option SMS",
+     "as_of": "2026-11-27"
+    },
+    {
+     "kind": "video",
+     "name": "4K and HD cameras",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "onisep-ifr-table",
+     "evidence": "3 hublots pour l’observation directe du fond marin, Bras manipulateurs hydrauliques, Caméras 4K et HD, Sonar panoramique, Panier mobile de prélèvement, Téléphone sous-marin acoustique avec option SMS",
+     "as_of": "2026-11-27"
+    },
+    {
+     "kind": "camera",
+     "name": "4K and HD cameras",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "onisep-ifr-table",
+     "evidence": "3 hublots pour l’observation directe du fond marin, Bras manipulateurs hydrauliques, Caméras 4K et HD, Sonar panoramique, Panier mobile de prélèvement, Téléphone sous-marin acoustique avec option SMS",
+     "as_of": "2026-11-27"
+    },
+    {
+     "kind": "scanning sonar",
+     "name": "Scanning sonar (sonar panoramique)",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "onisep-ifr-table",
+     "evidence": "3 hublots pour l’observation directe du fond marin, Bras manipulateurs hydrauliques, Caméras 4K et HD, Sonar panoramique, Panier mobile de prélèvement, Téléphone sous-marin acoustique avec option SMS",
+     "as_of": "2026-11-27"
+    },
+    {
+     "kind": "other",
+     "name": "Mobile sampling basket (panier mobile de prélèvement)",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "onisep-ifr-table",
+     "evidence": "3 hublots pour l’observation directe du fond marin, Bras manipulateurs hydrauliques, Caméras 4K et HD, Sonar panoramique, Panier mobile de prélèvement, Téléphone sous-marin acoustique avec option SMS",
+     "as_of": "2026-11-27"
+    },
+    {
+     "kind": "acoustic modem",
+     "name": "Underwater acoustic telephone with SMS option",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": "Closest vocabulary term for the acoustic telephone.",
+     "source_id": "onisep-ifr-table",
+     "evidence": "3 hublots pour l’observation directe du fond marin, Bras manipulateurs hydrauliques, Caméras 4K et HD, Sonar panoramique, Panier mobile de prélèvement, Téléphone sous-marin acoustique avec option SMS",
+     "as_of": "2026-11-27"
+    }
+   ],
    "applications": [],
    "deployments": [],
    "data_endpoints": [],
@@ -7664,11 +8081,11 @@
     },
     {
      "label": "Endurance",
-     "value": "up to 100 h",
+     "value": "6–10 h (dive duration); up to 100 h (system)",
      "unit": null,
      "basis": "secondary_published",
      "source_id": "onisep-ifr-table",
-     "comment": null,
+     "comment": "Two labelled figures; see endurance.figures.",
      "canon": "endurance"
     },
     {
@@ -7690,7 +8107,104 @@
      "canon": "manipulators"
     }
    ],
-   "sensors": [],
+   "sensors": [
+    {
+     "kind": "manipulator",
+     "name": "Hydraulic manipulators",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "onisep-ifr-table",
+     "evidence": "Bras manipulateurs hydrauliques, Caméras 4K et HD, Sonar panoramique, Sondeur multifaisceaux, Sonde CTD, Profileur de courant, Sondeur de sédiment",
+     "as_of": "2026-11-27"
+    },
+    {
+     "kind": "video",
+     "name": "4K and HD cameras",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "onisep-ifr-table",
+     "evidence": "Bras manipulateurs hydrauliques, Caméras 4K et HD, Sonar panoramique, Sondeur multifaisceaux, Sonde CTD, Profileur de courant, Sondeur de sédiment",
+     "as_of": "2026-11-27"
+    },
+    {
+     "kind": "camera",
+     "name": "4K and HD cameras",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "onisep-ifr-table",
+     "evidence": "Bras manipulateurs hydrauliques, Caméras 4K et HD, Sonar panoramique, Sondeur multifaisceaux, Sonde CTD, Profileur de courant, Sondeur de sédiment",
+     "as_of": "2026-11-27"
+    },
+    {
+     "kind": "scanning sonar",
+     "name": "Scanning sonar (sonar panoramique)",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "onisep-ifr-table",
+     "evidence": "Bras manipulateurs hydrauliques, Caméras 4K et HD, Sonar panoramique, Sondeur multifaisceaux, Sonde CTD, Profileur de courant, Sondeur de sédiment",
+     "as_of": "2026-11-27"
+    },
+    {
+     "kind": "multibeam",
+     "name": "Multibeam echosounder (sondeur multifaisceaux)",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "onisep-ifr-table",
+     "evidence": "Bras manipulateurs hydrauliques, Caméras 4K et HD, Sonar panoramique, Sondeur multifaisceaux, Sonde CTD, Profileur de courant, Sondeur de sédiment",
+     "as_of": "2026-11-27"
+    },
+    {
+     "kind": "CTD",
+     "name": "CTD",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "onisep-ifr-table",
+     "evidence": "Bras manipulateurs hydrauliques, Caméras 4K et HD, Sonar panoramique, Sondeur multifaisceaux, Sonde CTD, Profileur de courant, Sondeur de sédiment",
+     "as_of": "2026-11-27"
+    },
+    {
+     "kind": "ADCP",
+     "name": "Current profiler (profileur de courant)",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "onisep-ifr-table",
+     "evidence": "Bras manipulateurs hydrauliques, Caméras 4K et HD, Sonar panoramique, Sondeur multifaisceaux, Sonde CTD, Profileur de courant, Sondeur de sédiment",
+     "as_of": "2026-11-27"
+    },
+    {
+     "kind": "sub-bottom profiler",
+     "name": "Sub-bottom / sediment echosounder (sondeur de sédiment)",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "onisep-ifr-table",
+     "evidence": "Bras manipulateurs hydrauliques, Caméras 4K et HD, Sonar panoramique, Sondeur multifaisceaux, Sonde CTD, Profileur de courant, Sondeur de sédiment",
+     "as_of": "2026-11-27"
+    }
+   ],
    "applications": [],
    "deployments": [],
    "data_endpoints": [],
@@ -7768,10 +8282,40 @@
    "endurance": {
     "value": null,
     "unit": null,
+    "text": "6–10 h (dive duration); up to 100 h (system)",
+    "kind": null,
     "basis": "secondary_published",
     "source_id": "onisep-ifr-table",
-    "comment": null,
-    "text": "up to 100 h"
+    "comment": "Two sourced figures are kept and labelled; they were not collapsed.",
+    "evidence": "Endurance / Autonomie 6 heures - 10 heures",
+    "as_of": "2026-11-27",
+    "figures": [
+     {
+      "kind": "dive_duration",
+      "value": [
+       6,
+       10
+      ],
+      "unit": "h",
+      "text": "6–10 h",
+      "basis": "secondary_published",
+      "source_id": "onisep-ifr-table",
+      "evidence": "Endurance / Autonomie 6 heures - 10 heures",
+      "as_of": "2026-11-27",
+      "comment": "Ifremer/FOF factsheet (via ONISEP Pass'Océan comparison table)."
+     },
+     {
+      "kind": "system",
+      "value": null,
+      "unit": null,
+      "text": "up to 100 h",
+      "basis": "secondary_published",
+      "source_id": "onisep-ifr-table",
+      "evidence": null,
+      "as_of": "2026-11-26",
+      "comment": "Existing registry figure ('up to 100 h') from the same comparison-table research, kept as system-level endurance. It is a different quantity from the 6–10 h dive duration on the same factsheet."
+     }
+    ]
    },
    "survey_speed_kn": null
   },
@@ -8018,6 +8562,18 @@
      "source_id": "onisep-ifr-table",
      "comment": null,
      "canon": "energy"
+    },
+    {
+     "label": "Endurance",
+     "value": [
+      24,
+      48
+     ],
+     "unit": "h",
+     "basis": "secondary_published",
+     "source_id": "onisep-ifr-table",
+     "comment": "Ifremer/FOF factsheet (via ONISEP Pass'Océan table): 24–48 hours depending on equipment.",
+     "canon": "endurance"
     }
    ],
    "sensors": [
@@ -8137,7 +8693,20 @@
     "source_id": "fof-ulyx",
     "comment": null
    },
-   "endurance": null,
+   "endurance": {
+    "value": [
+     24,
+     48
+    ],
+    "unit": "h",
+    "text": "24–48 h depending on equipment",
+    "kind": "mission",
+    "basis": "secondary_published",
+    "source_id": "onisep-ifr-table",
+    "comment": "Ifremer/FOF factsheet (via ONISEP Pass'Océan table): 24–48 hours depending on equipment.",
+    "evidence": "24 - 48 heures suivant les équipements",
+    "as_of": "2026-11-27"
+   },
    "survey_speed_kn": null
   },
   {
@@ -8419,6 +8988,15 @@
      "source_id": "noc-alr",
      "comment": null,
      "canon": "comms"
+    },
+    {
+     "label": "Endurance",
+     "value": "missions spanning weeks at a time (2,000 km range)",
+     "unit": null,
+     "basis": "operator_published",
+     "source_id": "noc-alr",
+     "comment": "Qualitative endurance plus a published range; no single hour or day count.",
+     "canon": "endurance"
     }
    ],
    "sensors": [],
@@ -8483,7 +9061,17 @@
     "source_id": "noc-alr",
     "comment": null
    },
-   "endurance": null,
+   "endurance": {
+    "value": null,
+    "unit": null,
+    "text": "missions spanning weeks at a time (2,000 km range)",
+    "kind": "qualitative",
+    "basis": "operator_published",
+    "source_id": "noc-alr",
+    "comment": "Qualitative endurance plus a published range; no single hour or day count.",
+    "evidence": "2,000-kilometre range, it can undertake missions spanning weeks at a time",
+    "as_of": "2026-11-27"
+   },
    "survey_speed_kn": null
   },
   {
@@ -8918,7 +9506,44 @@
      "canon": "depth_rating"
     }
    ],
-   "sensors": [],
+   "sensors": [
+    {
+     "kind": "CTD",
+     "name": "Temperature, salinity and pressure",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "sams-robotics",
+     "evidence": "What can gliders measure? Temperature: ... Salinity: ... Pressure: ... oxygen ... ocean colour",
+     "as_of": "2026-11-27"
+    },
+    {
+     "kind": "oxygen",
+     "name": "oxygen",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "sams-robotics",
+     "evidence": "What can gliders measure? Temperature: ... Salinity: ... Pressure: ... oxygen ... ocean colour",
+     "as_of": "2026-11-27"
+    },
+    {
+     "kind": "fluorometer",
+     "name": "ocean colour",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": "Mapped from 'ocean colour'.",
+     "source_id": "sams-robotics",
+     "evidence": "What can gliders measure? Temperature: ... Salinity: ... Pressure: ... oxygen ... ocean colour",
+     "as_of": "2026-11-27"
+    }
+   ],
    "applications": [],
    "deployments": [],
    "data_endpoints": [],
@@ -9321,7 +9946,68 @@
      "canon": "endurance_longest"
     }
    ],
-   "sensors": [],
+   "sensors": [
+    {
+     "kind": "camera",
+     "name": "visual imagery",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "bas-ice-flight",
+     "evidence": "The aircraft collected visual and hyperspectral imagery of Antarctic landscapes and specially protected areas, measured atmospheric turbulence where ocean and atmosphere meet and gathered gravity and magnetic data",
+     "as_of": "2026-11-27"
+    },
+    {
+     "kind": "spectral radiometer",
+     "name": "hyperspectral imagery",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "bas-ice-flight",
+     "evidence": "The aircraft collected visual and hyperspectral imagery of Antarctic landscapes and specially protected areas, measured atmospheric turbulence where ocean and atmosphere meet and gathered gravity and magnetic data",
+     "as_of": "2026-11-27"
+    },
+    {
+     "kind": "turbulence",
+     "name": "atmospheric turbulence",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "bas-ice-flight",
+     "evidence": "The aircraft collected visual and hyperspectral imagery of Antarctic landscapes and specially protected areas, measured atmospheric turbulence where ocean and atmosphere meet and gathered gravity and magnetic data",
+     "as_of": "2026-11-27"
+    },
+    {
+     "kind": "other",
+     "name": "gravity data",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": "No gravity-specific term in sensor_kinds.",
+     "source_id": "bas-ice-flight",
+     "evidence": "The aircraft collected visual and hyperspectral imagery of Antarctic landscapes and specially protected areas, measured atmospheric turbulence where ocean and atmosphere meet and gathered gravity and magnetic data",
+     "as_of": "2026-11-27"
+    },
+    {
+     "kind": "magnetometer",
+     "name": "magnetic data",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "bas-ice-flight",
+     "evidence": "The aircraft collected visual and hyperspectral imagery of Antarctic landscapes and specially protected areas, measured atmospheric turbulence where ocean and atmosphere meet and gathered gravity and magnetic data",
+     "as_of": "2026-11-27"
+    }
+   ],
    "applications": [],
    "deployments": [],
    "data_endpoints": [],
@@ -9511,7 +10197,44 @@
      "canon": "tether"
     }
    ],
-   "sensors": [],
+   "sensors": [
+    {
+     "kind": "manipulator",
+     "name": "Manipulators with 5 and 7 functions",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "geomar-kiel6000",
+     "evidence": "intervention and sampling using manipulators with 5 and 7 functions, respectively; station-keep and autopilot modes ... observation and documentation by various digital video and still cameras on pan and tilt units",
+     "as_of": "2026-11-27"
+    },
+    {
+     "kind": "video",
+     "name": "Digital video cameras on pan-and-tilt units",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "geomar-kiel6000",
+     "evidence": "intervention and sampling using manipulators with 5 and 7 functions, respectively; station-keep and autopilot modes ... observation and documentation by various digital video and still cameras on pan and tilt units",
+     "as_of": "2026-11-27"
+    },
+    {
+     "kind": "camera",
+     "name": "Still cameras on pan-and-tilt units",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "geomar-kiel6000",
+     "evidence": "intervention and sampling using manipulators with 5 and 7 functions, respectively; station-keep and autopilot modes ... observation and documentation by various digital video and still cameras on pan and tilt units",
+     "as_of": "2026-11-27"
+    }
+   ],
    "applications": [],
    "deployments": [],
    "data_endpoints": [],
@@ -9633,7 +10356,44 @@
      "canon": "tether"
     }
    ],
-   "sensors": [],
+   "sensors": [
+    {
+     "kind": "manipulator",
+     "name": "2 manipulators",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "geomar-phoca",
+     "evidence": "2 manipulators, digital video cameras on pan-&-tilt units, auto-functions (depth, heading and altitude), digital telemetry",
+     "as_of": "2026-11-27"
+    },
+    {
+     "kind": "video",
+     "name": "Digital video cameras on pan-and-tilt units",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "geomar-phoca",
+     "evidence": "2 manipulators, digital video cameras on pan-&-tilt units, auto-functions (depth, heading and altitude), digital telemetry",
+     "as_of": "2026-11-27"
+    },
+    {
+     "kind": "camera",
+     "name": "Digital video cameras on pan-and-tilt units",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "geomar-phoca",
+     "evidence": "2 manipulators, digital video cameras on pan-&-tilt units, auto-functions (depth, heading and altitude), digital telemetry",
+     "as_of": "2026-11-27"
+    }
+   ],
    "applications": [],
    "deployments": [],
    "data_endpoints": [],
@@ -10459,7 +11219,44 @@
      "canon": "comms"
     }
    ],
-   "sensors": [],
+   "sensors": [
+    {
+     "kind": "CTD",
+     "name": "RBR legato CTD",
+     "maker": "RBR",
+     "model": "legato",
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "imr-sogn-2024",
+     "evidence": "RBRlegato CTD, Sea-Bird ECO Triplet, Sea-Bird Deep SUNA Ocean Nitrate Sensor",
+     "as_of": "2026-11-27"
+    },
+    {
+     "kind": "fluorometer",
+     "name": "Sea-Bird ECO Triplet",
+     "maker": "Sea-Bird",
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "imr-sogn-2024",
+     "evidence": "RBRlegato CTD, Sea-Bird ECO Triplet, Sea-Bird Deep SUNA Ocean Nitrate Sensor",
+     "as_of": "2026-11-27"
+    },
+    {
+     "kind": "nitrate",
+     "name": "Sea-Bird Deep SUNA Ocean Nitrate Sensor",
+     "maker": "Sea-Bird",
+     "model": "Deep SUNA",
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "imr-sogn-2024",
+     "evidence": "RBRlegato CTD, Sea-Bird ECO Triplet, Sea-Bird Deep SUNA Ocean Nitrate Sensor",
+     "as_of": "2026-11-27"
+    }
+   ],
    "applications": [],
    "deployments": [],
    "data_endpoints": [],
@@ -10753,12 +11550,30 @@
    ],
    "applications": [],
    "deployments": [],
-   "data_endpoints": [],
+   "data_endpoints": [
+    {
+     "type": "portal",
+     "label": "AODN Portal",
+     "url": "https://portal.aodn.org.au/",
+     "licence": "Creative Commons Attribution 4.0 International (CC BY 4.0). IMOS data, and the majority of AODN data, are licensed under CC BY 4.0 (https://imos.org.au/conditions-of-use). Users must also include the IMOS acknowledgement.",
+     "source_id": "aodn-portal"
+    },
+    {
+     "type": "dataset",
+     "label": "AODN: IMOS Autonomous Underwater Vehicles Facility (includes Sirius; facility ended June 2023, data still available)",
+     "url": "https://portal.aodn.org.au/search?uuid=af5d0ff9-bb9c-4b7c-a63c-854a630b6984",
+     "licence": "Creative Commons Attribution 4.0 International (CC BY 4.0). IMOS data, and the majority of AODN data, are licensed under CC BY 4.0 (https://imos.org.au/conditions-of-use). Users must also include the IMOS acknowledgement.",
+     "source_id": "aodn-auv"
+    }
+   ],
    "photos": [],
    "notes": [],
    "source_ids": [
     "imos-auv",
-    "imos-auv-review"
+    "imos-auv-review",
+    "aodn-portal",
+    "aodn-auv",
+    "imos-conditions"
    ],
    "affiliations": [
     {
@@ -10915,15 +11730,90 @@
      "canon": "endurance"
     }
    ],
-   "sensors": [],
+   "sensors": [
+    {
+     "kind": "fluorometer",
+     "name": "Chlorophyll",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": "Facility data-stream list, not a named instrument model.",
+     "source_id": "imos-anfog",
+     "evidence": "Chlorophyll, Current, Dissolved Oxygen, Salinity, Sea Surface Temperature, Sub-Surface Temperature",
+     "as_of": "2026-11-27"
+    },
+    {
+     "kind": "current meter",
+     "name": "Current",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": "Facility data-stream list.",
+     "source_id": "imos-anfog",
+     "evidence": "Chlorophyll, Current, Dissolved Oxygen, Salinity, Sea Surface Temperature, Sub-Surface Temperature",
+     "as_of": "2026-11-27"
+    },
+    {
+     "kind": "oxygen",
+     "name": "Dissolved oxygen",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "imos-anfog",
+     "evidence": "Chlorophyll, Current, Dissolved Oxygen, Salinity, Sea Surface Temperature, Sub-Surface Temperature",
+     "as_of": "2026-11-27"
+    },
+    {
+     "kind": "CTD",
+     "name": "Salinity, sea-surface temperature, sub-surface temperature",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "imos-anfog",
+     "evidence": "Chlorophyll, Current, Dissolved Oxygen, Salinity, Sea Surface Temperature, Sub-Surface Temperature",
+     "as_of": "2026-11-27"
+    }
+   ],
    "applications": [],
    "deployments": [],
-   "data_endpoints": [],
+   "data_endpoints": [
+    {
+     "type": "portal",
+     "label": "AODN Portal",
+     "url": "https://portal.aodn.org.au/",
+     "licence": "Creative Commons Attribution 4.0 International (CC BY 4.0). IMOS data, and the majority of AODN data, are licensed under CC BY 4.0 (https://imos.org.au/conditions-of-use). Users must also include the IMOS acknowledgement.",
+     "source_id": "aodn-portal"
+    },
+    {
+     "type": "dataset",
+     "label": "AODN: IMOS Ocean Gliders — delayed-mode deployments",
+     "url": "https://portal.aodn.org.au/search?uuid=c317b0fe-02e8-4ff9-96c9-563fd58e82ac",
+     "licence": "Creative Commons Attribution 4.0 International (CC BY 4.0). IMOS data, and the majority of AODN data, are licensed under CC BY 4.0 (https://imos.org.au/conditions-of-use). Users must also include the IMOS acknowledgement.",
+     "source_id": "aodn-gliders-delayed"
+    },
+    {
+     "type": "dataset",
+     "label": "AODN: IMOS Ocean Gliders — real-time deployments",
+     "url": "https://portal.aodn.org.au/search?uuid=a681fdba-c6d9-44ab-90b9-113b0ed03536",
+     "licence": "Creative Commons Attribution 4.0 International (CC BY 4.0). IMOS data, and the majority of AODN data, are licensed under CC BY 4.0 (https://imos.org.au/conditions-of-use). Users must also include the IMOS acknowledgement.",
+     "source_id": "aodn-gliders-realtime"
+    }
+   ],
    "photos": [],
    "notes": [],
    "source_ids": [
     "anfog-slocum",
-    "imos-anfog"
+    "imos-anfog",
+    "aodn-portal",
+    "aodn-gliders-delayed",
+    "aodn-gliders-realtime",
+    "imos-conditions"
    ],
    "affiliations": [
     {
@@ -11015,17 +11905,114 @@
    "status": "Listed",
    "status_date": "2026-11-26",
    "status_basis": "ANFOG fleet page (undated).",
-   "specs": [],
-   "sensors": [],
+   "specs": [
+    {
+     "label": "Depth rating",
+     "value": 1000,
+     "unit": "m",
+     "basis": "operator_published_class_level",
+     "source_id": "anfog-seaglider",
+     "comment": "ANFOG page: Seagliders dive continuously to as deep as 1000 m. Class-level wording.",
+     "canon": "depth_rating"
+    }
+   ],
+   "sensors": [
+    {
+     "kind": "CTD",
+     "name": "Sea-Bird CTD",
+     "maker": "Sea-Bird",
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "anfog-seaglider",
+     "evidence": "All gliders are instrumented with a Seabird-CTD, WETLabs BBFL2SLO 3 parameter optical sensor (measuring Chlorophyll-a, CDOM & 660nm Backscatter) and a Aanderaa Oxygen optode.",
+     "as_of": "2026-11-27"
+    },
+    {
+     "kind": "fluorometer",
+     "name": "WETLabs BBFL2SLO (chlorophyll-a)",
+     "maker": "WETLabs",
+     "model": "BBFL2SLO",
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "anfog-seaglider",
+     "evidence": "All gliders are instrumented with a Seabird-CTD, WETLabs BBFL2SLO 3 parameter optical sensor (measuring Chlorophyll-a, CDOM & 660nm Backscatter) and a Aanderaa Oxygen optode.",
+     "as_of": "2026-11-27"
+    },
+    {
+     "kind": "CDOM",
+     "name": "WETLabs BBFL2SLO (CDOM)",
+     "maker": "WETLabs",
+     "model": "BBFL2SLO",
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "anfog-seaglider",
+     "evidence": "All gliders are instrumented with a Seabird-CTD, WETLabs BBFL2SLO 3 parameter optical sensor (measuring Chlorophyll-a, CDOM & 660nm Backscatter) and a Aanderaa Oxygen optode.",
+     "as_of": "2026-11-27"
+    },
+    {
+     "kind": "backscatter",
+     "name": "WETLabs BBFL2SLO (660 nm backscatter)",
+     "maker": "WETLabs",
+     "model": "BBFL2SLO",
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "anfog-seaglider",
+     "evidence": "All gliders are instrumented with a Seabird-CTD, WETLabs BBFL2SLO 3 parameter optical sensor (measuring Chlorophyll-a, CDOM & 660nm Backscatter) and a Aanderaa Oxygen optode.",
+     "as_of": "2026-11-27"
+    },
+    {
+     "kind": "oxygen",
+     "name": "Aanderaa oxygen optode",
+     "maker": "Aanderaa",
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "anfog-seaglider",
+     "evidence": "All gliders are instrumented with a Seabird-CTD, WETLabs BBFL2SLO 3 parameter optical sensor (measuring Chlorophyll-a, CDOM & 660nm Backscatter) and a Aanderaa Oxygen optode.",
+     "as_of": "2026-11-27"
+    }
+   ],
    "applications": [],
    "deployments": [],
-   "data_endpoints": [],
+   "data_endpoints": [
+    {
+     "type": "portal",
+     "label": "AODN Portal",
+     "url": "https://portal.aodn.org.au/",
+     "licence": "Creative Commons Attribution 4.0 International (CC BY 4.0). IMOS data, and the majority of AODN data, are licensed under CC BY 4.0 (https://imos.org.au/conditions-of-use). Users must also include the IMOS acknowledgement.",
+     "source_id": "aodn-portal"
+    },
+    {
+     "type": "dataset",
+     "label": "AODN: IMOS Ocean Gliders — delayed-mode deployments",
+     "url": "https://portal.aodn.org.au/search?uuid=c317b0fe-02e8-4ff9-96c9-563fd58e82ac",
+     "licence": "Creative Commons Attribution 4.0 International (CC BY 4.0). IMOS data, and the majority of AODN data, are licensed under CC BY 4.0 (https://imos.org.au/conditions-of-use). Users must also include the IMOS acknowledgement.",
+     "source_id": "aodn-gliders-delayed"
+    },
+    {
+     "type": "dataset",
+     "label": "AODN: IMOS Ocean Gliders — real-time deployments",
+     "url": "https://portal.aodn.org.au/search?uuid=a681fdba-c6d9-44ab-90b9-113b0ed03536",
+     "licence": "Creative Commons Attribution 4.0 International (CC BY 4.0). IMOS data, and the majority of AODN data, are licensed under CC BY 4.0 (https://imos.org.au/conditions-of-use). Users must also include the IMOS acknowledgement.",
+     "source_id": "aodn-gliders-realtime"
+    }
+   ],
    "photos": [],
    "notes": [
     "Page says Seaglider range is enough to cross ocean basins; no numbers read."
    ],
    "source_ids": [
-    "anfog-seaglider"
+    "anfog-seaglider",
+    "aodn-portal",
+    "aodn-gliders-delayed",
+    "aodn-gliders-realtime",
+    "imos-conditions"
    ],
    "affiliations": [
     {
@@ -11067,7 +12054,16 @@
    "autonomy": "supervised autonomous",
    "autonomy_basis": "Underwater glider: follows a programmed path and is supervised from shore.",
    "other_specs": [],
-   "depth_rating_m": null,
+   "depth_rating_m": {
+    "value": 1000,
+    "unit": "m",
+    "kind": "rated",
+    "basis": "operator_published_class_level",
+    "source_id": "anfog-seaglider",
+    "comment": "ANFOG page: Seagliders dive continuously to as deep as 1000 m. Class-level wording.",
+    "evidence": "SEAGLIDER range is sufficient to transit entire ocean basins in missions lasting many months while diving continuously to as deep as 1000 m.",
+    "as_of": "2026-11-27"
+   },
    "endurance": null,
    "survey_speed_kn": null
   },
@@ -11113,6 +12109,15 @@
      "source_id": "csiro-gliders-2024",
      "comment": "\"About 60 kilograms\".",
      "canon": "mass_in_air"
+    },
+    {
+     "label": "Endurance",
+     "value": 4,
+     "unit": "months",
+     "basis": "operator_published_class_level",
+     "source_id": "csiro-gliders-2024",
+     "comment": "CSIRO article wording for these Seagliders; treated as class-level, not a unit rating.",
+     "canon": "endurance"
     }
    ],
    "sensors": [
@@ -11192,7 +12197,17 @@
     "source_id": "csiro-gliders-2024",
     "comment": null
    },
-   "endurance": null,
+   "endurance": {
+    "value": 4,
+    "unit": "months",
+    "text": "four months",
+    "kind": "class_level",
+    "basis": "operator_published_class_level",
+    "source_id": "csiro-gliders-2024",
+    "comment": "CSIRO article wording for these Seagliders; treated as class-level, not a unit rating.",
+    "evidence": "four months",
+    "as_of": "2026-11-27"
+   },
    "survey_speed_kn": null
   },
   {
@@ -11314,7 +12329,56 @@
      "canon": "power"
     }
    ],
-   "sensors": [],
+   "sensors": [
+    {
+     "kind": "video",
+     "name": "2 HD video cameras",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "jamstec-shinkai",
+     "evidence": "2 HD video cameras, 1 CTDO that measures salinity, temperature, pressure, and dissolved oxygen, 1 digital camera",
+     "as_of": "2026-11-27"
+    },
+    {
+     "kind": "CTD",
+     "name": "CTDO (salinity, temperature, pressure, dissolved oxygen)",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "jamstec-shinkai",
+     "evidence": "2 HD video cameras, 1 CTDO that measures salinity, temperature, pressure, and dissolved oxygen, 1 digital camera",
+     "as_of": "2026-11-27"
+    },
+    {
+     "kind": "oxygen",
+     "name": "CTDO dissolved oxygen",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "jamstec-shinkai",
+     "evidence": "2 HD video cameras, 1 CTDO that measures salinity, temperature, pressure, and dissolved oxygen, 1 digital camera",
+     "as_of": "2026-11-27"
+    },
+    {
+     "kind": "camera",
+     "name": "1 digital camera",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "jamstec-shinkai",
+     "evidence": "2 HD video cameras, 1 CTDO that measures salinity, temperature, pressure, and dissolved oxygen, 1 digital camera",
+     "as_of": "2026-11-27"
+    }
+   ],
    "applications": [],
    "deployments": [],
    "data_endpoints": [],
@@ -11478,9 +12542,79 @@
      "source_id": "jamstec-kaiko",
      "comment": null,
      "canon": "tether"
+    },
+    {
+     "label": "Endurance",
+     "value": 8,
+     "unit": "h",
+     "basis": "operator_published",
+     "source_id": "jamstec-deep",
+     "comment": "MarE3 deep-sea vehicles page: 'Normal dive duration 8 hours'. Labelled as dive duration, not system endurance.",
+     "canon": "endurance"
     }
    ],
-   "sensors": [],
+   "sensors": [
+    {
+     "kind": "camera",
+     "name": "Two HD dome cameras; digital still camera; compact monitoring video camera",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "jamstec-kaiko",
+     "evidence": "Research and observational equipment Two HD dome cameras, digital still camera, two high definition video cameras, compact monitoring video camera, lights, CTD, and dissolved oxygen meter",
+     "as_of": "2026-11-27"
+    },
+    {
+     "kind": "video",
+     "name": "Two high-definition video cameras",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "jamstec-kaiko",
+     "evidence": "Research and observational equipment Two HD dome cameras, digital still camera, two high definition video cameras, compact monitoring video camera, lights, CTD, and dissolved oxygen meter",
+     "as_of": "2026-11-27"
+    },
+    {
+     "kind": "lights",
+     "name": "lights",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "jamstec-kaiko",
+     "evidence": "Research and observational equipment Two HD dome cameras, digital still camera, two high definition video cameras, compact monitoring video camera, lights, CTD, and dissolved oxygen meter",
+     "as_of": "2026-11-27"
+    },
+    {
+     "kind": "CTD",
+     "name": "CTD",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "jamstec-kaiko",
+     "evidence": "Research and observational equipment Two HD dome cameras, digital still camera, two high definition video cameras, compact monitoring video camera, lights, CTD, and dissolved oxygen meter",
+     "as_of": "2026-11-27"
+    },
+    {
+     "kind": "oxygen",
+     "name": "dissolved oxygen meter",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "jamstec-kaiko",
+     "evidence": "Research and observational equipment Two HD dome cameras, digital still camera, two high definition video cameras, compact monitoring video camera, lights, CTD, and dissolved oxygen meter",
+     "as_of": "2026-11-27"
+    }
+   ],
    "applications": [],
    "deployments": [],
    "data_endpoints": [],
@@ -11533,7 +12667,17 @@
     "source_id": "jamstec-deep",
     "comment": null
    },
-   "endurance": null,
+   "endurance": {
+    "value": 8,
+    "unit": "h",
+    "text": "Normal dive duration 8 hours",
+    "kind": "dive_duration",
+    "basis": "operator_published",
+    "source_id": "jamstec-deep",
+    "comment": "MarE3 deep-sea vehicles page: 'Normal dive duration 8 hours'. Labelled as dive duration, not system endurance.",
+    "evidence": "Normal dive duration 8 hours",
+    "as_of": "2026-11-27"
+   },
    "survey_speed_kn": null
   },
   {
@@ -11647,7 +12791,44 @@
      "canon": "comms"
     }
    ],
-   "sensors": [],
+   "sensors": [
+    {
+     "kind": "sidescan",
+     "name": "Side scan sonar",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "jamstec-urashima",
+     "evidence": "Survey instruments • Side scan sonar • Sub-bottom profiler • CTD",
+     "as_of": "2026-11-27"
+    },
+    {
+     "kind": "sub-bottom profiler",
+     "name": "Sub-bottom profiler",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "jamstec-urashima",
+     "evidence": "Survey instruments • Side scan sonar • Sub-bottom profiler • CTD",
+     "as_of": "2026-11-27"
+    },
+    {
+     "kind": "CTD",
+     "name": "CTD",
+     "maker": null,
+     "model": null,
+     "serial_number": null,
+     "calibration_date": null,
+     "notes": null,
+     "source_id": "jamstec-urashima",
+     "evidence": "Survey instruments • Side scan sonar • Sub-bottom profiler • CTD",
+     "as_of": "2026-11-27"
+    }
+   ],
    "applications": [],
    "deployments": [],
    "data_endpoints": [],
@@ -11933,6 +13114,15 @@
      "source_id": "jamstec-deep",
      "comment": null,
      "canon": "mass_in_air"
+    },
+    {
+     "label": "Endurance",
+     "value": 8,
+     "unit": "h",
+     "basis": "operator_published",
+     "source_id": "jamstec-deep",
+     "comment": "MarE3 deep-sea vehicles page: 'Normal dive duration 8 hours'. Labelled as dive duration.",
+     "canon": "endurance"
     }
    ],
    "sensors": [],
@@ -11985,7 +13175,17 @@
     "source_id": "jamstec-deep",
     "comment": null
    },
-   "endurance": null,
+   "endurance": {
+    "value": 8,
+    "unit": "h",
+    "text": "Normal dive duration 8 hours",
+    "kind": "dive_duration",
+    "basis": "operator_published",
+    "source_id": "jamstec-deep",
+    "comment": "MarE3 deep-sea vehicles page: 'Normal dive duration 8 hours'. Labelled as dive duration.",
+    "evidence": "Normal dive duration 8 hours",
+    "as_of": "2026-11-27"
+   },
    "survey_speed_kn": null
   },
   {

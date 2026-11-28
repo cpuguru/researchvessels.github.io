@@ -70,13 +70,20 @@ document.addEventListener('DOMContentLoaded',()=>{
    ['Operator',[p.operator_org,p.operating_unit?' \u2013 '+p.operating_unit:'']],
    ['People',(p.contacts||[]).map(c=>h('div',null,h('strong',null,c.name),' \u2013 '+(c.role||''),c.as_of?h('span',{class:'small text-body-secondary'},' (as of '+c.as_of+')'):null,cite(c.source_id)))],
    ['Based at',p.home_site]])));
- /* key structured specs */
+ /* key structured specs: rated depth, optional observed max, one or more labelled endurance figures. Comments and evidence are plain text. */
+ const noteParts=(o)=>{if(!o)return '';return [o.comment,o.evidence?'“'+o.evidence+'”':null,o.as_of?'as of '+o.as_of:null].filter(Boolean).join(' — ')};
  const keyRows=[];
- if(p.depth_rating_m&&p.depth_rating_m.value!=null)keyRows.push(['Depth rating',P.fmtValue(p.depth_rating_m.value,'m'),p.depth_rating_m.basis,p.depth_rating_m.comment,p.depth_rating_m.source_id]);
- if(p.endurance&&(p.endurance.value!=null||p.endurance.text))keyRows.push(['Endurance',p.endurance.value!=null?P.fmtValue(p.endurance.value,p.endurance.unit):(p.endurance.text||''),p.endurance.basis,p.endurance.comment,p.endurance.source_id]);
+ if(p.depth_rating_m&&p.depth_rating_m.value!=null){const d=p.depth_rating_m;
+  keyRows.push(['Depth rating'+(d.kind==='rated'?' (rated)':''),P.fmtValue(d.value,'m'),d.basis,noteParts(d),d.source_id]);
+  if(d.observed_max&&d.observed_max.value!=null){const o=d.observed_max;
+   keyRows.push(['Observed maximum depth',P.fmtValue(o.value,o.unit||'m'),o.basis,noteParts(o),o.source_id]);}}
+ if(p.endurance){const e=p.endurance,figs=(Array.isArray(e.figures)&&e.figures.length)?e.figures:((e.value!=null||e.text)?[e]:[]);
+  figs.forEach(f=>{const val=f.value!=null?P.fmtValue(f.value,f.unit):(f.text||'');
+   const lab='Endurance'+(f.kind?' ('+(P.enduranceKindLabel(f.kind)||f.kind)+')':'');
+   if(val)keyRows.push([lab,val,f.basis,noteParts(f),f.source_id]);});}
  if(p.survey_speed_kn&&(p.survey_speed_kn.value!=null||p.survey_speed_kn.text))keyRows.push(['Survey speed',p.survey_speed_kn.value!=null?P.fmtValue(p.survey_speed_kn.value,'kn'):(p.survey_speed_kn.text||''),p.survey_speed_kn.basis,p.survey_speed_kn.comment,p.survey_speed_kn.source_id]);
  if(keyRows.length){const kb=h('tbody');keyRows.forEach(([lab,val,basis,comment,sid])=>kb.append(h('tr',null,h('th',{scope:'row',class:'fw-normal'},lab),h('td',null,val),h('td',null,h('span',{class:'badge text-bg-light border text-dark text-wrap'},P.basisLabel(basis)),cite(sid)),h('td',{class:'small text-body-secondary'},comment||''))));
-  kids.push(sec('ks-h','Key specifications',h('div',{class:'table-responsive'},h('table',{class:'table table-sm align-middle bg-white border'},h('thead',{class:'table-light'},h('tr',null,h('th',{scope:'col'},'Spec'),h('th',{scope:'col'},'Value'),h('th',{scope:'col'},'Basis'),h('th',{scope:'col'},'Comment'))),kb)),h('p',{class:'small text-body-secondary mt-1'},'Depth, endurance and survey speed are copied from the specifications below into fixed fields, with survey speed converted to knots when the source used another unit.')))}
+  kids.push(sec('ks-h','Key specifications',h('div',{class:'table-responsive'},h('table',{class:'table table-sm align-middle bg-white border'},h('thead',{class:'table-light'},h('tr',null,h('th',{scope:'col'},'Spec'),h('th',{scope:'col'},'Value'),h('th',{scope:'col'},'Basis'),h('th',{scope:'col'},'Comment'))),kb)),h('p',{class:'small text-body-secondary mt-1'},'Depth ratings are the published design or operator figure. An observed maximum (for example from a deployment or dataset) is listed separately when present. Endurance figures are labelled as dive duration, system, mission, class-level or qualitative. Survey speed is converted to knots when the source used another unit.')))}
 
  /* access and lineage */
  const ac=RVP.accessOf(p),ln=p.lineage;
@@ -121,7 +128,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     h('p',{class:'small text-body-secondary mt-1'},deps.length+' deployment'+(deps.length===1?'':'s')+' listed. A launch vessel links to the vessel directory only when the ship is already listed there.')))}
  else kids.push(sec('dp-h','Deployment history',h('p',{class:'text-body-secondary mb-0'},'No deployments are recorded for this platform.')));
  const de=p.data_endpoints||[];
- if(de.length)kids.push(sec('de-h','Data and catalog links',h('ul',{class:'mb-0'},de.map(x=>h('li',null,h('a',{href:x.url},x.label||x.type))))));
+ if(de.length)kids.push(sec('de-h','Data and catalog links',h('ul',{class:'mb-0'},de.map(x=>h('li',null,h('a',{href:x.url},x.label||x.type||'data'),x.type?h('span',{class:'small text-body-secondary'},' ('+x.type+')'):null,x.licence?h('div',{class:'small text-body-secondary'},'Licence: '+x.licence):null,cite(x.source_id))))));
  const ph=p.photos||[];
  if(ph.length)kids.push(sec('ph-h','Photos',h('p',{class:'small text-body-secondary mb-1'},'Links only. We do not copy photos without permission.'),h('ul',{class:'mb-0'},ph.map(x=>h('li',null,h('a',{href:x.url},x.label||'Photo'),x.credit?h('div',{class:'small text-body-secondary'},'Credit: '+x.credit+(x.licence?'. '+x.licence+'.':'')):null,cite(x.source_id))))));
  if((p.notes||[]).length)kids.push(sec('no-h','Notes',h('ul',{class:'mb-0'},p.notes.map(n=>h('li',null,n)))));
